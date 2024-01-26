@@ -1,0 +1,10 @@
+ 
+**this file is to initialize the current database connnection to make app connect to its server**
+**don't try to move lines down or up this will miss the whole file just change data values**
+[
+#server_ip::127.0.0.1,
+#port::1521,
+#company_name::Haam Corporation,
+#version::1.1.0,
+#console::True,
+]
