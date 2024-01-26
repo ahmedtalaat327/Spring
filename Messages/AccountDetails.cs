@@ -204,7 +204,7 @@ namespace Spring.Messages
                 }
                 catch (Exception ex)
                 {
-                    //Connection error for somereason
+                    //Connection error for somereason so aggresive close that connection
                     VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
                 }
                 finally
