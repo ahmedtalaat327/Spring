@@ -179,18 +179,7 @@ namespace Spring.Messages
         #endregion
 
         #region Methods Helpers
-        /// <summary>
-        /// Get the oracle Connection
-        /// </summary>
-        /// <param name="closeOrNot">Flag to close the connection or not before using in other commands statements</param>
-        /// <returns></returns>
-        private Task<OracleConnection> GetOracleConnection(bool closeOrNot)
-        {
-            return Task.Run(() =>
-            {
-                return AccioEasyHelpers.ReadParamsThenConnectToDB(closeOrNot);
-            });
-        }
+       
         /// <summary>
         /// Update user info after assigning password from current property
         /// </summary>
@@ -220,7 +209,7 @@ namespace Spring.Messages
                 }
                 finally
                 {
-                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+                     
                     ReadOnly = true;
 
                   

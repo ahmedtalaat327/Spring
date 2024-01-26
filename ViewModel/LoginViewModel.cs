@@ -112,7 +112,8 @@ namespace Spring.ViewModel
 
             });
 
-            
+               
+
 
                 if (!ValidConnection)
                 {
@@ -140,12 +141,15 @@ namespace Spring.ViewModel
                 }
                 catch (Exception ex)
                 {
-                    //Connection error for somereason
+                    //Connection error for somereason so aggresive close that connection
                     VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
                 }
                 finally
                 {
-                   
+
+                //    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
+
                     if (await ComparisonProcedure(UsersInAllDataBase))
                     {
 
@@ -182,7 +186,8 @@ namespace Spring.ViewModel
         /// <param name="myOpenedTunnel">Current connection object</param>
         /// <returns></returns>
         private Task<List<User>> LoadUsersFromDataBase(OracleConnection myOpenedTunnel)
-        { 
+        {
+           
 
           List<User> usersRemote = new List<User>();
 
@@ -191,7 +196,7 @@ namespace Spring.ViewModel
             return Task.Run(() =>
             {
 
-
+               
                 var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name" }, new string[] { "user_id", "user_auth" }, new string[] { "999", "'power'" }, "!=", "and");
 
                 OracleDataReader dr = sqlCMD.ExecuteReader();
@@ -217,8 +222,7 @@ namespace Spring.ViewModel
                     }
                 }
 
-                myOpenedTunnel.Close();
-                myOpenedTunnel.Dispose();
+            
 
                 return usersRemote;
             });
