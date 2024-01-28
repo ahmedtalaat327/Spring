@@ -6,7 +6,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project: 💼</br>
-* It took 2 years to maange to combine bindinf properties with speed and reliability UI experience</br>we use dotNet concepts ex. weavers and memory management system with some dlls and tweaks.
+* It took 2 years to manage to combine binding properties with a/an speed and reliability UI experience</br>we use dotNet concepts ex. weavers and memory management system with some dlls and tweaks.
 
 </br></br>
 
@@ -18,25 +18,11 @@ a connection object and execute all sql commands as string.
 </br>
 
 <!-- SCREENS -->
-## Screens: 📷</br>
+## Screens shots: 📷</br>
 
 * Login.. </br>
-<a href="https://ibb.co/fXKxrHT"><img src="https://i.ibb.co/kGrSqXP/Screenshot-64.png" alt="Screenshot-64" ></a>
-* Users page.. </br>
-<a href="https://ibb.co/mqWyVnH"><img src="https://i.ibb.co/dkQzcP7/Untitled.png" alt="Screenshot-70" border="0"></a>
-* About.. </br>
-<a href="https://ibb.co/4TF0ZFH"><img src="https://i.ibb.co/BZfYVf9/about.png" alt="about" border="0"></a>
-<!-- VIDEO -->
-## Video: 📹</br>
-<div>
-<a href="https://www.youtube.com/embed/r95LhQzBCRA">Go to youtube 👉</a> 
+<a href=""><img src="./1_2.png" ></a>
 
-    
-</div>
-
-## Console [still in beta] 🖲️
-<a href="https://github.com/ahmedtalaat327/AccioInventory/blob/master/viddbg.mkv">Go to this url 👉</a> 
- 
 </br>
 
 What you need to know:.🫡 </br>

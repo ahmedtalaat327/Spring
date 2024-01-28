@@ -106,34 +106,22 @@ namespace Spring.Pages.ViewModel
         #endregion
 
         #region Methods Helpers
-        /// <summary>
-        /// Get the oracle Connection
-        /// </summary>
-        /// <param name="closeOrNot">Flag to close the connection or not before using in other commands statements</param>
-        /// <returns></returns>
-        private Task<OracleConnection> GetOracleConnection(bool closeOrNot)
-        {
-            return Task.Run(() =>
-            {
-                return AccioEasyHelpers.ReadParamsThenConnectToDB(closeOrNot);
-            });
-        }
+       
         /// <summary>
         /// get all depts in List of <see cref="Department"/>
         /// </summary>
         /// <returns></returns>
         private async Task LoadDepsToComboBox()
         {
-            OracleConnection openedTunnel = null;
-          
+           
              await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
             {
                 try
                 {
-                    openedTunnel = await GetOracleConnection(false);
+                     
                     DeptsStored.Clear();
                     //this is bug you can't use assigning method you need to add as tree with childs
-                    var _depts = await ReadAllDepartments(openedTunnel);
+                    var _depts = await ReadAllDepartments(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
 
                     for(int x=0;x< _depts.Count;x++)
                     {
@@ -144,10 +132,12 @@ namespace Spring.Pages.ViewModel
                 }
                 catch (Exception ex)
                 {
-                    //Connection error for somereason
-                    openedTunnel.Dispose(); openedTunnel.Close();
+               
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
                 }
-              
+
             });
         }
         /// <summary>
@@ -180,8 +170,7 @@ namespace Spring.Pages.ViewModel
                     }
                 }
 
-                myOpenedTunnel.Close();
-                myOpenedTunnel.Dispose();
+               
 
 
 
@@ -190,6 +179,20 @@ namespace Spring.Pages.ViewModel
             });
 
         }
+        /// <summary>
+        /// Get the highest id in any table then increment to be the next id. usully used by insertion methods.
+        /// </summary>
+        /// <returns></returns>
+        private Task<int> GetNextId(string idColumn, string tableName,OracleConnection myOpenedTunnel)
+        {
+            return Task.Run(() =>
+            {
+                int id_comu = Scripts.GetHighestNOofRow(myOpenedTunnel, tableName, idColumn) + 1;
+
+                return id_comu + 1;
+            });
+        }
+
         #endregion
     }
 }
