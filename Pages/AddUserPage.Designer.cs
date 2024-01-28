@@ -56,7 +56,10 @@
             this.sfDateTimeEdit1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             this.authlvlcombo = new Syncfusion.WinForms.ListView.SfComboBox();
             this.deptcombo = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.snametxtbx)).BeginInit();
@@ -65,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.passtxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authlvlcombo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -318,6 +322,9 @@
             this.tableLayoutPanel1.Controls.Add(this.sfDateTimeEdit1, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.authlvlcombo, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.deptcombo, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.autoLabel2, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt1, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -347,7 +354,7 @@
             // 
             // fnametxtbx
             // 
-            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.fnametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fnametxtbx.Location = new System.Drawing.Point(159, 63);
             this.fnametxtbx.Name = "fnametxtbx";
@@ -356,7 +363,7 @@
             // 
             // snametxtbx
             // 
-            this.snametxtbx.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.snametxtbx.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.snametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.snametxtbx.Location = new System.Drawing.Point(305, 63);
             this.snametxtbx.Name = "snametxtbx";
@@ -365,7 +372,7 @@
             // 
             // lnametxtbx
             // 
-            this.lnametxtbx.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.lnametxtbx.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.lnametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lnametxtbx.Location = new System.Drawing.Point(451, 63);
             this.lnametxtbx.Name = "lnametxtbx";
@@ -679,7 +686,7 @@
             // 
             // usernametxtbx
             // 
-            this.usernametxtbx.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.usernametxtbx.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.usernametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usernametxtbx.Location = new System.Drawing.Point(159, 89);
             this.usernametxtbx.Name = "usernametxtbx";
@@ -688,7 +695,7 @@
             // 
             // passtxtbx
             // 
-            this.passtxtbx.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.passtxtbx.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.passtxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.passtxtbx.Location = new System.Drawing.Point(159, 115);
             this.passtxtbx.Name = "passtxtbx";
@@ -813,6 +820,37 @@
             this.deptcombo.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.deptcombo.TabIndex = 24;
             // 
+            // autoLabel2
+            // 
+            this.autoLabel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.autoLabel2.Location = new System.Drawing.Point(13, 356);
+            this.autoLabel2.Name = "autoLabel2";
+            this.autoLabel2.Size = new System.Drawing.Size(140, 13);
+            this.autoLabel2.TabIndex = 25;
+            this.autoLabel2.Text = "*Contact (Mobile) #";
+            this.autoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxExt1
+            // 
+            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxExt1.Location = new System.Drawing.Point(159, 359);
+            this.textBoxExt1.Name = "textBoxExt1";
+            this.textBoxExt1.Size = new System.Drawing.Size(140, 20);
+            this.textBoxExt1.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.ImageKey = "Windows 7 (83).ico";
+            this.label1.ImageList = this.imageList1;
+            this.label1.Location = new System.Drawing.Point(305, 356);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.TabIndex = 27;
+            // 
             // AddUserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -829,6 +867,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.passtxtbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authlvlcombo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -862,5 +901,8 @@
         private Syncfusion.WinForms.Input.SfDateTimeEdit sfDateTimeEdit1;
         private Syncfusion.WinForms.ListView.SfComboBox authlvlcombo;
         private Syncfusion.WinForms.ListView.SfComboBox deptcombo;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private System.Windows.Forms.Label label1;
     }
 }

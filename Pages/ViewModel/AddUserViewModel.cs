@@ -66,6 +66,10 @@ namespace Spring.Pages.ViewModel
         /// Checker for any portion in textbox
         /// </summary>
         public bool NamePortionIsValid { get; set; }
+        /// <summary>
+        /// this property is for new user you are about to add
+        /// </summary>
+        private User DummyNewUser { get; set; }
 
         #region Commands
         /// <summary>
@@ -192,7 +196,21 @@ namespace Spring.Pages.ViewModel
                 return id_comu + 1;
             });
         }
+        /// <summary>
+        /// This method mainly designed for colecting all fields or props inside one object which is property too!.
+        /// </summary>
+        /// <returns></returns>
+        private async Task<User> CreateDummyUser()
+        {
+            DummyNewUser.Id = await GetNextId("user_id", "users", VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
+            DummyNewUser.UserName = this.UserName;
+            DummyNewUser.FullName = FirstPortionFName + " " + MiddlePortionFName + " " + LastPortionFName;
+            DummyNewUser.Password = this.Password;
+            
 
+            return DummyNewUser;
+        }
+        
         #endregion
     }
 }
