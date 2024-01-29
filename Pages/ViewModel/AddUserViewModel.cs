@@ -63,6 +63,14 @@ namespace Spring.Pages.ViewModel
         /// </summary>
         public Department SelectedDept { get; set; }
         /// <summary>
+        /// Date to be added
+        /// </summary>
+        public string DateOfAdditon { get; set; }
+        /// <summary>
+        /// Some contact info
+        /// </summary>
+        public string ContactNumber { get; set; }
+        /// <summary>
         /// Checker for any portion in textbox
         /// </summary>
         public bool NamePortionIsValid { get; set; }
@@ -206,7 +214,7 @@ namespace Spring.Pages.ViewModel
             DummyNewUser.UserName = this.UserName;
             DummyNewUser.FullName = FirstPortionFName + " " + MiddlePortionFName + " " + LastPortionFName;
             DummyNewUser.Password = this.Password;
-            
+            DummyNewUser.DepartmentId = this.SelectedDept.Id;
 
             return DummyNewUser;
         }

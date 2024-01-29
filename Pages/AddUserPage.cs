@@ -98,12 +98,28 @@ namespace Spring.Pages
             this.deptcombo.DataBindings.Add(new Binding("SelectedItem", addUserViewModel, "SelectedDept", true, DataSourceUpdateMode.OnPropertyChanged));
 
 
-
+            //binding active flag to panel
             this.DataBindings.Add(new Binding("Enabled", addUserViewModel, "ActivePanel"));
 
-
+            //texts
             this.sfBarcode1.DataBindings.Add(new Binding("Text", addUserViewModel, "Id"));
             this.idlabl.DataBindings.Add(new Binding("Text", addUserViewModel, "Id"));
+
+            //fname
+            this.fnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "FirstPortionFName"));
+            //sname
+            this.snametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "MiddlePortionFName"));
+            //lname
+            this.lnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "LastPortionFName"));
+            //username [login]
+            this.usernametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "UserName"));
+            //pass
+            this.passtxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "Password"));
+            //date
+            this.snametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "DateOfAdditon"));
+
+
+
 
 
             #region Events

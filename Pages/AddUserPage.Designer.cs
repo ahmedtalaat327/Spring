@@ -57,9 +57,9 @@
             this.authlvlcombo = new Syncfusion.WinForms.ListView.SfComboBox();
             this.deptcombo = new Syncfusion.WinForms.ListView.SfComboBox();
             this.autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
+            this.contactinfo = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label1 = new System.Windows.Forms.Label();
+            this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.snametxtbx)).BeginInit();
@@ -68,7 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.passtxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.authlvlcombo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactinfo)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -323,7 +323,7 @@
             this.tableLayoutPanel1.Controls.Add(this.authlvlcombo, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.deptcombo, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel2, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxExt1, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.contactinfo, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -830,14 +830,14 @@
             this.autoLabel2.Text = "*Contact (Mobile) #";
             this.autoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBoxExt1
+            // contactinfo
             // 
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(140, 20);
-            this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExt1.Location = new System.Drawing.Point(159, 359);
-            this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(140, 20);
-            this.textBoxExt1.TabIndex = 26;
+            this.contactinfo.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.contactinfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contactinfo.Location = new System.Drawing.Point(159, 359);
+            this.contactinfo.Name = "contactinfo";
+            this.contactinfo.Size = new System.Drawing.Size(140, 20);
+            this.contactinfo.TabIndex = 26;
             // 
             // label1
             // 
@@ -867,7 +867,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.passtxtbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.authlvlcombo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactinfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -902,7 +902,7 @@
         private Syncfusion.WinForms.ListView.SfComboBox authlvlcombo;
         private Syncfusion.WinForms.ListView.SfComboBox deptcombo;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt contactinfo;
         private System.Windows.Forms.Label label1;
     }
 }
