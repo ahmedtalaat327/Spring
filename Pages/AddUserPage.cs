@@ -76,7 +76,7 @@ namespace Spring.Pages
 
 
 
-
+            #region Bindings
             //properties bindings
             BindingSource aithtsbindingSource = new BindingSource();
             aithtsbindingSource.DataSource = addUserViewModel.AuthritiesUsed;
@@ -101,10 +101,11 @@ namespace Spring.Pages
             //binding active flag to panel
             this.DataBindings.Add(new Binding("Enabled", addUserViewModel, "ActivePanel"));
 
-            //texts
+            //texts [id to bar code]
             this.sfBarcode1.DataBindings.Add(new Binding("Text", addUserViewModel, "Id"));
+            //[id to label]
             this.idlabl.DataBindings.Add(new Binding("Text", addUserViewModel, "Id"));
-
+            /////////////////
             //fname
             this.fnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "FirstPortionFName"));
             //sname
@@ -121,7 +122,7 @@ namespace Spring.Pages
             this.contactinfo.DataBindings.Add(new Binding("Text", addUserViewModel, "ContactNumber"));
 
 
-
+            #endregion
 
             #region Events
             this.Load += AddUserPage_Load;
@@ -176,7 +177,7 @@ namespace Spring.Pages
                 switch (adv.Text)
                 {
                     case "Print out": VMCentral.DockingManagerViewModel.Loading = true; addUserViewModel.AuthritiesUsed.Add(new Data.Account() { DataFromDatabase = "test",Title = "Test"});  break;
-                    case "Proceed to add": addUserViewModel.AuthritiesUsed.Add(new Data.Account() { DataFromDatabase = "power", Title = "Power" }); break;
+                    case "Proceed to add": addUserViewModel.SetNewUser.Execute(true); break;
 
 
                 }

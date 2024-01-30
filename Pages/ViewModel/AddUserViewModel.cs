@@ -84,6 +84,7 @@ namespace Spring.Pages.ViewModel
         /// First commnad to beloaded
         /// </summary>
         public ICommand LoadDeptsCommand { get; set; }
+        public ICommand SetNewUser { get; set; }
         #endregion
         #region constructor
         /// <summary>
@@ -112,7 +113,7 @@ namespace Spring.Pages.ViewModel
             //init commands
             LoadDeptsCommand = new RelyCommand(async () => await LoadDepsToComboBox());
 
-          
+            SetNewUser = new RelyCommand(async()=>await CreateDummyUser());
 
         }
         #endregion
@@ -210,12 +211,18 @@ namespace Spring.Pages.ViewModel
         /// <returns></returns>
         private async Task<User> CreateDummyUser()
         {
+            int mobileNumber = 000000000; 
+
+            DummyNewUser = new User();
             DummyNewUser.Id = await GetNextId("user_id", "users", VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
             DummyNewUser.UserName = this.UserName;
             DummyNewUser.FullName = FirstPortionFName + " " + MiddlePortionFName + " " + LastPortionFName;
             DummyNewUser.Password = this.Password;
             DummyNewUser.DepartmentId = this.SelectedDept.Id;
-
+            DummyNewUser.UserAuthLevel = this.SelectedAuth.DataFromDatabase;
+            DummyNewUser.TelNo = int.TryParse(this.ContactNumber,out mobileNumber)? mobileNumber : mobileNumber = 123456789;
+            var x = DummyNewUser;
+            Console.WriteLine(x);
             return DummyNewUser;
         }
         

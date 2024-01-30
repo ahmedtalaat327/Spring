@@ -239,6 +239,15 @@ namespace Spring.View.MainView.LoginView
 
             MessageBoxAdv.Show(parent, "You are not able to login! username or password is wrong.", "Login is Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        /// <summary>
+        /// Only show when connection to server is invalid
+        /// </summary>
+        public void ShowFailur_AddUserContactNum(Form parent)
+        {
+            MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
+
+            MessageBoxAdv.Show(parent, "You already set a non numeric set of strings and can not be a number!.", "Contact number is Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         #endregion
     }
 
