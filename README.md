@@ -20,9 +20,10 @@ a connection object and execute all sql commands as string.
 <!-- SCREENS -->
 ## Screens shots: 📷</br>
 
-* Login.. </br>
+* Login </br></br>
 <a href=""><img src="./1_2.png" ></a>
-
+* User page </br></br>
+<a href=""><img src="./Zxa.png" ></a>
 </br>
 
 What you need to know:.🫡 </br>

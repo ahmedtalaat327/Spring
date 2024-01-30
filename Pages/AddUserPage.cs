@@ -116,8 +116,9 @@ namespace Spring.Pages
             //pass
             this.passtxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "Password"));
             //date
-            this.snametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "DateOfAdditon"));
-
+            this.sfDateTimeEdit1.DataBindings.Add(new Binding("Text", addUserViewModel, "DateOfAdditon"));
+            //contact
+            this.contactinfo.DataBindings.Add(new Binding("Text", addUserViewModel, "ContactNumber"));
 
 
 
