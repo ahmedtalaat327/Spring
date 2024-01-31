@@ -117,9 +117,19 @@ namespace Spring.Pages
             //pass
             this.passtxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "Password"));
             //date
-            this.sfDateTimeEdit1.DataBindings.Add(new Binding("Text", addUserViewModel, "DateOfAdditon"));
+            this.sfDateTimeEdit1.DataBindings.Add("Value", addUserViewModel, "DateOfAdditon", true, DataSourceUpdateMode.OnPropertyChanged);
             //contact
             this.contactinfo.DataBindings.Add(new Binding("Text", addUserViewModel, "ContactNumber"));
+
+            #region Event as fix for timedatepicker
+            sfDateTimeEdit1.ValueChanged += sfDateTimeEdit1_ValueChanged;
+
+
+            void sfDateTimeEdit1_ValueChanged(object sender, Syncfusion.WinForms.Input.Events.DateTimeValueChangedEventArgs e)
+            {
+                sfDateTimeEdit1.DataBindings["Value"].WriteValue();
+            }
+            #endregion
 
 
             #endregion

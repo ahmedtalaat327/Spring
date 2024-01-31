@@ -200,8 +200,8 @@ namespace Spring.Pages.ViewModel
         {
             return Task.Run(() =>
             {
-                int id_comu = Scripts.GetHighestNOofRow(myOpenedTunnel, tableName, idColumn) + 1;
-
+                int id_comu = Scripts.GetHighestNOofRow(myOpenedTunnel, tableName, idColumn);
+                //increment for next row always.
                 return id_comu + 1;
             });
         }
@@ -221,8 +221,14 @@ namespace Spring.Pages.ViewModel
             DummyNewUser.DepartmentId = this.SelectedDept.Id;
             DummyNewUser.UserAuthLevel = this.SelectedAuth.DataFromDatabase;
             DummyNewUser.TelNo = int.TryParse(this.ContactNumber,out mobileNumber)? mobileNumber : mobileNumber = 123456789;
+            DummyNewUser.LastSeen = Convert.ToDateTime(this.DateOfAdditon);
             var x = DummyNewUser;
-            Console.WriteLine(x);
+            foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(x))
+            {
+                string name = descriptor.Name;
+                object value = descriptor.GetValue(x);
+                Console.WriteLine("{0}={1}", name, value);
+            }
             return DummyNewUser;
         }
         
