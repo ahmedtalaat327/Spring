@@ -78,6 +78,11 @@ namespace Spring.AccioHelpers
 
             return Scripts.TestConnection(new[] { server_adress, port, "store", "store" }, autoclose);
         }
+        /// <summary>
+        /// This method can print all properties any object can heve
+        /// </summary>
+        /// <typeparam name="T"><Type/typeparam>
+        /// <param name="_obj">object itself</param>
         public static void InspectMyObject<T>(T _obj) where T : new()
         {
             foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(_obj))
