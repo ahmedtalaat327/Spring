@@ -223,12 +223,7 @@ namespace Spring.Pages.ViewModel
             DummyNewUser.TelNo = int.TryParse(this.ContactNumber,out mobileNumber)? mobileNumber : mobileNumber = 123456789;
             DummyNewUser.LastSeen = Convert.ToDateTime(this.DateOfAdditon);
             var x = DummyNewUser;
-            foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(x))
-            {
-                string name = descriptor.Name;
-                object value = descriptor.GetValue(x);
-                Console.WriteLine("{0}={1}", name, value);
-            }
+            AccioEasyHelpers.InspectMyObject<User>(x);
             return DummyNewUser;
         }
         

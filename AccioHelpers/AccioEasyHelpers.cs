@@ -2,6 +2,7 @@
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +77,16 @@ namespace Spring.AccioHelpers
             var port = AccioEasyHelpers.GetTxTBettwen(data[5], "::", ",");
 
             return Scripts.TestConnection(new[] { server_adress, port, "store", "store" }, autoclose);
+        }
+        public static void InspectMyObject<T>(T _obj) where T : new()
+        {
+            foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(_obj))
+            {
+                string name = descriptor.Name;
+                object value = descriptor.GetValue(_obj);
+                Console.WriteLine("{0}={1}", name, value);
+            }
+           
         }
     }
 }
