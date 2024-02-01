@@ -222,6 +222,7 @@ namespace Spring.Pages.ViewModel
             DummyNewUser.UserAuthLevel = this.SelectedAuth.DataFromDatabase;
             DummyNewUser.TelNo = int.TryParse(this.ContactNumber,out mobileNumber)? mobileNumber : mobileNumber = 123456789;
             DummyNewUser.LastSeen = Convert.ToDateTime(this.DateOfAdditon);
+            DummyNewUser.UserInSession = "no";
             var x = DummyNewUser;
             AccioEasyHelpers.InspectMyObject<User>(x);
             return DummyNewUser;
