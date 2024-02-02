@@ -111,7 +111,7 @@ namespace Spring.Pages.ViewModel
 
 
             //init commands
-            LoadDeptsCommand = new RelyCommand(async () => await LoadDepsToComboBox());
+            LoadDeptsCommand = new RelyCommand(async () => await LoadRealTimeValues());
 
             SetNewUser = new RelyCommand(async()=>await CreateDummyUser());
 
@@ -120,18 +120,19 @@ namespace Spring.Pages.ViewModel
 
         #region Methods Helpers
        
+
         /// <summary>
-        /// get all depts in List of <see cref="Department"/>
+        /// Load updated values for VM properties
         /// </summary>
         /// <returns></returns>
-        private async Task LoadDepsToComboBox()
+        private async Task LoadRealTimeValues()
         {
            
              await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
             {
                 try
                 {
-                     
+                    // department section
                     DeptsStored.Clear();
                     //this is bug you can't use assigning method you need to add as tree with childs
                     var _depts = await ReadAllDepartments(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
@@ -142,6 +143,14 @@ namespace Spring.Pages.ViewModel
                     }
 
                     SelectedDept = DeptsStored[0];
+
+                    //id section 
+                    Id = await GetNextId("user_id", "users", VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
+
+
+                    //date
+                    DateOfAdditon = DateTime.Now.ToString();
+
                 }
                 catch (Exception ex)
                 {
@@ -214,7 +223,7 @@ namespace Spring.Pages.ViewModel
             int mobileNumber = 000000000; 
 
             DummyNewUser = new User();
-            DummyNewUser.Id = await GetNextId("user_id", "users", VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
+            DummyNewUser.Id =this.Id;
             DummyNewUser.UserName = this.UserName;
             DummyNewUser.FullName = FirstPortionFName + " " + MiddlePortionFName + " " + LastPortionFName;
             DummyNewUser.Password = this.Password;
