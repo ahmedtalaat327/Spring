@@ -2,7 +2,6 @@
 
 using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
-using Spring.AccioHelpers;
 using Spring.Data;
 using Spring.StaticVM;
 using Spring.ViewModel.Base;
@@ -84,6 +83,7 @@ namespace Spring.Messages
 
 
     }
+    //this View model may be moved to a seperate file .cs 
     public class AccountDetailsViewModel : BaseViewModel
     {
         #region Poperties

@@ -240,13 +240,22 @@ namespace Spring.View.MainView.LoginView
             MessageBoxAdv.Show(parent, "You are not able to login! username or password is wrong.", "Login is Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         /// <summary>
-        /// Only show when connection to server is invalid
+        /// Only show when add new user is failed <see cref="addUserViewModel.cs"/>
         /// </summary>
-        public void ShowFailur_AddUserContactNum(Form parent)
+        public void ShowFailur_AddUser(Form parent)
         {
             MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
 
-            MessageBoxAdv.Show(parent, "You already set a non numeric set of strings and can not be a number!.", "Contact number is Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBoxAdv.Show(parent, "You already left some fileds empty or mis-entered values.", "User insertion is Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        /// <summary>
+        /// Only show when add new user is success <see cref="addUserViewModel.cs"/>
+        /// </summary>
+        public void ShowSuccess_AddUser(Form parent)
+        {
+            MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
+
+            MessageBoxAdv.Show(parent, "You added new user with these entries!.", "User inserion is Valid", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
     }

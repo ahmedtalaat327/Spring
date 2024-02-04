@@ -303,17 +303,21 @@ namespace Spring
                         }) ;
 
                         tabControlAdv1.TabPages[d].VisibleChanged += (ws, r) => {
-                            if (tabControlAdv1.TabPages[d].TabVisible)
+                            try
                             {
-                                panel5.treeViewAdv1.Nodes.Clear();
+                                if (tabControlAdv1.TabPages[d].TabVisible)
+                                {
+                                    panel5.treeViewAdv1.Nodes.Clear();
 
-                                panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
+                                    panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
 
                              AddOptions[0],
                              AddOptions[1]
 
                             });
+                                }
                             }
+                            catch(Exception q) { }
                         };
                     }
 
@@ -337,17 +341,21 @@ namespace Spring
 
                         });
                         tabControlAdv1.TabPages[d].VisibleChanged += (ws, r) => {
-                            if (tabControlAdv1.TabPages[d].TabVisible)
+                            try
                             {
-                                panel5.treeViewAdv1.Nodes.Clear();
+                                if (tabControlAdv1.TabPages[d].TabVisible)
+                                {
+                                    panel5.treeViewAdv1.Nodes.Clear();
 
-                                panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
+                                    panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
 
                              AddOptions[0],
                                 //   AddOptions[1]
                             
                             });
+                                }
                             }
+                            catch(Exception q) { }
                         };
                     }
 
