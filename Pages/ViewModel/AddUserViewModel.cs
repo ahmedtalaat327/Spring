@@ -82,12 +82,15 @@ namespace Spring.Pages.ViewModel
         /// </summary>
         private User DummyNewUser { get; set; }
 
+        ///txt size validity props 
+        public bool NamePortionsCheckerVisiblity { get; set; } = true;
         #region Commands
         /// <summary>
         /// First commnad to beloaded
         /// </summary>
         public ICommand LoadDeptsCommand { get; set; }
         public ICommand SetNewUser { get; set; }
+        public ICommand FullNameChecking { get; set; }
         #endregion
         #region constructor
         /// <summary>
@@ -118,6 +121,8 @@ namespace Spring.Pages.ViewModel
 
             SetNewUser = new RelyCommand(async()=>await AddNewUser());
 
+            FullNameChecking = new RelyCommand(async () => await CheckFullNameProcedure());
+
         }
         #endregion
 
@@ -135,6 +140,8 @@ namespace Spring.Pages.ViewModel
            {
                try
                {
+                   FirstPortionFName = ""; MiddlePortionFName = ""; LastPortionFName = "";
+
                    // department section
                    DeptsStored.Clear();
                    //this is bug you can't use assigning method you need to add as tree with childs
@@ -355,6 +362,63 @@ namespace Spring.Pages.ViewModel
                 }
             });
         }
+        /*//wide approach not working 
+        private async Task TxtCheckProcedure(List<string> txtProbs)
+        {
+            int encounter = 1;
+            
+            //we have bug here props not updating quickly..
+            for (int x = 0; x < txtProbs.Count; x++)
+            {
+                var obj_prop_name = ((object)txtProbs[x]).GetType().Name;
+                OnPropertyChanged(nameof(obj_prop_name));
+            }
+            
+            List<int> bools = new List<int>();
+            await Task.Delay(100);
+            foreach(var txt in txtProbs) {
+                if (string.IsNullOrEmpty(txt))
+                {
+                  
+                    bools.Add(-1);
+                }
+                else
+                {
+                     
+                    bools.Add(1);
+                }
+            }
+            foreach(var bx in bools) {
+                encounter *= bx;
+            }
+            if (encounter > 0) { NamePortionsCheckerVisiblity = false; }
+            else { NamePortionsCheckerVisiblity = true; }
+
+
+
+         
+
+        }
+            */
+        /// <summary>
+        /// Checking completion of the full name...
+        /// </summary>
+        /// <returns></returns>
+        private async Task CheckFullNameProcedure() {
+         await   Task.Delay(300);
+
+            if (FirstPortionFName.Length < 1 || MiddlePortionFName.Length<1 || LastPortionFName.Length <1) 
+            {
+                NamePortionsCheckerVisiblity = true;
+            }
+            else
+            {
+                NamePortionsCheckerVisiblity = false;
+            }
+
+        }
+
+
         #endregion
     }
 }

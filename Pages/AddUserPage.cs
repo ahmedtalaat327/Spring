@@ -1,4 +1,5 @@
-﻿using Spring.Pages.ViewModel;
+﻿using Spring.Messages;
+using Spring.Pages.ViewModel;
 using Spring.StaticVM;
 using Syncfusion.Windows.Forms.Tools;
 using System;
@@ -107,11 +108,11 @@ namespace Spring.Pages
             this.idlabl.DataBindings.Add(new Binding("Text", addUserViewModel, "Id"));
             /////////////////
             //fname
-            this.fnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "FirstPortionFName"));
+            this.fnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "FirstPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //sname
-            this.snametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "MiddlePortionFName"));
+            this.snametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "MiddlePortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //lname
-            this.lnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "LastPortionFName"));
+            this.lnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //username [login]
             this.usernametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "UserName"));
             //pass
@@ -120,6 +121,10 @@ namespace Spring.Pages
             this.sfDateTimeEdit1.DataBindings.Add("Value", addUserViewModel, "DateOfAdditon", true, DataSourceUpdateMode.OnPropertyChanged);
             //contact
             this.contactinfo.DataBindings.Add(new Binding("Text", addUserViewModel, "ContactNumber"));
+
+            //checkers icons
+            //name portions checker lbl
+            this.checkerfullname.DataBindings.Add(new Binding("Visible", addUserViewModel, "NamePortionsCheckerVisiblity"));
 
             #region Event as fix for timedatepicker
             sfDateTimeEdit1.ValueChanged += sfDateTimeEdit1_ValueChanged;
@@ -164,6 +169,11 @@ namespace Spring.Pages
             {
               //  RaiseClick(optionsTree.SelectedNode);
             };
+
+
+            this.fnametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
+            this.snametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
+            this.lnametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
             #endregion
         }
         /// <summary>
