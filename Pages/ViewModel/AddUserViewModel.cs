@@ -7,15 +7,13 @@ using Spring.StaticVM;
 using Spring.View.MainView.LoginView;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
-using Syncfusion.DataSource.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 
 namespace Spring.Pages.ViewModel
 {
@@ -84,6 +82,7 @@ namespace Spring.Pages.ViewModel
 
         ///txt size validity props 
         public bool NamePortionsCheckerVisiblity { get; set; } = true;
+        public bool UserNameCheckerVisibilty { get; set; } = true;
         #region Commands
         /// <summary>
         /// First commnad to beloaded
@@ -91,6 +90,7 @@ namespace Spring.Pages.ViewModel
         public ICommand LoadDeptsCommand { get; set; }
         public ICommand SetNewUser { get; set; }
         public ICommand FullNameChecking { get; set; }
+        public ICommand UserNameChecking { get; set; }
         #endregion
         #region constructor
         /// <summary>
@@ -123,6 +123,9 @@ namespace Spring.Pages.ViewModel
 
             FullNameChecking = new RelyCommand(async () => await CheckFullNameProcedure());
 
+            UserNameChecking = new RelyCommand(async() =>await CheckUserNameProcedure());   
+
+
         }
         #endregion
 
@@ -141,6 +144,8 @@ namespace Spring.Pages.ViewModel
                try
                {
                    FirstPortionFName = ""; MiddlePortionFName = ""; LastPortionFName = "";
+
+                   UserName = "";
 
                    // department section
                    DeptsStored.Clear();
@@ -405,7 +410,7 @@ namespace Spring.Pages.ViewModel
         /// </summary>
         /// <returns></returns>
         private async Task CheckFullNameProcedure() {
-         await   Task.Delay(300);
+           await Task.Delay(300);
 
             if (FirstPortionFName.Length < 1 || MiddlePortionFName.Length<1 || LastPortionFName.Length <1) 
             {
@@ -416,6 +421,26 @@ namespace Spring.Pages.ViewModel
                 NamePortionsCheckerVisiblity = false;
             }
 
+        }
+        /// <summary>
+        /// Checking validity of username
+        /// </summary>
+        /// <returns></returns>
+        private async Task CheckUserNameProcedure()
+        {
+            await Task.Delay(300);
+
+            if (UserName != null)
+            {
+                if (UserName.Length < 1)
+                {
+                    UserNameCheckerVisibilty = true;
+                }
+                else
+                {
+                    UserNameCheckerVisibilty = false;
+                }
+            }
         }
 
 

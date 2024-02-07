@@ -114,7 +114,7 @@ namespace Spring.Pages
             //lname
             this.lnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //username [login]
-            this.usernametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "UserName"));
+            this.usernametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "UserName", false, DataSourceUpdateMode.OnPropertyChanged));
             //pass
             this.passtxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "Password"));
             //date
@@ -125,6 +125,9 @@ namespace Spring.Pages
             //checkers icons
             //name portions checker lbl
             this.checkerfullname.DataBindings.Add(new Binding("Visible", addUserViewModel, "NamePortionsCheckerVisiblity"));
+            //username..
+            this.checkerusername.DataBindings.Add(new Binding("Visible", addUserViewModel, "UserNameCheckerVisibilty"));
+
 
             #region Event as fix for timedatepicker
             sfDateTimeEdit1.ValueChanged += sfDateTimeEdit1_ValueChanged;
@@ -174,6 +177,8 @@ namespace Spring.Pages
             this.fnametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
             this.snametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
             this.lnametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
+
+            this.usernametxtbx.TextChanged += (s, e) => { addUserViewModel.UserNameChecking.Execute(true);};
             #endregion
         }
         /// <summary>
