@@ -116,17 +116,21 @@ namespace Spring.Pages
             //username [login]
             this.usernametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "UserName", false, DataSourceUpdateMode.OnPropertyChanged));
             //pass
-            this.passtxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "Password"));
+            this.passtxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "Password", false, DataSourceUpdateMode.OnPropertyChanged));
             //date
             this.sfDateTimeEdit1.DataBindings.Add("Value", addUserViewModel, "DateOfAdditon", true, DataSourceUpdateMode.OnPropertyChanged);
             //contact
-            this.contactinfo.DataBindings.Add(new Binding("Text", addUserViewModel, "ContactNumber"));
+            this.contactinfo.DataBindings.Add(new Binding("Text", addUserViewModel, "ContactNumber", true, DataSourceUpdateMode.OnPropertyChanged));
 
             //checkers icons
             //name portions checker lbl
             this.checkerfullname.DataBindings.Add(new Binding("Visible", addUserViewModel, "NamePortionsCheckerVisiblity"));
             //username..
             this.checkerusername.DataBindings.Add(new Binding("Visible", addUserViewModel, "UserNameCheckerVisibilty"));
+            //password..
+            this.checkerpass.DataBindings.Add(new Binding("Visible", addUserViewModel, "PassCheckerVisibilty"));
+            //contact number here depending on country laws
+            this.checkercontact.DataBindings.Add(new Binding("Visible", addUserViewModel, "ContactCheckerVisibilty"));
 
 
             #region Event as fix for timedatepicker
@@ -179,6 +183,9 @@ namespace Spring.Pages
             this.lnametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
 
             this.usernametxtbx.TextChanged += (s, e) => { addUserViewModel.UserNameChecking.Execute(true);};
+            this.passtxtbx.TextChanged += (s, e) => { addUserViewModel.PassChecking.Execute(true); };
+            this.contactinfo.TextChanged += (s, e) => { addUserViewModel.ContactChecking.Execute(true); };
+
             #endregion
         }
         /// <summary>

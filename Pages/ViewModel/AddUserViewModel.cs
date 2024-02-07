@@ -83,6 +83,9 @@ namespace Spring.Pages.ViewModel
         ///txt size validity props 
         public bool NamePortionsCheckerVisiblity { get; set; } = true;
         public bool UserNameCheckerVisibilty { get; set; } = true;
+        public bool PassCheckerVisibilty { get; set; } = true;
+        public bool ContactCheckerVisibilty { get; set; } = true;
+
         #region Commands
         /// <summary>
         /// First commnad to beloaded
@@ -91,6 +94,8 @@ namespace Spring.Pages.ViewModel
         public ICommand SetNewUser { get; set; }
         public ICommand FullNameChecking { get; set; }
         public ICommand UserNameChecking { get; set; }
+        public ICommand PassChecking { get; set; }
+        public ICommand ContactChecking { get; set; }
         #endregion
         #region constructor
         /// <summary>
@@ -123,9 +128,11 @@ namespace Spring.Pages.ViewModel
 
             FullNameChecking = new RelyCommand(async () => await CheckFullNameProcedure());
 
-            UserNameChecking = new RelyCommand(async() =>await CheckUserNameProcedure());   
+            UserNameChecking = new RelyCommand(async() =>await CheckUserNameProcedure());
 
+            PassChecking = new RelyCommand(async () => await CheckPassProcedure());
 
+            ContactChecking = new RelyCommand(async () => await CheckContactProcedure());
         }
         #endregion
 
@@ -145,7 +152,7 @@ namespace Spring.Pages.ViewModel
                {
                    FirstPortionFName = ""; MiddlePortionFName = ""; LastPortionFName = "";
 
-                   UserName = "";
+                   UserName = ""; Password = ""; ContactNumber = "";
 
                    // department section
                    DeptsStored.Clear();
@@ -439,6 +446,46 @@ namespace Spring.Pages.ViewModel
                 else
                 {
                     UserNameCheckerVisibilty = false;
+                }
+            }
+        }
+        /// <summary>
+        /// Checking validity of username
+        /// </summary>
+        /// <returns></returns>
+        private async Task CheckPassProcedure()
+        {
+            await Task.Delay(300);
+
+            if (Password != null)
+            {
+                if (Password.Length < 7)
+                {
+                    PassCheckerVisibilty = true;
+                }
+                else
+                {
+                    PassCheckerVisibilty = false;
+                }
+            }
+        }
+        /// <summary>
+        /// Checking validity of contact number
+        /// </summary>
+        /// <returns></returns>
+        private async Task CheckContactProcedure()
+        {
+            await Task.Delay(300);
+
+            if (ContactNumber != null)
+            {
+                if (ContactNumber.Length < 7)
+                {
+                    ContactCheckerVisibilty = true;
+                }
+                else
+                {
+                    ContactCheckerVisibilty = false;
                 }
             }
         }

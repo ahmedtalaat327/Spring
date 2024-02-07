@@ -58,7 +58,7 @@
             this.deptcombo = new Syncfusion.WinForms.ListView.SfComboBox();
             this.autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.contactinfo = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.label1 = new System.Windows.Forms.Label();
+            this.checkercontact = new System.Windows.Forms.Label();
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
@@ -324,7 +324,7 @@
             this.tableLayoutPanel1.Controls.Add(this.deptcombo, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel2, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.contactinfo, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.checkercontact, 2, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -839,17 +839,17 @@
             this.contactinfo.Size = new System.Drawing.Size(140, 20);
             this.contactinfo.TabIndex = 26;
             // 
-            // label1
+            // checkercontact
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.ImageKey = "Windows 7 (83).ico";
-            this.label1.ImageList = this.imageList1;
-            this.label1.Location = new System.Drawing.Point(305, 356);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 20);
-            this.label1.TabIndex = 27;
+            this.checkercontact.AutoSize = true;
+            this.checkercontact.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkercontact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkercontact.ImageKey = "Windows 7 (83).ico";
+            this.checkercontact.ImageList = this.imageList1;
+            this.checkercontact.Location = new System.Drawing.Point(305, 356);
+            this.checkercontact.Name = "checkercontact";
+            this.checkercontact.Size = new System.Drawing.Size(140, 20);
+            this.checkercontact.TabIndex = 27;
             // 
             // AddUserPage
             // 
@@ -903,6 +903,6 @@
         private Syncfusion.WinForms.ListView.SfComboBox deptcombo;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt contactinfo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label checkercontact;
     }
 }
