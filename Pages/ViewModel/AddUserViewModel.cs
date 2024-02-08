@@ -85,17 +85,23 @@ namespace Spring.Pages.ViewModel
         public bool UserNameCheckerVisibilty { get; set; } = true;
         public bool PassCheckerVisibilty { get; set; } = true;
         public bool ContactCheckerVisibilty { get; set; } = true;
+        public bool AuthCheckerVisibilty { get; set; } = true;
+        public bool DeptCheckerVisibilty { get; set; } = true;
+
 
         #region Commands
         /// <summary>
         /// First commnad to beloaded
         /// </summary>
-        public ICommand LoadDeptsCommand { get; set; }
+        public ICommand LoadInitialWithRefrshing { get; set; }
         public ICommand SetNewUser { get; set; }
         public ICommand FullNameChecking { get; set; }
         public ICommand UserNameChecking { get; set; }
         public ICommand PassChecking { get; set; }
         public ICommand ContactChecking { get; set; }
+        public ICommand AuthChecking { get; set; }
+        public ICommand DeptChecking { get; set; }
+
         #endregion
         #region constructor
         /// <summary>
@@ -122,7 +128,7 @@ namespace Spring.Pages.ViewModel
 
 
             //init commands
-            LoadDeptsCommand = new RelyCommand(async () => await LoadRealTimeValues());
+            LoadInitialWithRefrshing = new RelyCommand(async () => await LoadRealTimeValues());
 
             SetNewUser = new RelyCommand(async()=>await AddNewUser());
 
@@ -133,6 +139,12 @@ namespace Spring.Pages.ViewModel
             PassChecking = new RelyCommand(async () => await CheckPassProcedure());
 
             ContactChecking = new RelyCommand(async () => await CheckContactProcedure());
+
+            AuthChecking = new RelyCommand(async () => await CheckAuthorityProcedure());
+
+            DeptChecking = new RelyCommand(async () => await CheckDepartmentProcedure());
+
+
         }
         #endregion
 
@@ -358,18 +370,47 @@ namespace Spring.Pages.ViewModel
                     if (replyOfCMD_Insertion >= 0)
                     {
                         new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        //reset and reload
+                        {
+                            FirstPortionFName = ""; MiddlePortionFName = ""; LastPortionFName = "";
+
+                            UserName = ""; Password = ""; ContactNumber = "";
+
+                            // department section
+                            DeptsStored.Clear();
+                            //this is bug you can't use assigning method you need to add as tree with childs
+                            var _depts = await ReadAllDepartments(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
+
+                            for (int x = 0; x < _depts.Count; x++)
+                            {
+                                DeptsStored.Add(new Department() { Id = _depts[x].Id, Name = _depts[x].Name });
+                            }
+
+                            SelectedDept = DeptsStored[0];
+
+                            //id section 
+                            Id = await GetNextId("user_id", "users", VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
+
+
+                            //date
+                            DateOfAdditon = DateTime.Now.ToString();
+                        }
+
                     }
                     //fail
                     else
                     {
                         new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+
                     }
-                    
+
 
                 }
                 else
                 {
                     new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+
+               
 
                 }
             });
@@ -489,7 +530,42 @@ namespace Spring.Pages.ViewModel
                 }
             }
         }
+        /// <summary>
+        /// Checking validity of contact number
+        /// </summary>
+        /// <returns></returns>
+        private async Task CheckAuthorityProcedure()
+        {
+            await Task.Delay(300);
 
+            if (SelectedAuth != null)
+            {
+                if (SelectedAuth.Title.Length < 1)
+                {
+                    AuthCheckerVisibilty = true;
+                }
+                else
+                {
+                    AuthCheckerVisibilty = false;
+                }
+            }
+        }
+        private async Task CheckDepartmentProcedure()
+        {
+            await Task.Delay(300);
+
+            if (SelectedDept != null)
+            {
+                if (SelectedDept.Name.Length < 1)
+                {
+                    DeptCheckerVisibilty = true;
+                }
+                else
+                {
+                    DeptCheckerVisibilty = false;
+                }
+            }
+        }
 
         #endregion
     }

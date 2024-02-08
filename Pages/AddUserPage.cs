@@ -131,6 +131,10 @@ namespace Spring.Pages
             this.checkerpass.DataBindings.Add(new Binding("Visible", addUserViewModel, "PassCheckerVisibilty"));
             //contact number here depending on country laws
             this.checkercontact.DataBindings.Add(new Binding("Visible", addUserViewModel, "ContactCheckerVisibilty"));
+            //auth 
+            this.checkerauth.DataBindings.Add(new Binding("Visible", addUserViewModel, "AuthCheckerVisibilty"));
+            //Dept
+            this.checkerdept.DataBindings.Add(new Binding("Visible", addUserViewModel, "DeptCheckerVisibilty"));
 
 
             #region Event as fix for timedatepicker
@@ -186,6 +190,12 @@ namespace Spring.Pages
             this.passtxtbx.TextChanged += (s, e) => { addUserViewModel.PassChecking.Execute(true); };
             this.contactinfo.TextChanged += (s, e) => { addUserViewModel.ContactChecking.Execute(true); };
 
+            this.authlvlcombo.SelectedIndexChanged += (s, e) => { addUserViewModel.AuthChecking.Execute(true); };
+            this.deptcombo.SelectedIndexChanged += (s, e) => { addUserViewModel.DeptChecking.Execute(true);  };
+            //fix bug in UI related to change selected index when timepicker selected
+            this.authlvlcombo.DropDownClosed += (s, e) => { this.passtxtbx.Focus(); };
+            this.deptcombo.DropDownClosed += (s, e) => { this.passtxtbx.Focus(); };
+
             #endregion
         }
         /// <summary>
@@ -196,7 +206,7 @@ namespace Spring.Pages
         /// <param name="e"></param>
         private void AddUserPage_Load(object sender, EventArgs e)
         {
-            addUserViewModel.LoadDeptsCommand.Execute(true);
+            addUserViewModel.LoadInitialWithRefrshing.Execute(true);
         }
         #endregion
 
@@ -208,7 +218,7 @@ namespace Spring.Pages
             {
                 switch (adv.Text)
                 {
-                    case "Print out": VMCentral.DockingManagerViewModel.Loading = true; addUserViewModel.AuthritiesUsed.Add(new Data.Account() { DataFromDatabase = "test",Title = "Test"});  break;
+                    case "Print out": break;
                     case "Proceed to add": addUserViewModel.SetNewUser.Execute(true); break;
 
 
