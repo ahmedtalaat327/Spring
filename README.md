@@ -35,7 +35,7 @@ Very Impertant!</br>
 #1 first thing first you must build your database.</br>
 #2 I will put down the structure script you may need to change it.</br>
 <a href="https://lucid.app/lucidchart/0cc752d3-dca9-4cbb-97de-b78184f47b96/edit?viewport_loc=21%2C208%2C1755%2C844%2C0_0&invitationId=inv_2c1a550c-2bc2-4136-9aea-5f2b7bbd4ec2">🫳Link to ERD</a></br>
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/0cc752d3-dca9-4cbb-97de-b78184f47b96" id="yd_.2r89URFV"></iframe></div>
+
 #3 there is a file called 'params.info' its for intit the current connection.</br>
 <a href="https://imgbb.com/"><img src="./ilis.png" alt="expl" border="0"></a>
 </br>
