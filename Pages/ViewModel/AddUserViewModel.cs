@@ -10,7 +10,6 @@ using Spring.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -19,6 +18,7 @@ namespace Spring.Pages.ViewModel
 {
     public class AddUserViewModel : BaseViewModel
     {
+        #region Public properties
         /// <summary>
         /// determines if panel is active or not
         /// </summary>
@@ -87,7 +87,7 @@ namespace Spring.Pages.ViewModel
         public bool ContactCheckerVisibilty { get; set; } = true;
         public bool AuthCheckerVisibilty { get; set; } = true;
         public bool DeptCheckerVisibilty { get; set; } = true;
-
+        #endregion
 
         #region Commands
         /// <summary>

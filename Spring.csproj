@@ -115,6 +115,7 @@
       <DependentUpon>UsersPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\ViewModel\AddUserViewModel.cs" />
+    <Compile Include="Pages\ViewModel\UsersViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
