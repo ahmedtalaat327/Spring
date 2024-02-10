@@ -25,8 +25,8 @@ a connection object and execute all sql commands as string.
 * User page </br></br>
 <a href=""><img src="./Zxa.png" ></a>
 * PDF extract demo </br></br>
-<video width="320" height="240" controls>
-  <source src="./2024-02-10 18-43-16.mkv" type="video/mkv">
+<video width="620" height="240" controls>
+  <source src="./2024-02-10 18-43-16.mkv" type="video/mp4">
 </video>
 </br></br>
 
