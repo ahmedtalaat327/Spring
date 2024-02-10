@@ -291,7 +291,6 @@ namespace Spring
                         AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out", LeftImageIndices = new int[] { 27 } });
                         AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Proceed to add", LeftImageIndices = new int[] { 28 } });
 
-                        tabPageAdvN.Controls.Add(new AddUserPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill });
 
                         panel5.treeViewAdv1.Nodes.Clear();
 
@@ -319,6 +318,9 @@ namespace Spring
                             }
                             catch(Exception q) { }
                         };
+
+                        tabPageAdvN.Controls.Add(new AddUserPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill });
+
                     }
 
                     if (tabControlAdv1.TabPages[d].Text.Equals("Users"))
@@ -330,7 +332,6 @@ namespace Spring
                         AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out", LeftImageIndices = new int[] { 27 } });
                         // AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Proceed to add", LeftImageIndices = new int[] { 28 } });
 
-                        tabPageAdvN.Controls.Add(new UsersPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill });
 
                         panel5.treeViewAdv1.Nodes.Clear();
 
@@ -357,6 +358,9 @@ namespace Spring
                             }
                             catch(Exception q) { }
                         };
+
+                        tabPageAdvN.Controls.Add(new UsersPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill });
+
                     }
 
                     this.tabControlAdv1.SelectedTab = tabControlAdv1.TabPages[d];

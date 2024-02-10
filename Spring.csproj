@@ -50,6 +50,10 @@
     </Reference>
     <Reference Include="Syncfusion.Chart.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Chart.Windows, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Compression.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>pdf\Syncfusion.Compression.Base.24.2.4\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Data.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.DataSource.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
@@ -58,8 +62,13 @@
     <Reference Include="Syncfusion.Grid.Windows, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.GridCommon.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Licensing, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Pdf.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.SfBarcode.Windows, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SfDataGridConverter.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>pdf\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SfInput.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.SfListView.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
@@ -187,6 +196,9 @@
   <ItemGroup>
     <None Include="eyereveal.png" />
     <None Include="icons8-eye-48.png" />
+    <Content Include="header_pdf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="init\companylogo.png" />
     <None Include="pngegg.png" />
     <None Include="password-imgs\icons8-eye-2-48.png" />

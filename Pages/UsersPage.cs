@@ -9,7 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Syncfusion.WinForms.DataGridConverter;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf;
+using Syncfusion.WinForms.DataGrid;
+using Syncfusion.Pdf.Grid;
+using Syncfusion.Windows.Forms.Chart.SvgBase;
+using Syncfusion.Pdf.Parsing;
+using System.IO;
 
 namespace Spring.Pages
 {
@@ -73,8 +80,79 @@ namespace Spring.Pages
                 switch (adv.Text)
                 {
                     case "Print out":
-                     //   var document = this.sfDataGrid1.ExportToPdf();
-                     //   document.Save("Sample.pdf");
+                        var options = new PdfExportingOptions();
+                        //options.HeaderFooterExporting += options_HeaderFooterExporting;
+                        var document = new PdfDocument();
+                        document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+                        var page = document.Pages.Add();
+                        var PDFGrid = sfDataGrid1.ExportToPdfGrid(sfDataGrid1.View, options);
+                        var format = new PdfGridLayoutFormat()
+                        {
+                            Layout = PdfLayoutType.Paginate,
+                            Break = PdfLayoutBreakType.FitPage
+                            
+                        };
+                       
+                        PDFGrid.Draw(page, new PointF(0,55), format);
+
+                        //Create a header and draw the image.
+                        RectangleF bounds = new RectangleF(0, 0, page.Size.Width-100, 50);
+                        PdfTemplate header = new PdfTemplate(bounds);
+                        PdfImage image = new PdfBitmap(@"header_pdf.png");
+                        //Draw the image in the header.
+                        header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Size.Width-100, 50));
+
+
+                        PdfFont font = new PdfStandardFont(PdfFontFamily.Courier, 7f, PdfFontStyle.Regular);
+                        header.Graphics.DrawString("for: HAAM Corp. Ltd.", font, PdfPens.Red, page.Size.Width-200, 12);
+                        //Add the header at the top.
+                        //document.Template.Top = header;
+                        page.Graphics.DrawPdfTemplate((header), new PointF());
+
+
+
+
+
+
+                        RectangleF bounds_ = new RectangleF(0, 0, page.GetClientSize().Width - 100, 50);
+                        //Create a Page template that can be used as footer.
+                        PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds_);
+                        PdfFont font_f = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
+                        PdfBrush brush = new PdfSolidBrush(Color.Red);
+                        //Create page number field.
+                        PdfPageNumberField pageNumber = new PdfPageNumberField(font_f, brush);
+                        //Create page count field.
+                        PdfPageCountField count = new PdfPageCountField(font_f, brush);
+                        //Add the fields in composite fields.
+                        PdfCompositeField compositeField = new PdfCompositeField(font_f, brush, "{0}/{1}", pageNumber, count);
+                        compositeField.Bounds = new RectangleF(footer.Bounds.X,footer.Bounds.Y+20,footer.Bounds.Width,footer.Bounds.Height+20);
+                        //Draw the composite field in footer.
+                        compositeField.Draw(footer.Graphics, new PointF(page.Size.Width - 100, 12));
+                        
+                        //Add the footer template at the bottom.
+                        document.Template.Bottom = footer;
+
+
+
+
+                        //document.Save("Sample.pdf");
+                        SaveFileDialog saveFileDialog = new SaveFileDialog
+                        {
+                            Filter = "PDF Files(*.pdf)|*.pdf"
+                        };
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            using (Stream stream = saveFileDialog.OpenFile())
+                            {
+                                document.Save(stream);
+                            }
+                            //Message box confirmation to view the created Pdf file.
+                            if (MessageBox.Show("Do you want to view the Pdf file?", "Pdf file has been created", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                //Launching the Pdf file using the default Application.
+                                System.Diagnostics.Process.Start(saveFileDialog.FileName);
+                            }
+                        }
                         break;
                    
 
@@ -82,6 +160,8 @@ namespace Spring.Pages
                 }
             }
         }
+
+       
         #endregion
 
 
