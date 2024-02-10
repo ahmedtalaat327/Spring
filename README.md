@@ -24,7 +24,10 @@ a connection object and execute all sql commands as string.
 <a href=""><img src="./1_2.png" ></a>
 * User page </br></br>
 <a href=""><img src="./Zxa.png" ></a>
-</br>
+* PDF extract demo </br></br>
+<a href=""><Video src="./2024-02-10 18-43-16.mkv" ></a>
+</br></br>
+
 
 What you need to know:.🫡 </br>
 #1 this SW using database managed dll for oracle version 10g.<br>
