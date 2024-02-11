@@ -45,6 +45,7 @@ namespace Spring.Pages.ViewModel
         /// <returns></returns>
         private async Task LoadCurrentUsers()
         {
+            CurrentUsers.Clear();
             await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
             {
                 await Task.Delay(1);

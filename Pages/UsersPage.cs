@@ -17,6 +17,7 @@ using Syncfusion.Pdf.Grid;
 using Syncfusion.Windows.Forms.Chart.SvgBase;
 using Syncfusion.Pdf.Parsing;
 using System.IO;
+using Syncfusion.Data;
 
 namespace Spring.Pages
 {
@@ -33,7 +34,7 @@ namespace Spring.Pages
 
 
             #region Events
-            this.Load += UsersPage_Load;
+            this.Load += UsersPage_Load; 
 
             optionsTree.BeforeSelect += (e, o) =>
             {
@@ -62,13 +63,16 @@ namespace Spring.Pages
             {
                 //  RaiseClick(optionsTree.SelectedNode);
             };
+
             #endregion
+
+            //this is not reliable method beacause is not effecting the speed Bog(O) of the sql fetching at all.
+            sfDataGrid1.Columns["Id"].FilterPredicates.Add(new FilterPredicate() { FilterType = FilterType.LessThan, FilterValue = "18" });
         }
 
         private void UsersPage_Load(object sender, EventArgs e)
         {
             usersViewModel.LoadAllUsers.Execute(true);
-           
         }
 
         #region Methods Helpers
@@ -154,7 +158,8 @@ namespace Spring.Pages
                             }
                         }
                         break;
-                   
+                    case "Refresh": usersViewModel.LoadAllUsers.Execute(true); break;
+                       
 
 
                 }
