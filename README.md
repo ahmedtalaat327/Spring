@@ -25,9 +25,12 @@ a connection object and execute all sql commands as string.
 * User page </br></br>
 <a href=""><img src="./Zxa.png" ></a>
 * PDF extract demo </br></br>
-<video width="620" height="240" controls>
-  <source src="https://www.youtube.com/watch?v=SRUvmEIImJY" type="video/mp4">
-</video>
+
+<div align="centre">
+      <a href="https://www.youtube.com/watch?v=SRUvmEIImJY">
+         <img src="https://assets-global.website-files.com/64949e4863d96e26a1da8386/64b948a998510a9d2ded206e_633c71ec29fb38a9b6f4e285_1wLMdlEwmUttkWF49wzS5pTs2ZAXFIriMprSEUYsfcqasXaDwd8LFup6vhVSA85hK5OxLi0je9uTc-n2kLVejTJWzOmv_geKBWGXTV3mkor2Ghq62ZzzATKwUqJsOJDxzpTx9NYD6EQ94ynpe25tluOJ5wYr1Rf_VcVbhFQlGbNQNEFJrTSv3TONYw.png" style="width:100%;">
+      </a>
+</div>
 </br></br>
 
 
