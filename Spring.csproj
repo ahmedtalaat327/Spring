@@ -196,6 +196,7 @@
   <ItemGroup>
     <None Include="eyereveal.png" />
     <None Include="icons8-eye-48.png" />
+    <Content Include="controls.png" />
     <Content Include="header_pdf.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
