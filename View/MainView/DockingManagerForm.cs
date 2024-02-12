@@ -319,7 +319,15 @@ namespace Spring
                             catch(Exception q) { }
                         };
 
-                        tabPageAdvN.Controls.Add(new AddUserPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill });
+                        var add_user_view_instance = new AddUserPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill };
+                        tabPageAdvN.Controls.Add(add_user_view_instance);
+                        tabControlAdv1.TabPages[d].Closed += (s, e) => {
+                            //re-set all event again
+                            panel5.treeViewAdv1.BeforeSelect -= add_user_view_instance.OptionsTree_BeforeSelect;
+
+                            panel5.treeViewAdv1.Click -= add_user_view_instance.OptionsTree_Click;
+
+                        };
 
                     }
 
@@ -359,7 +367,15 @@ namespace Spring
                             catch(Exception q) { }
                         };
 
-                        tabPageAdvN.Controls.Add(new UsersPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill });
+                        var users_view_instance = new UsersPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill };
+                        tabPageAdvN.Controls.Add(users_view_instance);
+                        tabControlAdv1.TabPages[d].Closed += (s, e) => {
+                            //re-set all event again
+                            panel5.treeViewAdv1.BeforeSelect -= users_view_instance.OptionsTree_BeforeSelect;
+
+                            panel5.treeViewAdv1.Click -= users_view_instance.OptionsTree_Click;
+
+                        };
 
                     }
 

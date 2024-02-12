@@ -34,8 +34,13 @@ namespace Spring.Pages
 
 
             #region Events
-            this.Load += UsersPage_Load; 
 
+            this.Load += UsersPage_Load;
+
+            optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
+
+            optionsTree.Click += OptionsTree_Click;
+            /*
             optionsTree.BeforeSelect += (e, o) =>
             {
 
@@ -63,11 +68,31 @@ namespace Spring.Pages
             {
                 //  RaiseClick(optionsTree.SelectedNode);
             };
-
+            */
+          
             #endregion
 
-            //this is not reliable method beacause is not effecting the speed Bog(O) of the sql fetching at all.
             sfDataGrid1.Columns["Id"].FilterPredicates.Add(new FilterPredicate() { FilterType = FilterType.LessThan, FilterValue = "18" });
+        }
+
+        public void OptionsTree_Click(object sender, EventArgs e)
+        {
+            var optionsTree = (TreeViewAdv)sender;
+            Point pt = optionsTree.PointToClient(Cursor.Position);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            if (node != null && node == optionsTree.SelectedNode)
+            {
+                RaiseClick(node);
+            }
+        }
+
+        public void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
+        {
+            var optionsTree = (TreeViewAdv) sender;
+            Point pt = optionsTree.PointToClient(Cursor.Position);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            if (o.Action == TreeViewAdvAction.ByMouse && node == null)
+                o.Cancel = true;
         }
 
         private void UsersPage_Load(object sender, EventArgs e)

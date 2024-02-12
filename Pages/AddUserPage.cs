@@ -152,34 +152,11 @@ namespace Spring.Pages
 
             #region Events
             this.Load += AddUserPage_Load;
-            
-            optionsTree.BeforeSelect += (e, o) =>
-            {
 
-                Point pt = optionsTree.PointToClient(Cursor.Position);
-                TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
-                if (o.Action == TreeViewAdvAction.ByMouse && node == null)
-                    o.Cancel = true;
-            };
+            optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
 
-
-            optionsTree.Click += (evt, obj) =>
-            {
-
-                Point pt = optionsTree.PointToClient(Cursor.Position);
-                TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
-                if (node != null && node == optionsTree.SelectedNode)
-                {
-                    RaiseClick(node);
-                }
-
-
-            };
-
-            optionsTree.AfterSelect += (eve, ob) =>
-            {
-              //  RaiseClick(optionsTree.SelectedNode);
-            };
+            optionsTree.Click += OptionsTree_Click;
+           
 
 
             this.fnametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
@@ -198,6 +175,27 @@ namespace Spring.Pages
 
             #endregion
         }
+
+        public void OptionsTree_Click(object sender, EventArgs e)
+        {
+            var optionsTree = (TreeViewAdv)sender;
+            Point pt = optionsTree.PointToClient(Cursor.Position);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            if (node != null && node == optionsTree.SelectedNode)
+            {
+                RaiseClick(node);
+            }
+        }
+
+        public void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
+        {
+            var optionsTree = (TreeViewAdv)sender;
+            Point pt = optionsTree.PointToClient(Cursor.Position);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            if (o.Action == TreeViewAdvAction.ByMouse && node == null)
+                o.Cancel = true;
+        }
+
         /// <summary>
         /// when page load 
         /// make all commnds executed

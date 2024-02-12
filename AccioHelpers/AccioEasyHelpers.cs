@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Spring.AccioHelpers
 {
-    internal class AccioEasyHelpers
+    public static class AccioEasyHelpers
     {
         /// <summary>
         /// Get relative location to me executaive application...
@@ -93,5 +95,18 @@ namespace Spring.AccioHelpers
             }
            
         }
+        
+            public static void RemoveEvents<T>(T target, string eventName) where T : Control
+            {
+                if (ReferenceEquals(target, null)) throw new NullReferenceException("Argument \"target\" may not be null.");
+                FieldInfo fieldInfo = typeof(Control).GetField(eventName, BindingFlags.Static | BindingFlags.NonPublic);
+                if (ReferenceEquals(fieldInfo, null)) throw new ArgumentException(
+                    string.Concat("The control ", typeof(T).Name, " does not have a property with the name \"", eventName, "\""), nameof(eventName));
+                object eventInstance = fieldInfo.GetValue(target);
+                PropertyInfo propInfo = typeof(T).GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
+                EventHandlerList list = (EventHandlerList)propInfo.GetValue(target, null);
+                list.RemoveHandler(eventInstance, list[eventInstance]);
+            }
+        
     }
 }
