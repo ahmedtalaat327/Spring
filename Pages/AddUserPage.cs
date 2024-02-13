@@ -1,6 +1,4 @@
-﻿using Spring.Messages;
-using Spring.Pages.ViewModel;
-using Spring.StaticVM;
+﻿using Spring.Pages.ViewModel;
 using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Drawing;
@@ -176,6 +174,11 @@ namespace Spring.Pages
             #endregion
         }
 
+
+        #endregion
+
+        #region Methods Helpers
+
         public void OptionsTree_Click(object sender, EventArgs e)
         {
             var optionsTree = (TreeViewAdv)sender;
@@ -206,9 +209,6 @@ namespace Spring.Pages
         {
             addUserViewModel.LoadInitialWithRefrshing.Execute(true);
         }
-        #endregion
-
-        #region Methods Helpers
         void RaiseClick(TreeNodeAdv adv)
         {
             // please use your code here

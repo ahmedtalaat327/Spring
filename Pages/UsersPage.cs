@@ -1,21 +1,12 @@
 ﻿using Spring.Pages.ViewModel;
 using Syncfusion.Windows.Forms.Tools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Syncfusion.WinForms.DataGridConverter;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf;
-using Syncfusion.WinForms.DataGrid;
 using Syncfusion.Pdf.Grid;
-using Syncfusion.Windows.Forms.Chart.SvgBase;
-using Syncfusion.Pdf.Parsing;
 using System.IO;
 using Syncfusion.Data;
 
@@ -74,7 +65,7 @@ namespace Spring.Pages
 
             sfDataGrid1.Columns["Id"].FilterPredicates.Add(new FilterPredicate() { FilterType = FilterType.LessThan, FilterValue = "18" });
         }
-
+        #region Methods Helpers
         public void OptionsTree_Click(object sender, EventArgs e)
         {
             var optionsTree = (TreeViewAdv)sender;
@@ -100,7 +91,7 @@ namespace Spring.Pages
             usersViewModel.LoadAllUsers.Execute(true);
         }
 
-        #region Methods Helpers
+       
         void RaiseClick(TreeNodeAdv adv)
         {
             // please use your code here
