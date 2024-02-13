@@ -47,7 +47,7 @@ Very Impertant!</br>
 #1 first thing first you must build your database.</br>
 #2 I will put down the structure script you may need to change it.</br>
 <a href="https://lucid.app/lucidchart/0cc752d3-dca9-4cbb-97de-b78184f47b96/edit?viewport_loc=21%2C208%2C1755%2C844%2C0_0&invitationId=inv_2c1a550c-2bc2-4136-9aea-5f2b7bbd4ec2">🫳Link to ERD</a></br>
-
+<iframe width="560" height="315" src='https://dbdiagram.io/e/65cb61dbac844320ae0acc30/65cb61f0ac844320ae0acde1'> </iframe>
 #3 we use 'params.info' for initialize the server parameters and some other data about the current corporation.</br>
 <a href="https://imgbb.com/"><img src="./ilis.png" alt="expl" border="0" style="width: 200; height: 100%;"></a>
 </br>
