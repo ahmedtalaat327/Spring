@@ -79,6 +79,10 @@ namespace Spring.Pages.ViewModel
         /// this property is for new user you are about to add
         /// </summary>
         private User DummyNewUser { get; set; }
+        /// <summary>
+        /// simple flag to determines if added succeeded or not
+        /// </summary>
+        public bool AdditionSucceded { get; set; } = false;
 
         ///txt size validity props 
         public bool NamePortionsCheckerVisiblity { get; set; } = true;
@@ -369,7 +373,8 @@ namespace Spring.Pages.ViewModel
                     //success
                     if (replyOfCMD_Insertion >= 0)
                     {
-                        new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        //new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        AdditionSucceded = true;
                         //reset and reload
                         {
                             FirstPortionFName = ""; MiddlePortionFName = ""; LastPortionFName = "";
@@ -400,7 +405,8 @@ namespace Spring.Pages.ViewModel
                     //fail
                     else
                     {
-                        new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        AdditionSucceded = false;
+                        //new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
 
                     }
 

@@ -71,6 +71,7 @@
     </Reference>
     <Reference Include="Syncfusion.SfInput.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.SfListView.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SfSmithChart.WinForms, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Shared.Windows, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Tools.Base, Version=19.4460.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
@@ -80,6 +81,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -99,6 +101,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\ExpressionHelpers.cs" />
+    <Compile Include="Messages\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Messages\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messages\AccountDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +160,9 @@
     <Compile Include="View\MainView\LoginView\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Messages\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages\AccountDetails.resx">
       <DependentUpon>AccountDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,7 +189,9 @@
     <EmbeddedResource Include="View\MainView\LoginView\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="init\params.info" />
+    <None Include="init\params.info">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -205,6 +218,7 @@
     <None Include="password-imgs\icons8-eye-2-48.png" />
     <None Include="password-imgs\icons8-eye-48.png" />
     <Content Include="springTM.ico" />
+    <None Include="springTM.png" />
     <Content Include="VS.ico" />
   </ItemGroup>
   <ItemGroup />

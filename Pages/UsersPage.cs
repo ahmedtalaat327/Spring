@@ -125,11 +125,11 @@ namespace Spring.Pages
 
                         PdfFont font = new PdfStandardFont(PdfFontFamily.Courier, 7f, PdfFontStyle.Regular);
                         header.Graphics.DrawString("for: HAAM Corp. Ltd.", font, PdfPens.Red, page.Size.Width-200, 12);
+                        header.Graphics.DrawString("USERS Report.", font, PdfPens.Red, page.Size.Width - 200, 2*12);
+                        header.Graphics.DrawString($"exported: {(DateTime.Now.Date).ToString("MM/dd/yyyy")}.", font, PdfPens.Red, page.Size.Width - 200, 3 * 12);
                         //Add the header at the top.
                         //document.Template.Top = header;
                         page.Graphics.DrawPdfTemplate((header), new PointF());
-
-
 
 
 

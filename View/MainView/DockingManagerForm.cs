@@ -399,7 +399,7 @@ namespace Spring
 
             tabPageAdvN.Closing += (ev, osend) => {
                 tabControlAdv1.Controls.Remove(tabPageAdvN);
-                this.dockingManager1.SetDockLabel(this.panel2, "Immediate Window closing tabe");
+              //  this.dockingManager1.SetDockLabel(this.panel2, "Immediate Window closing tabe");
             };
 
           //  tabPageAdvN.Controls.Add(new Button() { Dock = DockStyle.Fill });
@@ -2154,9 +2154,10 @@ namespace Spring
             this.about.ID = "";
             this.about.ShowToolTipInPopUp = false;
             this.about.SizeToFit = true;
-            this.about.Text = "About Syncfusion Visual Studio";
+            this.about.Text = "About Spring";
             this.about.ImageIndex = 45;
             this.about.ImageList = this.imageList3;
+            this.about.Click += About_Click;
 
             this.mainFrameBarManager1.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[] {
             this.viewhelp,
@@ -2170,6 +2171,11 @@ namespace Spring
             this.about}); ;
 
             this.barItem5.MetroBackColor = ColorTranslator.FromHtml("#eaf0ff");
+        }
+
+        private void About_Click(object sender, EventArgs e)
+        {
+            new About().Show();
         }
 
         #endregion

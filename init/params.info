@@ -4,7 +4,7 @@
 [
 #server_ip::127.0.0.1,
 #port::1521,
-#company_name::Haam Corporation,
+#company_name::HAAM Corp. Ltd.,
 #version::1.1.0,
 #console::True,
 ]

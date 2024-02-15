@@ -1,4 +1,5 @@
 ﻿using Spring.Pages.ViewModel;
+using Spring.View.MainView.LoginView;
 using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Drawing;
@@ -171,7 +172,30 @@ namespace Spring.Pages
             this.authlvlcombo.DropDownClosed += (s, e) => { this.passtxtbx.Focus(); };
             this.deptcombo.DropDownClosed += (s, e) => { this.passtxtbx.Focus(); };
 
+
+            //properties handle this is not related to any other UI framework only WINFORMS
+            this.addUserViewModel.PropertyChanged += AddUserViewModel_PropertyChanged;
             #endregion
+        }
+        //when some property changed
+        private void AddUserViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            //make sure we are in same VM and same property.
+            if(e.PropertyName == nameof(this.addUserViewModel.AdditionSucceded) && this.addUserViewModel.GetType() == typeof(AddUserViewModel))
+            {
+                //check value of this property
+                if (this.addUserViewModel.AdditionSucceded)
+                {
+                    new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+
+                }
+                else
+                {
+                    new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+
+                }
+
+            }
         }
 
 
