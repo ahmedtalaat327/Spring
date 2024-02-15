@@ -18,12 +18,12 @@ namespace Spring.Messages
             base.DropShadow = MessageBoxAdv.DropShadow;
             try
             {
-                System.Drawing.Icon ico = new System.Drawing.Icon(GetIconFile(@"..\\..\\\springTM.ico"));
+                System.Drawing.Icon ico = new System.Drawing.Icon(GetIconFile(@"springTM.ico"));
                 this.Icon = ico;
             }
             catch (Exception ex)
             {
-               // MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
         }

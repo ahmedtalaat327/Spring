@@ -110,6 +110,7 @@ namespace Spring.View.MainView.LoginView
                 new DockingManagerForm();
 
             };
+
             #endregion
 
         }
