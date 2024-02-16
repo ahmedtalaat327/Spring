@@ -4,7 +4,6 @@ using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
 using Spring.Data;
 using Spring.StaticVM;
-using Spring.View.MainView.LoginView;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
 using System;
@@ -12,12 +11,25 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static Spring.ViewModel.LoginViewModel;
 
 
 namespace Spring.Pages.ViewModel
 {
     public class AddUserViewModel : BaseViewModel
     {
+        #region ENUM for Phases
+        /// <summary>
+        /// Progress bar porperty phases set
+        /// <see cref="VMCentral.DockingManagerViewModel.Loading"/> <see cref="CurrentWait"/>
+        /// </summary>
+        public enum AddUserVMLoadingPhase
+        {
+            Non, //reset
+            AdditionCheckWaiting,//first relycommand
+             
+        }
+        #endregion
         #region Public properties
         /// <summary>
         /// determines if panel is active or not
@@ -83,6 +95,10 @@ namespace Spring.Pages.ViewModel
         /// simple flag to determines if added succeeded or not
         /// </summary>
         public bool AdditionSucceded { get; set; } = false;
+        /// <summary>
+        /// this for helping wait property when changing in VIEW 
+        /// </summary>
+        public AddUserVMLoadingPhase CurrentWait { get; set; } = AddUserVMLoadingPhase.Non;
 
         ///txt size validity props 
         public bool NamePortionsCheckerVisiblity { get; set; } = true;
@@ -357,6 +373,8 @@ namespace Spring.Pages.ViewModel
         /// <returns></returns>
         private async Task AddNewUser()
         {
+            CurrentWait = AddUserVMLoadingPhase.AdditionCheckWaiting;
+
             await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
             {
                 //check values
@@ -375,6 +393,7 @@ namespace Spring.Pages.ViewModel
                     {
                         //new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
                         AdditionSucceded = true;
+                       
                         //reset and reload
                         {
                             FirstPortionFName = ""; MiddlePortionFName = ""; LastPortionFName = "";
@@ -406,6 +425,7 @@ namespace Spring.Pages.ViewModel
                     else
                     {
                         AdditionSucceded = false;
+                       
                         //new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
 
                     }
@@ -414,9 +434,9 @@ namespace Spring.Pages.ViewModel
                 }
                 else
                 {
-                    new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-
-               
+                    // new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                    AdditionSucceded = false;
+                   
 
                 }
             });

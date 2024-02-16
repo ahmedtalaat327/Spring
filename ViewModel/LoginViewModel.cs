@@ -1,8 +1,8 @@
-﻿using AccioOracleKit;
+﻿/////////////////this is a pure VM file can be attatchd to any UI or FrameWork!////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
-using Spring.AccioHelpers;
 using Spring.Data;
-using Spring.View.MainView.LoginView;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
 using System.Collections.Generic;
@@ -15,6 +15,18 @@ namespace Spring.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
+        #region ENUM for Phases
+        /// <summary>
+        /// Progress bar porperty phases set
+        /// <see cref="WaitingProgress"/> <see cref="CurrentWait"/>
+        /// </summary>
+        public enum LoginVMLoadingPhase
+        {
+            Non, //reset
+            ConnectionCheckWaiting,//first relycommand
+            LoginCkeckWaiting//second relycommand
+        }
+        #endregion
         #region Poperties
         /// <summary>
         /// Property for input username
@@ -24,7 +36,6 @@ namespace Spring.ViewModel
         /// property for input passpord
         /// </summary>
         public string CurrentPassword { get; set; } = "";
-
         /// <summary>
         /// Loading flag for prgress bar visible or not
         /// </summary>
@@ -32,15 +43,15 @@ namespace Spring.ViewModel
         /// <summary>
         /// Current progress bar state
         /// </summary>
-        public bool WaitingProgress { get; set; } 
+        public bool WaitingProgress { get; set; }
         /// <summary>
         /// Is logging in valid or not
         /// </summary>
-        private bool ValidLogin { get; set; }
+        public bool ValidLogin { get; set; } = false;
         /// <summary>
         /// Is Connection to DB is valid or not
         /// </summary>
-        private bool ValidConnection { get; set; }
+        public bool ValidConnection { get; set; } = false;
         /// <summary>
         /// Current local user
         /// </summary>
@@ -58,6 +69,10 @@ namespace Spring.ViewModel
         /// Visible flag to determine whether if the current form is visile or not
         /// </summary>
         public bool Visible { get { return ValidLogin ? false : true; }  }
+        /// <summary>
+        /// this for helping wait property when changing in VIEW 
+        /// </summary>
+        public LoginVMLoadingPhase CurrentWait { get; set; } = LoginVMLoadingPhase.Non;
         #endregion
 
 
@@ -96,17 +111,20 @@ namespace Spring.ViewModel
         /// </summary>
         private async Task CheckConndctionToServer()
         {
+            CurrentWait = LoginVMLoadingPhase.ConnectionCheckWaiting;
             await RunCommand(() => this.WaitingProgress, async () =>
             {
-             //   await Task.Delay(1);   
+               
                 //test oracle db connection
                 if (await VMCentral.DockingManagerViewModel.ReadyMyDatabaseConn() == null)
                 {
                     ValidConnection = false;
+                   
                 }
                 else
                 {
                     ValidConnection = true;
+                   
                 }
 
 
@@ -115,14 +133,7 @@ namespace Spring.ViewModel
                
 
 
-                if (!ValidConnection)
-                {
-                    new AdvOptions().ShowError_Connection(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-                }
-                else
-                {
-                    new AdvOptions().ShowValid_Connection(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-                }
+               
         }
        
         /// <summary>
@@ -130,7 +141,8 @@ namespace Spring.ViewModel
         /// </summary>
         public async Task Login()
         {
-            
+
+            CurrentWait = LoginVMLoadingPhase.LoginCkeckWaiting;
 
             await RunCommand(() =>  this.WaitingProgress, async () =>
             {
@@ -147,7 +159,7 @@ namespace Spring.ViewModel
                 finally
                 {
 
-                //    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+                    //    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
 
 
                     if (await ComparisonProcedure(UsersInAllDataBase))
@@ -155,28 +167,20 @@ namespace Spring.ViewModel
 
                         ValidLogin = true;
 
+                        VMCentral.DockingManagerViewModel.WindowVisible = true;
+                        VMCentral.DockingManagerViewModel.loggedUser = UserLogged;
+
                     }
                     else
                     {
                         ValidLogin = false;
+                      
                     }
                 }
             
             });
-            if (!WaitingProgress && ValidLogin) {
 
-                new AdvOptions().ShowSuccess_Login(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-
-                VMCentral.DockingManagerViewModel.WindowVisible = true;
-                VMCentral.DockingManagerViewModel.loggedUser = UserLogged;
-            }
-            else if (!WaitingProgress && !ValidLogin)
-            {
-                new AdvOptions().ShowFailur_Login(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-            }
-
-
-           
+            
            
         }
 

@@ -1,5 +1,7 @@
 ﻿using Spring.Pages.ViewModel;
+using Spring.StaticVM;
 using Spring.View.MainView.LoginView;
+using Spring.ViewModel;
 using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Drawing;
@@ -174,27 +176,34 @@ namespace Spring.Pages
 
 
             //properties handle this is not related to any other UI framework only WINFORMS
-            this.addUserViewModel.PropertyChanged += AddUserViewModel_PropertyChanged;
+            VMCentral.DockingManagerViewModel.PropertyChanged += AddUserViewModel_PropertyChanged;
             #endregion
         }
         //when some property changed
         private void AddUserViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             //make sure we are in same VM and same property.
-            if(e.PropertyName == nameof(this.addUserViewModel.AdditionSucceded) && this.addUserViewModel.GetType() == typeof(AddUserViewModel))
+            if (e.PropertyName == nameof(VMCentral.DockingManagerViewModel.Loading) && VMCentral.DockingManagerViewModel.GetType() == typeof(DockingManagerViewModel))
             {
-                //check value of this property
-                if (this.addUserViewModel.AdditionSucceded)
+                //After Loading property finish in RELYCOMMAND
+                if (!VMCentral.DockingManagerViewModel.Loading)
                 {
-                    new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-
+                    //Pick which phase we are in
+                    if (this.addUserViewModel.CurrentWait == AddUserViewModel.AddUserVMLoadingPhase.AdditionCheckWaiting)
+                    {
+                        if (!this.addUserViewModel.AdditionSucceded)
+                        {
+                            new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        else
+                        {
+                            new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        //reset phase of loading fter all logic done!
+                        this.addUserViewModel.CurrentWait = AddUserViewModel.AddUserVMLoadingPhase.Non;
+                    }
+                    
                 }
-                else
-                {
-                    new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-
-                }
-
             }
         }
 

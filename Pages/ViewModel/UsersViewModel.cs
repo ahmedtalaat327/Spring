@@ -5,7 +5,6 @@ using Spring.StaticVM;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
 using System;
-
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;

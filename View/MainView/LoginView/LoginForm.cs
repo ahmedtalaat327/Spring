@@ -1,4 +1,6 @@
-﻿using Spring.ViewModel;
+﻿using Spring.Pages.ViewModel;
+using Spring.StaticVM;
+using Spring.ViewModel;
 using Syncfusion.Windows.Forms;
 using Syncfusion.Windows.Forms.Tools;
 using System;
@@ -106,6 +108,10 @@ namespace Spring.View.MainView.LoginView
                
                 dataContext.CheckConnectivityCommand.Execute(true);
 
+                this.dataContext.PropertyChanged += DataContext_PropertyChanged;
+
+               
+
 
                 new DockingManagerForm();
 
@@ -114,6 +120,50 @@ namespace Spring.View.MainView.LoginView
             #endregion
 
         }
+        #region Property Additonal Even Handle [Special to WINFORMS UI]
+        // when some propwerty change [Reason: to take out any View UI from VM]
+        private void DataContext_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            //make sure we are in same VM and same property.
+            if (e.PropertyName == nameof(this.dataContext.WaitingProgress) && this.dataContext.GetType() == typeof(LoginViewModel))
+            {
+                //After Loading property finish in RELYCOMMAND
+                if (!this.dataContext.WaitingProgress)
+                {
+                    //Pick which phase we are in
+                    if (this.dataContext.CurrentWait == LoginViewModel.LoginVMLoadingPhase.ConnectionCheckWaiting)
+                    {
+                        if (!this.dataContext.ValidConnection)
+                        {
+                            new AdvOptions().ShowError_Connection(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        else
+                        {
+                            new AdvOptions().ShowValid_Connection(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        //reset phase of loading fter all logic done!
+                        this.dataContext.CurrentWait = LoginViewModel.LoginVMLoadingPhase.Non;
+                    }
+                    //Pick which phase we are in
+                    if (this.dataContext.CurrentWait == LoginViewModel.LoginVMLoadingPhase.LoginCkeckWaiting)
+                    {
+                        if (this.dataContext.ValidLogin)
+                        {
+
+                            new AdvOptions().ShowSuccess_Login(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+
+                        }
+                        else if (!this.dataContext.ValidLogin)
+                        {
+                            new AdvOptions().ShowFailur_Login(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        //reset phase of loading fter all logic done!
+                        this.dataContext.CurrentWait = LoginViewModel.LoginVMLoadingPhase.Non;
+                    }
+                }
+            }
+         }
+        #endregion
         #endregion
 
         #region Get Form Icon
