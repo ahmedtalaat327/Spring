@@ -379,9 +379,59 @@ namespace Spring
 
                     }
 
+                    if (tabControlAdv1.TabPages[d].Text.Equals("User Card"))
+                    {
+
+
+                        List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
+
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out", LeftImageIndices = new int[] { 27 } });
+                       // AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Refresh", LeftImageIndices = new int[] { 41 } });
+
+
+                        panel5.treeViewAdv1.Nodes.Clear();
+
+                        panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
+
+                         AddOptions[0],
+                      //   AddOptions[1]
+
+                        });
+                        tabControlAdv1.TabPages[d].VisibleChanged += (ws, r) => {
+                            try
+                            {
+                                if (tabControlAdv1.TabPages[d].TabVisible)
+                                {
+                                    panel5.treeViewAdv1.Nodes.Clear();
+
+                                    panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
+
+                             AddOptions[0],
+                        //     AddOptions[1]
+
+                            });
+                                }
+                            }
+                            catch (Exception q) { }
+                        };
+
+                        var users_view_instance = new UserCardPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill };
+                        tabPageAdvN.Controls.Add(users_view_instance);
+                        tabControlAdv1.TabPages[d].Closed += (s, e) => {
+                            //re-set all event again
+                            panel5.treeViewAdv1.BeforeSelect -= users_view_instance.OptionsTree_BeforeSelect;
+
+                            panel5.treeViewAdv1.Click -= users_view_instance.OptionsTree_Click;
+
+                        };
+
+                    }
+
+
                     this.tabControlAdv1.SelectedTab = tabControlAdv1.TabPages[d];
                     break;
                 }
+
               
                 else
                 {
