@@ -242,21 +242,27 @@ namespace Spring.ViewModel
         {
 
             bool feedBack = false;
+          
             return Task.Run(() =>
             {
-
-
-             foreach(User usr in allUsers)
+                if (string.IsNullOrEmpty(UserLocal.UserName) || string.IsNullOrEmpty(UserLocal.Password))
                 {
-                    if (usr.UserName.Equals(UserLocal.UserName) && usr.Password == UserLocal.Password)
+                    feedBack = false;
+                }
+                else
+                {
+                    foreach (User usr in allUsers)
                     {
-                        UserLogged = usr;
-                        feedBack = true;
-                        break;
-                    }
-                    else
-                    {
-                        feedBack = false;
+                        if (usr.UserName.Equals(UserLocal.UserName) && usr.Password == UserLocal.Password)
+                        {
+                            UserLogged = usr;
+                            feedBack = true;
+                            break;
+                        }
+                        else
+                        {
+                            feedBack = false;
+                        }
                     }
                 }
 
