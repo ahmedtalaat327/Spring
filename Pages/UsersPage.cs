@@ -99,7 +99,7 @@ namespace Spring.Pages
             {
                 switch (adv.Text)
                 {
-                    case "Print out":
+                    case "Print out current records":
                         var options = new PdfExportingOptions();
                         //options.HeaderFooterExporting += options_HeaderFooterExporting;
                         var document = new PdfDocument();
@@ -174,7 +174,7 @@ namespace Spring.Pages
                             }
                         }
                         break;
-                    case "Refresh": usersViewModel.LoadAllUsers.Execute(true); break;
+                    case "Refresh users table": usersViewModel.LoadAllUsers.Execute(true); break;
                        
 
 

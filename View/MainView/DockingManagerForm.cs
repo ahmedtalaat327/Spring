@@ -288,8 +288,8 @@ namespace Spring
 
                         List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
 
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out", LeftImageIndices = new int[] { 27 } });
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Proceed to add", LeftImageIndices = new int[] { 28 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out user details", LeftImageIndices = new int[] { 27 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Proceed to add new record", LeftImageIndices = new int[] { 28 } });
 
 
                         panel5.treeViewAdv1.Nodes.Clear();
@@ -337,8 +337,8 @@ namespace Spring
 
                         List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
 
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out", LeftImageIndices = new int[] { 27 } });
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Refresh", LeftImageIndices = new int[] { 41 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out current records", LeftImageIndices = new int[] { 27 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Refresh users table", LeftImageIndices = new int[] { 41 } });
 
 
                         panel5.treeViewAdv1.Nodes.Clear();
@@ -385,7 +385,7 @@ namespace Spring
 
                         List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
 
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out", LeftImageIndices = new int[] { 27 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out user card", LeftImageIndices = new int[] { 27 } });
                        // AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Refresh", LeftImageIndices = new int[] { 41 } });
 
 

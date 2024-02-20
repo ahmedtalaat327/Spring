@@ -26,22 +26,20 @@ namespace Spring.Pages
         {
             #region UI customizations
             InitializeComponent();
- 
+
             //some UI customizations
-           
- 
- 
+
+
+
             #endregion
 
 
 
             #region Bindings
-         
- 
 
-            #region Event as fix for timedatepicker
+            this.sfBarcode1.Text = "222";
+
             
-            #endregion
 
 
             #endregion
