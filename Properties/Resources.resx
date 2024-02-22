@@ -121,6 +121,9 @@
   <data name="crd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\init\crd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_arrow_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons8-arrow-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8_eye_2_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\password-imgs\icons8-eye-2-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

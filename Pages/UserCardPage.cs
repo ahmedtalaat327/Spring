@@ -127,9 +127,9 @@ namespace Spring.Pages
             {
                 switch (adv.Text)
                 {
-                    case "Print out": break;
-                    case "Proceed to add": addUserViewModel.SetNewUser.Execute(true); break;
-
+                 
+                    case "Print out user card": addUserViewModel.SetNewUser.Execute(true); break;
+                    case "Find a User": break;
 
                 }
             }

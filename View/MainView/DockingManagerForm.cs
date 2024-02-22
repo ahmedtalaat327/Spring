@@ -386,7 +386,7 @@ namespace Spring
                         List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
 
                         AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out user card", LeftImageIndices = new int[] { 27 } });
-                       // AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Refresh", LeftImageIndices = new int[] { 41 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Find a User", LeftImageIndices = new int[] { 41 } });
 
 
                         panel5.treeViewAdv1.Nodes.Clear();
@@ -394,7 +394,7 @@ namespace Spring
                         panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
 
                          AddOptions[0],
-                      //   AddOptions[1]
+                         AddOptions[1]
 
                         });
                         tabControlAdv1.TabPages[d].VisibleChanged += (ws, r) => {
@@ -407,7 +407,7 @@ namespace Spring
                                     panel5.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
 
                              AddOptions[0],
-                        //     AddOptions[1]
+                             AddOptions[1]
 
                             });
                                 }

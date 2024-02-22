@@ -34,6 +34,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bannerlbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.gradientLabel2 = new Syncfusion.Windows.Forms.Tools.GradientLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -43,12 +44,17 @@
             this.autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.gradientLabel1 = new Syncfusion.Windows.Forms.Tools.GradientLabel();
             this.sfBarcode1 = new Syncfusion.Windows.Forms.Barcode.SfBarcode();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.autoLabel7 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.label1 = new System.Windows.Forms.Label();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
-            this.gradientLabel2 = new Syncfusion.Windows.Forms.Tools.GradientLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -279,12 +285,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.20064F));
             this.tableLayoutPanel1.Controls.Add(this.bannerlbl, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 440);
@@ -302,10 +309,10 @@
             this.bannerlbl.ImageIndex = 7;
             this.bannerlbl.ImageList = this.imageList1;
             this.bannerlbl.Location = new System.Drawing.Point(10, 18);
-            this.bannerlbl.Margin = new System.Windows.Forms.Padding(0, 8, 0, 8);
+            this.bannerlbl.Margin = new System.Windows.Forms.Padding(0, 8, 0, 55);
             this.bannerlbl.Name = "bannerlbl";
             this.bannerlbl.Padding = new System.Windows.Forms.Padding(8, 5, 5, 5);
-            this.bannerlbl.Size = new System.Drawing.Size(162, 34);
+            this.bannerlbl.Size = new System.Drawing.Size(162, 37);
             this.bannerlbl.TabIndex = 5;
             this.bannerlbl.Text = "  User Card";
             this.bannerlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -322,13 +329,29 @@
             this.tableLayoutPanel2.Controls.Add(this.gradientLabel1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.sfBarcode1, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(175, 63);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(175, 113);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(465, 294);
             this.tableLayoutPanel2.TabIndex = 6;
+            // 
+            // gradientLabel2
+            // 
+            this.gradientLabel2.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
+            this.gradientLabel2.BeforeTouchSize = new System.Drawing.Size(262, 107);
+            this.gradientLabel2.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
+            | System.Windows.Forms.Border3DSide.Right) 
+            | System.Windows.Forms.Border3DSide.Bottom)));
+            this.gradientLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientLabel2.Location = new System.Drawing.Point(20, 167);
+            this.gradientLabel2.Margin = new System.Windows.Forms.Padding(20);
+            this.gradientLabel2.Name = "gradientLabel2";
+            this.gradientLabel2.Size = new System.Drawing.Size(262, 107);
+            this.gradientLabel2.TabIndex = 3;
+            this.gradientLabel2.Text = "img here";
+            this.gradientLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
             // 
@@ -423,12 +446,12 @@
             | System.Windows.Forms.Border3DSide.Right) 
             | System.Windows.Forms.Border3DSide.Bottom)));
             this.gradientLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientLabel1.Image = ((System.Drawing.Image)(resources.GetObject("gradientLabel1.Image")));
             this.gradientLabel1.Location = new System.Drawing.Point(322, 20);
             this.gradientLabel1.Margin = new System.Windows.Forms.Padding(20);
             this.gradientLabel1.Name = "gradientLabel1";
             this.gradientLabel1.Size = new System.Drawing.Size(123, 107);
             this.gradientLabel1.TabIndex = 1;
-            this.gradientLabel1.Text = "img here";
             this.gradientLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sfBarcode1
@@ -447,6 +470,57 @@
             this.sfBarcode1.TextAlignment = Syncfusion.Windows.Forms.Barcode.BarcodeTextAlignment.Center;
             this.sfBarcode1.TextColor = System.Drawing.Color.Black;
             this.sfBarcode1.TextGapHeight = 0F;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.autoLabel7, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.textBoxExt1, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label1, 1, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(175, 13);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(465, 94);
+            this.tableLayoutPanel4.TabIndex = 7;
+            // 
+            // autoLabel7
+            // 
+            this.autoLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.autoLabel7.Location = new System.Drawing.Point(3, 0);
+            this.autoLabel7.Name = "autoLabel7";
+            this.autoLabel7.Size = new System.Drawing.Size(114, 47);
+            this.autoLabel7.TabIndex = 0;
+            this.autoLabel7.Text = "Id here";
+            this.autoLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxExt1
+            // 
+            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(232, 20);
+            this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxExt1.Location = new System.Drawing.Point(133, 15);
+            this.textBoxExt1.Margin = new System.Windows.Forms.Padding(13, 15, 100, 3);
+            this.textBoxExt1.Name = "textBoxExt1";
+            this.textBoxExt1.Size = new System.Drawing.Size(232, 20);
+            this.textBoxExt1.TabIndex = 1;
+            this.textBoxExt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Image = global::Spring.Properties.Resources.icons8_arrow_50;
+            this.label1.Location = new System.Drawing.Point(120, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.MaximumSize = new System.Drawing.Size(200, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 47);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "         ";
             // 
             // imageList2
             // 
@@ -667,22 +741,6 @@
             this.imageList2.Images.SetKeyName(212, "Windows 7 (3).ico");
             this.imageList2.Images.SetKeyName(213, "Windows 7 (214).ico");
             // 
-            // gradientLabel2
-            // 
-            this.gradientLabel2.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
-            this.gradientLabel2.BeforeTouchSize = new System.Drawing.Size(262, 107);
-            this.gradientLabel2.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
-            | System.Windows.Forms.Border3DSide.Right) 
-            | System.Windows.Forms.Border3DSide.Bottom)));
-            this.gradientLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientLabel2.Location = new System.Drawing.Point(20, 167);
-            this.gradientLabel2.Margin = new System.Windows.Forms.Padding(20);
-            this.gradientLabel2.Name = "gradientLabel2";
-            this.gradientLabel2.Size = new System.Drawing.Size(262, 107);
-            this.gradientLabel2.TabIndex = 3;
-            this.gradientLabel2.Text = "img here";
-            this.gradientLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // UserCardPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -695,6 +753,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -717,5 +778,9 @@
         private Syncfusion.Windows.Forms.Tools.GradientLabel gradientLabel1;
         private Syncfusion.Windows.Forms.Barcode.SfBarcode sfBarcode1;
         private Syncfusion.Windows.Forms.Tools.GradientLabel gradientLabel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel7;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -145,6 +145,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="StaticVM\VMCentral.cs" />
+    <Compile Include="Valueconverter\BaseValueConverter.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelyCommand.cs" />
     <Compile Include="ViewModel\DockingManagerViewModel.cs" />
@@ -222,6 +223,7 @@
     <Content Include="header_pdf.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="icons8-arrow-50.png" />
     <Content Include="init\companylogo.png" />
     <None Include="pngegg.png" />
     <None Include="password-imgs\icons8-eye-2-48.png" />
