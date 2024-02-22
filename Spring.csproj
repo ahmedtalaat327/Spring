@@ -145,7 +145,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="StaticVM\VMCentral.cs" />
-    <Compile Include="Valueconverter\BaseValueConverter.cs" />
+    <Compile Include="ValueConverter\BaseValueConverter.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Command\RelyCommand.cs" />
     <Compile Include="ViewModel\DockingManagerViewModel.cs" />

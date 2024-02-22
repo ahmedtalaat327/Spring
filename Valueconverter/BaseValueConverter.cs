@@ -2,7 +2,7 @@
 using System.Globalization;
 
 
-namespace Spring.Valueconverter
+namespace Spring.ValueConverter
 {
     /// <summary>
     /// A base value converter that allows direct XAML usage
