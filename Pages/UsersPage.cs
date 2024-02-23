@@ -23,6 +23,8 @@ namespace Spring.Pages
             //bindings
             this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;
 
+            //binding active flag to panel
+            this.DataBindings.Add(new Binding("Enabled", usersViewModel, "ActivePanel"));
 
             #region Events
 

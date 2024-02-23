@@ -42,10 +42,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.sfBarcode1 = new Syncfusion.Windows.Forms.Barcode.SfBarcode();
             this.imageStreamer1 = new Syncfusion.Windows.Forms.Tools.ImageStreamer();
+            this.gradientLabel1 = new Syncfusion.Windows.Forms.Tools.GradientLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
             this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
@@ -70,6 +71,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.sfBarcode1, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.imageStreamer1, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.gradientLabel1, 2, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(20);
@@ -236,6 +238,21 @@
             this.imageStreamer1.TabIndex = 21;
             this.imageStreamer1.Text = "TM";
             this.imageStreamer1.TextAnimationDirection = Syncfusion.Windows.Forms.Tools.ImageStreamer.TextStreamDirection.RightToLeft;
+            // 
+            // gradientLabel1
+            // 
+            this.gradientLabel1.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
+            this.gradientLabel1.BeforeTouchSize = new System.Drawing.Size(114, 85);
+            this.gradientLabel1.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
+            | System.Windows.Forms.Border3DSide.Right) 
+            | System.Windows.Forms.Border3DSide.Bottom)));
+            this.gradientLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientLabel1.Location = new System.Drawing.Point(503, 225);
+            this.gradientLabel1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 20);
+            this.gradientLabel1.Name = "gradientLabel1";
+            this.gradientLabel1.Size = new System.Drawing.Size(114, 85);
+            this.gradientLabel1.TabIndex = 22;
+            this.gradientLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imageList1
             // 
@@ -533,5 +550,6 @@
         private System.Windows.Forms.Label label4;
         private Syncfusion.Windows.Forms.Tools.ImageStreamer imageStreamer1;
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
+        private Syncfusion.Windows.Forms.Tools.GradientLabel gradientLabel1;
     }
 }

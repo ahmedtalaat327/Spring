@@ -137,6 +137,7 @@
     <Compile Include="Pages\UsersPage.Designer.cs">
       <DependentUpon>UsersPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ValueConverter\BoolToImgConverter.cs" />
     <Compile Include="Pages\ViewModel\AddUserViewModel.cs" />
     <Compile Include="Pages\ViewModel\UsersViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

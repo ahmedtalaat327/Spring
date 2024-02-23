@@ -3,10 +3,13 @@
 using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
+using Spring.Pages.ValueConverter;
 using Spring.StaticVM;
+using Spring.ViewModel;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -42,9 +45,14 @@ namespace Spring.Messages
             //assign progressbar properties [visibility & Running for loading]
             progressBarAdv1.DataBindings.Add(new Binding("Visible", AboutViewModel, "Loading"));
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", AboutViewModel, "WaitingProgress"));
+            gradientLabel1.DataBindings.Add(new Binding("Image", AboutViewModel, "Logo",true));
 
+            
             this.Load += About_Load;
+            
         }
+
+        
 
         private void About_Load(object sender, EventArgs e)
         {
@@ -84,6 +92,7 @@ namespace Spring.Messages
        
         public bool WaitingProgress { get; set; }
 
+        public Image Logo { get; set; }
         /// <summary>
         /// Loading flag for prgress bar visible or not
         /// </summary>
@@ -126,7 +135,7 @@ namespace Spring.Messages
                 CorpName = await UpdateCurrentCorporation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
 
 
-
+               Logo = ((Image)new BoolToImgConverter().Convert(true, null, null, null));
 
 
             });
