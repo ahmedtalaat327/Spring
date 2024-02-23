@@ -46,6 +46,8 @@ What you need to know:.🫡 </br>
 <div>
 - [View Architecture] 🎲
 <img src="./controls.png">
+- [Layers] 🪢
+<img src="./controls_illust-02.png">
 </div>
 Very Impertant!</br>
 #1 first thing first you must build your database.</br>
