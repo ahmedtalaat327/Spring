@@ -45,14 +45,19 @@ namespace Spring.Messages
             //assign progressbar properties [visibility & Running for loading]
             progressBarAdv1.DataBindings.Add(new Binding("Visible", AboutViewModel, "Loading"));
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", AboutViewModel, "WaitingProgress"));
-            gradientLabel1.DataBindings.Add(new Binding("Image", AboutViewModel, "Logo",true));
+            gradientLabel1.DataBindings.Add(new Binding("Image", AboutViewModel, "Logo", true));
 
-            
+            gradientLabel1.Paint += GradientLabel1_Paint;
+
             this.Load += About_Load;
             
         }
 
-        
+        private void GradientLabel1_Paint(object sender, PaintEventArgs e)
+        {
+             var lbl = (Label)sender;
+            lbl.Image = new Bitmap(lbl.Image, lbl.Size);
+        }
 
         private void About_Load(object sender, EventArgs e)
         {
@@ -87,9 +92,13 @@ namespace Spring.Messages
     public class AboutViewModel : BaseViewModel
     {
         #region Poperties
-       
+        /// <summary>
+        /// Name of corp
+        /// </summary>
         public string CorpName { get; set; }
-       
+        /// <summary>
+        /// Waiting flag
+        /// </summary>
         public bool WaitingProgress { get; set; }
 
         public Image Logo { get; set; }

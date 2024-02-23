@@ -242,15 +242,14 @@
             // gradientLabel1
             // 
             this.gradientLabel1.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(240)))), ((int)(((byte)(247))))), System.Drawing.Color.LightCyan);
-            this.gradientLabel1.BeforeTouchSize = new System.Drawing.Size(114, 85);
+            this.gradientLabel1.BeforeTouchSize = new System.Drawing.Size(114, 61);
             this.gradientLabel1.BorderSides = ((System.Windows.Forms.Border3DSide)((((System.Windows.Forms.Border3DSide.Left | System.Windows.Forms.Border3DSide.Top) 
             | System.Windows.Forms.Border3DSide.Right) 
             | System.Windows.Forms.Border3DSide.Bottom)));
-            this.gradientLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gradientLabel1.Location = new System.Drawing.Point(503, 225);
             this.gradientLabel1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 20);
             this.gradientLabel1.Name = "gradientLabel1";
-            this.gradientLabel1.Size = new System.Drawing.Size(114, 85);
+            this.gradientLabel1.Size = new System.Drawing.Size(114, 61);
             this.gradientLabel1.TabIndex = 22;
             this.gradientLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
