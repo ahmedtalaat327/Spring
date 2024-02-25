@@ -10,13 +10,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Syncfusion.Windows.Forms.Tools;
-using Spring.ViewModel;
 using Spring.Pages;
 using System.Collections.Generic;
 using Syncfusion.Windows.Forms.Tools.XPMenus;
 using Syncfusion.WinForms.Controls;
 using Spring.Messages;
 using Spring.StaticVM;
+using Spring.ViewModel;
+using Spring.View.MainView.LoginView;
 
 namespace Spring
 {
@@ -170,6 +171,9 @@ namespace Spring
                 accDetails.Show();
                 
             };
+            commandBar1.PopupMenu.ParentBarItem.Items[1].Click += (evt, obj) => {
+                VMCentral.DockingManagerViewModel.LogoutCommand.Execute(true);
+            };
 
             this.Load += (evt, nb) =>
             {
@@ -180,8 +184,9 @@ namespace Spring
                 }
                   
             };
+            VMCentral.DockingManagerViewModel.PropertyChanged += DockingManagerViewModel_PropertyChanged;
 
-             
+
 
 
             this.treeViewAdv1.BeforeSelect += (e, o) =>
@@ -257,6 +262,32 @@ namespace Spring
           //  this.panel2.Size = new Size(this.panel2.Width, 26);
             this.dockingManager1.SetControlSize(this.panel2, new Size(panel2.Width, 33));
         }
+
+        private void DockingManagerViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            //make sure we are in same VM and same property.
+            if (e.PropertyName == nameof(VMCentral.DockingManagerViewModel.Loading) && VMCentral.DockingManagerViewModel.GetType() == typeof(DockingManagerViewModel))
+            {
+                //After Loading property finish in RELYCOMMAND
+                if (!VMCentral.DockingManagerViewModel.Loading)
+                {
+                    //Pick which phase we are in
+                    if (VMCentral.DockingManagerViewModel.CurrentWait == DockingManagerViewModel.LogoutVMLoadingPhase.TerminatingCheckWaiting)
+                    {
+                        if (!VMCentral.DockingManagerViewModel.SuccessLogOut)
+                        {
+                            new AdvOptions().ShowFailur_Logout(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        else
+                        {
+                            new AdvOptions().ShowSuccess_Logout(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        //reset phase of loading fter all logic done!
+                        VMCentral.DockingManagerViewModel.CurrentWait = DockingManagerViewModel.LogoutVMLoadingPhase.Non;
+                    }
+                }
+            }
+                }
 
         void RaiseClick(TreeNodeAdv adv)
         {

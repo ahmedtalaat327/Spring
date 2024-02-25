@@ -308,6 +308,26 @@ namespace Spring.View.MainView.LoginView
 
             MessageBoxAdv.Show(parent, "You added new user with these entries!.", "User inserion is Valid", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        /// <summary>
+        /// Only show when logout is done <see cref="addUserViewModel.cs"/>
+        /// </summary>
+        public void ShowSuccess_Logout(Form parent)
+        {
+            MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
+
+            MessageBoxAdv.Show(parent, "You are successfully out of the system!.", "Logout is Valid", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBoxAdv.DropShadow = true;
+        }
+        /// <summary>
+        /// Only show when logout is done <see cref="addUserViewModel.cs"/>
+        /// </summary>
+        public void ShowFailur_Logout(Form parent)
+        {
+            MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
+
+            MessageBoxAdv.Show(parent, "You are unsuccessfully to logout this time!.", "Logout is not-Valid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBoxAdv.DropShadow = true;
+        }
         #endregion
     }
 

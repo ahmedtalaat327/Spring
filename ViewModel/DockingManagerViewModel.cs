@@ -2,16 +2,30 @@
 using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
 using Spring.Data;
+using Spring.StaticVM;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static Spring.ViewModel.LoginViewModel;
 
 
 namespace Spring.ViewModel
 {
     public class DockingManagerViewModel : BaseViewModel
     {
+        #region ENUM for Phases
+        /// <summary>
+        /// Progress bar porperty phases set
+        /// <see cref="WaitingProgress"/> <see cref="CurrentWait"/>
+        /// </summary>
+        public enum LogoutVMLoadingPhase
+        {
+            Non, //reset
+            TerminatingCheckWaiting,//ConnTermination relycommand
+        }
+        #endregion
         #region Fields
         private bool _firstLoad = true;
         #endregion
@@ -36,12 +50,26 @@ namespace Spring.ViewModel
         /// the current object opened and closed depend on params will be loaded onLoad only
         /// </summary>
         public OracleConnection MyAppOnlyObjctConn { get; set; }
+        /// <summary>
+        /// this for helping wait property when changing in VIEW 
+        /// </summary>
+        public LogoutVMLoadingPhase CurrentWait { get; set; } = LogoutVMLoadingPhase.Non;
+        /// <summary>
+        /// detemines if we are out or not
+        /// </summary>
+        public bool SuccessLogOut { get; set; } = false;
+        #region commands
+        /// <summary>
+        /// Our unique way to handle login comparison
+        /// </summary>
+        public ICommand LogoutCommand { get; set; }
+        #endregion
 
         #endregion
         public DockingManagerViewModel()
         {
             Loading = false;
-
+            LogoutCommand = new RelyCommand(async () => { await SignOutFromServerSQL(); });
         }
         /// <summary>
         /// check current tunnle conn
@@ -69,7 +97,60 @@ namespace Spring.ViewModel
                 return AccioEasyHelpers.ReadParamsThenConnectToDB(closeOrNot);
             });
         }
+        /// <summary>
+        /// this procedure to end the current connection object
+        /// </summary>
+        /// <returns></returns>
+        private Task TerminateCurrentConn()
+        {
+            return Task.Run(() =>
+            {
+                MyAppOnlyObjctConn.Close();
+                MyAppOnlyObjctConn.Dispose();
+            });
+        }
+        /// <summary>
+        /// Command to sign out
+        /// </summary>
+        /// <returns></returns>
+        public async Task SignOutFromServerSQL()
+        {
+            CurrentWait = LogoutVMLoadingPhase.TerminatingCheckWaiting;
 
+            await RunCommand(() => this.Loading, async () =>
+            {
+                try
+                {
+                    await TerminateCurrentConn();
+                    SuccessLogOut = true;
+                }
+                catch(Exception rt)
+                {
+                    SuccessLogOut = false;
+
+                }
+                /*
+                //test oracle db connection
+                if (await VMCentral.DockingManagerViewModel.ReadyMyDatabaseConn() == null)
+                {
+                  //  ValidConnection = false;
+
+                }
+                else
+                {
+                  //  ValidConnection = true;
+
+                }
+                */
+
+
+            });
+
+
+
+
+
+        }
     }
 }
 
