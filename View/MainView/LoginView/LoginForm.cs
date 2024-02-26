@@ -315,8 +315,14 @@ namespace Spring.View.MainView.LoginView
         {
             MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
 
-            MessageBoxAdv.Show(parent, "You are successfully out of the system!.", "Logout is Valid", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           var sout = MessageBoxAdv.Show(parent, "You are successfully out of the system!.", "Logout is Valid", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         
             MessageBoxAdv.DropShadow = true;
+            if (sout == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+
         }
         /// <summary>
         /// Only show when logout is done <see cref="addUserViewModel.cs"/>

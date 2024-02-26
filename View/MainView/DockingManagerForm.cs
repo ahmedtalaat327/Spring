@@ -287,7 +287,7 @@ namespace Spring
                     }
                 }
             }
-                }
+         }
 
         void RaiseClick(TreeNodeAdv adv)
         {
