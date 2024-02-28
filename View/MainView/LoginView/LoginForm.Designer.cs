@@ -133,6 +133,7 @@ namespace Spring.View.MainView.LoginView
             this.textBoxExt2.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             this.textBoxExt2.TabIndex = 2;
             this.textBoxExt2.ThemeName = "Metro";
+            this.textBoxExt2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxExt2_KeyDown);
             // 
             // label3
             // 
@@ -215,6 +216,7 @@ namespace Spring.View.MainView.LoginView
             this.textBoxExt1.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             this.textBoxExt1.TabIndex = 2;
             this.textBoxExt1.ThemeName = "Metro";
+            this.textBoxExt1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxExt1_KeyDown);
             // 
             // label2
             // 

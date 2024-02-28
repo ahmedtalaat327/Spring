@@ -473,6 +473,8 @@
             // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.GhostWhite;
+            this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -491,21 +493,21 @@
             // autoLabel7
             // 
             this.autoLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.autoLabel7.Location = new System.Drawing.Point(3, 0);
+            this.autoLabel7.Location = new System.Drawing.Point(5, 2);
             this.autoLabel7.Name = "autoLabel7";
-            this.autoLabel7.Size = new System.Drawing.Size(114, 47);
+            this.autoLabel7.Size = new System.Drawing.Size(114, 44);
             this.autoLabel7.TabIndex = 0;
             this.autoLabel7.Text = "Id here";
             this.autoLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxExt1
             // 
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(232, 20);
+            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(226, 20);
             this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExt1.Location = new System.Drawing.Point(133, 15);
+            this.textBoxExt1.Location = new System.Drawing.Point(137, 17);
             this.textBoxExt1.Margin = new System.Windows.Forms.Padding(13, 15, 100, 3);
             this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(232, 20);
+            this.textBoxExt1.Size = new System.Drawing.Size(226, 20);
             this.textBoxExt1.TabIndex = 1;
             this.textBoxExt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -514,11 +516,11 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Image = global::Spring.Properties.Resources.icons8_arrow_50;
-            this.label1.Location = new System.Drawing.Point(120, 47);
+            this.label1.Location = new System.Drawing.Point(124, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.MaximumSize = new System.Drawing.Size(200, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 47);
+            this.label1.Size = new System.Drawing.Size(200, 44);
             this.label1.TabIndex = 2;
             this.label1.Text = "         ";
             // 

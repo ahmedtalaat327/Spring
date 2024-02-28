@@ -183,8 +183,34 @@ namespace Spring.View.MainView.LoginView
 
        
         #region Events
+        /// <summary>
+        /// when button clicked to login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sfButton1_Click(object sender, EventArgs e)
         {
+            dataContext.LoginCommand.Execute(true);
+        }
+  
+        /// <summary>
+        /// when enter pressed on keyboard on username textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxExt1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            dataContext.LoginCommand.Execute(true);
+        }
+        /// <summary>
+        /// when enter pressed on keyboard on password textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxExt2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             dataContext.LoginCommand.Execute(true);
         }
         #endregion
