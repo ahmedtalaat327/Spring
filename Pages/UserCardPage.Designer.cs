@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
+            this.checkerfullname = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -475,19 +476,22 @@
             // 
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.GhostWhite;
             this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel4.ColumnCount = 4;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel4.Controls.Add(this.autoLabel7, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBoxExt1, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label1, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label1, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.checkerfullname, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(175, 13);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 33);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(465, 94);
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(465, 64);
             this.tableLayoutPanel4.TabIndex = 7;
             // 
             // autoLabel7
@@ -495,19 +499,19 @@
             this.autoLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.autoLabel7.Location = new System.Drawing.Point(5, 2);
             this.autoLabel7.Name = "autoLabel7";
-            this.autoLabel7.Size = new System.Drawing.Size(114, 44);
+            this.autoLabel7.Size = new System.Drawing.Size(103, 60);
             this.autoLabel7.TabIndex = 0;
             this.autoLabel7.Text = "Id here";
             this.autoLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxExt1
             // 
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(226, 20);
+            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(194, 20);
             this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExt1.Location = new System.Drawing.Point(137, 17);
-            this.textBoxExt1.Margin = new System.Windows.Forms.Padding(13, 15, 100, 3);
+            this.textBoxExt1.Location = new System.Drawing.Point(133, 27);
+            this.textBoxExt1.Margin = new System.Windows.Forms.Padding(20, 25, 20, 5);
             this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(226, 20);
+            this.textBoxExt1.Size = new System.Drawing.Size(194, 20);
             this.textBoxExt1.TabIndex = 1;
             this.textBoxExt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -516,11 +520,11 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Image = global::Spring.Properties.Resources.icons8_arrow_50;
-            this.label1.Location = new System.Drawing.Point(124, 48);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Location = new System.Drawing.Point(398, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.label1.MaximumSize = new System.Drawing.Size(200, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 44);
+            this.label1.Size = new System.Drawing.Size(65, 50);
             this.label1.TabIndex = 2;
             this.label1.Text = "         ";
             // 
@@ -743,6 +747,21 @@
             this.imageList2.Images.SetKeyName(212, "Windows 7 (3).ico");
             this.imageList2.Images.SetKeyName(213, "Windows 7 (214).ico");
             // 
+            // checkerfullname
+            // 
+            this.checkerfullname.AutoSize = true;
+            this.checkerfullname.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkerfullname.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkerfullname.ImageIndex = 123;
+            this.checkerfullname.ImageList = this.imageList1;
+            this.checkerfullname.Location = new System.Drawing.Point(354, 7);
+            this.checkerfullname.Margin = new System.Windows.Forms.Padding(5);
+            this.checkerfullname.MaximumSize = new System.Drawing.Size(50, 50);
+            this.checkerfullname.MinimumSize = new System.Drawing.Size(20, 20);
+            this.checkerfullname.Name = "checkerfullname";
+            this.checkerfullname.Size = new System.Drawing.Size(37, 50);
+            this.checkerfullname.TabIndex = 8;
+            // 
             // UserCardPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -784,5 +803,6 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel7;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label checkerfullname;
     }
 }

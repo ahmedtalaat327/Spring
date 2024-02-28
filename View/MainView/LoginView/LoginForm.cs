@@ -1,8 +1,5 @@
-﻿using Spring.Pages.ViewModel;
-using Spring.StaticVM;
-using Spring.ViewModel;
+﻿using Spring.ViewModel;
 using Syncfusion.Windows.Forms;
-using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -25,7 +22,6 @@ namespace Spring.View.MainView.LoginView
         /// </summary>
         private LoginViewModel dataContext = null;
         #endregion
-
 
         #region constructor
         /// <summary>
@@ -181,7 +177,6 @@ namespace Spring.View.MainView.LoginView
         }
         #endregion
 
-       
         #region Events
         /// <summary>
         /// when button clicked to login
@@ -220,7 +215,6 @@ namespace Spring.View.MainView.LoginView
     /// </summary>
     public class AdvOptions
     {
-
         #region APIs
         [DllImport("USER32.DLL")]
         static extern IntPtr GetShellWindow();
