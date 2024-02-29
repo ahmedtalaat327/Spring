@@ -15,7 +15,7 @@ namespace Spring.Pages
         /// <summary>
         /// new instance from the VM
         /// </summary>
-        AddUserViewModel addUserViewModel = new AddUserViewModel();
+        UserCardViewModel userCardViewModel =  new UserCardViewModel();
         #endregion
         #region ctr
         /// <summary>
@@ -27,25 +27,16 @@ namespace Spring.Pages
             #region UI customizations
             InitializeComponent();
 
-            //some UI customizations
-
-
-
             #endregion
 
-
-
             #region Bindings
-
-            this.sfBarcode1.Text = "222";
-
-            
+            this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
 
 
             #endregion
 
             #region Events
-            this.Load += UserCardPage_Load;
+             
 
             optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
 
@@ -59,7 +50,7 @@ namespace Spring.Pages
         }
         //when some property changed
         private void AddUserViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
+        {/*
             //make sure we are in same VM and same property.
             if (e.PropertyName == nameof(VMCentral.DockingManagerViewModel.Loading) && VMCentral.DockingManagerViewModel.GetType() == typeof(DockingManagerViewModel))
             {
@@ -83,6 +74,7 @@ namespace Spring.Pages
                     
                 }
             }
+            */
         }
 
 
@@ -110,16 +102,7 @@ namespace Spring.Pages
                 o.Cancel = true;
         }
 
-        /// <summary>
-        /// when page load 
-        /// make all commnds executed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UserCardPage_Load(object sender, EventArgs e)
-        {
-            addUserViewModel.LoadInitialWithRefrshing.Execute(true);
-        }
+       
         void RaiseClick(TreeNodeAdv adv)
         {
             // please use your code here
@@ -136,10 +119,6 @@ namespace Spring.Pages
         }
 
         #endregion
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+ 
     }
 }

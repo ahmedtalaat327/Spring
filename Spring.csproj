@@ -231,6 +231,7 @@
     <None Include="password-imgs\icons8-eye-2-48.png" />
     <None Include="password-imgs\icons8-eye-48.png" />
     <None Include="init\crd.png" />
+    <None Include="not_available.png" />
     <Content Include="springTM.ico" />
     <None Include="springTM.png" />
     <Content Include="VS.ico" />
