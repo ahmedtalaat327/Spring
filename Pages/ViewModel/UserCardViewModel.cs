@@ -1,4 +1,5 @@
-﻿using Spring.ViewModel.Base;
+﻿using Spring.StaticVM;
+using Spring.ViewModel.Base;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,7 +14,11 @@ namespace Spring.Pages.ViewModel
         #region Members
 
         #endregion
-        #region Properties
+        #region Public Properties
+        /// <summary>
+        /// determines if panel is active or not
+        /// </summary>
+        public bool ActivePanel { get => VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel.Contains("admin") ? true : false; }
         /// <summary>
         /// corp-logo property
         /// </summary>

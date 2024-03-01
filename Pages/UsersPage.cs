@@ -16,7 +16,7 @@ namespace Spring.Pages
     {
         
         UsersViewModel usersViewModel = new UsersViewModel();
-        public UsersPage(TreeViewAdv optionsTree)
+        public UsersPage(TreeViewAdv optionsTree) : base(optionsTree)
         {
             InitializeComponent();
             

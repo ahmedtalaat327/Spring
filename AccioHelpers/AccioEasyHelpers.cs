@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -72,9 +73,16 @@ namespace Spring.AccioHelpers
         /// <returns></returns>
         public static OracleConnection ReadParamsThenConnectToDB(bool autoclose)
         {
-            //read params from config
-            var data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\params.info");
-
+            string[] data ;
+            try
+            {
+                //read params from config
+                 data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\params.info");
+            }
+            catch(Exception excF)
+            {
+                data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring for Server.exe").Length) + "init\\params.info");
+            }
             var server_adress = AccioEasyHelpers.GetTxTBettwen(data[4], "::", ",");
             var port = AccioEasyHelpers.GetTxTBettwen(data[5], "::", ",");
 

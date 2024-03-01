@@ -15,8 +15,15 @@ namespace Spring.Pages.ValueConverter
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? new Bitmap(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\companylogo.png") : null;
-          
+            try
+            {
+                return (bool)value ? new Bitmap(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\companylogo.png") : null;
+            }
+            catch (Exception excE)
+            {
+                return (bool)value ? new Bitmap(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring for Server.exe").Length) + "init\\companylogo.png") : null;
+
+            }
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

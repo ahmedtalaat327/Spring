@@ -22,7 +22,7 @@ namespace Spring.Pages
         /// Constructor
         /// </summary>
         /// <param name="optionsTree"></param>
-        public AddUserPage(TreeViewAdv optionsTree)
+        public AddUserPage(TreeViewAdv optionsTree) : base(optionsTree)
         {
             #region UI customizations
             InitializeComponent();

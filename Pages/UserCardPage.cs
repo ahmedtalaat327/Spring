@@ -22,14 +22,19 @@ namespace Spring.Pages
         /// Constructor
         /// </summary>
         /// <param name="optionsTree"></param>
-        public UserCardPage(TreeViewAdv optionsTree)
+        public UserCardPage(TreeViewAdv optionsTree) : base(optionsTree)
         {
+          
             #region UI customizations
             InitializeComponent();
-
+            
             #endregion
 
             #region Bindings
+
+            //binding active flag to panel
+            this.DataBindings.Add(new Binding("Enabled", userCardViewModel, "ActivePanel"));
+
             this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
 
 

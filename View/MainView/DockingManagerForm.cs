@@ -312,7 +312,7 @@ namespace Spring
 
                 if (tabControlAdv1.TabPages[d].Text.Equals(tabPageAdvN.Text))
                 {
-
+                    #region USERS ONLY
                     if (tabControlAdv1.TabPages[d].Text.Equals("Add New User"))
                     {
 
@@ -457,7 +457,7 @@ namespace Spring
                         };
 
                     }
-
+                    #endregion
 
                     this.tabControlAdv1.SelectedTab = tabControlAdv1.TabPages[d];
                     break;

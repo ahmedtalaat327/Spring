@@ -162,7 +162,16 @@ namespace Spring.Messages
             return Task.Run(() =>
             {
 
-                var data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\params.info");
+                string[] data;
+                try
+                {
+                    //read params from config
+                    data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\params.info");
+                }
+                catch (Exception excF)
+                {
+                    data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring for Server.exe").Length) + "init\\params.info");
+                }
 
                 var corp_name = AccioEasyHelpers.GetTxTBettwen(data[6], "::", ",");
               
