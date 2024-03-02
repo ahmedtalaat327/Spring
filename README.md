@@ -69,6 +69,13 @@ params.info :
 #version::1.1.0,
 #console::False,
 ]
+````
+
+<!-- Server Side -->
+## Server Side 😎🚀<br>
+-- [x] we're working on a small tool will allow any IT help desk <br> to make easy .dmp file every time and control any session on server too.
+<a href="https://imgbb.com/"><img src="./springserv_sc.png" alt="expl" border="0" style="width: 200; height: 100%;"></a>
+
 
 ````
 <!-- VIDEO -->
