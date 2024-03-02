@@ -77,10 +77,12 @@ params.info :
 <a href="https://imgbb.com/"><img src="./springserv_sc.png" alt="expl" border="0" style="width: 200; height: 100%;"></a>
 
 
-````
-<!-- VIDEO -->
+
+<!-- To Do -->
 ## To Do List: ⛏️</br>
 - [x] Add params file in the project.
 - [x] Convert Scripts.cs to .dll library. (Now migrating to .dll as library to use!) from "using AccioInventory.DBConnection;" to "using AccioOracleKit;"
-- [x] Integrade QR code.
+- [x] Integrating QR code.
 - [ ] Chart cards usercontrol.
+
+---------------
