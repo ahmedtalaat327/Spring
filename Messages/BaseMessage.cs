@@ -64,7 +64,7 @@ namespace Spring.Messages
         }
         #endregion
         #region Get Form Icon
-        private string GetIconFile(string bitmapName)
+        public string GetIconFile(string bitmapName)
         {
             for (int n = 0; n < 10; n++)
             {

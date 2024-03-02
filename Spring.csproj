@@ -101,6 +101,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\ExpressionHelpers.cs" />
+    <Compile Include="Messages\BackupTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Messages\BackupTool.Designer.cs">
+      <DependentUpon>BackupTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Messages\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     <Compile Include="View\MainView\LoginView\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Messages\BackupTool.resx">
+      <DependentUpon>BackupTool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
