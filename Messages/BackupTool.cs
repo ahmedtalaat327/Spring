@@ -102,6 +102,11 @@ namespace Spring.Messages
         {
 
         }
+
+        private void proceedBtn_Click(object sender, EventArgs e)
+        {
+            BackupToolViewModel.StartDBDumpProcessCommand.Execute(true);
+        }
     }
     //this View model may be moved to a seperate file .cs 
     public class BackupToolViewModel : BaseViewModel
@@ -128,12 +133,16 @@ namespace Spring.Messages
         /// Command update for events 
         /// </summary>
         public ICommand UpdateCorporationNameCommand { get; set; }
+
+        public ICommand StartDBDumpProcessCommand { get; set; }
         #endregion
         #region Constructor
         public BackupToolViewModel()
         {
 
             UpdateCorporationNameCommand = new RelyCommand(async () => await LoadParamsThenGetCorpName());
+
+            StartDBDumpProcessCommand = new RelyCommand(async () => await ExecuteDBDUMP());
 
             WaitingProgress = false;
 
@@ -196,9 +205,19 @@ namespace Spring.Messages
             });
 
         }
+        /// <summary>
+        /// Update user info after assigning password from current property
+        /// </summary>
+        /// <returns></returns>
+        private async Task ExecuteDBDUMP()
+        {
+            await RunCommand(() => this.WaitingProgress, async () =>
+            {
+                await new OracleExp("store","store","orcl", "D:\\bkp\\").StartProc();
+            });
+        }
 
+            #endregion
 
-        #endregion
-
-    }
+        }
 }

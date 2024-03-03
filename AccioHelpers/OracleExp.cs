@@ -1,5 +1,6 @@
 ﻿using CliWrap;
 using System;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +12,8 @@ namespace Spring.AccioHelpers
         /// <summary>
         /// private fields
         /// </summary>
-        private string userName, password, dbInstace, urlToProc;
+        private string userName, password, dbInstace, urlToSave;
+        private string urlToProc = null;
         /// <summary>
         /// constructor to assign all fields
         /// </summary>
@@ -24,7 +26,7 @@ namespace Spring.AccioHelpers
             this.userName = username;
             this.password = pass;
             this.dbInstace = instance;
-            this.urlToProc = url;
+            this.urlToSave = url;
 
         }
         /// <summary>
@@ -33,6 +35,8 @@ namespace Spring.AccioHelpers
         /// <returns></returns>
         public async Task StartProc()
         {
+            urlToProc = AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring for Server.exe").Length) ;
+            //var xxx = urlToProc;
             await Task.Run(async () =>
             {
 
@@ -43,7 +47,7 @@ namespace Spring.AccioHelpers
                 try
                 {
                     await Cli.Wrap("powershell.exe")
-                        .WithArguments(new[] { $@"& '{urlToProc}\Processes\Request.exe'" + " " + userName + " " + password + " "+ dbInstace })
+                        .WithArguments(new[] { $@"& '{urlToProc}process\OracleExportDB.exe'" + " " + userName + " " + password + " " + dbInstace + " " + urlToSave })
                         // This can be simplified with `ExecuteBufferedAsync()`
                         .WithStandardOutputPipe(PipeTarget.ToStringBuilder(stdOutBuffer))
                         .WithStandardErrorPipe(PipeTarget.ToStringBuilder(stdErrBuffer))
@@ -54,10 +58,12 @@ namespace Spring.AccioHelpers
                     // Command was canceled
                     cts.Cancel();
                 }
+                 
              
               
 
             });
         }
+        
     }
 }

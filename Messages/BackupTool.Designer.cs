@@ -776,6 +776,7 @@
             this.proceedBtn.TabIndex = 7;
             this.proceedBtn.Text = "Proceed";
             this.proceedBtn.UseVisualStyleBackColor = false;
+            this.proceedBtn.Click += new System.EventHandler(this.proceedBtn_Click);
             // 
             // label7
             // 
