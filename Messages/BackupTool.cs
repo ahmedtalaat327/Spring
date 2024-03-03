@@ -48,17 +48,19 @@ namespace Spring.Messages
 
 
 
-            this.textBoxExt2.SetImgeForFirstTime(new Bitmap(Properties.Resources.icons8_eye_2_48, this.textBoxExt2.LabelEyeRevealler.Size));
-            this.textBoxExt2.SetImageForHover(new Bitmap(Properties.Resources.icons8_eye_48, this.textBoxExt2.LabelEyeRevealler.Size));
+            this.passField.SetImgeForFirstTime(new Bitmap(Properties.Resources.icons8_eye_2_48, this.passField.LabelEyeRevealler.Size));
+            this.passField.SetImageForHover(new Bitmap(Properties.Resources.icons8_eye_48, this.passField.LabelEyeRevealler.Size));
 
             //link all properties to their controlers
-
             this.label2.DataBindings.Add(new Binding("Text", BackupToolViewModel, "CorpName"));
 
             //assign progressbar properties [visibility & Running for loading]
             progressBarAdv1.DataBindings.Add(new Binding("Visible", BackupToolViewModel, "Loading"));
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", BackupToolViewModel, "WaitingProgress"));
             gradientLabel1.DataBindings.Add(new Binding("Image", BackupToolViewModel, "Logo", true));
+
+
+
 
             gradientLabel1.Paint += GradientLabel1_Paint;
 

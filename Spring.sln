@@ -4,26 +4,63 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring", "Spring.csproj", "{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0CB2109-055F-4D32-8C07-FF095433D62C} = {C0CB2109-055F-4D32-8C07-FF095433D62C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spring for Server", "..\Spring for Server\Spring for Server.csproj", "{E19366E1-CD09-4F3F-9F69-80461E1388B7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC} = {85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OracleExportDB", "..\OracleExportDB\OracleExportDB.vcxproj", "{C0CB2109-055F-4D32-8C07-FF095433D62C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Debug|x64.Build.0 = Debug|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Debug|x86.Build.0 = Debug|Any CPU
 		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Release|x64.Build.0 = Release|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{85D5AE08-4EB8-470E-B39A-B531CC9AF1DC}.Release|x86.Build.0 = Release|Any CPU
 		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Debug|x64.Build.0 = Debug|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Debug|x86.Build.0 = Debug|Any CPU
 		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Release|x64.ActiveCfg = Release|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Release|x64.Build.0 = Release|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Release|x86.ActiveCfg = Release|Any CPU
+		{E19366E1-CD09-4F3F-9F69-80461E1388B7}.Release|x86.Build.0 = Release|Any CPU
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Debug|Any CPU.Build.0 = Debug|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Debug|x64.ActiveCfg = Debug|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Debug|x64.Build.0 = Debug|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Debug|x86.ActiveCfg = Debug|Win32
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Debug|x86.Build.0 = Debug|Win32
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Release|Any CPU.ActiveCfg = Release|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Release|Any CPU.Build.0 = Release|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Release|x64.ActiveCfg = Release|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Release|x64.Build.0 = Release|x64
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Release|x86.ActiveCfg = Release|Win32
+		{C0CB2109-055F-4D32-8C07-FF095433D62C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

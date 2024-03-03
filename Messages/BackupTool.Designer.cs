@@ -51,18 +51,19 @@
             this.tabPageAdv1 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tabPageAdv2 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.progressBarAdv2 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.imageStreamer2 = new Syncfusion.Windows.Forms.Tools.ImageStreamer();
             this.autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.userFeild = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxExt2 = new Spring.Helpers.Controls.PasswordBoxExt();
+            this.passField = new Spring.Helpers.Controls.PasswordBoxExt();
             this.label6 = new System.Windows.Forms.Label();
-            this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
+            this.proceedBtn = new Syncfusion.WinForms.Controls.SfButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.instanceField = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.tabPageAdv3 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
@@ -71,9 +72,11 @@
             this.tabPageAdv1.SuspendLayout();
             this.tabPageAdv2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv2)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userFeild)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instanceField)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -596,11 +599,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 233F));
+            this.tableLayoutPanel2.Controls.Add(this.progressBarAdv2, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.imageStreamer2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.autoLabel6, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.instanceField, 3, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(20);
@@ -614,6 +618,35 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(813, 423);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // progressBarAdv2
+            // 
+            this.progressBarAdv2.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv2.BackSegments = false;
+            this.tableLayoutPanel2.SetColumnSpan(this.progressBarAdv2, 4);
+            this.progressBarAdv2.CustomText = null;
+            this.progressBarAdv2.CustomWaitingRender = false;
+            this.progressBarAdv2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBarAdv2.ForegroundImage = null;
+            this.progressBarAdv2.GradientEndColor = System.Drawing.SystemColors.ActiveCaption;
+            this.progressBarAdv2.GradientStartColor = System.Drawing.Color.Orange;
+            this.progressBarAdv2.Location = new System.Drawing.Point(40, 367);
+            this.progressBarAdv2.Margin = new System.Windows.Forms.Padding(10);
+            this.progressBarAdv2.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv2.Name = "progressBarAdv2";
+            this.progressBarAdv2.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
+            this.progressBarAdv2.SegmentWidth = 12;
+            this.progressBarAdv2.Size = new System.Drawing.Size(733, 16);
+            this.progressBarAdv2.TabIndex = 9;
+            this.progressBarAdv2.Text = "progressBarAdv2";
+            this.progressBarAdv2.TextShadow = false;
+            this.progressBarAdv2.TextVisible = false;
+            this.progressBarAdv2.ThemeName = "WaitingGradient";
+            this.progressBarAdv2.TubeEndColor = System.Drawing.SystemColors.MenuHighlight;
+            this.progressBarAdv2.TubeStartColor = System.Drawing.Color.IndianRed;
+            this.progressBarAdv2.WaitingGradientWidth = 400;
             // 
             // imageStreamer2
             // 
@@ -639,7 +672,7 @@
             this.autoLabel6.Name = "autoLabel6";
             this.autoLabel6.Size = new System.Drawing.Size(314, 103);
             this.autoLabel6.TabIndex = 1;
-            this.autoLabel6.Text = "Make dump of current Database";
+            this.autoLabel6.Text = "Make a dump of current Database (Oracle 10g)";
             this.autoLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
@@ -649,11 +682,11 @@
             this.tableLayoutPanel2.SetColumnSpan(this.tableLayoutPanel4, 3);
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.17647F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.82353F));
-            this.tableLayoutPanel4.Controls.Add(this.textBoxExt1, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.userFeild, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBoxExt2, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.passField, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.sfButton1, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.proceedBtn, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(230, 138);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(200, 5, 5, 1);
@@ -666,22 +699,22 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(315, 148);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // textBoxExt1
+            // userFeild
             // 
-            this.textBoxExt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(156, 31);
-            this.textBoxExt1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.textBoxExt1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxExt1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.textBoxExt1.Location = new System.Drawing.Point(144, 3);
-            this.textBoxExt1.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(156, 31);
-            this.textBoxExt1.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
-            this.textBoxExt1.TabIndex = 3;
-            this.textBoxExt1.ThemeName = "Metro";
+            this.userFeild.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.userFeild.BeforeTouchSize = new System.Drawing.Size(203, 31);
+            this.userFeild.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.userFeild.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userFeild.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userFeild.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userFeild.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.userFeild.Location = new System.Drawing.Point(144, 3);
+            this.userFeild.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.userFeild.Name = "userFeild";
+            this.userFeild.Size = new System.Drawing.Size(156, 31);
+            this.userFeild.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
+            this.userFeild.TabIndex = 3;
+            this.userFeild.ThemeName = "Metro";
             // 
             // label5
             // 
@@ -695,23 +728,23 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "User Name";
             // 
-            // textBoxExt2
+            // passField
             // 
-            this.textBoxExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
-            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(156, 31);
-            this.textBoxExt2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.textBoxExt2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxExt2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxExt2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.textBoxExt2.Location = new System.Drawing.Point(144, 40);
-            this.textBoxExt2.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.textBoxExt2.Name = "textBoxExt2";
-            this.textBoxExt2.PasswordChar = '●';
-            this.textBoxExt2.Size = new System.Drawing.Size(156, 31);
-            this.textBoxExt2.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
-            this.textBoxExt2.TabIndex = 5;
-            this.textBoxExt2.ThemeName = "Metro";
+            this.passField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.passField.BeforeTouchSize = new System.Drawing.Size(203, 31);
+            this.passField.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.passField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.passField.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passField.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.passField.Location = new System.Drawing.Point(144, 40);
+            this.passField.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.passField.Name = "passField";
+            this.passField.PasswordChar = '●';
+            this.passField.Size = new System.Drawing.Size(156, 31);
+            this.passField.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
+            this.passField.TabIndex = 5;
+            this.passField.ThemeName = "Metro";
             // 
             // label6
             // 
@@ -725,24 +758,24 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Password";
             // 
-            // sfButton1
+            // proceedBtn
             // 
-            this.sfButton1.AccessibleName = "Button";
-            this.sfButton1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.tableLayoutPanel4.SetColumnSpan(this.sfButton1, 2);
-            this.sfButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.sfButton1.ForeColor = System.Drawing.Color.White;
-            this.sfButton1.Location = new System.Drawing.Point(40, 94);
-            this.sfButton1.Margin = new System.Windows.Forms.Padding(40, 20, 40, 20);
-            this.sfButton1.Name = "sfButton1";
-            this.tableLayoutPanel4.SetRowSpan(this.sfButton1, 2);
-            this.sfButton1.Size = new System.Drawing.Size(235, 34);
-            this.sfButton1.Style.BackColor = System.Drawing.Color.RoyalBlue;
-            this.sfButton1.Style.ForeColor = System.Drawing.Color.White;
-            this.sfButton1.TabIndex = 7;
-            this.sfButton1.Text = "Proceed";
-            this.sfButton1.UseVisualStyleBackColor = false;
+            this.proceedBtn.AccessibleName = "Button";
+            this.proceedBtn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.tableLayoutPanel4.SetColumnSpan(this.proceedBtn, 2);
+            this.proceedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.proceedBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.proceedBtn.ForeColor = System.Drawing.Color.White;
+            this.proceedBtn.Location = new System.Drawing.Point(40, 94);
+            this.proceedBtn.Margin = new System.Windows.Forms.Padding(40, 20, 40, 20);
+            this.proceedBtn.Name = "proceedBtn";
+            this.tableLayoutPanel4.SetRowSpan(this.proceedBtn, 2);
+            this.proceedBtn.Size = new System.Drawing.Size(235, 34);
+            this.proceedBtn.Style.BackColor = System.Drawing.Color.RoyalBlue;
+            this.proceedBtn.Style.ForeColor = System.Drawing.Color.White;
+            this.proceedBtn.TabIndex = 7;
+            this.proceedBtn.Text = "Proceed";
+            this.proceedBtn.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -755,7 +788,26 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(747, 35);
             this.label7.TabIndex = 7;
-            this.label7.Text = "* You need to call the Administrator for these params for your database details.";
+            this.label7.Text = "* You need to call the Administrator for these inputs values for your database de" +
+    "tails.";
+            // 
+            // instanceField
+            // 
+            this.instanceField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.instanceField.BeforeTouchSize = new System.Drawing.Size(203, 31);
+            this.instanceField.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.instanceField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.instanceField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.instanceField.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instanceField.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.instanceField.Location = new System.Drawing.Point(565, 143);
+            this.instanceField.Margin = new System.Windows.Forms.Padding(15, 10, 15, 3);
+            this.instanceField.Name = "instanceField";
+            this.instanceField.Size = new System.Drawing.Size(203, 31);
+            this.instanceField.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
+            this.instanceField.TabIndex = 8;
+            this.instanceField.Text = "@instance";
+            this.instanceField.ThemeName = "Metro";
             // 
             // tabPageAdv3
             // 
@@ -768,18 +820,6 @@
             this.tabPageAdv3.TabIndex = 3;
             this.tabPageAdv3.Text = "Sessions";
             this.tabPageAdv3.ThemesEnabled = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.label8.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label8.Location = new System.Drawing.Point(551, 141);
-            this.label8.Margin = new System.Windows.Forms.Padding(1, 8, 1, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(174, 20);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "@yoursuperusername";
             // 
             // BackupTool
             // 
@@ -799,10 +839,12 @@
             this.tabPageAdv2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv2)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userFeild)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instanceField)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -835,12 +877,13 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt userFeild;
         private System.Windows.Forms.Label label5;
-        private Helpers.Controls.PasswordBoxExt textBoxExt2;
+        private Helpers.Controls.PasswordBoxExt passField;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private Syncfusion.WinForms.Controls.SfButton sfButton1;
-        private System.Windows.Forms.Label label8;
+        private Syncfusion.WinForms.Controls.SfButton proceedBtn;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt instanceField;
+        private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv2;
     }
 }
