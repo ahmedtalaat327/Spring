@@ -55,8 +55,12 @@ namespace Spring.Messages
 
         private void GradientLabel1_Paint(object sender, PaintEventArgs e)
         {
-             var lbl = (Label)sender;
-            lbl.Image = new Bitmap(lbl.Image, lbl.Size);
+            try
+            {
+                var lbl = (Label)sender;
+                lbl.Image = new Bitmap(lbl.Image, lbl.Size);
+            }
+            catch { }
         }
 
         private void About_Load(object sender, EventArgs e)
@@ -138,7 +142,7 @@ namespace Spring.Messages
 
             await RunCommand(() => this.WaitingProgress, async () => 
             {
-
+                await Task.Delay(7000);
                 //must put awaitable task func connected to database
 
                 CorpName = await UpdateCurrentCorporation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);

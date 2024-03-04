@@ -1,18 +1,20 @@
 ﻿
 
-using AccioOracleKit;
+
 using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
 using Spring.Pages.ValueConverter;
 using Spring.StaticVM;
-using Spring.ViewModel;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
 using System;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace Spring.Messages
 {
@@ -46,6 +48,8 @@ namespace Spring.Messages
             this.progressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
             this.progressBarAdv1.WaitingGradientEnabled = true;
 
+            this.progressBarAdv2.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
+            this.progressBarAdv2.WaitingGradientEnabled = true;
 
 
             this.passField.SetImgeForFirstTime(new Bitmap(Properties.Resources.icons8_eye_2_48, this.passField.LabelEyeRevealler.Size));
@@ -55,17 +59,43 @@ namespace Spring.Messages
             this.label2.DataBindings.Add(new Binding("Text", BackupToolViewModel, "CorpName"));
 
             //assign progressbar properties [visibility & Running for loading]
+            //for some reason visivilty not binding here [maybe its console based application]
             progressBarAdv1.DataBindings.Add(new Binding("Visible", BackupToolViewModel, "Loading"));
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", BackupToolViewModel, "WaitingProgress"));
+            //for some reason visivilty not binding here [maybe its console based application]
+            progressBarAdv2.DataBindings.Add(new Binding("Visible", BackupToolViewModel, "Loading"));
+            progressBarAdv2.DataBindings.Add(new Binding("WaitingGradientEnabled", BackupToolViewModel, "WaitingProgress"));
+
             gradientLabel1.DataBindings.Add(new Binding("Image", BackupToolViewModel, "Logo", true));
 
+            userFeild.DataBindings.Add(new Binding("Text", BackupToolViewModel, "UserName", true));
 
 
 
             gradientLabel1.Paint += GradientLabel1_Paint;
+            //fixing issue with visivilty binding issue..
+            BackupToolViewModel.PropertyChanged += BackupToolViewModel_PropertyChanged;
 
             this.Load += BackupTool_Load;
             
+        }
+
+        private void BackupToolViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(BackupToolViewModel.WaitingProgress))
+            {
+                if (BackupToolViewModel.WaitingProgress)
+                {
+                    progressBarAdv2.Visible = true;
+                    progressBarAdv1.Visible = true;
+                }
+                else
+                {
+                    progressBarAdv2.Visible = false;
+                    progressBarAdv1.Visible = true;
+
+                }
+            }
         }
 
         private void GradientLabel1_Paint(object sender, PaintEventArgs e)
@@ -105,7 +135,25 @@ namespace Spring.Messages
 
         private void proceedBtn_Click(object sender, EventArgs e)
         {
-            BackupToolViewModel.StartDBDumpProcessCommand.Execute(true);
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "DUMP (*.dump)|*.dump"
+            };
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = Path.GetFullPath(saveFileDialog.FileName);
+                if (path != null)
+                {
+                    string dirPath = Directory.GetParent(path).FullName;
+                    BackupToolViewModel.StartDBDumpProcessCommand.Execute($"{dirPath}");
+                }
+                else
+                {
+                    return;
+                }
+            }
+
         }
     }
     //this View model may be moved to a seperate file .cs 
@@ -120,12 +168,18 @@ namespace Spring.Messages
         /// Waiting flag
         /// </summary>
         public bool WaitingProgress { get; set; }
-
+        /// <summary>
+        /// Corpo logo image
+        /// </summary>
         public Image Logo { get; set; }
         /// <summary>
         /// Loading flag for prgress bar visible or not
         /// </summary>
         public bool Loading { get { return WaitingProgress; } }
+        /// <summary>
+        /// User name for database admin
+        /// </summary>
+        public string UserName { get; set; } = "";
         #endregion
 
         #region Commands
@@ -133,18 +187,19 @@ namespace Spring.Messages
         /// Command update for events 
         /// </summary>
         public ICommand UpdateCorporationNameCommand { get; set; }
-
+        /// <summary>
+        /// Command for dumping current database 
+        /// </summary>
         public ICommand StartDBDumpProcessCommand { get; set; }
         #endregion
         #region Constructor
         public BackupToolViewModel()
         {
+            WaitingProgress = false;
 
             UpdateCorporationNameCommand = new RelyCommand(async () => await LoadParamsThenGetCorpName());
 
-            StartDBDumpProcessCommand = new RelyCommand(async () => await ExecuteDBDUMP());
-
-            WaitingProgress = false;
+            StartDBDumpProcessCommand = new RelayParameterizedCommand(async (xpath) => await ExecuteDBDUMP(xpath));
 
         }
 
@@ -158,7 +213,7 @@ namespace Spring.Messages
         /// <returns></returns>
         private async Task LoadParamsThenGetCorpName()
         {
-           
+             
 
             await RunCommand(() => this.WaitingProgress, async () => 
             {
@@ -209,15 +264,20 @@ namespace Spring.Messages
         /// Update user info after assigning password from current property
         /// </summary>
         /// <returns></returns>
-        private async Task ExecuteDBDUMP()
+        private async Task ExecuteDBDUMP(object pathToSave)
         {
             await RunCommand(() => this.WaitingProgress, async () =>
             {
-                await new OracleExp("store","store","orcl", "D:\\bkp\\").StartProc();
+                
+                await Task.Delay(5000);
+               
+                await new OracleExp("store","store","orcl", $"{pathToSave as string}\\").StartProc();
             });
-        }
-
-            #endregion
+            
 
         }
+
+        #endregion
+
+    }
 }

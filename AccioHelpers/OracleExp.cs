@@ -1,6 +1,5 @@
 ﻿using CliWrap;
 using System;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -48,9 +47,9 @@ namespace Spring.AccioHelpers
                 {
                     await Cli.Wrap("powershell.exe")
                         .WithArguments(new[] { $@"& '{urlToProc}process\OracleExportDB.exe'" + " " + userName + " " + password + " " + dbInstace + " " + urlToSave })
-                        // This can be simplified with `ExecuteBufferedAsync()`
-                        .WithStandardOutputPipe(PipeTarget.ToStringBuilder(stdOutBuffer))
-                        .WithStandardErrorPipe(PipeTarget.ToStringBuilder(stdErrBuffer))
+                         // This can be simplified with `ExecuteBufferedAsync()`
+                         .WithStandardOutputPipe(PipeTarget.ToDelegate(Console.WriteLine))
+                        .WithStandardErrorPipe(PipeTarget.ToDelegate(Console.WriteLine))
                         .ExecuteAsync();
                 }
                 catch (OperationCanceledException)
