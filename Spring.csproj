@@ -262,6 +262,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="icons8-arrow-50.png" />
+    <None Include="icons8-people-100.png" />
+    <None Include="icons8-ok-48.png" />
+    <None Include="icons8-person-80.png" />
+    <None Include="icons8-proactivity-48.png" />
     <Content Include="init\companylogo.png" />
     <None Include="pngegg.png" />
     <None Include="password-imgs\icons8-eye-2-48.png" />

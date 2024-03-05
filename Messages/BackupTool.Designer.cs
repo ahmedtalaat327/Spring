@@ -63,6 +63,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.instanceField = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.tabPageAdv3 = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.imageStreamer3 = new Syncfusion.Windows.Forms.Tools.ImageStreamer();
+            this.autoLabel7 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.progressBarAdv3 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -77,6 +82,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.userFeild)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instanceField)).BeginInit();
+            this.tabPageAdv3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv3)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -790,7 +798,7 @@
             this.label7.Size = new System.Drawing.Size(747, 35);
             this.label7.TabIndex = 7;
             this.label7.Text = "* You need to call the Administrator for these inputs values for your database de" +
-    "tails.";
+    "tails. [SQL*PLUS]";
             // 
             // instanceField
             // 
@@ -812,15 +820,115 @@
             // 
             // tabPageAdv3
             // 
+            this.tabPageAdv3.BackColor = System.Drawing.Color.Snow;
+            this.tabPageAdv3.Controls.Add(this.tableLayoutPanel5);
             this.tabPageAdv3.Image = null;
             this.tabPageAdv3.ImageSize = new System.Drawing.Size(16, 16);
             this.tabPageAdv3.Location = new System.Drawing.Point(3, 24);
             this.tabPageAdv3.Name = "tabPageAdv3";
+            this.tabPageAdv3.Padding = new System.Windows.Forms.Padding(20);
             this.tabPageAdv3.ShowCloseButton = true;
             this.tabPageAdv3.Size = new System.Drawing.Size(853, 463);
             this.tabPageAdv3.TabIndex = 3;
             this.tabPageAdv3.Text = "Sessions";
             this.tabPageAdv3.ThemesEnabled = true;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.AutoScroll = true;
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.GhostWhite;
+            this.tableLayoutPanel5.ColumnCount = 4;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 273F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 273F));
+            this.tableLayoutPanel5.Controls.Add(this.imageStreamer3, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.autoLabel7, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.progressBarAdv3, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.sfButton1, 2, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 20);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(20);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(30);
+            this.tableLayoutPanel5.RowCount = 7;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(813, 423);
+            this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // imageStreamer3
+            // 
+            this.imageStreamer3.AllowDragging = true;
+            this.imageStreamer3.BackgroundImage = global::Spring.Properties.Resources.icons8_people_100;
+            this.imageStreamer3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.imageStreamer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageStreamer3.InternalBackColor = System.Drawing.Color.Transparent;
+            this.imageStreamer3.Location = new System.Drawing.Point(33, 33);
+            this.imageStreamer3.Name = "imageStreamer3";
+            this.imageStreamer3.Size = new System.Drawing.Size(194, 114);
+            this.imageStreamer3.TabIndex = 0;
+            this.imageStreamer3.Text = "imageStreamer3";
+            this.imageStreamer3.TextAnimationDirection = Syncfusion.Windows.Forms.Tools.ImageStreamer.TextStreamDirection.RightToLeft;
+            // 
+            // autoLabel7
+            // 
+            this.autoLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.autoLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoLabel7.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.autoLabel7.Location = new System.Drawing.Point(233, 30);
+            this.autoLabel7.Name = "autoLabel7";
+            this.autoLabel7.Size = new System.Drawing.Size(267, 120);
+            this.autoLabel7.TabIndex = 2;
+            this.autoLabel7.Text = "Shows all sessions that are active now\r\n";
+            this.autoLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // progressBarAdv3
+            // 
+            this.progressBarAdv3.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.BackSegments = false;
+            this.progressBarAdv3.CustomText = null;
+            this.progressBarAdv3.CustomWaitingRender = false;
+            this.progressBarAdv3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBarAdv3.ForegroundImage = null;
+            this.progressBarAdv3.GradientEndColor = System.Drawing.SystemColors.ActiveCaption;
+            this.progressBarAdv3.GradientStartColor = System.Drawing.Color.Orange;
+            this.progressBarAdv3.Location = new System.Drawing.Point(560, 127);
+            this.progressBarAdv3.Margin = new System.Windows.Forms.Padding(10);
+            this.progressBarAdv3.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.Name = "progressBarAdv3";
+            this.progressBarAdv3.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
+            this.progressBarAdv3.SegmentWidth = 12;
+            this.progressBarAdv3.Size = new System.Drawing.Size(253, 13);
+            this.progressBarAdv3.TabIndex = 12;
+            this.progressBarAdv3.Text = "progressBarAdv3";
+            this.progressBarAdv3.TextShadow = false;
+            this.progressBarAdv3.TextVisible = false;
+            this.progressBarAdv3.ThemeName = "WaitingGradient";
+            this.progressBarAdv3.TubeEndColor = System.Drawing.SystemColors.MenuHighlight;
+            this.progressBarAdv3.TubeStartColor = System.Drawing.Color.IndianRed;
+            this.progressBarAdv3.WaitingGradientWidth = 400;
+            // 
+            // sfButton1
+            // 
+            this.sfButton1.AccessibleName = "Button";
+            this.sfButton1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.sfButton1.BackgroundImage = global::Spring.Properties.Resources.icons8_arrow_50;
+            this.sfButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButton1.Location = new System.Drawing.Point(506, 33);
+            this.sfButton1.Name = "sfButton1";
+            this.sfButton1.Size = new System.Drawing.Size(41, 28);
+            this.sfButton1.Style.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.sfButton1.TabIndex = 13;
+            this.sfButton1.UseVisualStyleBackColor = false;
             // 
             // BackupTool
             // 
@@ -846,6 +954,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.userFeild)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instanceField)).EndInit();
+            this.tabPageAdv3.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -886,5 +998,10 @@
         private Syncfusion.WinForms.Controls.SfButton proceedBtn;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt instanceField;
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private Syncfusion.Windows.Forms.Tools.ImageStreamer imageStreamer3;
+        private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv3;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel7;
+        private Syncfusion.WinForms.Controls.SfButton sfButton1;
     }
 }

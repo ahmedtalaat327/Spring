@@ -18,7 +18,7 @@ namespace Spring.Messages
             base.DropShadow = MessageBoxAdv.DropShadow;
             try
             {
-                System.Drawing.Icon ico = new System.Drawing.Icon(GetIconFile(@"springTM.ico"));
+                System.Drawing.Icon ico = global::Spring.Properties.Resources.springTM;
                 this.Icon = ico;
             }
             catch (Exception ex)
@@ -63,19 +63,6 @@ namespace Spring.Messages
 
         }
         #endregion
-        #region Get Form Icon
-        public string GetIconFile(string bitmapName)
-        {
-            for (int n = 0; n < 10; n++)
-            {
-                if (System.IO.File.Exists(bitmapName))
-                    return bitmapName;
-
-                bitmapName = @"..\" + bitmapName;
-            }
-
-            return bitmapName;
-        }
-        #endregion
+       
     }
 }
