@@ -10,14 +10,14 @@ style="corner-radius: 4; border: 5; border-color: blue;">
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project: 💼</br>
-* It took 2 years to manage to combine binding properties with a/an speed and reliability UI experience</br>we use dotNet concepts ex. weavers and memory management system with some dlls and tweaks.
+* It took 2 years to combine binding properties and commands [MVVM] with a/an speed and reliability UI experience</br>we use dotNet concepts ex. weavers and memory management system with some dlls and tweaks.
 
 </br></br>
 
 <!-- ABOUT THE PROJECT -->
 ## Database Version: 💉</br>
-* In the project we use <a href="https://en.wikipedia.org/wiki/Oracle_Database">Oracle</a> Database through Oracle with (ManagedDataAccess.dll) this library can be used as 
-a connection object and execute all sql commands as string.
+* In this project we use <a href="https://en.wikipedia.org/wiki/Oracle_Database">Oracle</a> Database through Oracle with (ManagedDataAccess.dll) and a C# pure dll (AccioOracleKit.dll) both can work together to achieve repeatitve queries as string  same as SQL* and
+manage connection object.
 
 </br>
 
