@@ -32,7 +32,7 @@ namespace Spring.Messages
 
             try
             {
-                System.Drawing.Icon ico = new System.Drawing.Icon(base.GetIconFile(@"springserverTM.ico"));
+                System.Drawing.Icon ico = global::Spring.Properties.Resources.springTM;
                 this.Icon = ico;
             }
             catch (Exception ex)
@@ -69,6 +69,8 @@ namespace Spring.Messages
             gradientLabel1.DataBindings.Add(new Binding("Image", BackupToolViewModel, "Logo", true));
 
             userFeild.DataBindings.Add(new Binding("Text", BackupToolViewModel, "UserName", true));
+            passField.DataBindings.Add(new Binding("Text", BackupToolViewModel, "Password", true));
+            instanceField.DataBindings.Add(new Binding("Text", BackupToolViewModel, "InstanceDB", true));
 
 
 
@@ -77,7 +79,21 @@ namespace Spring.Messages
             BackupToolViewModel.PropertyChanged += BackupToolViewModel_PropertyChanged;
 
             this.Load += BackupTool_Load;
-            
+
+
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", false));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+
+
         }
 
         private void BackupToolViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -155,6 +171,83 @@ namespace Spring.Messages
             }
 
         }
+        private Control NewRow(string username, string deptname, bool active)
+        {
+            System.Windows.Forms.Label label8 = new Label();
+            System.Windows.Forms.Label label9 = new Label();
+            Syncfusion.Windows.Forms.Tools.ImageStreamer imageStreamer4 = new Syncfusion.Windows.Forms.Tools.ImageStreamer();
+
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            label9.Location = new System.Drawing.Point(264, 1);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(254, 23);
+            label9.TabIndex = 1;
+            label9.Text = $"{deptname}";
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // 
+            // imageStreamer4
+            // 
+            imageStreamer4.AllowDragging = true;
+            if(active)
+            imageStreamer4.BackgroundImage = global::Spring.Properties.Resources.icons8_ok_48;
+            else
+            imageStreamer4.BackgroundImage = global::Spring.Properties.Resources.icons8_proactivity_48;
+
+
+
+            imageStreamer4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            imageStreamer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            imageStreamer4.InternalBackColor = System.Drawing.Color.Transparent;
+            imageStreamer4.Location = new System.Drawing.Point(524, 4);
+            imageStreamer4.Name = "imageStreamer4";
+            imageStreamer4.Size = new System.Drawing.Size(255, 17);
+            imageStreamer4.TabIndex = 2;
+            imageStreamer4.Text = "image_here";
+            imageStreamer4.TextAnimationDirection = Syncfusion.Windows.Forms.Tools.ImageStreamer.TextStreamDirection.RightToLeft;
+
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            label8.Location = new System.Drawing.Point(4, 1);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(254, 23);
+            label8.TabIndex = 0;
+            label8.Text = $"{username}";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+
+            TableLayoutPanel tableLayoutPanel6 = new TableLayoutPanel();
+            tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+       | System.Windows.Forms.AnchorStyles.Left)
+       | System.Windows.Forms.AnchorStyles.Right)));
+            tableLayoutPanel6.BackColor = System.Drawing.Color.LightSteelBlue;
+            tableLayoutPanel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel5.SetColumnSpan(tableLayoutPanel6, 4);
+            tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            tableLayoutPanel6.Controls.Add(label8, 0, 0);
+            tableLayoutPanel6.Controls.Add(label9, 1, 0);
+            tableLayoutPanel6.Controls.Add(imageStreamer4, 2, 0);
+            tableLayoutPanel6.Location = new System.Drawing.Point(35, 155);
+            tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(5);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(1);
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            tableLayoutPanel6.Size = new System.Drawing.Size(783, 25);
+            tableLayoutPanel6.TabIndex = 3;
+
+            return tableLayoutPanel6;
+        }
     }
     //this View model may be moved to a seperate file .cs 
     public class BackupToolViewModel : BaseViewModel
@@ -177,9 +270,17 @@ namespace Spring.Messages
         /// </summary>
         public bool Loading { get { return WaitingProgress; } }
         /// <summary>
-        /// User name for database admin
+        /// User name for database admin for SQL*
         /// </summary>
         public string UserName { get; set; } = "";
+        /// <summary>
+        /// Pass for database admin for SQL*
+        /// </summary>
+        public string Password { get; set; } = "";
+        /// <summary>
+        /// @name for database admin for SQL*
+        /// </summary>
+        public string InstanceDB { get; set; } = "@instance";
         #endregion
 
         #region Commands
@@ -271,7 +372,7 @@ namespace Spring.Messages
                 
                 await Task.Delay(5000);
                
-                await new OracleExp("store","store","orcl", $"{pathToSave as string}\\").StartProc();
+                await new OracleExp(UserName,Password,InstanceDB, $"{pathToSave as string}\\").StartProc();
             });
             
 
