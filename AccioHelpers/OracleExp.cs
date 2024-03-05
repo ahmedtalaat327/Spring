@@ -47,8 +47,7 @@ namespace Spring.AccioHelpers
                 {
                     await Cli.Wrap("powershell.exe")
                         .WithArguments(new[] { $@"& '{urlToProc}process\OracleExportDB.exe'" + " " + userName + " " + password + " " + dbInstace + " " + urlToSave })
-                         // Fixing error coming from an EXCEPTION in CLIWRAP in win10.
-                        .WithValidation(CommandResultValidation.None)
+                         
                         .WithStandardOutputPipe(PipeTarget.ToDelegate(Console.WriteLine))
                         .WithStandardErrorPipe(PipeTarget.ToDelegate(Console.WriteLine))
                         .ExecuteAsync();
