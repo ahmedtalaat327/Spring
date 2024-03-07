@@ -40,7 +40,7 @@ namespace Spring.AccioHelpers
             {
 
                 var cts = new CancellationTokenSource();
-               
+                
                 var stdOutBuffer = new StringBuilder();
                 var stdErrBuffer = new StringBuilder();
                 try

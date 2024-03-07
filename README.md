@@ -73,7 +73,8 @@ params.info :
 
 <!-- Server Side -->
 ## Server Side 😎🚀<br>
--- [x] we're working on a small tool will allow any IT help desk <br> to make easy .dmp file every time and control any session on server too.
+- [x] We're working on a small tool will allow any IT help desk <br> to make easy .dmp file every time and control any session on server too. 
+- [x] Note: you need to install VC++ Redist 2012 ~ 2022.
 <a href="https://imgbb.com/"><img src="./springserv_sc.png" alt="expl" border="0" style="width: 200; height: 100%;"></a>
 
 
