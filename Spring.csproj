@@ -172,6 +172,7 @@
     </Compile>
     <Compile Include="Pages\ValueConverter\BoolToImgConverter.cs" />
     <Compile Include="Pages\ViewModel\AddUserViewModel.cs" />
+    <Compile Include="Pages\ViewModel\BasePageViewModel.cs" />
     <Compile Include="Pages\ViewModel\UserCardViewModel.cs" />
     <Compile Include="Pages\ViewModel\UsersViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

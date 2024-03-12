@@ -9,6 +9,7 @@ using Syncfusion.Pdf;
 using Syncfusion.Pdf.Grid;
 using System.IO;
 using Syncfusion.Data;
+using System.Threading.Tasks;
 
 namespace Spring.Pages
 {
@@ -19,12 +20,15 @@ namespace Spring.Pages
         public UsersPage(TreeViewAdv optionsTree) : base(optionsTree)
         {
             InitializeComponent();
-            
+
+            #region view define
+            this.viewName = "users";
+            #endregion
             //bindings
             this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;
 
             //binding active flag to panel
-            this.DataBindings.Add(new Binding("Enabled", usersViewModel, "ActivePanel"));
+            //this.DataBindings.Add(new Binding("Enabled", usersViewModel, "ActivePanel"));
 
             #region Events
 
@@ -88,7 +92,7 @@ namespace Spring.Pages
                 o.Cancel = true;
         }
 
-        private void UsersPage_Load(object sender, EventArgs e)
+        private async void UsersPage_Load(object sender, EventArgs e)
         {
             usersViewModel.LoadAllUsers.Execute(true);
         }

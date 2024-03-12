@@ -27,13 +27,16 @@ namespace Spring.Pages
           
             #region UI customizations
             InitializeComponent();
-            
+
             #endregion
 
+            #region view define
+            this.viewName = "usercard";
+            #endregion
             #region Bindings
 
             //binding active flag to panel
-            this.DataBindings.Add(new Binding("Enabled", userCardViewModel, "ActivePanel"));
+            //this.DataBindings.Add(new Binding("Enabled", userCardViewModel, "ActivePanel"));
 
             this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
 

@@ -34,7 +34,7 @@ namespace Spring.Pages.ViewModel
         /// <summary>
         /// determines if panel is active or not
         /// </summary>
-        public bool ActivePanel { get => VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel.Contains("admin") ? true : false; }
+        //public bool ActivePanel { get => VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel.Contains("admin") ? true : false; }
         /// <summary>
         /// id user currently must be added
         /// </summary>

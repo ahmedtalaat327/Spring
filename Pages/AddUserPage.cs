@@ -76,8 +76,9 @@ namespace Spring.Pages
 
             #endregion
 
-
-
+            #region view define
+            this.viewName = "adduser";
+            #endregion
             #region Bindings
             //properties bindings
             BindingSource aithtsbindingSource = new BindingSource();
@@ -101,7 +102,7 @@ namespace Spring.Pages
 
 
             //binding active flag to panel
-            this.DataBindings.Add(new Binding("Enabled", addUserViewModel, "ActivePanel"));
+            //this.DataBindings.Add(new Binding("Enabled", addUserViewModel, "ActivePanel"));
 
             //texts [id to bar code]
             this.sfBarcode1.DataBindings.Add(new Binding("Text", addUserViewModel, "Id"));

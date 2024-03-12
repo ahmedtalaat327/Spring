@@ -201,7 +201,7 @@ namespace Spring.ViewModel
             {
 
                
-                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name" }, new string[] { "user_id", "user_auth" }, new string[] { "999", "'power'" }, "!=", "and");
+                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name" ,"dept_id"}, new string[] { "user_id", "user_auth" }, new string[] { "999", "'power'" }, "!=", "and");
 
                 OracleDataReader dr = sqlCMD.ExecuteReader();
 
@@ -218,7 +218,8 @@ namespace Spring.ViewModel
                                 UserName = dr["user_name"].ToString(),
                                 Password = dr["user_password"].ToString(),
                                 FullName = dr["user_full_name"].ToString(),
-                                UserAuthLevel = dr["user_auth"].ToString()
+                                UserAuthLevel = dr["user_auth"].ToString(),
+                                DepartmentId = Int32.Parse(dr["dept_id"].ToString())
                             });
 
 
@@ -255,6 +256,7 @@ namespace Spring.ViewModel
                     {
                         if (usr.UserName.Equals(UserLocal.UserName) && usr.Password == UserLocal.Password)
                         {
+                            
                             UserLogged = usr;
                             feedBack = true;
                             break;
