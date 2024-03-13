@@ -77,7 +77,7 @@ namespace Spring.Pages
             #endregion
 
             #region view define
-            this.viewName = "adduser";
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = "adduser";
             #endregion
             #region Bindings
             //properties bindings

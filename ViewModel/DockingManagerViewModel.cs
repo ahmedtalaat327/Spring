@@ -58,6 +58,11 @@ namespace Spring.ViewModel
         /// detemines if we are out or not
         /// </summary>
         public bool SuccessLogOut { get; set; } = false;
+
+        /// <summary>
+        /// this is related to how pages will be managed
+        /// </summary>
+        public string ViewName { get; set; } = "none";
         #region commands
         /// <summary>
         /// Our unique way to handle login comparison

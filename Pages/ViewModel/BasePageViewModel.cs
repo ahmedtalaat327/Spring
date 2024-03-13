@@ -3,10 +3,7 @@ using Oracle.ManagedDataAccess.Client;
 using Spring.StaticVM;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -32,7 +29,7 @@ namespace Spring.Pages.ViewModel
         public BasePageViewModel()
         {
             ActiveView = false;
-            CheckViewStateOnRules = new RelayParameterizedCommand(async(x)=>await FindMyActiveView(x));
+            CheckViewStateOnRules = new RelyCommand(async()=>await FindMyActiveView());
         }
         /// <summary>
         /// this func is mainly depend on collecting all records from rules table
@@ -66,13 +63,13 @@ namespace Spring.Pages.ViewModel
         /// </summary>
         /// <param name="tag_name"></param>
         /// <returns></returns>
-        private async Task CompareCurrentViews(string tag_name)
+        private async Task CompareCurrentViews()
         {
             await Task.Delay(12);
 
             foreach( var rule in RuleRecords)
             {
-                if( rule.ViewName.Contains(tag_name) && rule.Level == VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel)
+                if( rule.ViewName.Contains(VMCentral.DockingManagerViewModel.ViewName) && rule.Level == VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel)
                 {
                     ActiveView = true;
                     
@@ -82,19 +79,15 @@ namespace Spring.Pages.ViewModel
                     ActiveView = true;
                     
                 }
-                else
-                {
-                    ActiveView = false;
-                   
-                }
+               
             }
         }
 
-        private async Task FindMyActiveView(object v_name)
+        private async Task FindMyActiveView()
         {
             
                 await CollectFromRules();
-                await CompareCurrentViews(v_name as string);
+                await CompareCurrentViews();
            
         }
     }

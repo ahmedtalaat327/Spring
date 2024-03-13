@@ -31,7 +31,7 @@ namespace Spring.Pages
             #endregion
 
             #region view define
-            this.viewName = "usercard";
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = "usercard";
             #endregion
             #region Bindings
 

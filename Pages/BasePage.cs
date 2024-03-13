@@ -1,22 +1,28 @@
 ﻿using Spring.Pages.ViewModel;
-using Spring.Properties;
-using Spring.StaticVM;
-using Spring.ViewModel;
-using Syncfusion.DataSource.Extensions;
 using Syncfusion.Windows.Forms.Tools;
-using System;
-using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Spring.Pages
 {
     public class BasePage : UserControl
     {
+
+
+        #region Public Members
         public BasePageViewModel baseViewViewModel = new BasePageViewModel();
 
-        public string viewName = "none";
-
+        #endregion
+        #region ALL NAMES TITLES FOR RIGHT MENU OPTIONS [NODES}
+        //=>users nodes
+        private string first_option_users_view = "Print out current records";
+        private string second_option_users_view = "Refresh users table";
+        //=>adduser nodes
+        private string first_option_adduser_view = "Print out user details";
+        private string second_option_adduser_view = "Proceed to add new record";
+        //=>usercard nodes
+        private string first_option_usercrad_view = "Print out user card";
+        private string second_option_usercard_view = "Find a User";
+        #endregion
         public BasePage(TreeViewAdv optionsTree)
         {
             #region UI Enhancements
@@ -34,14 +40,14 @@ namespace Spring.Pages
             { 
 
                 #region USERS PAGE
-                if (itemNode.Text.Equals("Print out current records"))
+                if (itemNode.Text.Equals(first_option_users_view))
                 {
                     
                         itemNode.Enabled = false;
                     
 
                 }
-                if (itemNode.Text.Equals("Refresh users table"))
+                if (itemNode.Text.Equals(second_option_users_view))
                 {
                     
                         itemNode.Enabled = false;
@@ -50,14 +56,14 @@ namespace Spring.Pages
                 }
                 #endregion
                 #region ADD USER PAGE
-                if (itemNode.Text.Equals("Print out user details"))
+                if (itemNode.Text.Equals(first_option_adduser_view))
                 {
                     
                         itemNode.Enabled = false;
                     
 
                 }
-                if (itemNode.Text.Equals("Proceed to add new record"))
+                if (itemNode.Text.Equals(second_option_adduser_view))
                 {
                     
                         itemNode.Enabled = false;
@@ -66,14 +72,14 @@ namespace Spring.Pages
                 }
                 #endregion
                 #region USER CARD PAGE
-                if (itemNode.Text.Equals("Print out user card"))
+                if (itemNode.Text.Equals(first_option_usercrad_view))
                 {
                     
                         itemNode.Enabled = false;
                     
 
                 }
-                if (itemNode.Text.Equals("Find a User"))
+                if (itemNode.Text.Equals(second_option_usercard_view))
                 {
                      
                         itemNode.Enabled = false;
@@ -116,7 +122,7 @@ namespace Spring.Pages
                 if (baseViewViewModel.ActiveView)
                 {
 
-                    switch (viewName)
+                    switch (StaticVM.VMCentral.DockingManagerViewModel.ViewName)
                     {
                         case "users":
 
@@ -124,14 +130,14 @@ namespace Spring.Pages
                             {
                                  
                                 #region USERS PAGE
-                                if (itemNode.Text.Equals("Print out current records"))
+                                if (itemNode.Text.Equals(first_option_users_view))
                                 {
 
                                     itemNode.Enabled = true;
 
 
                                 }
-                                if (itemNode.Text.Equals("Refresh users table"))
+                                if (itemNode.Text.Equals(second_option_users_view))
                                 {
 
                                     itemNode.Enabled = true;
@@ -147,14 +153,14 @@ namespace Spring.Pages
                             {
                                 
                                 #region USERS PAGE
-                                if (itemNode.Text.Equals("Print out user details"))
+                                if (itemNode.Text.Equals(first_option_adduser_view))
                                 {
 
                                     itemNode.Enabled = true;
 
 
                                 }
-                                if (itemNode.Text.Equals("Proceed to add new record"))
+                                if (itemNode.Text.Equals(second_option_adduser_view))
                                 {
 
                                     itemNode.Enabled = true;
@@ -170,14 +176,14 @@ namespace Spring.Pages
                             {
                                 
                                 #region USERS PAGE
-                                if (itemNode.Text.Equals("Print out user card"))
+                                if (itemNode.Text.Equals(first_option_usercrad_view))
                                 {
 
                                     itemNode.Enabled = true;
 
 
                                 }
-                                if (itemNode.Text.Equals("Find a User"))
+                                if (itemNode.Text.Equals(second_option_usercard_view))
                                 {
 
                                     itemNode.Enabled = true;
@@ -201,7 +207,7 @@ namespace Spring.Pages
         private void SetPrivilages()
         {
             //need to execute action here...
-            baseViewViewModel.CheckViewStateOnRules.Execute(viewName);
+            baseViewViewModel.CheckViewStateOnRules.Execute(true);
         }
         #endregion
     }

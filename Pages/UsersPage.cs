@@ -22,7 +22,7 @@ namespace Spring.Pages
             InitializeComponent();
 
             #region view define
-            this.viewName = "users";
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = "users";
             #endregion
             //bindings
             this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;
