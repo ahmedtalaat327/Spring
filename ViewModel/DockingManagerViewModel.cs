@@ -15,6 +15,7 @@ namespace Spring.ViewModel
 {
     public class DockingManagerViewModel : BaseViewModel
     {
+
         #region ENUM for Phases
         /// <summary>
         /// Progress bar porperty phases set

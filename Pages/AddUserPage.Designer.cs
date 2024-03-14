@@ -1,4 +1,6 @@
-﻿namespace Spring.Pages
+﻿using Syncfusion.Windows.Forms.Tools;
+
+namespace Spring.Pages
 {
     partial class AddUserPage
     {
@@ -19,14 +21,14 @@
             }
             base.Dispose(disposing);
         }
+        
+            #region Component Designer generated code
 
-        #region Component Designer generated code
-
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+            /// <summary> 
+            /// Required method for Designer support - do not modify 
+            /// the contents of this method with the code editor.
+            /// </summary>
+            private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUserPage));
@@ -293,6 +295,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.tableLayoutPanel1.BackgroundImage = global::Spring.Properties.Resources.desktopGrid_f324974d;
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));

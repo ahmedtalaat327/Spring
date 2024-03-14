@@ -280,6 +280,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.tableLayoutPanel1.BackgroundImage = global::Spring.Properties.Resources.desktopGrid_f324974d;
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.20048F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.59888F));
@@ -479,7 +481,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
             this.tableLayoutPanel4.Controls.Add(this.autoLabel7, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBoxExt1, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label1, 3, 0);
@@ -505,12 +507,12 @@
             // 
             // textBoxExt1
             // 
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(178, 20);
             this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxExt1.Location = new System.Drawing.Point(133, 30);
             this.textBoxExt1.Margin = new System.Windows.Forms.Padding(20, 28, 20, 5);
             this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(182, 20);
+            this.textBoxExt1.Size = new System.Drawing.Size(178, 20);
             this.textBoxExt1.TabIndex = 1;
             this.textBoxExt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -519,11 +521,11 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Image = global::Spring.Properties.Resources.icons8_arrow_50;
-            this.label1.Location = new System.Drawing.Point(386, 32);
+            this.label1.Location = new System.Drawing.Point(382, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.label1.MaximumSize = new System.Drawing.Size(200, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 50);
+            this.label1.Size = new System.Drawing.Size(81, 50);
             this.label1.TabIndex = 2;
             this.label1.Text = "         ";
             // 
@@ -534,7 +536,7 @@
             this.checkerusercardid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.checkerusercardid.ImageIndex = 123;
             this.checkerusercardid.ImageList = this.imageList1;
-            this.checkerusercardid.Location = new System.Drawing.Point(342, 11);
+            this.checkerusercardid.Location = new System.Drawing.Point(338, 11);
             this.checkerusercardid.Margin = new System.Windows.Forms.Padding(5, 9, 5, 5);
             this.checkerusercardid.MaximumSize = new System.Drawing.Size(50, 50);
             this.checkerusercardid.MinimumSize = new System.Drawing.Size(20, 20);

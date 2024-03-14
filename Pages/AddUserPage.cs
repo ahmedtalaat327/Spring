@@ -1,4 +1,5 @@
-﻿using Spring.Pages.ViewModel;
+﻿using Spring.Helpers.Controls;
+using Spring.Pages.ViewModel;
 using Spring.StaticVM;
 using Spring.View.MainView.LoginView;
 using Spring.ViewModel;
@@ -26,7 +27,7 @@ namespace Spring.Pages
         {
             #region UI customizations
             InitializeComponent();
- 
+             
             //some UI customizations
             this.authlvlcombo.ThemeName = "Metro";
             this.authlvlcombo.ComboBoxMode = Syncfusion.WinForms.ListView.Enums.ComboBoxMode.SingleSelection;
@@ -248,12 +249,15 @@ namespace Spring.Pages
             // please use your code here
             if (this.Enabled&&adv!=null)
             {
-                switch (adv.Text)
+                
+
+                if(adv.Text== PagesNodesNames.AddUserFirstButtonTitle)
                 {
-                    case "Print out user details": break;
-                    case "Proceed to add new record": addUserViewModel.SetNewUser.Execute(true); break;
 
-
+                }
+                if(adv.Text == PagesNodesNames.AddUserSecondButtonTitle)
+                {
+                    addUserViewModel.SetNewUser.Execute(true);
                 }
             }
         }

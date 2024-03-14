@@ -1,4 +1,5 @@
-﻿using Spring.Pages.ViewModel;
+﻿using Spring.Helpers.Controls;
+using Spring.Pages.ViewModel;
 using Spring.StaticVM;
 using Spring.View.MainView.LoginView;
 using Spring.ViewModel;
@@ -116,11 +117,14 @@ namespace Spring.Pages
             // please use your code here
             if (this.Enabled&&adv!=null)
             {
-                switch (adv.Text)
+                
+
+                if(adv.Text == PagesNodesNames.UserCardFirstButtonTitle)
                 {
-                 
-                    case "Print out user card": break;
-                    case "Find a User": break;
+
+                }
+                if(adv.Text == PagesNodesNames.UserCardSecondButtonTitle)
+                {
 
                 }
             }

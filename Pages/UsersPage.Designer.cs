@@ -37,6 +37,8 @@
             this.sfDataGrid1.AccessibleName = "Table";
             this.sfDataGrid1.AllowFiltering = true;
             this.sfDataGrid1.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.sfDataGrid1.BackgroundImage = global::Spring.Properties.Resources.desktopGrid_f324974d;
+            this.sfDataGrid1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.sfDataGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfDataGrid1.Location = new System.Drawing.Point(0, 0);
             this.sfDataGrid1.Name = "sfDataGrid1";

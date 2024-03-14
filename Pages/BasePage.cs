@@ -1,5 +1,9 @@
-﻿using Spring.Pages.ViewModel;
+﻿using Spring.Helpers.Controls;
+using Spring.Pages.ViewModel;
+using Spring.Properties;
 using Syncfusion.Windows.Forms.Tools;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Spring.Pages
@@ -11,24 +15,20 @@ namespace Spring.Pages
         #region Public Members
         public BasePageViewModel baseViewViewModel = new BasePageViewModel();
 
+        [Obsolete("Designer only", true)]
+        public BasePage()
+        {
+              /**this is for designer only beacuse the parameterized verion is outputting an error!**/
+        }
+
         #endregion
-        #region ALL NAMES TITLES FOR RIGHT MENU OPTIONS [NODES}
-        //=>users nodes
-        private string first_option_users_view = "Print out current records";
-        private string second_option_users_view = "Refresh users table";
-        //=>adduser nodes
-        private string first_option_adduser_view = "Print out user details";
-        private string second_option_adduser_view = "Proceed to add new record";
-        //=>usercard nodes
-        private string first_option_usercrad_view = "Print out user card";
-        private string second_option_usercard_view = "Find a User";
-        #endregion
+      
         public BasePage(TreeViewAdv optionsTree)
         {
             #region UI Enhancements
             DoubleBuffered = true;
             #endregion
-           
+            this.BackgroundImage = new Bitmap(Resources.desktopGrid_f324974d);
 
             #region Binding
             this.DataBindings.Add(new Binding("Visible", baseViewViewModel, "ActiveView"));
@@ -40,14 +40,14 @@ namespace Spring.Pages
             { 
 
                 #region USERS PAGE
-                if (itemNode.Text.Equals(first_option_users_view))
+                if (itemNode.Text.Equals(PagesNodesNames.UsersFirstButtonTitle))
                 {
                     
                         itemNode.Enabled = false;
                     
 
                 }
-                if (itemNode.Text.Equals(second_option_users_view))
+                if (itemNode.Text.Equals(PagesNodesNames.UsersSecondButtonTitle))
                 {
                     
                         itemNode.Enabled = false;
@@ -56,14 +56,14 @@ namespace Spring.Pages
                 }
                 #endregion
                 #region ADD USER PAGE
-                if (itemNode.Text.Equals(first_option_adduser_view))
+                if (itemNode.Text.Equals(PagesNodesNames.AddUserFirstButtonTitle))
                 {
                     
                         itemNode.Enabled = false;
                     
 
                 }
-                if (itemNode.Text.Equals(second_option_adduser_view))
+                if (itemNode.Text.Equals(PagesNodesNames.AddUserSecondButtonTitle))
                 {
                     
                         itemNode.Enabled = false;
@@ -72,14 +72,14 @@ namespace Spring.Pages
                 }
                 #endregion
                 #region USER CARD PAGE
-                if (itemNode.Text.Equals(first_option_usercrad_view))
+                if (itemNode.Text.Equals(PagesNodesNames.UserCardFirstButtonTitle))
                 {
                     
                         itemNode.Enabled = false;
                     
 
                 }
-                if (itemNode.Text.Equals(second_option_usercard_view))
+                if (itemNode.Text.Equals(PagesNodesNames.UserCardSecondButtonTitle))
                 {
                      
                         itemNode.Enabled = false;
@@ -130,14 +130,14 @@ namespace Spring.Pages
                             {
                                  
                                 #region USERS PAGE
-                                if (itemNode.Text.Equals(first_option_users_view))
+                                if (itemNode.Text.Equals(PagesNodesNames.UsersFirstButtonTitle))
                                 {
 
                                     itemNode.Enabled = true;
 
 
                                 }
-                                if (itemNode.Text.Equals(second_option_users_view))
+                                if (itemNode.Text.Equals(PagesNodesNames.UsersSecondButtonTitle))
                                 {
 
                                     itemNode.Enabled = true;
@@ -152,15 +152,15 @@ namespace Spring.Pages
                             foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
                             {
                                 
-                                #region USERS PAGE
-                                if (itemNode.Text.Equals(first_option_adduser_view))
+                                #region ADD USER PAGE
+                                if (itemNode.Text.Equals(PagesNodesNames.AddUserFirstButtonTitle))
                                 {
 
                                     itemNode.Enabled = true;
 
 
                                 }
-                                if (itemNode.Text.Equals(second_option_adduser_view))
+                                if (itemNode.Text.Equals(PagesNodesNames.AddUserSecondButtonTitle))
                                 {
 
                                     itemNode.Enabled = true;
@@ -175,15 +175,15 @@ namespace Spring.Pages
                             foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
                             {
                                 
-                                #region USERS PAGE
-                                if (itemNode.Text.Equals(first_option_usercrad_view))
+                                #region USER CARD PAGE
+                                if (itemNode.Text.Equals(PagesNodesNames.UserCardFirstButtonTitle))
                                 {
 
                                     itemNode.Enabled = true;
 
 
                                 }
-                                if (itemNode.Text.Equals(second_option_usercard_view))
+                                if (itemNode.Text.Equals(PagesNodesNames.UserCardSecondButtonTitle))
                                 {
 
                                     itemNode.Enabled = true;

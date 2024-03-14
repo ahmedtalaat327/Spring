@@ -18,6 +18,7 @@ using Spring.Messages;
 using Spring.StaticVM;
 using Spring.ViewModel;
 using Spring.View.MainView.LoginView;
+using Spring.Helpers.Controls;
 
 namespace Spring
 {
@@ -313,14 +314,14 @@ namespace Spring
                 if (tabControlAdv1.TabPages[d].Text.Equals(tabPageAdvN.Text))
                 {
                     #region USERS ONLY
-                    if (tabControlAdv1.TabPages[d].Text.Equals("Add New User"))
+                    if (tabControlAdv1.TabPages[d].Text.Equals(PagesNodesNames.BringFriendlyName(PagesNodesNames.AddUserPrimaryPageButtonName)))
                     {
 
 
                         List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
 
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out user details", LeftImageIndices = new int[] { 27 } });
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Proceed to add new record", LeftImageIndices = new int[] { 28 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = PagesNodesNames.AddUserFirstButtonTitle, LeftImageIndices = new int[] { 27 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = PagesNodesNames.AddUserSecondButtonTitle, LeftImageIndices = new int[] { 28 } });
 
 
                         panel5.treeViewAdv1.Nodes.Clear();
@@ -362,14 +363,14 @@ namespace Spring
 
                     }
 
-                    if (tabControlAdv1.TabPages[d].Text.Equals("Users"))
+                    if (tabControlAdv1.TabPages[d].Text.Equals(PagesNodesNames.BringFriendlyName(PagesNodesNames.UsersPrimaryPageButtonName)))
                     {
 
 
                         List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
 
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out current records", LeftImageIndices = new int[] { 27 } });
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Refresh users table", LeftImageIndices = new int[] { 41 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = PagesNodesNames.UsersFirstButtonTitle, LeftImageIndices = new int[] { 27 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = PagesNodesNames.UsersSecondButtonTitle, LeftImageIndices = new int[] { 41 } });
 
 
                         panel5.treeViewAdv1.Nodes.Clear();
@@ -410,14 +411,14 @@ namespace Spring
 
                     }
 
-                    if (tabControlAdv1.TabPages[d].Text.Equals("User Card"))
+                    if (tabControlAdv1.TabPages[d].Text.Equals(PagesNodesNames.BringFriendlyName(PagesNodesNames.UserCardPrimaryPageButtonName)))
                     {
 
 
                         List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
 
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Print out user card", LeftImageIndices = new int[] { 27 } });
-                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = "Find a User", LeftImageIndices = new int[] { 41 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = PagesNodesNames.UserCardFirstButtonTitle, LeftImageIndices = new int[] { 27 } });
+                        AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = PagesNodesNames.UserCardSecondButtonTitle, LeftImageIndices = new int[] { 41 } });
 
 
                         panel5.treeViewAdv1.Nodes.Clear();

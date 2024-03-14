@@ -124,6 +124,7 @@
     <Compile Include="Data\Account.cs" />
     <Compile Include="Data\Department.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Helpers\Controls\PagesNodesNames.cs" />
     <Compile Include="Helpers\Controls\PasswordBoxExt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -259,6 +260,7 @@
     <None Include="eyereveal.png" />
     <None Include="icons8-eye-48.png" />
     <Content Include="controls.png" />
+    <Content Include="desktopGrid.f324974d.png" />
     <Content Include="header_pdf.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
