@@ -24,7 +24,7 @@ namespace Spring.Pages
             InitializeComponent();
 
             #region view define
-            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = "users";
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.UsersPrimaryPageButtonName;
             #endregion
             //bindings
             this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;

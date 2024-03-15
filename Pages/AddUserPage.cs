@@ -78,7 +78,7 @@ namespace Spring.Pages
             #endregion
 
             #region view define
-            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = "adduser";
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.AddUserPrimaryPageButtonName;
             #endregion
             #region Bindings
             //properties bindings

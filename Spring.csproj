@@ -124,8 +124,9 @@
     <Compile Include="Data\Account.cs" />
     <Compile Include="Data\Department.cs" />
     <Compile Include="Data\User.cs" />
-    <Compile Include="Helpers\Controls\PagesNodesNames.cs" />
-    <Compile Include="Helpers\Controls\PasswordBoxExt.cs">
+    <Compile Include="ViewControls\ViewHelpers\PageManager.cs" />
+    <Compile Include="ViewControls\ViewHelpers\PagesNodesNames.cs" />
+    <Compile Include="ViewControls\PasswordBoxExt.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\ExpressionHelpers.cs" />
