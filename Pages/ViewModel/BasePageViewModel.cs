@@ -74,12 +74,13 @@ namespace Spring.Pages.ViewModel
                 if( rule.ViewName.Contains(VMCentral.DockingManagerViewModel.ViewName) && rule.Level == VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel)
                 {
                     ActiveView = true;
-                    
+                    OnPropertyChanged(nameof(ActiveView));
                 }
                 if (rule.ViewName.Contains("all") && rule.Level == VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel)
                 {
                     ActiveView = true;
-                    
+                    OnPropertyChanged(nameof(ActiveView));
+
                 }
                
             }

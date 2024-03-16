@@ -19,6 +19,7 @@ using Spring.StaticVM;
 using Spring.ViewModel;
 using Spring.View.MainView.LoginView;
 using Spring.Helpers.Controls;
+using Spring.ViewControls.ViewHelpers;
 
 namespace Spring
 {
@@ -313,6 +314,7 @@ namespace Spring
 
                 if (tabControlAdv1.TabPages[d].Text.Equals(tabPageAdvN.Text))
                 {
+                    /*
                     #region USERS ONLY
                     if (tabControlAdv1.TabPages[d].Text.Equals(PagesNodesNames.BringFriendlyName(PagesNodesNames.AddUserPrimaryPageButtonName)))
                     {
@@ -351,7 +353,9 @@ namespace Spring
                             catch(Exception q) { }
                         };
 
-                        var add_user_view_instance = new AddUserPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill };
+                        var add_user_view_instance = new AddUserPage() { Dock = DockStyle.Fill };
+                        add_user_view_instance.ResetAllOptionNodes(panel5.treeViewAdv1);
+                        add_user_view_instance.AddEventsToOptionsNodes(panel5.treeViewAdv1);
                         tabPageAdvN.Controls.Add(add_user_view_instance);
                         tabControlAdv1.TabPages[d].Closed += (s, e) => {
                             //re-set all event again
@@ -399,7 +403,9 @@ namespace Spring
                             catch(Exception q) { }
                         };
 
-                        var users_view_instance = new UsersPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill };
+                        var users_view_instance = new UsersPage() { Dock = DockStyle.Fill };
+                        users_view_instance.ResetAllOptionNodes(panel5.treeViewAdv1);
+                        users_view_instance.AddEventsToOptionsNodes(panel5.treeViewAdv1);
                         tabPageAdvN.Controls.Add(users_view_instance);
                         tabControlAdv1.TabPages[d].Closed += (s, e) => {
                             //re-set all event again
@@ -447,7 +453,9 @@ namespace Spring
                             catch (Exception q) { }
                         };
 
-                        var users_view_instance = new UserCardPage(panel5.treeViewAdv1) { Dock = DockStyle.Fill };
+                        var users_view_instance = new UserCardPage() { Dock = DockStyle.Fill };
+                        users_view_instance.ResetAllOptionNodes(panel5.treeViewAdv1);
+                        users_view_instance.AddEventsToOptionsNodes(panel5.treeViewAdv1);
                         tabPageAdvN.Controls.Add(users_view_instance);
                         tabControlAdv1.TabPages[d].Closed += (s, e) => {
                             //re-set all event again
@@ -458,7 +466,12 @@ namespace Spring
                         };
 
                     }
+                    
+
                     #endregion
+                    */
+
+                    new PageManager().SetupMyView(tabControlAdv1.TabPages[d], panel5.treeViewAdv1, panel5.treeViewAdv1.Nodes, tabPageAdvN);
 
                     this.tabControlAdv1.SelectedTab = tabControlAdv1.TabPages[d];
                     break;

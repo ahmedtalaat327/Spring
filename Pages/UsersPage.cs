@@ -19,13 +19,11 @@ namespace Spring.Pages
     {
 
         UsersViewModel usersViewModel = new UsersViewModel();
-        public UsersPage(TreeViewAdv optionsTree) : base(optionsTree)
+        public UsersPage() 
         {
             InitializeComponent();
 
-            #region view define
-            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.UsersPrimaryPageButtonName;
-            #endregion
+           
             //bindings
             this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;
 
@@ -36,9 +34,7 @@ namespace Spring.Pages
 
             this.Load += UsersPage_Load;
 
-            optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
-
-            optionsTree.Click += OptionsTree_Click;
+          
             /*
             optionsTree.BeforeSelect += (e, o) =>
             {
@@ -73,8 +69,19 @@ namespace Spring.Pages
 
             sfDataGrid1.Columns["Id"].FilterPredicates.Add(new FilterPredicate() { FilterType = FilterType.LessThan, FilterValue = "18" });
         }
+        public override void AddEventsToOptionsNodes(TreeViewAdv optionsTree)
+        {
+            optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
+
+            optionsTree.Click += OptionsTree_Click;
+
+            #region view define
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.UsersPrimaryPageButtonName;
+            #endregion
+        }
+
         #region Methods Helpers
-        public void OptionsTree_Click(object sender, EventArgs e)
+        public override void OptionsTree_Click(object sender, EventArgs e)
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);
@@ -85,7 +92,7 @@ namespace Spring.Pages
             }
         }
 
-        public void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
+        public  override void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);

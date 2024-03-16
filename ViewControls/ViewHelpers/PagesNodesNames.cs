@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spring.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,36 @@ namespace Spring.Helpers.Controls
 
 
 
+        ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+        #region ALL NAMES TITLES FOR RIGHT MENU OPTIONS [NODES}
+        //=>users nodes
+        public static string UsersFirstButtonTitle { get; set; } = "Print out current records";
+        public static string UsersSecondButtonTitle { get; set; } = "Refresh users table";
+        //=>adduser nodes
+        public static string AddUserFirstButtonTitle { get; set; } = "Print out user details";
+        public static string AddUserSecondButtonTitle { get; set; } = "Proceed to add new record";
+        public static string AddUserThirdButtonTitle { get; set; } = "Generate QR image";
+        //=>usercard nodes
+        public static string UserCardFirstButtonTitle { get; set; } = "Print out user card";
+        public static string UserCardSecondButtonTitle { get; set; } = "Find a User";
+        #endregion
 
+        #region Lists FOR BOTH PRIM & FRIENDLY TITLES {LEFT}
+        public static List<string> ALLLEFTPRIMARYTITLES { get; set; } = new List<string>() {
+            UsersPrimaryPageButtonName , AddUserPrimaryPageButtonName , UserCardPrimaryPageButtonName 
+        };
 
+        public static List<List<string>> ALLRIGHTTITLES { get; set; } = new List<List<string>>() {
+            new List<string>(){UsersFirstButtonTitle, UsersSecondButtonTitle},
+            new List<string>(){AddUserFirstButtonTitle, AddUserSecondButtonTitle,AddUserThirdButtonTitle},
+            new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle}
+        };
+        #endregion
+        #region PageConrrols List
+        public static List<BasePage> Pages { get; set; } = new List<BasePage>{
+            new UsersPage(),new AddUserPage(),new UserCardPage()
+        };
+        #endregion
 
         /// <summary>
         /// return real name depend on some code name
@@ -56,18 +85,7 @@ namespace Spring.Helpers.Controls
 
 
 
-        ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
-        #region ALL NAMES TITLES FOR RIGHT MENU OPTIONS [NODES}
-        //=>users nodes
-        public static string UsersFirstButtonTitle { get; set; } = "Print out current records";
-        public static string UsersSecondButtonTitle { get; set; } = "Refresh users table";
-        //=>adduser nodes
-        public static string AddUserFirstButtonTitle { get; set; } = "Print out user details";
-        public static string AddUserSecondButtonTitle { get; set; } = "Proceed to add new record";
-        //=>usercard nodes
-        public static string UserCardFirstButtonTitle { get; set; } = "Print out user card";
-        public static string UserCardSecondButtonTitle { get; set; } = "Find a User";
-        #endregion
+        
         
     }
 }

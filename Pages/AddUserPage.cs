@@ -23,7 +23,7 @@ namespace Spring.Pages
         /// Constructor
         /// </summary>
         /// <param name="optionsTree"></param>
-        public AddUserPage(TreeViewAdv optionsTree) : base(optionsTree)
+        public AddUserPage()
         {
             #region UI customizations
             InitializeComponent();
@@ -77,9 +77,7 @@ namespace Spring.Pages
 
             #endregion
 
-            #region view define
-            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.AddUserPrimaryPageButtonName;
-            #endregion
+           
             #region Bindings
             //properties bindings
             BindingSource aithtsbindingSource = new BindingSource();
@@ -155,11 +153,7 @@ namespace Spring.Pages
 
             #region Events
             this.Load += AddUserPage_Load;
-
-            optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
-
-            optionsTree.Click += OptionsTree_Click;
-           
+ 
 
 
             this.fnametxtbx.TextChanged += (s, e) => { addUserViewModel.FullNameChecking.Execute(true); };
@@ -181,6 +175,17 @@ namespace Spring.Pages
             VMCentral.DockingManagerViewModel.PropertyChanged += AddUserViewModel_PropertyChanged;
             #endregion
         }
+        public override void AddEventsToOptionsNodes(TreeViewAdv optionsTree)
+        {
+            optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
+
+            optionsTree.Click += OptionsTree_Click;
+
+            #region view define [[dont move this line to constructor]]
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.AddUserPrimaryPageButtonName;
+            #endregion
+        }
+
         //when some property changed
         private void AddUserViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -214,7 +219,7 @@ namespace Spring.Pages
 
         #region Methods Helpers
 
-        public void OptionsTree_Click(object sender, EventArgs e)
+        public override void OptionsTree_Click(object sender, EventArgs e)
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);
@@ -225,7 +230,7 @@ namespace Spring.Pages
             }
         }
 
-        public void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
+        public override void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);

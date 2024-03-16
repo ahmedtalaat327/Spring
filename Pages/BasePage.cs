@@ -15,15 +15,11 @@ namespace Spring.Pages
         #region Public Members
         public BasePageViewModel baseViewViewModel = new BasePageViewModel();
 
-        [Obsolete("Designer only", true)]
-        public BasePage()
-        {
-              /**this is for designer only beacuse the parameterized verion is outputting an error!**/
-        }
+       
 
         #endregion
       
-        public BasePage(TreeViewAdv optionsTree)
+        public BasePage()
         {
             #region UI Enhancements
             DoubleBuffered = true;
@@ -32,64 +28,22 @@ namespace Spring.Pages
 
             #region Binding
             this.DataBindings.Add(new Binding("Visible", baseViewViewModel, "ActiveView"));
-           
             #endregion
-            //all titles must be here right tree items or nodes [static object no change in memory]
-            //logic to comare all tree items.
+
+
+        }
+        public void ResetAllOptionNodes(TreeViewAdv optionsTree)
+        {
+            if (optionsTree == null)
+                return;
+
             foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
-            { 
-
-                #region USERS PAGE
-                if (itemNode.Text.Equals(PagesNodesNames.UsersFirstButtonTitle))
-                {
-                    
-                        itemNode.Enabled = false;
-                    
-
-                }
-                if (itemNode.Text.Equals(PagesNodesNames.UsersSecondButtonTitle))
-                {
-                    
-                        itemNode.Enabled = false;
-                    
-
-                }
-                #endregion
-                #region ADD USER PAGE
-                if (itemNode.Text.Equals(PagesNodesNames.AddUserFirstButtonTitle))
-                {
-                    
-                        itemNode.Enabled = false;
-                    
-
-                }
-                if (itemNode.Text.Equals(PagesNodesNames.AddUserSecondButtonTitle))
-                {
-                    
-                        itemNode.Enabled = false;
-                    
-
-                }
-                #endregion
-                #region USER CARD PAGE
-                if (itemNode.Text.Equals(PagesNodesNames.UserCardFirstButtonTitle))
-                {
-                    
-                        itemNode.Enabled = false;
-                    
-
-                }
-                if (itemNode.Text.Equals(PagesNodesNames.UserCardSecondButtonTitle))
-                {
-                     
-                        itemNode.Enabled = false;
-                    
-
-                }
-                #endregion
- 
+            {
+                
+                    itemNode.Enabled = false;
 
             }
+
             #region property events
             baseViewViewModel.PropertyChanged += (sender, e) => propsAvailabiltyEvent(sender, e, optionsTree); ;
             #endregion
@@ -121,8 +75,9 @@ namespace Spring.Pages
                 */
                 if (baseViewViewModel.ActiveView)
                 {
+                    string view_name_currently = (StaticVM.VMCentral.DockingManagerViewModel.ViewName);
 
-                    switch (StaticVM.VMCentral.DockingManagerViewModel.ViewName)
+                    switch (view_name_currently)
                     {
                         case "users":
 
@@ -208,6 +163,18 @@ namespace Spring.Pages
         {
             //need to execute action here...
             baseViewViewModel.CheckViewStateOnRules.Execute(true);
+        }
+        public virtual void AddEventsToOptionsNodes(TreeViewAdv optionsTree)
+        {
+            /*to be override to add events*/
+        }
+        public virtual void OptionsTree_Click(object sender, EventArgs e)
+        {
+            /*to be override to add events*/
+        }
+        public virtual void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
+        {
+            /*to be override to add events*/
         }
         #endregion
     }
