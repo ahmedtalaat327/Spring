@@ -1,15 +1,19 @@
-﻿using Spring.Pages;
-using System;
+﻿
+/////////////////////////////////////////////by dev.@ahmedtalaat327 on github/////////////////////////////
+/////////////////THIS CLASS MADE FOR CONTROLE ALL VIEWs WITH SMALL OPTIONS AND LITTLE EFFORTS/////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+using Spring.Pages;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 
 namespace Spring.Helpers.Controls
 {
     public static class PagesNodesNames
     {
-
+        ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
         #region ALL NAMES TITLES FOR LEFT MENU OPTIONS [NODES]
         //users main button 
         public static string UsersPageButtonTitle { get; set; } = "Users";
@@ -38,7 +42,9 @@ namespace Spring.Helpers.Controls
         public static string UserCardSecondButtonTitle { get; set; } = "Find a User";
         #endregion
 
-        #region Lists FOR BOTH PRIM & FRIENDLY TITLES {LEFT}
+
+        ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+        #region Lists FOR BOTH PRIM & FRIENDLY TITLES {LEFT} & FRIENDLY FOR {RIGHT}
         public static List<string> ALLLEFTPRIMARYTITLES { get; set; } = new List<string>() {
             UsersPrimaryPageButtonName , AddUserPrimaryPageButtonName , UserCardPrimaryPageButtonName 
         };
