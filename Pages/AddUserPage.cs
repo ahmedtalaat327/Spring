@@ -184,6 +184,9 @@ namespace Spring.Pages
             #region view define [[dont move this line to constructor]]
             (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.AddUserPrimaryPageButtonName;
             #endregion
+
+
+            OnLoad(new EventArgs());
         }
 
         //when some property changed

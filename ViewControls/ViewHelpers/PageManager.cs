@@ -15,8 +15,9 @@ namespace Spring.ViewControls.ViewHelpers
         /// <param name="rightPanel">panel5.treeViewAdv1</param>
         /// <param name="rightOptionsForCurrentTab">panel5.treeViewAdv1.Nodes</param>
         /// <param name="pageParent">tabPageAdvN</param>
-        public void SetupMyView( TabPageAdv currentLeftTab,TreeViewAdv rightPanel, TreeNodeAdvCollection rightOptionsForCurrentTab, TabPageAdv pageParent)
+        public void SetupMyView( TabPageAdv currentLeftTab,TreeViewAdv rightPanel, TreeNodeAdvCollection rightOptionsForCurrentTab, TabPageAdv pageParent,TreeNodeAdv leftpressednode)
         {
+            if (leftpressednode.Enabled)
             for (int i = 0; i < PagesNodesNames.ALLLEFTPRIMARYTITLES.Count; i++)
             {
                 if (currentLeftTab.Text.Equals(PagesNodesNames.BringFriendlyName(PagesNodesNames.ALLLEFTPRIMARYTITLES[i])))
@@ -57,12 +58,13 @@ namespace Spring.ViewControls.ViewHelpers
                                 catch (Exception q) { }
                             };
                             //add controller
-                            var view = PagesNodesNames.Pages[i];
+                            var view = PagesNodesNames.PagesViewsControls[i];
                             view.Dock = DockStyle.Fill;
                             view.ResetAllOptionNodes(rightPanel);
                             view.AddEventsToOptionsNodes(rightPanel);
                             pageParent.Controls.Add(view);
-
+                            leftpressednode.Enabled = false;
+                            view.Select();
 
                             currentLeftTab.Closed += (s, e) => {
                                 //re-set all event again
@@ -70,7 +72,7 @@ namespace Spring.ViewControls.ViewHelpers
 
                                 rightPanel.Click -= view.OptionsTree_Click;
 
-                                
+                                leftpressednode.Enabled = true;
                             };
                             break;
                         }

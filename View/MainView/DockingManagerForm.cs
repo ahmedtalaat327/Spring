@@ -307,8 +307,8 @@ namespace Spring
             tabPageAdvN.TabIndex = 1;
             tabPageAdvN.Text = "" + adv.Text;
             tabPageAdvN.ThemesEnabled = false;
-
-          
+           
+           
             for (int d = 0; d < tabControlAdv1.TabPages.Count; d++)
             {
 
@@ -470,8 +470,8 @@ namespace Spring
 
                     #endregion
                     */
-
-                    new PageManager().SetupMyView(tabControlAdv1.TabPages[d], panel5.treeViewAdv1, panel5.treeViewAdv1.Nodes, tabPageAdvN);
+                   
+                    new PageManager().SetupMyView(tabControlAdv1.TabPages[d], panel5.treeViewAdv1, panel5.treeViewAdv1.Nodes, tabPageAdvN, adv);
 
                     this.tabControlAdv1.SelectedTab = tabControlAdv1.TabPages[d];
                     break;
