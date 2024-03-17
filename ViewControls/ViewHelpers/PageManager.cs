@@ -33,7 +33,7 @@ namespace Spring.ViewControls.ViewHelpers
                             for (int q = 0; q< PagesNodesNames.ALLRIGHTTITLES[p].ToArray().Length; q++)
                             {
                                 var rightnodenames = PagesNodesNames.ALLRIGHTTITLES[p].ToArray();
-                                AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = rightnodenames[q], LeftImageIndices = new int[] { 27 } });
+                                AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = rightnodenames[q], LeftImageIndices = new int[] { 0 } });
 
                             }
                             foreach(var righttab in AddOptions)

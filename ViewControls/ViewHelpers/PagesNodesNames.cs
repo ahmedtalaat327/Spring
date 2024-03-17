@@ -54,6 +54,12 @@ namespace Spring.Helpers.Controls
             new List<string>(){AddUserFirstButtonTitle, AddUserSecondButtonTitle,AddUserThirdButtonTitle},
             new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle}
         };
+        public static List<List<int[]>> RIGHTOPTIONSICONS { get; set; } = new List<List<int[]>>()
+        {
+              new List<int[]>{ new int[] { 27 } },
+              new List<int[]>{ new int[] { 27 } },
+              new List<int[]>{ new int[] { 27 } }
+        };
         #endregion
         #region PageConrrols List
         public static List<BasePage> PagesViewsControls { get; set; } = new List<BasePage>{

@@ -1,6 +1,7 @@
 ﻿using Spring.Helpers.Controls;
 using Spring.Pages.ViewModel;
 using Spring.Properties;
+using Spring.View.MainView.LoginView;
 using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Drawing;
@@ -52,7 +53,7 @@ namespace Spring.Pages
 
         private void propsAvailabiltyEvent(object sender, System.ComponentModel.PropertyChangedEventArgs e, TreeViewAdv optionsTree)
         {
-            
+
             //make sure we are in same VM and same property.
             if (e.PropertyName == nameof(baseViewViewModel.ActiveView) && baseViewViewModel.GetType() == typeof(BasePageViewModel))
             {
@@ -73,6 +74,39 @@ namespace Spring.Pages
 
                );
                 */
+
+                if (baseViewViewModel.ActiveView)
+                {
+                    string view_name_currently = (StaticVM.VMCentral.DockingManagerViewModel.ViewName);
+
+                    for (int i = 0; i < PagesNodesNames.ALLLEFTPRIMARYTITLES.Count; i++)
+                    {
+                        if (PagesNodesNames.ALLLEFTPRIMARYTITLES[i] == view_name_currently)
+                        {
+
+
+
+                            var rightnodenames = PagesNodesNames.ALLRIGHTTITLES[i].ToArray();
+
+
+
+                            for (int x = 0; x < optionsTree.Nodes.Count; x++)
+                            {
+
+                                if (optionsTree.Nodes[x].Text.Equals(rightnodenames[x]))
+                                {
+                                    optionsTree.Nodes[x].Enabled = true;
+                                }
+                            }
+                        }
+                    }
+
+                
+
+                }
+            /*
+                
+
                 if (baseViewViewModel.ActiveView)
                 {
                     string view_name_currently = (StaticVM.VMCentral.DockingManagerViewModel.ViewName);
@@ -153,8 +187,9 @@ namespace Spring.Pages
 
                 }
 
-
+                */
             }
+            
             
         }
         #region Added Events

@@ -525,7 +525,7 @@ namespace Spring
             this.progressBarAdv1.ForegroundImage = null;
             this.progressBarAdv1.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
             this.progressBarAdv1.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
-            this.progressBarAdv1.Location = new System.Drawing.Point(0, 17);
+            this.progressBarAdv1.Location = new System.Drawing.Point(0, 13);
             this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.Empty};
             this.progressBarAdv1.Name = "progressBarAdv1";
@@ -551,7 +551,7 @@ namespace Spring
             this.errorlistToolBar.Location = new System.Drawing.Point(0, 0);
             this.errorlistToolBar.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
             this.errorlistToolBar.Name = "errorlistToolBar";
-            this.errorlistToolBar.Size = new System.Drawing.Size(882, 13);
+            this.errorlistToolBar.Size = new System.Drawing.Size(882, 23);
             this.errorlistToolBar.Style = Syncfusion.Windows.Forms.VisualStyle.Metro;
             this.errorlistToolBar.TabIndex = 1;
             // 
