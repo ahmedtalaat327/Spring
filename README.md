@@ -46,6 +46,13 @@ What you need to know:.🫡 </br>
 <div>
 - [View Architecture] 🎲
 <img src="./controls.png">
+<details>
+  <summary>Icons pack used in right options butttons with their indices..</summary>
+  <img src="./icons_right_options_0.png" alt="image-description"/>
+  <img src="./icons_right_options_1.png" alt="image-description"/>
+  <img src="./icons_right_options_2.png" alt="image-description"/>
+</details>
+<div>
 - [Layers] 🪢
 <img src="./controls_illust-02.png">
 </div>
