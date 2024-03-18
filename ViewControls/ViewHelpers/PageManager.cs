@@ -27,13 +27,14 @@ namespace Spring.ViewControls.ViewHelpers
                     {
                         if (p == i)
                         {
+                                var icons_ = PagesNodesNames.RIGHTOPTIONSICONS[i].ToArray();
                             List<Syncfusion.Windows.Forms.Tools.TreeNodeAdv> AddOptions = new List<TreeNodeAdv>();
                             rightOptionsForCurrentTab.Clear();
                             //iterate for the names
                             for (int q = 0; q< PagesNodesNames.ALLRIGHTTITLES[p].ToArray().Length; q++)
                             {
                                 var rightnodenames = PagesNodesNames.ALLRIGHTTITLES[p].ToArray();
-                                AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = rightnodenames[q], LeftImageIndices = new int[] { 0 } });
+                                AddOptions.Add(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv() { Text = rightnodenames[q], LeftImageIndices = icons_[q] });
 
                             }
                             foreach(var righttab in AddOptions)

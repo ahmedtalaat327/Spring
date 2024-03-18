@@ -54,11 +54,12 @@ namespace Spring.Helpers.Controls
             new List<string>(){AddUserFirstButtonTitle, AddUserSecondButtonTitle,AddUserThirdButtonTitle},
             new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle}
         };
+        ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-icons
         public static List<List<int[]>> RIGHTOPTIONSICONS { get; set; } = new List<List<int[]>>()
         {
-              new List<int[]>{ new int[] { 27 } },
-              new List<int[]>{ new int[] { 27 } },
-              new List<int[]>{ new int[] { 27 } }
+              new List<int[]>{ new int[] { 27 }, new int[] { 6 } },
+              new List<int[]>{ new int[] { 27 },  new int[] { 34 }, new int[] { 64 }},
+              new List<int[]>{ new int[] { 27 }, new int[] { 41 } }
         };
         #endregion
         #region PageConrrols List

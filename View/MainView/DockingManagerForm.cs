@@ -2163,7 +2163,7 @@ namespace Spring
             this.autohide});
 
             this.barItem4.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[]{
-             this.newwindow,
+            this.newwindow,
             this.split,
             this.floating,
             this.dock,
