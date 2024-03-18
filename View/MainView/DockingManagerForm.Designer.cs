@@ -690,11 +690,11 @@ namespace Spring
             // 
             this.barItem4.BarName = "barItem4";
             this.barItem4.CategoryIndex = 0;
-            this.barItem4.ID = "WINDOW";
+            this.barItem4.ID = "SYSTEM MODIFICATIONS";
             this.barItem4.MetroColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(244)))), ((int)(((byte)(191)))));
             this.barItem4.ShowToolTipInPopUp = false;
             this.barItem4.SizeToFit = true;
-            this.barItem4.Text = "&WINDOW";
+            this.barItem4.Text = "&SYSTEM MODIFICATIONS";
             this.barItem4.WrapLength = 20;
             // 
             // barItem5

@@ -2099,14 +2099,15 @@ namespace Spring
             // newwindow
             // 
             this.newwindow = new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem();
-            this.newwindow.BarName = "New Window";
+            this.newwindow.BarName = "ADMINISTRATION";
             this.newwindow.CategoryIndex = 1;
-            this.newwindow.ID = "newwindow";
+            this.newwindow.ID = "administration";
             this.newwindow.ShowToolTipInPopUp = false;
             this.newwindow.SizeToFit = true;
-            this.newwindow.Text = "Cascade";
-            this.newwindow.ImageIndex = 50;
+            this.newwindow.Text = "Administration";
+            this.newwindow.ImageIndex = 25;
             this.newwindow.ImageList = this.imageList3;
+            this.newwindow.Click += (se,evt) => { };
             // 
             // split
             // 
@@ -2155,19 +2156,16 @@ namespace Spring
             this.autohide.SizeToFit = true;
             this.autohide.Text = "AssemblyInfo.cs";
 
+            
             this.mainFrameBarManager1.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[] {
             this.newwindow,
-            this.split,
-            this.floating,
-            this.dock,
-            this.autohide});
+            
+          });
 
             this.barItem4.Items.AddRange(new Syncfusion.Windows.Forms.Tools.XPMenus.BarItem[]{
             this.newwindow,
-            this.split,
-            this.floating,
-            this.dock,
-            this.autohide}); ;
+           
+          }); ;
 
             this.barItem4.MetroBackColor = ColorTranslator.FromHtml("#eaf0ff");
         }
