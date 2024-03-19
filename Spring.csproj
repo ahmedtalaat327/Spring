@@ -262,20 +262,23 @@
     <None Include="icons8-eye-48.png" />
     <Content Include="controls.png" />
     <Content Include="desktopGrid.f324974d.png" />
-    <Content Include="header_pdf.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="icons8-arrow-50.png" />
     <None Include="icons8-people-100.png" />
     <None Include="icons8-ok-48.png" />
     <None Include="icons8-person-80.png" />
     <None Include="icons8-proactivity-48.png" />
+    <Content Include="init\bg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="init\companylogo.png" />
     <None Include="pngegg.png" />
     <None Include="password-imgs\icons8-eye-2-48.png" />
     <None Include="password-imgs\icons8-eye-48.png" />
     <None Include="init\crd.png" />
     <None Include="not_available.png" />
+    <Content Include="init\header_pdf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="process\OracleExportDB.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -12,6 +12,7 @@ using Syncfusion.Data;
 using System.Threading.Tasks;
 using Spring.Properties;
 using Spring.Helpers.Controls;
+using Syncfusion.Windows.Forms.Chart;
 
 namespace Spring.Pages
 {
@@ -131,14 +132,16 @@ namespace Spring.Pages
 
                     };
 
+                    
+
                     PDFGrid.Draw(page, new PointF(0, 55), format);
 
                     //Create a header and draw the image.
                     RectangleF bounds = new RectangleF(0, 0, page.Size.Width - 100, 50);
                     PdfTemplate header = new PdfTemplate(bounds);
-                    PdfImage image = new PdfBitmap(@"header_pdf.png");
+                    PdfImage image = new PdfBitmap(@"init\\header_pdf.png");
                     //Draw the image in the header.
-                    header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Size.Width - 100, 50));
+                    header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Graphics.ClientSize.Width-20, 50));
 
 
                     PdfFont font = new PdfStandardFont(PdfFontFamily.Courier, 7f, PdfFontStyle.Regular);
@@ -170,11 +173,19 @@ namespace Spring.Pages
                     //Add the footer template at the bottom.
                     document.Template.Bottom = footer;
 
+                    foreach (PdfPage _page in document.Pages)
+                    {
+                        //draw watermark
+                        PdfImage imagewm = new PdfBitmap(@"init\\bg.png");
+                        PdfGraphicsState state = _page.Graphics.Save();
+                        _page.Graphics.SetTransparency(0.25f);
+                        //Draw the image. 
+                        _page.Graphics.DrawImage(imagewm, new PointF(0, 0), _page.Graphics.ClientSize);
+                        //
+                    }
 
-
-
-                    //document.Save("Sample.pdf");
-                    SaveFileDialog saveFileDialog = new SaveFileDialog
+                  //document.Save("Sample.pdf");
+                  SaveFileDialog saveFileDialog = new SaveFileDialog
                     {
                         Filter = "PDF Files(*.pdf)|*.pdf"
                     };
