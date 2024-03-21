@@ -5,6 +5,7 @@
 
 
 using Spring.Pages;
+using Spring.Pages.ChartsPages;
 using System.Collections.Generic;
 
 
@@ -24,6 +25,9 @@ namespace Spring.Helpers.Controls
         //usercard main button
         public static string UserCardPageButtonTitle { get; set; } = "User Card";
         public static string UserCardPrimaryPageButtonName { get; set; } = "usercard";
+        //mini page for chart for users statistics
+        public static string UsersStatisticsChartPageButtonTitle { get; set; } = "Users Statistics";
+        public static string UsersStatisticsChartPrimaryPageButtonName { get; set; } = "usersstatisticschart";
         #endregion
 
 
@@ -40,31 +44,35 @@ namespace Spring.Helpers.Controls
         //=>usercard nodes
         public static string UserCardFirstButtonTitle { get; set; } = "Print out user card";
         public static string UserCardSecondButtonTitle { get; set; } = "Find a User";
+        //=>usersstatisticschart nodes
+        public static string UsersChartFirstButtonTitle { get; set; } = "Reload users data chart";
         #endregion
 
 
         ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
         #region Lists FOR BOTH PRIM & FRIENDLY TITLES {LEFT} & FRIENDLY FOR {RIGHT}
         public static List<string> ALLLEFTPRIMARYTITLES { get; set; } = new List<string>() {
-            UsersPrimaryPageButtonName , AddUserPrimaryPageButtonName , UserCardPrimaryPageButtonName 
+            UsersPrimaryPageButtonName , AddUserPrimaryPageButtonName , UserCardPrimaryPageButtonName ,UsersStatisticsChartPrimaryPageButtonName
         };
 
         public static List<List<string>> ALLRIGHTTITLES { get; set; } = new List<List<string>>() {
             new List<string>(){UsersFirstButtonTitle, UsersSecondButtonTitle},
             new List<string>(){AddUserFirstButtonTitle, AddUserSecondButtonTitle,AddUserThirdButtonTitle},
-            new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle}
+            new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle},
+            new List<string>(){ UsersChartFirstButtonTitle }
         };
         ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-icons
         public static List<List<int[]>> RIGHTOPTIONSICONS { get; set; } = new List<List<int[]>>()
         {
               new List<int[]>{ new int[] { 27 }, new int[] { 6 } },
               new List<int[]>{ new int[] { 27 },  new int[] { 34 }, new int[] { 64 }},
-              new List<int[]>{ new int[] { 27 }, new int[] { 41 } }
+              new List<int[]>{ new int[] { 27 }, new int[] { 41 } },
+              new List<int[]>{ new int[] { 12} }
         };
         #endregion
         #region PageConrrols List
         public static List<BasePage> PagesViewsControls { get; set; } = new List<BasePage>{
-            new UsersPage(),new AddUserPage(),new UserCardPage()
+            new UsersPage(),new AddUserPage(),new UserCardPage(),new UsersStatisticsPage()
         };
         #endregion
 

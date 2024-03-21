@@ -61,8 +61,11 @@ namespace Spring.ViewControls.ViewHelpers
                             //add controller
                             var view = PagesNodesNames.PagesViewsControls[i];
                             view.Dock = DockStyle.Fill;
-                            view.ResetAllOptionNodes(rightPanel);
-                            view.AddEventsToOptionsNodes(rightPanel);
+                            //first add events to right options depending on which page will inhrites and set the view name
+                            view.AddEventsToOptionsNodes(rightPanel); 
+                            //then disable all option waiting for priviallges algorithm to determines which options will be active and whcich view.
+                            view.DisableRightOptionsAndTestPrevilages(rightPanel);
+
                             pageParent.Controls.Add(view);
                             leftpressednode.Enabled = false;
                             view.Select();

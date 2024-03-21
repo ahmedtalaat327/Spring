@@ -86,6 +86,7 @@ namespace Spring
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.imageList4 = new System.Windows.Forms.ImageList(this.components);
+            this.onBoardPage1 = new Spring.Pages.OnBoardPage();
             ((System.ComponentModel.ISupportInitialize)(this.dockingManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeViewAdv1)).BeginInit();
@@ -98,6 +99,7 @@ namespace Spring
             this.tabControlAdv1.SuspendLayout();
             this.tabPageAdv1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editControl1)).BeginInit();
+            this.tabPageAdv2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockingManager1
@@ -842,6 +844,7 @@ namespace Spring
             // 
             // tabPageAdv2
             // 
+            this.tabPageAdv2.Controls.Add(this.onBoardPage1);
             this.tabPageAdv2.Image = null;
             this.tabPageAdv2.ImageSize = new System.Drawing.Size(16, 16);
             this.tabPageAdv2.Location = new System.Drawing.Point(0, 30);
@@ -1129,6 +1132,14 @@ namespace Spring
             this.imageList4.Images.SetKeyName(38, "10.png");
             this.imageList4.Images.SetKeyName(39, "Cut.png");
             // 
+            // onBoardPage1
+            // 
+            this.onBoardPage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.onBoardPage1.Location = new System.Drawing.Point(0, 0);
+            this.onBoardPage1.Name = "onBoardPage1";
+            this.onBoardPage1.Size = new System.Drawing.Size(254, 147);
+            this.onBoardPage1.TabIndex = 0;
+            // 
             // DockingManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1155,6 +1166,7 @@ namespace Spring
             this.tabControlAdv1.ResumeLayout(false);
             this.tabPageAdv1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.editControl1)).EndInit();
+            this.tabPageAdv2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1201,6 +1213,7 @@ namespace Spring
         
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
         private ImageList imageList5;
+        private Pages.OnBoardPage onBoardPage1;
     }
 }
 

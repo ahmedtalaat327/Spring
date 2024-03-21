@@ -20,6 +20,7 @@ using Spring.ViewModel;
 using Spring.View.MainView.LoginView;
 using Spring.Helpers.Controls;
 using Spring.ViewControls.ViewHelpers;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Spring
 {
@@ -253,7 +254,9 @@ namespace Spring
                     }
                 }
             }
-          
+
+            
+       
 
             panel5.treeViewAdv1.Nodes.Clear();
 
@@ -263,7 +266,20 @@ namespace Spring
             
           //  this.panel2.Size = new Size(this.panel2.Width, 26);
             this.dockingManager1.SetControlSize(this.panel2, new Size(panel2.Width, 33));
-        }
+
+            /*
+            this.tabPageAdv2.VisibleChanged += (s, r) => {
+              
+                this.onBoardPage1.usersStatisticsPage1.ResetAllOptionNodes(panel5.treeViewAdv1);
+                this.onBoardPage1.usersStatisticsPage1.AddEventsToOptionsNodes(panel5.treeViewAdv1);
+                this.onBoardPage1 = new OnBoardPage();
+
+                panel5.treeViewAdv1.Nodes.Clear();
+
+            };
+            */
+            
+        }                                         
 
         private void DockingManagerViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -307,8 +323,8 @@ namespace Spring
             tabPageAdvN.TabIndex = 1;
             tabPageAdvN.Text = "" + adv.Text;
             tabPageAdvN.ThemesEnabled = false;
-           
-           
+
+
             for (int d = 0; d < tabControlAdv1.TabPages.Count; d++)
             {
 

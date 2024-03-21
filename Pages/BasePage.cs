@@ -33,7 +33,7 @@ namespace Spring.Pages
 
 
         }
-        public void ResetAllOptionNodes(TreeViewAdv optionsTree)
+        public void DisableRightOptionsAndTestPrevilages(TreeViewAdv optionsTree)
         {
             if (optionsTree == null)
                 return;
