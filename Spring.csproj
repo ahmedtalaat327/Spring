@@ -124,6 +124,9 @@
     <Compile Include="Data\Account.cs" />
     <Compile Include="Data\Department.cs" />
     <Compile Include="Data\User.cs" />
+    <Compile Include="Pages\ChartsPages\BaseChartPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Pages\ChartsPages\UsersStatisticsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -136,6 +139,8 @@
     <Compile Include="Pages\OnBoardPage.Designer.cs">
       <DependentUpon>OnBoardPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControls\ViewChartsHelpers\PageChartManager.cs" />
+    <Compile Include="ViewControls\ViewChartsHelpers\PagesChartsNodesNames.cs" />
     <Compile Include="ViewControls\ViewHelpers\PageManager.cs" />
     <Compile Include="ViewControls\ViewHelpers\PagesNodesNames.cs" />
     <Compile Include="ViewControls\PasswordBoxExt.cs">
@@ -228,6 +233,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Messages\BaseMessage.resx">
       <DependentUpon>BaseMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\BasePage.resx">
+      <DependentUpon>BasePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ChartsPages\BaseChartPage.resx">
+      <DependentUpon>BaseChartPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\ChartsPages\UsersStatisticsPage.resx">
       <DependentUpon>UsersStatisticsPage.cs</DependentUpon>

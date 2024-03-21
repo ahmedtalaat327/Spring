@@ -1,64 +1,42 @@
 ﻿using Spring.Helpers.Controls;
+using Spring.ViewControls.ViewChartsHelpers;
+using Syncfusion.Windows.Forms.Chart;
 using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Spring.Pages.ChartsPages
 {
-    public partial class UsersStatisticsPage : BasePage
+    public partial class UsersStatisticsPage : BaseChartPage
     {
         public UsersStatisticsPage()
         {
             InitializeComponent();
 
 
+            this.chartControl1.Series[0].Points.Add(0D, ((double)(7D)));
+
+            for(int i = 0; i < this.chartControl1.Series[0].Points.Count; i++)
+            {
+                this.chartControl1.Series[0].Styles[i].Text = string.Format("Labor {0}%", this.chartControl1.Series[0].Points[i].YValues[0]);
+
+            }
+
+
         }
-        public override void AddEventsToOptionsNodes(TreeViewAdv optionsTree)
-        {
-            optionsTree.BeforeSelect += OptionsTree_BeforeSelect;
-
-            optionsTree.Click += OptionsTree_Click;
-
-            #region view define
-            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesNodesNames.UsersStatisticsChartPrimaryPageButtonName;
-            #endregion
-
-          
-            OnLoad(new EventArgs());
-        }
-
         #region Methods Helpers
-        public override void OptionsTree_Click(object sender, EventArgs e)
+        public override void SetViewName()
         {
-            var optionsTree = (TreeViewAdv)sender;
-            Point pt = optionsTree.PointToClient(Cursor.Position);
-            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
-            if (node != null && node == optionsTree.SelectedNode)
-            {
-                RaiseClick(node);
-            }
+            
+            #region view define
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesChartsNodesNames.UsersChartTitle;
+            #endregion
+ 
         }
-
-        public override void OptionsTree_BeforeSelect(object sender, TreeViewAdvCancelableSelectionEventArgs o)
-        {
-            var optionsTree = (TreeViewAdv)sender;
-            Point pt = optionsTree.PointToClient(Cursor.Position);
-            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
-            if (o.Action == TreeViewAdvAction.ByMouse && node == null)
-                o.Cancel = true;
-        }
-
-        void RaiseClick(TreeNodeAdv adv)
-        {
-            // please use your code here
-            if (this.Enabled && adv != null)
-            {
-                if (adv.Text == PagesNodesNames.UsersChartFirstButtonTitle)
-                {
-                }
-            }
-        }
+       
+       
         #endregion
     }
 }

@@ -24,6 +24,16 @@ namespace Spring.Pages.ViewModel
         #endregion
         #region Public Property
         public bool ActiveView { get; set; }
+
+
+        /// <summary>
+        /// Loading flag for prgress bar visible or not
+        /// </summary>
+        public bool Loading { get { return WaitingProgress; } }
+        /// <summary>
+        /// Current progress bar state
+        /// </summary>
+        public bool WaitingProgress { get; set; }
         #endregion
         #region Commnands
         public ICommand CheckViewStateOnRules { get; set; }
@@ -42,22 +52,27 @@ namespace Spring.Pages.ViewModel
         {
             RuleRecords.Clear();
 
+           
+            await RunCommand(() => this.WaitingProgress, async () =>
+            {
             await Task.Delay(1);
-            var sqlCMD = Scripts.FetchMyData(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn,
+                var sqlCMD = Scripts.FetchMyData(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn,
             "rules",
             new string[] { "rule_id", "rule_view", "dept_id", "rule_level" }, new string[] { "dept_id" }, new string[] { VMCentral.DockingManagerViewModel.loggedUser.DepartmentId.ToString() }, "=", "and", true, "rule_id");
 
-            OracleDataReader dr = sqlCMD.ExecuteReader();
+                OracleDataReader dr = sqlCMD.ExecuteReader();
 
-            while (dr.Read())
-            {
-                RuleRecords.Add(
-                    new Rule { 
-                    ViewName = dr["rule_view"].ToString(),
-                    Level = dr["rule_level"].ToString()
-                
-                   }  );
-            }
+                while (dr.Read())
+                {
+                    RuleRecords.Add(
+                        new Rule
+                        {
+                            ViewName = dr["rule_view"].ToString(),
+                            Level = dr["rule_level"].ToString()
+
+                        });
+                }
+            });
 
         }
         /// <summary>

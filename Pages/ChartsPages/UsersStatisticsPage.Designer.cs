@@ -36,15 +36,14 @@
             // 
             // chartControl1
             // 
+            this.chartControl1.BackgroundImage = global::Spring.Properties.Resources.desktopGrid_f324974d;
             this.chartControl1.BackInterior = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Horizontal, new System.Drawing.Color[] {
             System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(220)))), ((int)(((byte)(220))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(241)))), ((int)(((byte)(231))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))))});
-            this.chartControl1.ChartArea.BackImage = global::Spring.Properties.Resources.desktopGrid_f324974d;
             this.chartControl1.ChartArea.BackInterior = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.Transparent);
             this.chartControl1.ChartArea.CursorLocation = new System.Drawing.Point(0, 0);
             this.chartControl1.ChartArea.CursorReDraw = false;
-            this.chartControl1.ChartAreaBackImage = global::Spring.Properties.Resources.desktopGrid_f324974d;
             this.chartControl1.ChartInterior = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.Transparent);
             this.chartControl1.CustomPalette = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(69)))), ((int)(((byte)(153))))),
@@ -54,14 +53,14 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(83)))), ((int)(((byte)(27))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(31)))), ((int)(((byte)(64)))))};
             this.chartControl1.DataSourceName = "[none]";
-            this.chartControl1.Depth = 73F;
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.chartControl1.IsWindowLess = false;
             // 
             // 
             // 
-            this.chartControl1.Legend.Location = new System.Drawing.Point(615, 103);
+            this.chartControl1.Legend.Location = new System.Drawing.Point(637, 54);
+            this.chartControl1.LegendsPlacement = Syncfusion.Windows.Forms.Chart.ChartPlacement.Outside;
             this.chartControl1.Localize = null;
             this.chartControl1.Location = new System.Drawing.Point(0, 0);
             this.chartControl1.Name = "chartControl1";
@@ -79,7 +78,11 @@
             this.chartControl1.PrimaryYAxis.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(158)))), ((int)(((byte)(205)))));
             this.chartControl1.PrimaryYAxis.TitleColor = System.Drawing.SystemColors.ControlText;
             chartSeries1.FancyToolTip.ResizeInsideSymbol = true;
-            chartSeries1.Name = "Default0";
+            chartSeries1.Name = "usrs";
+            chartSeries1.Points.Add(0D, ((double)(23D)));
+            chartSeries1.Points.Add(0D, ((double)(34D)));
+            chartSeries1.Points.Add(0D, ((double)(50D)));
+            chartSeries1.Points.Add(0D, ((double)(47D)));
             chartSeries1.Resolution = 0D;
             chartSeries1.StackingGroup = "Default Group";
             chartSeries1.Style.AltTagFormat = "";
@@ -93,21 +96,17 @@
             chartCustomShapeInfo1.Color = System.Drawing.SystemColors.HighlightText;
             chartCustomShapeInfo1.Type = Syncfusion.Windows.Forms.Chart.ChartCustomShape.Square;
             chartSeries1.Style.TextShape = chartCustomShapeInfo1;
-            chartSeries1.Text = "Default0";
+            chartSeries1.Text = "usrs";
             chartSeries1.Type = Syncfusion.Windows.Forms.Chart.ChartSeriesType.Pie;
             this.chartControl1.Series.Add(chartSeries1);
-            this.chartControl1.ShowToolbar = true;
             this.chartControl1.Size = new System.Drawing.Size(693, 405);
             this.chartControl1.TabIndex = 0;
-            this.chartControl1.Text = "Users in system";
-            this.chartControl1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.chartControl1.Text = "Users";
             // 
             // 
             // 
-            this.chartControl1.Title.Alignment = Syncfusion.Windows.Forms.Chart.ChartAlignment.Near;
             this.chartControl1.Title.Name = "Default";
             this.chartControl1.Titles.Add(this.chartControl1.Title);
-            this.chartControl1.ToolBar.Visible = true;
             this.chartControl1.VisualTheme = "";
             // 
             // UsersStatisticsPage

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Spring.ViewControls.ViewChartsHelpers;
+using System;
 using System.Windows.Forms;
 
 namespace Spring.Pages
@@ -20,7 +14,9 @@ namespace Spring.Pages
 
         private void OnBoardPage_Load(object sender, EventArgs e)
         {
-            
+            PageChartManager pageChartManager = new PageChartManager();
+            pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
         }
     }
+    
 }

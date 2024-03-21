@@ -62,8 +62,6 @@
             this.usersStatisticsPage1.Name = "usersStatisticsPage1";
             this.usersStatisticsPage1.Size = new System.Drawing.Size(386, 192);
             this.usersStatisticsPage1.TabIndex = 0;
-            this.usersStatisticsPage1.Visible = true;
-
             // 
             // OnBoardPage
             // 

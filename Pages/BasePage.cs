@@ -1,8 +1,10 @@
 ﻿using Spring.Helpers.Controls;
+using Spring.Messages;
 using Spring.Pages.ViewModel;
 using Spring.Properties;
 using Spring.View.MainView.LoginView;
 using Syncfusion.Windows.Forms.Tools;
+using Syncfusion.WinForms.Core.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -11,26 +13,60 @@ namespace Spring.Pages
 {
     public class BasePage : UserControl
     {
+        private ProgressBarAdv progressBarAdv3;
 
 
         #region Public Members
         public BasePageViewModel baseViewViewModel = new BasePageViewModel();
+         
 
-       
+
 
         #endregion
-      
+
         public BasePage()
         {
             #region UI Enhancements
             DoubleBuffered = true;
+            // progressBarAdv3
+            // 
+            this.progressBarAdv3 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            this.progressBarAdv3.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.BackSegments = false;
+            this.progressBarAdv3.CustomText = null;
+            this.progressBarAdv3.CustomWaitingRender = false;
+            this.progressBarAdv3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBarAdv3.ForegroundImage = null;
+            this.progressBarAdv3.GradientEndColor = System.Drawing.SystemColors.ActiveCaption;
+            this.progressBarAdv3.GradientStartColor = System.Drawing.Color.Orange;
+            this.progressBarAdv3.Location = new System.Drawing.Point(3, 433);
+            this.progressBarAdv3.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.Name = "progressBarAdv3";
+            this.progressBarAdv3.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
+            this.progressBarAdv3.SegmentWidth = 12;
+            this.progressBarAdv3.Size = new System.Drawing.Size(794, 14);
+            this.progressBarAdv3.TabIndex = 6;
+            this.progressBarAdv3.Text = "progressBarAdv3";
+            this.progressBarAdv3.TextShadow = false;
+            this.progressBarAdv3.TextVisible = false;
+            this.progressBarAdv3.ThemeName = "WaitingGradient";
+            this.progressBarAdv3.TubeEndColor = System.Drawing.SystemColors.MenuHighlight;
+            this.progressBarAdv3.TubeStartColor = System.Drawing.Color.IndianRed;
+            this.progressBarAdv3.WaitingGradientWidth = 400;
+            this.Controls.Add(this.progressBarAdv3);
             #endregion
             this.BackgroundImage = new Bitmap(Resources.desktopGrid_f324974d);
-
+           
+          
             #region Binding
             this.DataBindings.Add(new Binding("Visible", baseViewViewModel, "ActiveView"));
-            #endregion
 
+            //assign progressbar properties [visibility & Running for loading]
+            this.progressBarAdv3.DataBindings.Add(new Binding("Visible", baseViewViewModel, "Loading"));
+            this.progressBarAdv3.DataBindings.Add(new Binding("WaitingGradientEnabled", baseViewViewModel, "WaitingProgress"));
+            #endregion
 
         }
         public void DisableRightOptionsAndTestPrevilages(TreeViewAdv optionsTree)
@@ -77,6 +113,9 @@ namespace Spring.Pages
 
                 if (baseViewViewModel.ActiveView)
                 {
+
+                   
+
                     string view_name_currently = (StaticVM.VMCentral.DockingManagerViewModel.ViewName);
 
                     for (int i = 0; i < PagesNodesNames.ALLLEFTPRIMARYTITLES.Count; i++)
@@ -212,5 +251,48 @@ namespace Spring.Pages
             /*to be override to add events*/
         }
         #endregion
+
+        private void InitializeComponent()
+        {
+            this.progressBarAdv3 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv3)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // progressBarAdv3
+            // 
+            this.progressBarAdv3.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.BackSegments = false;
+            this.progressBarAdv3.CustomText = null;
+            this.progressBarAdv3.CustomWaitingRender = false;
+            this.progressBarAdv3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBarAdv3.ForegroundImage = null;
+            this.progressBarAdv3.GradientEndColor = System.Drawing.SystemColors.ActiveCaption;
+            this.progressBarAdv3.GradientStartColor = System.Drawing.Color.Orange;
+            this.progressBarAdv3.Location = new System.Drawing.Point(0, 137);
+            this.progressBarAdv3.Margin = new System.Windows.Forms.Padding(10);
+            this.progressBarAdv3.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.Name = "progressBarAdv3";
+            this.progressBarAdv3.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
+            this.progressBarAdv3.SegmentWidth = 12;
+            this.progressBarAdv3.Size = new System.Drawing.Size(150, 13);
+            this.progressBarAdv3.TabIndex = 13;
+            this.progressBarAdv3.Text = "progressBarAdv3";
+            this.progressBarAdv3.TextShadow = false;
+            this.progressBarAdv3.TextVisible = false;
+            this.progressBarAdv3.ThemeName = "WaitingGradient";
+            this.progressBarAdv3.TubeEndColor = System.Drawing.SystemColors.MenuHighlight;
+            this.progressBarAdv3.TubeStartColor = System.Drawing.Color.IndianRed;
+            this.progressBarAdv3.WaitingGradientWidth = 400;
+            // 
+            // BasePage
+            // 
+            this.Controls.Add(this.progressBarAdv3);
+            this.Name = "BasePage";
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv3)).EndInit();
+            this.ResumeLayout(false);
+
+        }
     }
 }
