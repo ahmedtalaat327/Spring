@@ -1,11 +1,6 @@
-﻿using Spring.Helpers.Controls;
-using Spring.ViewControls.ViewChartsHelpers;
-using Syncfusion.Windows.Forms.Chart;
-using Syncfusion.Windows.Forms.Tools;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
+﻿using Spring.ViewControls.ViewChartsHelpers;
+
+
 
 namespace Spring.Pages.ChartsPages
 {

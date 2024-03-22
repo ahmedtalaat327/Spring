@@ -37,6 +37,7 @@
             // chartControl1
             // 
             this.chartControl1.BackgroundImage = global::Spring.Properties.Resources.desktopGrid_f324974d;
+            this.chartControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chartControl1.BackInterior = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Horizontal, new System.Drawing.Color[] {
             System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(220)))), ((int)(((byte)(220))))),
             System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(241)))), ((int)(((byte)(231))))),
@@ -116,6 +117,7 @@
             this.Controls.Add(this.chartControl1);
             this.Name = "UsersStatisticsPage";
             this.Size = new System.Drawing.Size(693, 405);
+            this.Controls.SetChildIndex(this.chartControl1, 0);
             this.ResumeLayout(false);
 
         }

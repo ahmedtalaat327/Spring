@@ -1,6 +1,7 @@
 ﻿using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
+using Spring.StaticVM;
 using System;
 using System.ComponentModel;
 
@@ -32,28 +33,32 @@ namespace Spring.Data
         /// <returns>department model object</returns>
         public static Department GetDeptName(int deptId)
         {
-            var myOpenedTunnel = AccioEasyHelpers.ReadParamsThenConnectToDB(false);
+            var sqlCMD = Scripts.FetchMyData(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, "departments", new string[] { "dept_name" }, new string[] { "dept_id" }, new string[] { $"{deptId}" }, "=", "and");
 
-            var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "departments", new string[] { "dept_name" }, new string[] { "dept_id" }, new string[] { $"{deptId}" }, "=", "and");
-
-
-            OracleDataReader dr = sqlCMD.ExecuteReader();
-
-            //string Dep = "No Name";
             Department dept = new Department();
-
-            if (dr.HasRows)
+            try
             {
+            
+                OracleDataReader dr = sqlCMD.ExecuteReader();
 
-
-                while (dr.Read())
+                if (dr.HasRows)
                 {
-                    dept.Name = dr["dept_name"].ToString();
+
+
+                    while (dr.Read())
+                    {
+                        dept.Name = dr["dept_name"].ToString();
+                    }
                 }
             }
+            catch (Exception xorcl)
+            {
+                //for debug purposes
+                Console.WriteLine(xorcl.Message);
+                //Connection error for somereason so aggresive close that connection
+                VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
 
-            myOpenedTunnel.Close();
-            myOpenedTunnel.Dispose();
+            }
 
             return dept;
         }

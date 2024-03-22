@@ -203,31 +203,42 @@ namespace Spring.ViewModel
                
                 var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name" ,"dept_id"}, new string[] { "user_id", "user_auth" }, new string[] { "999", "'power'" }, "!=", "and");
 
-                OracleDataReader dr = sqlCMD.ExecuteReader();
-
-
-                if (dr.HasRows)
+                try
                 {
-                    while (dr.Read())
+                    OracleDataReader dr = sqlCMD.ExecuteReader();
+
+
+                    if (dr.HasRows)
                     {
+                        while (dr.Read())
+                        {
 
 
-                        usersRemote.Add(
-                            new User() { 
-                                Id = Int32.Parse(dr["user_id"].ToString()),
-                                UserName = dr["user_name"].ToString(),
-                                Password = dr["user_password"].ToString(),
-                                FullName = dr["user_full_name"].ToString(),
-                                UserAuthLevel = dr["user_auth"].ToString(),
-                                DepartmentId = Int32.Parse(dr["dept_id"].ToString())
-                            });
+                            usersRemote.Add(
+                                new User()
+                                {
+                                    Id = Int32.Parse(dr["user_id"].ToString()),
+                                    UserName = dr["user_name"].ToString(),
+                                    Password = dr["user_password"].ToString(),
+                                    FullName = dr["user_full_name"].ToString(),
+                                    UserAuthLevel = dr["user_auth"].ToString(),
+                                    DepartmentId = Int32.Parse(dr["dept_id"].ToString())
+                                });
 
 
-                  
+
+                        }
                     }
                 }
+                catch (Exception xorcl)
+                {
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
 
-            
+                }
+
 
                 return usersRemote;
             });

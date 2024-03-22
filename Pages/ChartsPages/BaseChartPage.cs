@@ -7,8 +7,9 @@ namespace Spring.Pages.ChartsPages
 {
     public class BaseChartPage : UserControl
     {
-        private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv3;
+       
         #region Public Members
+        public Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv3;
         public BasePageViewModel baseViewViewModel = new BasePageViewModel();
 
         #endregion
@@ -24,6 +25,9 @@ namespace Spring.Pages.ChartsPages
 
             #region Binding
             this.DataBindings.Add(new Binding("Visible", baseViewViewModel, "ActiveView"));
+            //assign progressbar properties [visibility & Running for loading]
+            this.progressBarAdv3.DataBindings.Add(new Binding("Visible", baseViewViewModel, "Loading"));
+            this.progressBarAdv3.DataBindings.Add(new Binding("WaitingGradientEnabled", baseViewViewModel, "WaitingProgress"));
             #endregion
         }
         public virtual void SetViewName()

@@ -49,28 +49,39 @@ namespace Spring.Pages.ViewModel
                 "users",
                 new string[] { "user_id", "user_name", "user_full_name", "user_password", "user_tel", "user_seen_date", "user_session", "user_auth", "dept_id" }, new string[] { "user_id" }, new string[] { "-1" }, ">", "and", true, "user_id");
 
-                OracleDataReader dr = sqlCMD.ExecuteReader();
-
-                if (dr.HasRows)
+                try
                 {
+                    OracleDataReader dr = sqlCMD.ExecuteReader();
 
-
-                    while (dr.Read())
+                    if (dr.HasRows)
                     {
-                        CurrentUsers.Add(new User()
-                        {
-                            Id = Int32.Parse(dr["user_id"].ToString()),
-                            UserName = dr["user_name"].ToString(),
-                            FullName = dr["user_full_name"].ToString(),
-                            Password = dr["user_password"].ToString(),
-                            TelNo = Int32.Parse(dr["user_tel"].ToString()),
-                            LastSeen = (DateTime)dr["user_seen_date"],
-                            UserInSession = dr["user_session"].ToString(),
-                            UserAuthLevel = dr["user_auth"].ToString(),
-                            DepartmentId = Int32.Parse(dr["dept_id"].ToString())
-                        });
 
+
+                        while (dr.Read())
+                        {
+                            CurrentUsers.Add(new User()
+                            {
+                                Id = Int32.Parse(dr["user_id"].ToString()),
+                                UserName = dr["user_name"].ToString(),
+                                FullName = dr["user_full_name"].ToString(),
+                                Password = dr["user_password"].ToString(),
+                                TelNo = Int32.Parse(dr["user_tel"].ToString()),
+                                LastSeen = (DateTime)dr["user_seen_date"],
+                                UserInSession = dr["user_session"].ToString(),
+                                UserAuthLevel = dr["user_auth"].ToString(),
+                                DepartmentId = Int32.Parse(dr["dept_id"].ToString())
+                            });
+
+                        }
                     }
+                }
+                catch (Exception xorcl)
+                {
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
                 }
             });
         }

@@ -3,6 +3,7 @@ using Oracle.ManagedDataAccess.Client;
 using Spring.StaticVM;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -55,22 +56,35 @@ namespace Spring.Pages.ViewModel
            
             await RunCommand(() => this.WaitingProgress, async () =>
             {
-            await Task.Delay(1);
-                var sqlCMD = Scripts.FetchMyData(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn,
+              await Task.Delay(1);
+
+
+             var sqlCMD = Scripts.FetchMyData(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn,
             "rules",
             new string[] { "rule_id", "rule_view", "dept_id", "rule_level" }, new string[] { "dept_id" }, new string[] { VMCentral.DockingManagerViewModel.loggedUser.DepartmentId.ToString() }, "=", "and", true, "rule_id");
 
-                OracleDataReader dr = sqlCMD.ExecuteReader();
-
-                while (dr.Read())
+                try
                 {
-                    RuleRecords.Add(
-                        new Rule
-                        {
-                            ViewName = dr["rule_view"].ToString(),
-                            Level = dr["rule_level"].ToString()
+                    OracleDataReader dr = sqlCMD.ExecuteReader();
 
-                        });
+                    while (dr.Read())
+                    {
+                        RuleRecords.Add(
+                            new Rule
+                            {
+                                ViewName = dr["rule_view"].ToString(),
+                                Level = dr["rule_level"].ToString()
+
+                            });
+                    }
+                }
+                catch (Exception xorcl)
+                {
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
                 }
             });
 

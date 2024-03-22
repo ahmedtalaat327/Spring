@@ -22,6 +22,7 @@ namespace Spring.Helpers.Controls
         //Two images for overlapping
         private Image Image_1 = null;
         private Image Image_2 = null;
+        private bool pressed = false;
         #region Constructor
         /// <summary>
         /// Constructor
@@ -74,31 +75,42 @@ namespace Spring.Helpers.Controls
         #region Events and Methods
         private void LabelEyeRevealler_MouseLeave(object sender, EventArgs e)
         {
-            LabelEyeRevealler.Image = this.Image_1;
-
-            LabelEyeRevealler.Size = new Size(25, this.ClientSize.Height + 2);
-            LabelEyeRevealler.Location = new Point(this.ClientSize.Width - LabelEyeRevealler.Width, -1);
-
-            if (this.Image_1 != null && this.Image_2 != null)
-                LabelEyeRevealler.Image = new Bitmap(LabelEyeRevealler.Image, this.LabelEyeRevealler.Size);
-
-            StayUnrevealed();
+           
         }
 
         private void PasswordBoxExt_Click(object sender, EventArgs e)
         {
-            LabelEyeRevealler.Image = this.Image_2;
+            if (!pressed)
+            {
+                LabelEyeRevealler.Image = this.Image_2;
 
-            LabelEyeRevealler.Size = new Size(25, this.ClientSize.Height + 2);
-            LabelEyeRevealler.Location = new Point(this.ClientSize.Width - LabelEyeRevealler.Width, -1);
+                LabelEyeRevealler.Size = new Size(25, this.ClientSize.Height + 2);
+                LabelEyeRevealler.Location = new Point(this.ClientSize.Width - LabelEyeRevealler.Width, -1);
 
-            if (this.Image_1 != null && this.Image_2 != null)
-                LabelEyeRevealler.Image = new Bitmap(LabelEyeRevealler.Image, this.LabelEyeRevealler.Size);
+                if (this.Image_1 != null && this.Image_2 != null)
+                    LabelEyeRevealler.Image = new Bitmap(LabelEyeRevealler.Image, this.LabelEyeRevealler.Size);
 
-            RevealPass();
+                RevealPass();
 
-            // Send EM_SETMARGINS to prevent text from disappearing underneath the button
-            SendMessage(this.Handle, 0xd3, (IntPtr)2, (IntPtr)(LabelEyeRevealler.Width << 16));
+                // Send EM_SETMARGINS to prevent text from disappearing underneath the button
+                SendMessage(this.Handle, 0xd3, (IntPtr)2, (IntPtr)(LabelEyeRevealler.Width << 16));
+
+                pressed = true;
+            }
+            else
+            {
+                LabelEyeRevealler.Image = this.Image_1;
+
+                LabelEyeRevealler.Size = new Size(25, this.ClientSize.Height + 2);
+                LabelEyeRevealler.Location = new Point(this.ClientSize.Width - LabelEyeRevealler.Width, -1);
+
+                if (this.Image_1 != null && this.Image_2 != null)
+                    LabelEyeRevealler.Image = new Bitmap(LabelEyeRevealler.Image, this.LabelEyeRevealler.Size);
+
+                StayUnrevealed();
+
+                pressed = false;
+            }
         }
 
         private void PasswordBoxExt_VisiChanged(object sender, EventArgs e)

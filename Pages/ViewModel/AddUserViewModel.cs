@@ -229,22 +229,34 @@ namespace Spring.Pages.ViewModel
             {
 
                 var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "departments", new string[] { "dept_id", "dept_name" }, new string[] { "dept_id" }, new string[] { "-1" }, ">", "and");
-
-
-                OracleDataReader dr = sqlCMD.ExecuteReader();
-
+                OracleDataReader dr = null;
                 ObservableCollection<Department> depts = new ObservableCollection<Department>();
-
-                if (dr.HasRows)
+                try
                 {
-
-
-                    while (dr.Read())
+                    dr = sqlCMD.ExecuteReader();
+                    if (dr.HasRows)
                     {
-                        depts.Add(new Department() { Id = Int32.Parse(dr["dept_id"].ToString()), Name = dr["dept_name"].ToString() });
 
+
+                        while (dr.Read())
+                        {
+                            depts.Add(new Department() { Id = Int32.Parse(dr["dept_id"].ToString()), Name = dr["dept_name"].ToString() });
+
+                        }
                     }
                 }
+                catch (Exception xorcl)
+                {
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
+                }
+
+                
+
+                
 
 
 
