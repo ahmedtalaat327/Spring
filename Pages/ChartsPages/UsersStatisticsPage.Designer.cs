@@ -32,7 +32,20 @@
             Syncfusion.Windows.Forms.Chart.ChartCustomShapeInfo chartCustomShapeInfo1 = new Syncfusion.Windows.Forms.Chart.ChartCustomShapeInfo();
             Syncfusion.Windows.Forms.Chart.ChartLineInfo chartLineInfo1 = new Syncfusion.Windows.Forms.Chart.ChartLineInfo();
             this.chartControl1 = new Syncfusion.Windows.Forms.Chart.ChartControl();
+            this.progressBarAdvUsersStatistics = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdvUsersStatistics)).BeginInit();
             this.SuspendLayout();
+            // 
+            // progressBarAdv3
+            // 
+            this.progressBarAdv3.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.Location = new System.Drawing.Point(0, 392);
+            this.progressBarAdv3.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv3.Size = new System.Drawing.Size(693, 13);
+            this.progressBarAdv3.Text = "progressBarUsersStatistics";
             // 
             // chartControl1
             // 
@@ -100,7 +113,7 @@
             chartSeries1.Text = "usrs";
             chartSeries1.Type = Syncfusion.Windows.Forms.Chart.ChartSeriesType.Pie;
             this.chartControl1.Series.Add(chartSeries1);
-            this.chartControl1.Size = new System.Drawing.Size(693, 405);
+            this.chartControl1.Size = new System.Drawing.Size(693, 392);
             this.chartControl1.TabIndex = 0;
             this.chartControl1.Text = "Users";
             // 
@@ -110,14 +123,47 @@
             this.chartControl1.Titles.Add(this.chartControl1.Title);
             this.chartControl1.VisualTheme = "";
             // 
+            // progressBarAdvUsersStatistics
+            // 
+            this.progressBarAdvUsersStatistics.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdvUsersStatistics.BackSegments = false;
+            this.progressBarAdvUsersStatistics.CustomText = null;
+            this.progressBarAdvUsersStatistics.CustomWaitingRender = false;
+            this.progressBarAdvUsersStatistics.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBarAdvUsersStatistics.ForegroundImage = null;
+            this.progressBarAdvUsersStatistics.GradientEndColor = System.Drawing.SystemColors.ActiveCaption;
+            this.progressBarAdvUsersStatistics.GradientStartColor = System.Drawing.Color.Orange;
+            this.progressBarAdvUsersStatistics.Location = new System.Drawing.Point(0, 379);
+            this.progressBarAdvUsersStatistics.Margin = new System.Windows.Forms.Padding(10);
+            this.progressBarAdvUsersStatistics.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdvUsersStatistics.Name = "progressBarAdvUsersStatistics";
+            this.progressBarAdvUsersStatistics.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
+            this.progressBarAdvUsersStatistics.SegmentWidth = 12;
+            this.progressBarAdvUsersStatistics.Size = new System.Drawing.Size(693, 13);
+            this.progressBarAdvUsersStatistics.TabIndex = 15;
+            this.progressBarAdvUsersStatistics.Text = "progressBarAdv1";
+            this.progressBarAdvUsersStatistics.TextShadow = false;
+            this.progressBarAdvUsersStatistics.TextVisible = false;
+            this.progressBarAdvUsersStatistics.ThemeName = "WaitingGradient";
+            this.progressBarAdvUsersStatistics.TubeEndColor = System.Drawing.SystemColors.MenuHighlight;
+            this.progressBarAdvUsersStatistics.TubeStartColor = System.Drawing.Color.IndianRed;
+            this.progressBarAdvUsersStatistics.WaitingGradientWidth = 400;
+            // 
             // UsersStatisticsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.progressBarAdvUsersStatistics);
             this.Controls.Add(this.chartControl1);
             this.Name = "UsersStatisticsPage";
             this.Size = new System.Drawing.Size(693, 405);
+            this.Controls.SetChildIndex(this.progressBarAdv3, 0);
             this.Controls.SetChildIndex(this.chartControl1, 0);
+            this.Controls.SetChildIndex(this.progressBarAdvUsersStatistics, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdvUsersStatistics)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,5 +171,6 @@
         #endregion
 
         private Syncfusion.Windows.Forms.Chart.ChartControl chartControl1;
+        public Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdvUsersStatistics;
     }
 }

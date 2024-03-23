@@ -2,7 +2,7 @@
 **this file is to initialize the current database connnection to make app connect to its server**
 **don't try to move lines down or up this will miss the whole file just change data values**
 [
-#server_ip::127.0.0.1,
+#server_ip::192.169.217.75,
 #port::1521,
 #company_name::HAAM Corp. Ltd.,
 #version::1.1.0,

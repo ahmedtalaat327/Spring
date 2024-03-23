@@ -267,18 +267,50 @@ namespace Spring
           //  this.panel2.Size = new Size(this.panel2.Width, 26);
             this.dockingManager1.SetControlSize(this.panel2, new Size(panel2.Width, 33));
 
-            /*
-            this.tabPageAdv2.VisibleChanged += (s, r) => {
-              
-                this.onBoardPage1.usersStatisticsPage1.ResetAllOptionNodes(panel5.treeViewAdv1);
-                this.onBoardPage1.usersStatisticsPage1.AddEventsToOptionsNodes(panel5.treeViewAdv1);
-                this.onBoardPage1 = new OnBoardPage();
+            this.tabPageAdv1.Closing += (s, r) => {
 
-                panel5.treeViewAdv1.Nodes.Clear();
+
+                r.Cancel = true;
+                //  panel5.treeViewAdv1.Nodes.Clear();
 
             };
-            */
-            
+
+            this.tabPageAdv2.Closing += (s, r) => {
+
+
+                r.Cancel = true;
+                //  panel5.treeViewAdv1.Nodes.Clear();
+
+            };
+
+
+            this.onBoardPage1.VisibleChanged += (s, r) => {
+
+                if (onBoardPage1.Visible)
+                {
+                    panel5.Visible = false;
+                }
+                else
+                {
+                    panel5.Visible = true;
+                }
+
+
+            };
+            this.editControl1.VisibleChanged += (s, r) => {
+
+                if (editControl1.Visible)
+                {
+                    panel5.Visible = false;
+                }
+                else
+                {
+                    panel5.Visible = true;
+                }
+
+
+            };
+
         }                                         
 
         private void DockingManagerViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -309,6 +341,7 @@ namespace Spring
 
         void RaiseClick(TreeNodeAdv adv)
         {
+            panel5.Visible = true;
             // please use your code here
             //MessageBox.Show(""+adv.Text);
             TabPageAdv tabPageAdvN = new TabPageAdv();
@@ -323,13 +356,16 @@ namespace Spring
             tabPageAdvN.TabIndex = 1;
             tabPageAdvN.Text = "" + adv.Text;
             tabPageAdvN.ThemesEnabled = false;
-
+            tabPageAdvN.Tag = "pagecarrier0";
 
             for (int d = 0; d < tabControlAdv1.TabPages.Count; d++)
             {
 
                 if (tabControlAdv1.TabPages[d].Text.Equals(tabPageAdvN.Text))
                 {
+                    tabControlAdv1.TabPages[d].Paint += (r, e) => { 
+                        panel5.Visible = true; 
+                    };
                     /*
                     #region USERS ONLY
                     if (tabControlAdv1.TabPages[d].Text.Equals(PagesNodesNames.BringFriendlyName(PagesNodesNames.AddUserPrimaryPageButtonName)))
@@ -486,7 +522,7 @@ namespace Spring
 
                     #endregion
                     */
-                   
+
                     new PageManager().SetupMyView(tabControlAdv1.TabPages[d], panel5.treeViewAdv1, panel5.treeViewAdv1.Nodes, tabPageAdvN, adv);
 
                     this.tabControlAdv1.SelectedTab = tabControlAdv1.TabPages[d];

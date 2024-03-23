@@ -9,6 +9,7 @@ namespace Spring.Pages
         public OnBoardPage()
         {
             InitializeComponent();
+            
             this.Load += OnBoardPage_Load;
         }
 
