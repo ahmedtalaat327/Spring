@@ -10,7 +10,6 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Syncfusion.Windows.Forms.Tools;
-using Spring.Pages;
 using System.Collections.Generic;
 using Syncfusion.Windows.Forms.Tools.XPMenus;
 using Syncfusion.WinForms.Controls;
@@ -18,9 +17,7 @@ using Spring.Messages;
 using Spring.StaticVM;
 using Spring.ViewModel;
 using Spring.View.MainView.LoginView;
-using Spring.Helpers.Controls;
 using Spring.ViewControls.ViewHelpers;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace Spring
 {

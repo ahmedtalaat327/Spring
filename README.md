@@ -32,7 +32,9 @@ manage connection object.
 * PDF extract demo </br></br>
  <a href="https://www.youtube.com/watch?v=SRUvmEIImJY"><img src="https://assets-global.website-files.com/64949e4863d96e26a1da8386/64b948a998510a9d2ded206e_633c71ec29fb38a9b6f4e285_1wLMdlEwmUttkWF49wzS5pTs2ZAXFIriMprSEUYsfcqasXaDwd8LFup6vhVSA85hK5OxLi0je9uTc-n2kLVejTJWzOmv_geKBWGXTV3mkor2Ghq62ZzzATKwUqJsOJDxzpTx9NYD6EQ94ynpe25tluOJ5wYr1Rf_VcVbhFQlGbNQNEFJrTSv3TONYw.png"></a>
          
-
+* Charts demo </br></br>
+<a href=""><img src="./Screenshot 2024-03-24 232337.png" ></a>
+</br>
 * Design on Site </br></br>
 <a href=""><img src="./Screenshot 2024-02-17 002307.png" ></a>
 </br>

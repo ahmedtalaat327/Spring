@@ -52,6 +52,9 @@ namespace Spring
             Syncfusion.Windows.Forms.Tools.TreeNodeAdv treeNodeAdv6 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdv();
             Syncfusion.Windows.Forms.Tools.TreeNodeAdv treeNodeAdv7 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdv();
             Syncfusion.Windows.Forms.Tools.TreeNodeAdv treeNodeAdv8 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdv();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdv treeNodeAdv9 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdv();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdv treeNodeAdv10 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdv();
+            Syncfusion.Windows.Forms.Tools.TreeNodeAdv treeNodeAdv11 = new Syncfusion.Windows.Forms.Tools.TreeNodeAdv();
             Syncfusion.Windows.Forms.Edit.Implementation.Config.Config config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config();
             this.dockingManager1 = new Syncfusion.Windows.Forms.Tools.DockingManager(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
@@ -202,7 +205,7 @@ namespace Spring
         137};
             treeNodeAdv3.MultiLine = true;
             treeNodeAdv3.ShowLine = true;
-            treeNodeAdv3.Text = "Delete Current User";
+            treeNodeAdv3.Text = "Change or Terminate Current User";
             treeNodeAdv4.ChildStyle.CheckBoxTickThickness = 1;
             treeNodeAdv4.ChildStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             treeNodeAdv4.ChildStyle.EnsureDefaultOptionedChild = true;
@@ -244,7 +247,7 @@ namespace Spring
         137};
             treeNodeAdv7.MultiLine = true;
             treeNodeAdv7.ShowLine = true;
-            treeNodeAdv7.Text = "Delete Current Dept";
+            treeNodeAdv7.Text = "Change or Terminate Current Dept";
             treeNodeAdv8.ChildStyle.CheckBoxTickThickness = 0;
             treeNodeAdv8.ChildStyle.EnsureDefaultOptionedChild = true;
             treeNodeAdv8.EnsureDefaultOptionedChild = true;
@@ -259,9 +262,50 @@ namespace Spring
             treeNodeAdv8});
             treeNodeAdv5.ShowLine = true;
             treeNodeAdv5.Text = "Departments";
+            treeNodeAdv9.ChildStyle.CheckBoxTickThickness = 1;
+            treeNodeAdv9.ChildStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv9.ChildStyle.EnsureDefaultOptionedChild = true;
+            treeNodeAdv9.ChildStyle.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv9.ChildStyle.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv9.ChildStyle.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdv9.EnsureDefaultOptionedChild = true;
+            treeNodeAdv9.Expanded = true;
+            treeNodeAdv9.MultiLine = true;
+            treeNodeAdv10.ChildStyle.CheckBoxTickThickness = 1;
+            treeNodeAdv10.ChildStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv10.ChildStyle.EnsureDefaultOptionedChild = true;
+            treeNodeAdv10.ChildStyle.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv10.ChildStyle.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv10.ChildStyle.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdv10.EnsureDefaultOptionedChild = true;
+            treeNodeAdv10.LeftImageIndices = new int[] {
+        91};
+            treeNodeAdv10.MultiLine = true;
+            treeNodeAdv10.Optioned = true;
+            treeNodeAdv10.ShowLine = true;
+            treeNodeAdv10.Text = "Add Employee";
+            treeNodeAdv11.ChildStyle.CheckBoxTickThickness = 1;
+            treeNodeAdv11.ChildStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv11.ChildStyle.EnsureDefaultOptionedChild = true;
+            treeNodeAdv11.ChildStyle.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv11.ChildStyle.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            treeNodeAdv11.ChildStyle.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdv11.EnsureDefaultOptionedChild = true;
+            treeNodeAdv11.LeftImageIndices = new int[] {
+        48};
+            treeNodeAdv11.MultiLine = true;
+            treeNodeAdv11.RightImageIndices = new int[0];
+            treeNodeAdv11.ShowLine = true;
+            treeNodeAdv11.Text = "Add Contract";
+            treeNodeAdv9.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
+            treeNodeAdv10,
+            treeNodeAdv11});
+            treeNodeAdv9.ShowLine = true;
+            treeNodeAdv9.Text = "Employees";
             this.treeViewAdv1.Nodes.AddRange(new Syncfusion.Windows.Forms.Tools.TreeNodeAdv[] {
             treeNodeAdv1,
-            treeNodeAdv5});
+            treeNodeAdv5,
+            treeNodeAdv9});
             this.treeViewAdv1.SelectedNodeBackground = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220))))));
             this.treeViewAdv1.SelectedNodeForeColor = System.Drawing.SystemColors.HighlightText;
             this.treeViewAdv1.ShowFocusRect = false;

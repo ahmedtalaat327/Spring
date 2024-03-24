@@ -1,4 +1,5 @@
-﻿using Spring.ViewControls.ViewChartsHelpers;
+﻿using Spring.Pages.ChartsPages;
+using Spring.ViewControls.ViewChartsHelpers;
 using System;
 using System.Windows.Forms;
 
@@ -11,13 +12,17 @@ namespace Spring.Pages
             InitializeComponent();
             
             this.Load += OnBoardPage_Load;
+
         }
 
         private void OnBoardPage_Load(object sender, EventArgs e)
         {
             PageChartManager pageChartManager = new PageChartManager();
             pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
+ 
         }
+
+     
     }
     
 }

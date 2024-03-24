@@ -76,9 +76,9 @@ namespace Spring.View.MainView.LoginView
 
                 this.label5.Text = "TM";
             }
-            
-            #endregion
 
+            #endregion
+           
              
 
             #region Load all properties to controles

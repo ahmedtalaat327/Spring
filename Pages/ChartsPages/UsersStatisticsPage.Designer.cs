@@ -73,7 +73,7 @@
             // 
             // 
             // 
-            this.chartControl1.Legend.Location = new System.Drawing.Point(637, 54);
+            this.chartControl1.Legend.Location = new System.Drawing.Point(637, 82);
             this.chartControl1.LegendsPlacement = Syncfusion.Windows.Forms.Chart.ChartPlacement.Outside;
             this.chartControl1.Localize = null;
             this.chartControl1.Location = new System.Drawing.Point(0, 0);
@@ -113,6 +113,7 @@
             chartSeries1.Text = "usrs";
             chartSeries1.Type = Syncfusion.Windows.Forms.Chart.ChartSeriesType.Pie;
             this.chartControl1.Series.Add(chartSeries1);
+            this.chartControl1.ShowToolbar = true;
             this.chartControl1.Size = new System.Drawing.Size(693, 392);
             this.chartControl1.TabIndex = 0;
             this.chartControl1.Text = "Users";
@@ -121,6 +122,7 @@
             // 
             this.chartControl1.Title.Name = "Default";
             this.chartControl1.Titles.Add(this.chartControl1.Title);
+            this.chartControl1.ToolBar.Visible = true;
             this.chartControl1.VisualTheme = "";
             // 
             // progressBarAdvUsersStatistics
