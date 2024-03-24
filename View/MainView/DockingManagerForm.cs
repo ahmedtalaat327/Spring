@@ -193,7 +193,7 @@ namespace Spring
             {
 
                 Point pt = this.treeViewAdv1.PointToClient(Cursor.Position);
-                TreeNodeAdv node = this.treeViewAdv1.GetNodeAtPoint(pt, true);
+                TreeNodeAdv node = this.treeViewAdv1.GetNodeAtPoint(pt, false,false);
                 if (o.Action == TreeViewAdvAction.ByMouse && node == null)
                     o.Cancel = true;
             };
@@ -201,9 +201,9 @@ namespace Spring
 
             this.treeViewAdv1.Click += (evt, obj) =>
             {
-
+                
                 Point pt = this.treeViewAdv1.PointToClient(Cursor.Position);
-                TreeNodeAdv node = this.treeViewAdv1.GetNodeAtPoint(pt, true);
+                TreeNodeAdv node = this.treeViewAdv1.GetNodeAtPoint(pt, false,false);
                 if (node != null && node == treeViewAdv1.SelectedNode)
                 {
                     RaiseClick(node);
