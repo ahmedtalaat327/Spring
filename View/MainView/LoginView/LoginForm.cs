@@ -1,4 +1,5 @@
-﻿using Spring.ViewModel;
+﻿using Spring.StaticVM;
+using Spring.ViewModel;
 using Syncfusion.Windows.Forms;
 using System;
 using System.Drawing;
@@ -147,6 +148,7 @@ namespace Spring.View.MainView.LoginView
                         {
 
                             new AdvOptions().ShowSuccess_Login(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                            VMCentral.DockingManagerViewModel.FetchAllRulesGroupes.Execute(true);
 
                         }
                         else if (!this.dataContext.ValidLogin)

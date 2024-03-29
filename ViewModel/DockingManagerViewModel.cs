@@ -1,7 +1,9 @@
 ﻿
+using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
 using Spring.Data;
+using Spring.Pages.ViewModel;
 using Spring.StaticVM;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
@@ -64,18 +66,24 @@ namespace Spring.ViewModel
         /// this is related to how pages will be managed
         /// </summary>
         public string ViewName { get; set; } = "none";
+        public string PreivilagesScored { get; set; } = "Groupe: "; 
         #region commands
         /// <summary>
         /// Our unique way to handle login comparison
         /// </summary>
         public ICommand LogoutCommand { get; set; }
+        public ICommand FetchAllRulesGroupes { get; set; }
         #endregion
 
         #endregion
         public DockingManagerViewModel()
         {
             Loading = false;
+
+
             LogoutCommand = new RelyCommand(async () => { await SignOutFromServerSQL(); });
+
+            FetchAllRulesGroupes = new RelyCommand(async () => { await GetRuleViews(); });
         }
         /// <summary>
         /// check current tunnle conn
@@ -153,8 +161,49 @@ namespace Spring.ViewModel
             });
 
 
+        }
 
 
+
+        private async Task GetRuleViews()
+        {
+           await RunCommand(() => this.Loading, async () =>
+            {
+                await Task.Delay(1);
+
+
+                var sqlCMD = Scripts.FetchMyData(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn,
+               "rules",
+               new string[] { "rule_id", "rule_view", "dept_id", "rule_level" }, new string[] { "dept_id","rule_level" }, new string[] { VMCentral.DockingManagerViewModel.loggedUser.DepartmentId.ToString(), $"'{VMCentral.DockingManagerViewModel.loggedUser.UserAuthLevel}'" }, "=", "and", true, "rule_id");
+
+                try
+                {
+                    OracleDataReader dr = sqlCMD.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                       
+                          var m_rule =  new Rule
+                            {
+                                ViewName = dr["rule_view"].ToString(),
+                                Level = dr["rule_level"].ToString()
+
+                            };
+                        PreivilagesScored += $" {m_rule.ViewName}";
+                    }
+
+
+                    
+                }
+                catch (Exception xorcl)
+                {
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
+                }
+            });
 
         }
     }

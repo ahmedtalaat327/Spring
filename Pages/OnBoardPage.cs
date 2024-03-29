@@ -17,9 +17,14 @@ namespace Spring.Pages
 
         private void OnBoardPage_Load(object sender, EventArgs e)
         {
-            PageChartManager pageChartManager = new PageChartManager();
-            pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
- 
+            try
+            {
+                PageChartManager pageChartManager = new PageChartManager();
+                pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
+            }catch(Exception nil)
+            {
+                /****/
+            }
         }
 
      

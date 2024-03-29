@@ -125,19 +125,30 @@ namespace Spring
             this.progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", VMCentral.DockingManagerViewModel, "Loading"));
 
 
+            SfButton myRules = new SfButton();
+            myRules.Dock = DockStyle.None;
+            myRules.ThemeName = "Office2019Colorful";
+            myRules.Image = this.imageList5.Images[43];
+            myRules.Text = "Groupe: -,-,-,-,-,-";
+            myRules.Size = new Size(300, 26);
+            ToolTip nGroupe = new ToolTip();
+            
 
             SfButton myBanner = new SfButton();
-            myBanner.Dock = DockStyle.Fill;
+            myBanner.Dock = DockStyle.None;
             myBanner.ThemeName = "Office2019Colorful";
             myBanner.Image = this.imageList5.Images[98];
+            myBanner.Location = new Point(myRules.Width + 1, myRules.Location.Y);
+            myBanner.Size = new Size(200, 26);
+
             Panel myPanel = new Panel();
             myPanel.BackColor = System.Drawing.Color.White;
             myPanel.Controls.AddRange(new System.Windows.Forms.Control[] {
-                                                                          myBanner,
+                                                                        myBanner,myRules
                                                                               });
             myPanel.Location = new System.Drawing.Point(10, 1);
             myPanel.Name = "panel1";
-            myPanel.Size = new System.Drawing.Size(177, 24);
+            myPanel.Size = new System.Drawing.Size(177, 26);
             myPanel.TabIndex = 5;
 
 
@@ -148,7 +159,7 @@ namespace Spring
                                                                                  myPanel});
             commandBar1.DockState = Syncfusion.Windows.Forms.Tools.CommandBarDockState.Top;
             commandBar1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
-            commandBar1.MaxLength = 200;
+            commandBar1.MaxLength = 500;
             commandBar1.MinHeight = 26;
             commandBar1.MinLength = 50;
             commandBar1.Name = "commandBar1";
@@ -180,9 +191,11 @@ namespace Spring
                 if (VMCentral.DockingManagerViewModel.loggedUser != null)
                 {
                     myBanner.DataBindings.Add(new Binding("Text", VMCentral.DockingManagerViewModel, "NameBannser"));
-                    
+                    myRules.DataBindings.Add(new Binding("Text", VMCentral.DockingManagerViewModel, "PreivilagesScored"));
+
+
                 }
-                  
+
             };
             VMCentral.DockingManagerViewModel.PropertyChanged += DockingManagerViewModel_PropertyChanged;
 
@@ -308,6 +321,8 @@ namespace Spring
 
             };
 
+
+
         }                                         
 
         private void DockingManagerViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -332,6 +347,7 @@ namespace Spring
                         //reset phase of loading fter all logic done!
                         VMCentral.DockingManagerViewModel.CurrentWait = DockingManagerViewModel.LogoutVMLoadingPhase.Non;
                     }
+                    
                 }
             }
          }

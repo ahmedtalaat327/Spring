@@ -63,6 +63,10 @@ namespace Spring.Pages.ChartsPages.ViewModel
 
             await RunCommand(() => LoadingChartData, async () =>
             {
+                //this check happens only her if the connection is not established due to error in start of the app
+                if (VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn == null)
+                    return;
+
                 await Task.Delay(12);
                 AllDepartments.Clear(); AllCounters.Clear();
                 AllDepartments = await ReadAllDepartments(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);

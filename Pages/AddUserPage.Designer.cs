@@ -862,6 +862,7 @@ namespace Spring.Pages
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AddUserPage";
             this.Size = new System.Drawing.Size(750, 440);
+            this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).EndInit();
