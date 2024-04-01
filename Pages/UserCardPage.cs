@@ -101,7 +101,7 @@ namespace Spring.Pages
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);
-            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, false, false);
             if (node != null && node == optionsTree.SelectedNode)
             {
                 RaiseClick(node);
@@ -112,7 +112,7 @@ namespace Spring.Pages
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);
-            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, false, false);
             if (o.Action == TreeViewAdvAction.ByMouse && node == null)
                 o.Cancel = true;
         }

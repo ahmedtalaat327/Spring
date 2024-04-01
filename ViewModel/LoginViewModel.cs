@@ -73,6 +73,10 @@ namespace Spring.ViewModel
         /// this for helping wait property when changing in VIEW 
         /// </summary>
         public LoginVMLoadingPhase CurrentWait { get; set; } = LoginVMLoadingPhase.Non;
+        /// <summary>
+        /// Shows any error
+        /// </summary>
+        public string ErrorDescription { get; set; } 
         #endregion
 
 
@@ -232,6 +236,7 @@ namespace Spring.ViewModel
                 }
                 catch (Exception xorcl)
                 {
+                    ErrorDescription = xorcl.Message;
                     //for debug purposes
                     Console.WriteLine(xorcl.Message);
                     //Connection error for somereason so aggresive close that connection

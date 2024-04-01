@@ -14,8 +14,6 @@ namespace Spring.Pages.ViewModel
     {
         public string ViewName { get; set; } = "my_name";
         public string Level { get; set; } = "super_user";
-
-      
     }
 
     public class BasePageViewModel : BaseViewModel
@@ -114,7 +112,10 @@ namespace Spring.Pages.ViewModel
                
             }
         }
-
+        /// <summary>
+        /// Procedure..
+        /// </summary>
+        /// <returns></returns>
         private async Task FindMyActiveView()
         {
             

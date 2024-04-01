@@ -274,11 +274,11 @@ namespace Spring.View.MainView.LoginView
         /// <summary>
         /// Only show when connection to server is failed
         /// </summary>
-        public void ShowError_Connection(Form parent)
+        public void ShowError_Connection(Form parent,string error_descriptor = "")
         {
             MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
           
-            MessageBoxAdv.Show(parent, "Error! check init parameteres, and try again.", "Connection is failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBoxAdv.Show(parent, $"{error_descriptor}. Error! check init parameteres, and try again.", "Connection is failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 

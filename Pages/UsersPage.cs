@@ -9,10 +9,7 @@ using Syncfusion.Pdf;
 using Syncfusion.Pdf.Grid;
 using System.IO;
 using Syncfusion.Data;
-using System.Threading.Tasks;
-using Spring.Properties;
 using Spring.Helpers.Controls;
-using Syncfusion.Windows.Forms.Chart;
 
 namespace Spring.Pages
 {
@@ -89,7 +86,7 @@ namespace Spring.Pages
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);
-            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, false, false);
             if (node != null && node == optionsTree.SelectedNode)
             {
                 RaiseClick(node);
@@ -100,7 +97,7 @@ namespace Spring.Pages
         {
             var optionsTree = (TreeViewAdv)sender;
             Point pt = optionsTree.PointToClient(Cursor.Position);
-            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, true);
+            TreeNodeAdv node = optionsTree.GetNodeAtPoint(pt, false, false);
             if (o.Action == TreeViewAdvAction.ByMouse && node == null)
                 o.Cancel = true;
         }
