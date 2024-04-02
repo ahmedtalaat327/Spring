@@ -25,7 +25,9 @@ namespace Spring.Helpers.Controls
         //usercard main button
         public static string UserCardPageButtonTitle { get; set; } = "User Card";
         public static string UserCardPrimaryPageButtonName { get; set; } = "usercard";
-       
+        //Change or Terminate Current User button
+        public static string ChangeorTerminateCurrentUserPageButtonTitle { get; set; } = "Change or Terminate Current User";
+        public static string ChangeorTerminateCurrentUserPrimaryPageButtonName { get; set; } = "changeorterminatecurrentuser";
         #endregion
 
 
@@ -42,21 +44,24 @@ namespace Spring.Helpers.Controls
         //=>usercard nodes
         public static string UserCardFirstButtonTitle { get; set; } = "Print out user card";
         public static string UserCardSecondButtonTitle { get; set; } = "Find a User";
-     
+        //=>changeorterminatecurrentuser nodes
+        public static string ChangeorTerminateCurrentUserFirstButtonTitle { get; set; } = "Update these values";
+        public static string ChangeorTerminateCurrentUserSecondButtonTitle { get; set; } = "Terminate current user";
+
         #endregion
 
 
         ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
         #region Lists FOR BOTH PRIM & FRIENDLY TITLES {LEFT} & FRIENDLY FOR {RIGHT}
         public static List<string> ALLLEFTPRIMARYTITLES { get; set; } = new List<string>() {
-            UsersPrimaryPageButtonName , AddUserPrimaryPageButtonName , UserCardPrimaryPageButtonName 
+            UsersPrimaryPageButtonName , AddUserPrimaryPageButtonName , UserCardPrimaryPageButtonName , ChangeorTerminateCurrentUserPrimaryPageButtonName
         };
 
         public static List<List<string>> ALLRIGHTTITLES { get; set; } = new List<List<string>>() {
             new List<string>(){UsersFirstButtonTitle, UsersSecondButtonTitle},
             new List<string>(){AddUserFirstButtonTitle, AddUserSecondButtonTitle,AddUserThirdButtonTitle},
             new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle},
-            
+            new List<string>(){ ChangeorTerminateCurrentUserFirstButtonTitle, ChangeorTerminateCurrentUserSecondButtonTitle},
         };
         ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-icons
         public static List<List<int[]>> RIGHTOPTIONSICONS { get; set; } = new List<List<int[]>>()
@@ -64,12 +69,12 @@ namespace Spring.Helpers.Controls
               new List<int[]>{ new int[] { 27 }, new int[] { 6 } },
               new List<int[]>{ new int[] { 27 },  new int[] { 34 }, new int[] { 64 }},
               new List<int[]>{ new int[] { 27 }, new int[] { 41 } },
-              
+              new List<int[]>{ new int[] { 35 }, new int[] { 56 } },
         };
         #endregion
         #region PageConrrols List
         public static List<BasePage> PagesViewsControls { get; set; } = new List<BasePage>{
-            new UsersPage(),new AddUserPage(),new UserCardPage()
+            new UsersPage(),new AddUserPage(),new UserCardPage() , new BasePage()
         };
         #endregion
 
@@ -93,6 +98,10 @@ namespace Spring.Helpers.Controls
             if (primaryname == PagesNodesNames.UserCardPrimaryPageButtonName)
             {
                 return PagesNodesNames.UserCardPageButtonTitle;
+            }
+            if (primaryname == PagesNodesNames.ChangeorTerminateCurrentUserPrimaryPageButtonName)
+            {
+                return PagesNodesNames.ChangeorTerminateCurrentUserPageButtonTitle;
             }
 
             else
