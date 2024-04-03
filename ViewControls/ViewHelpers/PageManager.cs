@@ -1,7 +1,9 @@
 ﻿using Spring.Helpers.Controls;
+using Spring.Properties;
 using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Spring.ViewControls.ViewHelpers
@@ -66,7 +68,7 @@ namespace Spring.ViewControls.ViewHelpers
                             //then disable all option waiting for priviallges algorithm to determines which options will be active and whcich view.
                             view.DisableRightOptionsAndTestPrevilages(rightPanel);
 
-                            pageParent.Controls.Add(view);
+                            pageParent.Controls.Add(view); pageParent.BackgroundImage = new Bitmap(Resources.not_available);
                             leftpressednode.Enabled = false;
                             view.Select();
 

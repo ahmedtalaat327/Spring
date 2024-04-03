@@ -1,10 +1,7 @@
 ﻿using Spring.Helpers.Controls;
-using Spring.Messages;
 using Spring.Pages.ViewModel;
 using Spring.Properties;
-using Spring.View.MainView.LoginView;
 using Syncfusion.Windows.Forms.Tools;
-using Syncfusion.WinForms.Core.Utils;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,14 +11,11 @@ namespace Spring.Pages
     public class BasePage : UserControl
     {
         private ProgressBarAdv progressBarAdv3;
-
+        
 
         #region Public Members
         public BasePageViewModel baseViewViewModel = new BasePageViewModel();
-         
-
-
-
+        
         #endregion
 
         public BasePage()
@@ -67,6 +61,8 @@ namespace Spring.Pages
             this.progressBarAdv3.DataBindings.Add(new Binding("Visible", baseViewViewModel, "Loading"));
             this.progressBarAdv3.DataBindings.Add(new Binding("WaitingGradientEnabled", baseViewViewModel, "WaitingProgress"));
             #endregion
+
+           
 
         }
         public void DisableRightOptionsAndTestPrevilages(TreeViewAdv optionsTree)
@@ -140,93 +136,94 @@ namespace Spring.Pages
                         }
                     }
 
-                
+                     
 
                 }
-            /*
-                
+               
+                /*
 
-                if (baseViewViewModel.ActiveView)
-                {
-                    string view_name_currently = (StaticVM.VMCentral.DockingManagerViewModel.ViewName);
 
-                    switch (view_name_currently)
+                    if (baseViewViewModel.ActiveView)
                     {
-                        case "users":
+                        string view_name_currently = (StaticVM.VMCentral.DockingManagerViewModel.ViewName);
 
-                            foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
-                            {
-                                 
-                                #region USERS PAGE
-                                if (itemNode.Text.Equals(PagesNodesNames.UsersFirstButtonTitle))
+                        switch (view_name_currently)
+                        {
+                            case "users":
+
+                                foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
                                 {
 
-                                    itemNode.Enabled = true;
+                                    #region USERS PAGE
+                                    if (itemNode.Text.Equals(PagesNodesNames.UsersFirstButtonTitle))
+                                    {
+
+                                        itemNode.Enabled = true;
 
 
+                                    }
+                                    if (itemNode.Text.Equals(PagesNodesNames.UsersSecondButtonTitle))
+                                    {
+
+                                        itemNode.Enabled = true;
+
+
+                                    }
+                                    #endregion
                                 }
-                                if (itemNode.Text.Equals(PagesNodesNames.UsersSecondButtonTitle))
+                                break;
+                            case "adduser":
+
+                                foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
                                 {
 
-                                    itemNode.Enabled = true;
+                                    #region ADD USER PAGE
+                                    if (itemNode.Text.Equals(PagesNodesNames.AddUserFirstButtonTitle))
+                                    {
+
+                                        itemNode.Enabled = true;
 
 
+                                    }
+                                    if (itemNode.Text.Equals(PagesNodesNames.AddUserSecondButtonTitle))
+                                    {
+
+                                        itemNode.Enabled = true;
+
+
+                                    }
+                                    #endregion
                                 }
-                                #endregion
-                            }
-                            break;
-                        case "adduser":
+                                break;
+                            case "usercard":
 
-                            foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
-                            {
-                                
-                                #region ADD USER PAGE
-                                if (itemNode.Text.Equals(PagesNodesNames.AddUserFirstButtonTitle))
+                                foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
                                 {
 
-                                    itemNode.Enabled = true;
+                                    #region USER CARD PAGE
+                                    if (itemNode.Text.Equals(PagesNodesNames.UserCardFirstButtonTitle))
+                                    {
+
+                                        itemNode.Enabled = true;
 
 
+                                    }
+                                    if (itemNode.Text.Equals(PagesNodesNames.UserCardSecondButtonTitle))
+                                    {
+
+                                        itemNode.Enabled = true;
+
+
+                                    }
+                                    #endregion
                                 }
-                                if (itemNode.Text.Equals(PagesNodesNames.AddUserSecondButtonTitle))
-                                {
+                                break;
 
-                                    itemNode.Enabled = true;
-
-
-                                }
-                                #endregion
-                            }
-                            break;
-                        case "usercard":
-
-                            foreach (Syncfusion.Windows.Forms.Tools.TreeNodeAdv itemNode in optionsTree.Nodes)
-                            {
-                                
-                                #region USER CARD PAGE
-                                if (itemNode.Text.Equals(PagesNodesNames.UserCardFirstButtonTitle))
-                                {
-
-                                    itemNode.Enabled = true;
-
-
-                                }
-                                if (itemNode.Text.Equals(PagesNodesNames.UserCardSecondButtonTitle))
-                                {
-
-                                    itemNode.Enabled = true;
-
-
-                                }
-                                #endregion
-                            }
-                            break;
+                        }
 
                     }
 
-                }
-
-                */
+                    */
             }
             
             
@@ -250,6 +247,7 @@ namespace Spring.Pages
         {
             /*to be override to add events*/
         }
+       
         #endregion
 
         private void InitializeComponent()

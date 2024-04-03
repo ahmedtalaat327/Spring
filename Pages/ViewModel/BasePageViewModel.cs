@@ -40,6 +40,7 @@ namespace Spring.Pages.ViewModel
         public BasePageViewModel()
         {
             ActiveView = false;
+
             CheckViewStateOnRules = new RelyCommand(async()=>await FindMyActiveView());
         }
         /// <summary>
@@ -109,6 +110,7 @@ namespace Spring.Pages.ViewModel
                     OnPropertyChanged(nameof(ActiveView));
 
                 }
+                
                
             }
         }

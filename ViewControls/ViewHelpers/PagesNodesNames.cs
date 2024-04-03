@@ -74,7 +74,7 @@ namespace Spring.Helpers.Controls
         #endregion
         #region PageConrrols List
         public static List<BasePage> PagesViewsControls { get; set; } = new List<BasePage>{
-            new UsersPage(),new AddUserPage(),new UserCardPage() , new BasePage()
+            new UsersPage(),new AddUserPage(),new UserCardPage() , new ChangeOrTerminateCurrentUserPage()
         };
         #endregion
 

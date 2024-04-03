@@ -140,6 +140,12 @@
     <Compile Include="Pages\OnBoardPage.Designer.cs">
       <DependentUpon>OnBoardPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChangeOrTerminateCurrentUserPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\ChangeOrTerminateCurrentUserPage.Designer.cs">
+      <DependentUpon>ChangeOrTerminateCurrentUserPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\ViewChartsHelpers\PageChartManager.cs" />
     <Compile Include="ViewControls\ViewChartsHelpers\PagesChartsNodesNames.cs" />
     <Compile Include="ViewControls\ViewHelpers\PageManager.cs" />
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\AddUserPage.resx">
       <DependentUpon>AddUserPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ChangeOrTerminateCurrentUserPage.resx">
+      <DependentUpon>ChangeOrTerminateCurrentUserPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\UsersPage.resx">
       <DependentUpon>UsersPage.cs</DependentUpon>
