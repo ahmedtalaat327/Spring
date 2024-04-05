@@ -343,7 +343,7 @@ namespace Spring.Pages
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 440);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 426);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // fullnameLbl
@@ -408,7 +408,7 @@ namespace Spring.Pages
             this.iconlbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.iconlbl.ImageKey = "Windows 7 (128).ico";
             this.iconlbl.ImageList = this.imageList2;
-            this.iconlbl.Location = new System.Drawing.Point(594, 376);
+            this.iconlbl.Location = new System.Drawing.Point(594, 362);
             this.iconlbl.Margin = new System.Windows.Forms.Padding(0);
             this.iconlbl.Name = "iconlbl";
             this.iconlbl.Padding = new System.Windows.Forms.Padding(1);
@@ -761,7 +761,7 @@ namespace Spring.Pages
             this.sfBarcode1.LightBarColor = System.Drawing.Color.White;
             this.sfBarcode1.Location = new System.Drawing.Point(451, 193);
             this.sfBarcode1.Name = "sfBarcode1";
-            this.sfBarcode1.Size = new System.Drawing.Size(140, 160);
+            this.sfBarcode1.Size = new System.Drawing.Size(140, 146);
             this.sfBarcode1.Symbology = Syncfusion.Windows.Forms.Barcode.BarcodeSymbolType.QRBarcode;
             this.sfBarcode1.SymbologySettings = null;
             this.sfBarcode1.TabIndex = 19;
@@ -774,7 +774,7 @@ namespace Spring.Pages
             this.idlabl.AutoSize = true;
             this.idlabl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.idlabl.LinkColor = System.Drawing.Color.MidnightBlue;
-            this.idlabl.Location = new System.Drawing.Point(451, 356);
+            this.idlabl.Location = new System.Drawing.Point(451, 342);
             this.idlabl.Name = "idlabl";
             this.idlabl.Size = new System.Drawing.Size(140, 20);
             this.idlabl.TabIndex = 20;
@@ -827,7 +827,7 @@ namespace Spring.Pages
             // autoLabel2
             // 
             this.autoLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.autoLabel2.Location = new System.Drawing.Point(13, 356);
+            this.autoLabel2.Location = new System.Drawing.Point(13, 342);
             this.autoLabel2.Name = "autoLabel2";
             this.autoLabel2.Size = new System.Drawing.Size(140, 13);
             this.autoLabel2.TabIndex = 25;
@@ -838,7 +838,7 @@ namespace Spring.Pages
             // 
             this.contactinfo.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.contactinfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactinfo.Location = new System.Drawing.Point(159, 359);
+            this.contactinfo.Location = new System.Drawing.Point(159, 345);
             this.contactinfo.Name = "contactinfo";
             this.contactinfo.Size = new System.Drawing.Size(140, 20);
             this.contactinfo.TabIndex = 26;
@@ -850,7 +850,7 @@ namespace Spring.Pages
             this.checkercontact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.checkercontact.ImageKey = "Windows 7 (83).ico";
             this.checkercontact.ImageList = this.imageList1;
-            this.checkercontact.Location = new System.Drawing.Point(305, 356);
+            this.checkercontact.Location = new System.Drawing.Point(305, 342);
             this.checkercontact.Name = "checkercontact";
             this.checkercontact.Size = new System.Drawing.Size(140, 20);
             this.checkercontact.TabIndex = 27;

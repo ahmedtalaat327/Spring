@@ -68,7 +68,10 @@ namespace Spring.ViewControls.ViewHelpers
                             //then disable all option waiting for priviallges algorithm to determines which options will be active and whcich view.
                             view.DisableRightOptionsAndTestPrevilages(rightPanel);
 
-                            pageParent.Controls.Add(view); pageParent.BackgroundImage = new Bitmap(Resources.not_available);
+                            pageParent.Controls.Add(view);
+                            //we set this image as defult one for these views not shown! [including non setted up and rules controlled]
+                            pageParent.BackgroundImage = new Bitmap(Resources.not_available);
+
                             leftpressednode.Enabled = false;
                             view.Select();
 
