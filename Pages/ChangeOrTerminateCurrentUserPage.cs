@@ -21,7 +21,9 @@ namespace Spring.Pages
         {
             InitializeComponent();
 
-           
+            this.sfDateTimeEdit1.DateTimeEditingMode = Syncfusion.WinForms.Input.Enums.DateTimeEditingMode.Mask;
+
+
             //bindings
             //this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;
 
