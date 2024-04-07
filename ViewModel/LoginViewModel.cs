@@ -49,6 +49,10 @@ namespace Spring.ViewModel
         /// </summary>
         public bool ValidLogin { get; set; } = false;
         /// <summary>
+        /// Determines whether the user is active or termminated
+        /// </summary>
+        public bool ValidSession { get; set; } = true; 
+        /// <summary>
         /// Is Connection to DB is valid or not
         /// </summary>
         public bool ValidConnection { get; set; } = false;
@@ -277,10 +281,12 @@ namespace Spring.ViewModel
                             if (await CheckUserSessionCase(usr))
                             {
                                 UserLogged = usr;
+                                ValidSession = true;
                                 feedBack = true;
                             }
                             else
                             {
+                                ValidSession = false;
                                 feedBack = false;
                             }
                             

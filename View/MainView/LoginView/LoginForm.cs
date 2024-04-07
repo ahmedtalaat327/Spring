@@ -144,7 +144,11 @@ namespace Spring.View.MainView.LoginView
                     //Pick which phase we are in
                     if (this.dataContext.CurrentWait == LoginViewModel.LoginVMLoadingPhase.LoginCkeckWaiting)
                     {
-                        if (this.dataContext.ValidLogin)
+                        if (!this.dataContext.ValidSession)
+                        {
+                            new AdvOptions().ShowFailur2_Login(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
+                        }
+                        else if (this.dataContext.ValidLogin)
                         {
 
                             new AdvOptions().ShowSuccess_Login(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
@@ -157,6 +161,8 @@ namespace Spring.View.MainView.LoginView
                         }
                         //reset phase of loading fter all logic done!
                         this.dataContext.CurrentWait = LoginViewModel.LoginVMLoadingPhase.Non;
+                        //reset the value of active account checker if it's changed in any phase
+                        this.dataContext.ValidSession = true;
                     }
                 }
             }
@@ -311,6 +317,15 @@ namespace Spring.View.MainView.LoginView
             MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
 
             MessageBoxAdv.Show(parent, "You are not able to login! username or password is wrong.", "Login is Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        /// <summary>
+        /// Only show when connection to server is invalid
+        /// </summary>
+        public void ShowFailur2_Login(Form parent)
+        {
+            MessageBoxAdv.MessageBoxStyle = MessageBoxAdv.Style.Metro;
+
+            MessageBoxAdv.Show(parent, "Call your admininstrator urgently! Account is terminated.", "Login is Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         /// <summary>
         /// Only show when add new user is failed <see cref="addUserViewModel.cs"/>
