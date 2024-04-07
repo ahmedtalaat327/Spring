@@ -49,6 +49,7 @@
             this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label1 = new System.Windows.Forms.Label();
             this.checkerusercardid = new System.Windows.Forms.Label();
+            this.iconlbl = new System.Windows.Forms.Label();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
@@ -289,6 +290,7 @@
             this.tableLayoutPanel1.Controls.Add(this.bannerlbl, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.iconlbl, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -297,7 +299,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 440);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(750, 426);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // bannerlbl
@@ -506,6 +508,7 @@
             // 
             // textBoxExt1
             // 
+            this.textBoxExt1.BackColor = System.Drawing.SystemColors.Info;
             this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(186, 20);
             this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxExt1.Location = new System.Drawing.Point(129, 28);
@@ -542,6 +545,21 @@
             this.checkerusercardid.Name = "checkerusercardid";
             this.checkerusercardid.Size = new System.Drawing.Size(37, 50);
             this.checkerusercardid.TabIndex = 8;
+            // 
+            // iconlbl
+            // 
+            this.iconlbl.AutoSize = true;
+            this.iconlbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconlbl.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.iconlbl.ImageKey = "Windows 7 (94).ico";
+            this.iconlbl.ImageList = this.imageList2;
+            this.iconlbl.Location = new System.Drawing.Point(643, 110);
+            this.iconlbl.Margin = new System.Windows.Forms.Padding(0);
+            this.iconlbl.Name = "iconlbl";
+            this.iconlbl.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel1.SetRowSpan(this.iconlbl, 2);
+            this.iconlbl.Size = new System.Drawing.Size(97, 320);
+            this.iconlbl.TabIndex = 8;
             // 
             // imageList2
             // 
@@ -805,5 +823,6 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label checkerusercardid;
+        private System.Windows.Forms.Label iconlbl;
     }
 }

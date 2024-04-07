@@ -3,12 +3,6 @@ using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Syncfusion.WinForms.DataGridConverter;
-using Syncfusion.Pdf.Graphics;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Grid;
-using System.IO;
-using Syncfusion.Data;
 using Spring.Helpers.Controls;
 
 namespace Spring.Pages
