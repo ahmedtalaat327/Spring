@@ -205,7 +205,7 @@ namespace Spring.ViewModel
             {
 
                
-                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name" ,"dept_id"}, new string[] { "user_id", "user_auth" }, new string[] { "999", "'power'" }, "!=", "and");
+                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name" ,"dept_id", "user_session" }, new string[] { "user_id", "user_auth" }, new string[] { "999", "'power'" }, "!=", "and");
 
                 try
                 {
@@ -226,7 +226,9 @@ namespace Spring.ViewModel
                                     Password = dr["user_password"].ToString(),
                                     FullName = dr["user_full_name"].ToString(),
                                     UserAuthLevel = dr["user_auth"].ToString(),
-                                    DepartmentId = Int32.Parse(dr["dept_id"].ToString())
+                                    DepartmentId = Int32.Parse(dr["dept_id"].ToString()),
+                                    UserInSession = dr["user_session"].ToString()
+
                                 });
 
 
@@ -260,7 +262,7 @@ namespace Spring.ViewModel
 
             bool feedBack = false;
           
-            return Task.Run(() =>
+            return Task.Run(async () =>
             {
                 if (string.IsNullOrEmpty(UserLocal.UserName) || string.IsNullOrEmpty(UserLocal.Password))
                 {
@@ -272,9 +274,16 @@ namespace Spring.ViewModel
                     {
                         if (usr.UserName.Equals(UserLocal.UserName) && usr.Password == UserLocal.Password)
                         {
+                            if (await CheckUserSessionCase(usr))
+                            {
+                                UserLogged = usr;
+                                feedBack = true;
+                            }
+                            else
+                            {
+                                feedBack = false;
+                            }
                             
-                            UserLogged = usr;
-                            feedBack = true;
                             break;
                         }
                         else
@@ -290,6 +299,24 @@ namespace Spring.ViewModel
             });
               
 
+        }
+        /// <summary>
+        /// second layer of security to check if passed user is active or terminated.
+        /// </summary>
+        /// <param name="currentPassedUser">passed login user object</param>
+        /// <returns></returns>
+        private Task<bool> CheckUserSessionCase(User currentPassedUser)
+        {
+            bool feedBack = true;
+
+            return Task.Run(() =>
+            {
+
+                if (currentPassedUser.UserInSession.Equals("ter") || currentPassedUser.UserInSession.Equals("off"))
+                    feedBack = false;
+
+                return feedBack;
+            });
         }
             #endregion
         }

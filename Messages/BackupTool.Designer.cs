@@ -661,7 +661,6 @@
             this.imageStreamer2.AllowDragging = true;
             this.imageStreamer2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imageStreamer2.BackgroundImage")));
             this.imageStreamer2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.imageStreamer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageStreamer2.InternalBackColor = System.Drawing.Color.Transparent;
             this.imageStreamer2.Location = new System.Drawing.Point(33, 33);
             this.imageStreamer2.Name = "imageStreamer2";
@@ -669,19 +668,20 @@
             this.imageStreamer2.TabIndex = 0;
             this.imageStreamer2.Text = "imageStreamer2";
             this.imageStreamer2.TextAnimationDirection = Syncfusion.Windows.Forms.Tools.ImageStreamer.TextStreamDirection.RightToLeft;
+            this.imageStreamer2.Click += new System.EventHandler(this.imageStreamer2_Click);
             // 
             // autoLabel6
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.autoLabel6, 2);
+            this.tableLayoutPanel2.SetColumnSpan(this.autoLabel6, 3);
             this.autoLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.autoLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.autoLabel6.ForeColor = System.Drawing.Color.MidnightBlue;
             this.autoLabel6.Location = new System.Drawing.Point(233, 30);
             this.autoLabel6.Name = "autoLabel6";
-            this.autoLabel6.Size = new System.Drawing.Size(314, 103);
+            this.autoLabel6.Size = new System.Drawing.Size(547, 103);
             this.autoLabel6.TabIndex = 1;
             this.autoLabel6.Text = "Make a dump of current Database (Oracle 10g)";
-            this.autoLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.autoLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel4
             // 
@@ -774,11 +774,11 @@
             this.proceedBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proceedBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.proceedBtn.ForeColor = System.Drawing.Color.White;
-            this.proceedBtn.Location = new System.Drawing.Point(40, 94);
-            this.proceedBtn.Margin = new System.Windows.Forms.Padding(40, 20, 40, 20);
+            this.proceedBtn.Location = new System.Drawing.Point(20, 94);
+            this.proceedBtn.Margin = new System.Windows.Forms.Padding(20);
             this.proceedBtn.Name = "proceedBtn";
             this.tableLayoutPanel4.SetRowSpan(this.proceedBtn, 2);
-            this.proceedBtn.Size = new System.Drawing.Size(235, 34);
+            this.proceedBtn.Size = new System.Drawing.Size(275, 34);
             this.proceedBtn.Style.BackColor = System.Drawing.Color.RoyalBlue;
             this.proceedBtn.Style.ForeColor = System.Drawing.Color.White;
             this.proceedBtn.TabIndex = 7;
@@ -826,7 +826,7 @@
             this.tabPageAdv3.ImageSize = new System.Drawing.Size(16, 16);
             this.tabPageAdv3.Location = new System.Drawing.Point(3, 24);
             this.tabPageAdv3.Name = "tabPageAdv3";
-            this.tabPageAdv3.Padding = new System.Windows.Forms.Padding(20);
+            this.tabPageAdv3.Padding = new System.Windows.Forms.Padding(20, 20, 20, 10);
             this.tabPageAdv3.ShowCloseButton = true;
             this.tabPageAdv3.Size = new System.Drawing.Size(853, 463);
             this.tabPageAdv3.TabIndex = 3;
@@ -848,9 +848,9 @@
             this.tableLayoutPanel5.Controls.Add(this.sfButton1, 2, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(20, 20);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(20);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(20, 20, 20, 1);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(30);
+            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(30, 30, 30, 5);
             this.tableLayoutPanel5.RowCount = 7;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -859,7 +859,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(813, 423);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(813, 433);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // imageStreamer3

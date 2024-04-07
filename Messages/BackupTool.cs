@@ -7,6 +7,7 @@ using Spring.Pages.ValueConverter;
 using Spring.StaticVM;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
+using Syncfusion.Data.Extensions;
 using System;
 using System.Drawing;
 using System.IO;
@@ -92,7 +93,14 @@ namespace Spring.Messages
             this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
             this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
             this.tableLayoutPanel5.Controls.Add(NewRow("KIDO","ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO", "ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO", "ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO", "ELECTICAL ENGINEERING", false));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO", "ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO", "ELECTICAL ENGINEERING", true));
+            this.tableLayoutPanel5.Controls.Add(NewRow("KIDO", "ELECTICAL ENGINEERING", false));
 
+            this.tableLayoutPanel5.Size = new Size(this.tableLayoutPanel5.Size.Width, this.tableLayoutPanel5.Size.Height*2);
 
         }
 
@@ -180,7 +188,7 @@ namespace Spring.Messages
             // 
             // label9
             // 
-            label9.AutoSize = true;
+            label9.AutoSize = false;
             label9.Dock = System.Windows.Forms.DockStyle.Fill;
             label9.Location = new System.Drawing.Point(264, 1);
             label9.Name = "label9";
@@ -222,14 +230,16 @@ namespace Spring.Messages
             label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
 
-            TableLayoutPanel tableLayoutPanel6 = new TableLayoutPanel();
-            tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            TableLayoutPanel tableLayoutPanel6 = new TableLayoutPanel(); tableLayoutPanel6.Name = "itenRow";
+            tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top & System.Windows.Forms.AnchorStyles.Bottom)
        | System.Windows.Forms.AnchorStyles.Left)
        | System.Windows.Forms.AnchorStyles.Right)));
             tableLayoutPanel6.BackColor = System.Drawing.Color.LightSteelBlue;
             tableLayoutPanel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel5.SetColumnSpan(tableLayoutPanel6, 4);
+            this.tableLayoutPanel5.RowCount++;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -237,16 +247,25 @@ namespace Spring.Messages
             tableLayoutPanel6.Controls.Add(label9, 1, 0);
             tableLayoutPanel6.Controls.Add(imageStreamer4, 2, 0);
             tableLayoutPanel6.Location = new System.Drawing.Point(35, 155);
-            tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(5);
+            tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(5,2,5,10);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(1);
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             tableLayoutPanel6.Size = new System.Drawing.Size(783, 25);
+            tableLayoutPanel6.AutoSize = false;
             tableLayoutPanel6.TabIndex = 3;
 
+           
+
+
             return tableLayoutPanel6;
+        }
+
+        private void imageStreamer2_Click(object sender, EventArgs e)
+        {
+
         }
     }
     //this View model may be moved to a seperate file .cs 
