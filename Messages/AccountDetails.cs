@@ -80,9 +80,13 @@ namespace Spring.Messages
         {
             accountDetailsViewModel.PassCheching.Execute(true);
         }
+
         #endregion
 
-
+        private void sfButton1_Click(object sender, EventArgs e)
+        {
+            accountDetailsViewModel.UpdateCommand.Execute(true);
+        }
     }
     //this View model may be moved to a seperate file .cs 
     public class AccountDetailsViewModel : BaseViewModel

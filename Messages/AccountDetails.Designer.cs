@@ -33,6 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
             this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -77,6 +78,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.Controls.Add(this.autoLabel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sfButton1, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel5, 0, 4);
@@ -129,6 +131,23 @@
             this.autoLabel2.TabIndex = 1;
             this.autoLabel2.Text = "Your ID:.";
             this.autoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // sfButton1
+            // 
+            this.sfButton1.AccessibleName = "Button";
+            this.sfButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.sfButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButton1.ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sfButton1.ImageSize = new System.Drawing.Size(22, 22);
+            this.sfButton1.Location = new System.Drawing.Point(530, 80);
+            this.sfButton1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            this.sfButton1.Name = "sfButton1";
+            this.sfButton1.Padding = new System.Windows.Forms.Padding(10, 2, 10, 2);
+            this.sfButton1.Size = new System.Drawing.Size(80, 16);
+            this.sfButton1.Style.Image = global::Spring.Properties.Resources.refresh_348;
+            this.sfButton1.TabIndex = 3;
+            this.sfButton1.Click += new System.EventHandler(this.sfButton1_Click);
             // 
             // autoLabel3
             // 
@@ -226,6 +245,7 @@
             this.passtxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.passtxtbx.Location = new System.Drawing.Point(273, 156);
             this.passtxtbx.Name = "passtxtbx";
+            this.passtxtbx.PasswordChar = '●';
             this.passtxtbx.ReadOnly = true;
             this.passtxtbx.Size = new System.Drawing.Size(114, 20);
             this.passtxtbx.TabIndex = 13;
@@ -319,7 +339,7 @@
             this.okbtn.ForeColor = System.Drawing.Color.White;
             this.okbtn.Location = new System.Drawing.Point(3, 60);
             this.okbtn.Name = "okbtn";
-            this.okbtn.Size = new System.Drawing.Size(88, 23);
+            this.okbtn.Size = new System.Drawing.Size(88, 22);
             this.okbtn.Style.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.okbtn.Style.ForeColor = System.Drawing.Color.White;
             this.okbtn.TabIndex = 0;
@@ -651,5 +671,6 @@
         private System.Windows.Forms.Label passwordchklbl;
         private System.Windows.Forms.ImageList imageList1;
         private Syncfusion.Windows.Forms.SfToolTip sfToolTip1;
+        private Syncfusion.WinForms.Controls.SfButton sfButton1;
     }
 }

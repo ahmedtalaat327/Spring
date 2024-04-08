@@ -321,6 +321,7 @@
     <Content Include="process\OracleExportDB.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="refresh-348.png" />
     <Content Include="springTM.ico" />
     <None Include="springTM.png" />
     <Content Include="VS.ico" />
