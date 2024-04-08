@@ -135,6 +135,7 @@
             // sfButton1
             // 
             this.sfButton1.AccessibleName = "Button";
+            this.sfButton1.BackColor = System.Drawing.Color.GhostWhite;
             this.sfButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.sfButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
@@ -145,8 +146,10 @@
             this.sfButton1.Name = "sfButton1";
             this.sfButton1.Padding = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.sfButton1.Size = new System.Drawing.Size(80, 16);
+            this.sfButton1.Style.BackColor = System.Drawing.Color.GhostWhite;
             this.sfButton1.Style.Image = global::Spring.Properties.Resources.refresh_348;
             this.sfButton1.TabIndex = 3;
+            this.sfButton1.UseVisualStyleBackColor = false;
             this.sfButton1.Click += new System.EventHandler(this.sfButton1_Click);
             // 
             // autoLabel3
@@ -284,18 +287,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.SpringGreen;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(408, 77);
-            this.label1.Margin = new System.Windows.Forms.Padding(18, 2, 18, 2);
+            this.label1.Image = global::Spring.Properties.Resources.icons8_ok_48;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(392, 77);
+            this.label1.Margin = new System.Windows.Forms.Padding(2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 22);
+            this.label1.Size = new System.Drawing.Size(116, 22);
             this.label1.TabIndex = 16;
             this.label1.Text = "user";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel2
             // 

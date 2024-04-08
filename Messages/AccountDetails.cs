@@ -27,10 +27,12 @@ namespace Spring.Messages
 
             base.InitializeComponent();
             this.InitializeComponent();
-            
+
             base.Text = "My Account";
             this.TopMost = true;
             this.sfBarcode1.Text = "0";
+
+            this.label1.Image = (new Bitmap(this.label1.Image, new Size(24, 24)));
 
             this.progressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
             this.progressBarAdv1.WaitingGradientEnabled = true;
@@ -48,7 +50,7 @@ namespace Spring.Messages
             this.snametxtbx.DataBindings.Add(new Binding("Text", accountDetailsViewModel, "SecondPart"));
             this.lnametxtbx.DataBindings.Add(new Binding("Text", accountDetailsViewModel, "ThirdPart"));
             this.usernametxtbx.DataBindings.Add(new Binding("Text", accountDetailsViewModel, "UserName"));
-            this.passtxtbx.DataBindings.Add(new Binding("Text", accountDetailsViewModel, "Password",false,DataSourceUpdateMode.OnPropertyChanged));
+            this.passtxtbx.DataBindings.Add(new Binding("Text", accountDetailsViewModel, "Password", false, DataSourceUpdateMode.OnPropertyChanged));
             this.depttxtbx.DataBindings.Add(new Binding("Text", accountDetailsViewModel, "Departmanet"));
             this.label1.DataBindings.Add(new Binding("Text", accountDetailsViewModel, "AuthorityLevel"));
 
@@ -85,7 +87,7 @@ namespace Spring.Messages
 
         private void sfButton1_Click(object sender, EventArgs e)
         {
-            accountDetailsViewModel.UpdateCommand.Execute(true);
+            accountDetailsViewModel.ReloadInitialize.Execute(true);
         }
     }
     //this View model may be moved to a seperate file .cs 
@@ -127,11 +129,11 @@ namespace Spring.Messages
         /// <summary>
         /// department
         /// </summary>
-        public string Departmanet { get=>MyUsre.DepartmentName; }
+        public string Departmanet { get => MyUsre.DepartmentName; }
         /// <summary>
         /// determmines if its user or admin
         /// </summary>
-        public string AuthorityLevel { get=>MyUsre.UserAuthLevel; }
+        public string AuthorityLevel { get => MyUsre.UserAuthLevel; }
         /// <summary>
         /// determines if the edit is enabled or not  
         /// Specially for password box
@@ -171,7 +173,11 @@ namespace Spring.Messages
         /// <summary>
         /// Command pass checker for event key down
         /// </summary>
-        public ICommand PassCheching { get; set; }  
+        public ICommand PassCheching { get; set; }
+        /// <summary>
+        /// Load user object again 
+        /// </summary>
+        public ICommand ReloadInitialize { get; set; }
         #endregion
         #region Constructor
         public AccountDetailsViewModel()
@@ -179,30 +185,31 @@ namespace Spring.Messages
             Password = MyUsre.Password;
             UpdateCommand = new RelyCommand(async () => await Update());
             PassCheching = new RelyCommand(async () => await PassProcedure());
+            ReloadInitialize = new RelyCommand(async () => await Refresh());
         }
 
         #endregion
 
         #region Methods Helpers
-       
+
         /// <summary>
         /// Update user info after assigning password from current property
         /// </summary>
         /// <returns></returns>
         private async Task Update()
         {
-           
 
-            await RunCommand(() => this.WaitingProgress, async () => 
+
+            await RunCommand(() => this.WaitingProgress, async () =>
             {
-                
+
                 //must put awaitable task func connected to database
                 try
                 {
-                    
 
-                    if(!PassCheckerVisiblity)
-                    MyUsre.Password = Password;
+
+                    if (!PassCheckerVisiblity)
+                        MyUsre.Password = Password;
 
                     _validUpdate = await UpdateCurrentUser(MyUsre, DateTime.Now, VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
 
@@ -214,11 +221,11 @@ namespace Spring.Messages
                 }
                 finally
                 {
-                     
+
                     ReadOnly = true;
 
-                  
-                    
+
+
                 }
                 if (_validUpdate == -1)
                     //error for sql
@@ -228,7 +235,7 @@ namespace Spring.Messages
                     //show success message
 
                 }
-                
+
 
 
             });
@@ -240,12 +247,12 @@ namespace Spring.Messages
         /// <param name="inputDate">current date</param>
         /// <param name="myOpenedTunnel">connection object</param>
         /// <returns></returns>
-        private Task<int> UpdateCurrentUser(User _user,DateTime inputDate,OracleConnection myOpenedTunnel)
+        private Task<int> UpdateCurrentUser(User _user, DateTime inputDate, OracleConnection myOpenedTunnel)
         {
 
             return Task.Run(() =>
             {
-                
+
                 var replyFromUpdate = Scripts.EditMyDataRow(myOpenedTunnel, "users",
                     new string[] { "user_name", "user_full_name", "user_password", "user_tel", "user_seen_date", "user_session", "user_auth", "dept_id" },
                     new string[] { "'" + _user.UserName + "'", "'" + _user.FullName + "'", "'" + _user.Password + "'", _user.TelNo.ToString(), "DATE '" + inputDate.Year.ToString() + "-" + inputDate.Month.ToString() + "-" + inputDate.Day.ToString() + "'", "''", "'" + _user.UserAuthLevel + "'", _user.DepartmentId.ToString() },
@@ -271,7 +278,7 @@ namespace Spring.Messages
         {
             await Task.Delay(1000);
 
-          
+
 
             if (Password.Length < 7)
             {
@@ -293,16 +300,95 @@ namespace Spring.Messages
         private string[] GetParts(string fullname)
         {
             string[] parts = fullname.Split(' ');
-           
+
             List<string> partsAsList = new List<string>();
 
-            if(parts.Length==3)
-            partsAsList.Add(parts[0]); partsAsList.Add(parts[1]); partsAsList.Add(parts[2]);
+            if (parts.Length == 3)
+                partsAsList.Add(parts[0]); partsAsList.Add(parts[1]); partsAsList.Add(parts[2]);
 
-            return partsAsList.ToArray();   
+            return partsAsList.ToArray();
 
         }
-        #endregion
+        /// <summary>
+        /// Update user info after assigning password from current property
+        /// </summary>
+        /// <returns></returns>
+        private async Task Refresh()
+        {
 
+
+            await RunCommand(() => this.WaitingProgress, async () =>
+            {
+
+                var encounteredusers = await LoadUserFromDataBase(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, Int32.Parse(MyId));
+                VMCentral.DockingManagerViewModel.loggedUser = encounteredusers[0];
+                OnPropertyChanged(nameof(MyUsre));
+            });
+        }
+
+        /// <summary>
+        /// This is a brilliant task method can return all Users as instance.
+        /// </summary>
+        /// <param name="myOpenedTunnel">Current connection object</param>
+        /// <returns></returns>
+        private Task<List<User>> LoadUserFromDataBase(OracleConnection myOpenedTunnel,int id)
+        {
+
+
+            List<User> usersRemote = new List<User>();
+
+
+
+            return Task.Run(() =>
+            {
+
+
+                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name", "dept_id", "user_session" }, new string[] { "user_id" }, new string[] { $"{id}" }, "=", "and");
+
+                try
+                {
+                    OracleDataReader dr = sqlCMD.ExecuteReader();
+
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+
+
+                            usersRemote.Add(
+                                new User()
+                                {
+                                    Id = Int32.Parse(dr["user_id"].ToString()),
+                                    UserName = dr["user_name"].ToString(),
+                                    Password = dr["user_password"].ToString(),
+                                    FullName = dr["user_full_name"].ToString(),
+                                    UserAuthLevel = dr["user_auth"].ToString(),
+                                    DepartmentId = Int32.Parse(dr["dept_id"].ToString()),
+                                    UserInSession = dr["user_session"].ToString()
+
+                                });
+
+
+
+                        }
+                    }
+                }
+                catch (Exception xorcl)
+                {
+                    //ErrorDescription = xorcl.Message;
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
+                }
+
+
+                return usersRemote;
+            });
+            #endregion
+
+        }
     }
 }
