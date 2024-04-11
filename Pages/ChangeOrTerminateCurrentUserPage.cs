@@ -10,25 +10,138 @@ namespace Spring.Pages
     public partial class ChangeOrTerminateCurrentUserPage : BasePage
     {
 
-        UsersViewModel usersViewModel = new UsersViewModel();
+        ChangeOrTerminateCurrentUserViewModel changeOrTerminateCurrentUserViewModel = new ChangeOrTerminateCurrentUserViewModel();
         public ChangeOrTerminateCurrentUserPage() 
         {
+            #region UI customizations
             InitializeComponent();
 
+            //some UI customizations
+            this.authlvlcombo.ThemeName = "Metro";
+            this.authlvlcombo.ComboBoxMode = Syncfusion.WinForms.ListView.Enums.ComboBoxMode.SingleSelection;
+            this.authlvlcombo.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDown;
+            this.authlvlcombo.BackColor = ColorTranslator.FromHtml("#eaf0ff");
+
+            this.authlvlcombo.KeyPress += (bj, e) => {
+                //prevent change text
+
+                bool isBackspace = e.KeyChar == '\b';
+
+                // If we get anything other than a backspace, tell the rest of
+                // the event processing logic to ignore this event
+                if (!isBackspace)
+                {
+                    e.Handled = true;
+                }
+
+            };
+
+            this.deptcombo.ThemeName = "Metro";
+            this.deptcombo.ComboBoxMode = Syncfusion.WinForms.ListView.Enums.ComboBoxMode.SingleSelection;
+            this.deptcombo.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDown;
+            this.deptcombo.BackColor = ColorTranslator.FromHtml("#eaf0ff");
+
+            this.deptcombo.KeyPress += (bj, e) => {
+                //prevent change text
+
+                bool isBackspace = e.KeyChar == '\b';
+
+                // If we get anything other than a backspace, tell the rest of
+                // the event processing logic to ignore this event
+                if (!isBackspace)
+                {
+                    e.Handled = true;
+                }
+
+            };
+
+
             this.sfDateTimeEdit1.DateTimeEditingMode = Syncfusion.WinForms.Input.Enums.DateTimeEditingMode.Mask;
+            this.sfDateTimeEdit1.Value = DateTime.Today;
 
 
-            //bindings
-            //this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;
+
+            
+
+            #endregion
+
+
+            #region Bindings
+            //properties bindings
+            BindingSource aithtsbindingSource = new BindingSource();
+            aithtsbindingSource.DataSource = changeOrTerminateCurrentUserViewModel.AuthritiesUsed;
+            this.authlvlcombo.DataSource = aithtsbindingSource.DataSource;
+            //Bind the Display member and Value member to the data source
+            this.authlvlcombo.DisplayMember = "Title";
+            this.authlvlcombo.ValueMember = "DataFromDatabase";
+            //
+            this.authlvlcombo.DataBindings.Add(new Binding("SelectedItem", changeOrTerminateCurrentUserViewModel, "SelectedAuth", true, DataSourceUpdateMode.OnPropertyChanged));
+
+            //properties bindings
+            BindingSource deptsbindingSource = new BindingSource();
+            deptsbindingSource.DataSource = changeOrTerminateCurrentUserViewModel.DeptsStored;
+            this.deptcombo.DataSource = deptsbindingSource;
+            //Bind the Display member and Value member to the data source
+            this.deptcombo.DisplayMember = "Name";
+            this.deptcombo.ValueMember = "Id";
+            //
+            this.deptcombo.DataBindings.Add(new Binding("SelectedItem", changeOrTerminateCurrentUserViewModel, "SelectedDept", true, DataSourceUpdateMode.OnPropertyChanged));
+
 
             //binding active flag to panel
-            //this.DataBindings.Add(new Binding("Enabled", usersViewModel, "ActivePanel"));
+            //this.DataBindings.Add(new Binding("Enabled", changeOrTerminateCurrentUserViewModel, "ActivePanel"));
 
+             
+            /////////////////
+            //fname
+            this.fnametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "FirstPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
+            //sname
+            this.snametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "MiddlePortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
+            //lname
+            this.lnametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
+            //username [login]
+            this.usernametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "UserName", false, DataSourceUpdateMode.OnPropertyChanged));
+            //pass
+            this.passtxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "Password", false, DataSourceUpdateMode.OnPropertyChanged));
+            //date
+            this.sfDateTimeEdit1.DataBindings.Add("Value", changeOrTerminateCurrentUserViewModel, "DateOfAdditon", true, DataSourceUpdateMode.OnPropertyChanged);
+            //contact
+            this.contactinfo.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "ContactNumber", true, DataSourceUpdateMode.OnPropertyChanged));
+
+            /*
+            //checkers icons
+            //name portions checker lbl
+            this.checkerfullname.DataBindings.Add(new Binding("Visible", changeOrTerminateCurrentUserViewModel, "NamePortionsCheckerVisiblity"));
+            //username..
+            this.checkerusername.DataBindings.Add(new Binding("Visible", changeOrTerminateCurrentUserViewModel, "UserNameCheckerVisibilty"));
+            //password..
+            this.checkerpass.DataBindings.Add(new Binding("Visible", changeOrTerminateCurrentUserViewModel, "PassCheckerVisibilty"));
+            //contact number here depending on country laws
+            this.checkercontact.DataBindings.Add(new Binding("Visible", changeOrTerminateCurrentUserViewModel, "ContactCheckerVisibilty"));
+            //auth 
+            this.checkerauth.DataBindings.Add(new Binding("Visible", changeOrTerminateCurrentUserViewModel, "AuthCheckerVisibilty"));
+            //Dept
+            this.checkerdept.DataBindings.Add(new Binding("Visible", changeOrTerminateCurrentUserViewModel, "DeptCheckerVisibilty"));
+            */
+            #endregion
+            #region Event as fix for timedatepicker
+            sfDateTimeEdit1.ValueChanged += sfDateTimeEdit1_ValueChanged;
+
+
+            void sfDateTimeEdit1_ValueChanged(object sender, Syncfusion.WinForms.Input.Events.DateTimeValueChangedEventArgs e)
+            {
+                sfDateTimeEdit1.DataBindings["Value"].WriteValue();
+            }
+            #endregion
             #region Events
 
             this.Load += ChangeOrTerminateCurrentUserPage_Load;
 
-          
+
+            //fix bug in UI related to change selected index when timepicker selected
+            this.authlvlcombo.DropDownClosed += (s, e) => { this.passtxtbx.Focus(); };
+            this.deptcombo.DropDownClosed += (s, e) => { this.passtxtbx.Focus(); };
+
             /*
             optionsTree.BeforeSelect += (e, o) =>
             {
@@ -100,7 +213,7 @@ namespace Spring.Pages
 
         private void ChangeOrTerminateCurrentUserPage_Load(object sender, EventArgs e)
         {
-            usersViewModel.LoadAllUsers.Execute(true);
+            changeOrTerminateCurrentUserViewModel.LoadInitialWithRefrshing.Execute(true);
         }
 
 

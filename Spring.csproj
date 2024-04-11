@@ -146,6 +146,7 @@
     <Compile Include="Pages\ChangeOrTerminateCurrentUserPage.Designer.cs">
       <DependentUpon>ChangeOrTerminateCurrentUserPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ViewModel\ChangeOrTerminateCurrentUserViewModel.cs" />
     <Compile Include="ViewControls\ViewChartsHelpers\PageChartManager.cs" />
     <Compile Include="ViewControls\ViewChartsHelpers\PagesChartsNodesNames.cs" />
     <Compile Include="ViewControls\ViewHelpers\PageManager.cs" />

@@ -272,7 +272,9 @@ namespace Spring
 
             this.dockingManager1.SetAutoHideMode(this.panel2, false);
             this.dockingManager1.SetDockLabel(this.panel1, "Here We Go...");
+            this.dockingManager1.CloseEnabled = false;
 
+            this.dockingManager1.SetAutoHideMode(panel5,true);
             
           //  this.panel2.Size = new Size(this.panel2.Width, 26);
             this.dockingManager1.SetControlSize(this.panel2, new Size(panel2.Width, 33));
@@ -322,7 +324,7 @@ namespace Spring
             };
 
 
-
+          
         }                                         
 
         private void DockingManagerViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

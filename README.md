@@ -14,12 +14,13 @@ style="corner-radius: 4; border: 5; border-color: blue;">
 
 </br></br>
 
-<!-- ABOUT THE PROJECT -->
+<!-- DATABASE WE USE -->
 ## Database Version: 💉</br>
 * In this project we use <a href="https://en.wikipedia.org/wiki/Oracle_Database">Oracle</a> Database through Oracle with (ManagedDataAccess.dll) and a C# pure dll (AccioOracleKit.dll) both can work together to achieve repeatitve queries as string  same as SQL* and
 manage connection object.
 
 </br>
+<a href=""><img src="./2024-04-11 23-52-50.gif" ></a>
 
 <!-- SCREENS -->
 ## Screens shots: 📷</br>
