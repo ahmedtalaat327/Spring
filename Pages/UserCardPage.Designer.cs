@@ -334,6 +334,7 @@
             this.tableLayoutPanel2.Controls.Add(this.sfBarcode1, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(175, 113);
+            this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(465, 294);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));

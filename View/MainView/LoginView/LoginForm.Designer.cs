@@ -35,7 +35,6 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBoxExt2 = new Spring.Helpers.Controls.PasswordBoxExt();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,14 +45,15 @@ namespace Spring.View.MainView.LoginView
             this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
             this.label4 = new System.Windows.Forms.Label();
             this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            this.textBoxExt2 = new Spring.Helpers.Controls.PasswordBoxExt();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -87,7 +87,8 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(550, 100);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(550, 100, 550, 100);
-            this.tableLayoutPanel2.MinimumSize = new System.Drawing.Size(350, 400);
+            this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(320, 480);
+            this.tableLayoutPanel2.MinimumSize = new System.Drawing.Size(270, 450);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel2.RowCount = 6;
@@ -97,7 +98,7 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(350, 400);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(270, 450);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -108,32 +109,13 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel5.Controls.Add(this.textBoxExt2, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(8, 156);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(8, 176);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(334, 68);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(254, 78);
             this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // textBoxExt2
-            // 
-            this.textBoxExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
-            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(304, 31);
-            this.textBoxExt2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.textBoxExt2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxExt2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxExt2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.textBoxExt2.Location = new System.Drawing.Point(15, 37);
-            this.textBoxExt2.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
-            this.textBoxExt2.Name = "textBoxExt2";
-            this.textBoxExt2.PasswordChar = '●';
-            this.textBoxExt2.Size = new System.Drawing.Size(304, 31);
-            this.textBoxExt2.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
-            this.textBoxExt2.TabIndex = 2;
-            this.textBoxExt2.ThemeName = "Metro";
-            this.textBoxExt2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxExt2_KeyDown);
             // 
             // label3
             // 
@@ -143,7 +125,7 @@ namespace Spring.View.MainView.LoginView
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(328, 34);
+            this.label3.Size = new System.Drawing.Size(248, 39);
             this.label3.TabIndex = 0;
             this.label3.Text = "Password";
             // 
@@ -159,7 +141,7 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(334, 68);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(254, 78);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label1
@@ -170,7 +152,7 @@ namespace Spring.View.MainView.LoginView
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 68);
+            this.label1.Size = new System.Drawing.Size(95, 78);
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             // 
@@ -178,9 +160,9 @@ namespace Spring.View.MainView.LoginView
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(136, 0);
+            this.label5.Location = new System.Drawing.Point(104, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(195, 68);
+            this.label5.Size = new System.Drawing.Size(147, 78);
             this.label5.TabIndex = 1;
             this.label5.Text = "loogohere";
             // 
@@ -192,27 +174,27 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel4.Controls.Add(this.textBoxExt1, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(8, 82);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(8, 92);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(334, 68);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(254, 78);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // textBoxExt1
             // 
             this.textBoxExt1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(304, 31);
+            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(224, 31);
             this.textBoxExt1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.textBoxExt1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxExt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxExt1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.textBoxExt1.Location = new System.Drawing.Point(15, 37);
+            this.textBoxExt1.Location = new System.Drawing.Point(15, 42);
             this.textBoxExt1.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(304, 31);
+            this.textBoxExt1.Size = new System.Drawing.Size(224, 31);
             this.textBoxExt1.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             this.textBoxExt1.TabIndex = 2;
             this.textBoxExt1.ThemeName = "Metro";
@@ -226,7 +208,7 @@ namespace Spring.View.MainView.LoginView
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(328, 34);
+            this.label2.Size = new System.Drawing.Size(248, 39);
             this.label2.TabIndex = 0;
             this.label2.Text = "User Name";
             // 
@@ -237,11 +219,11 @@ namespace Spring.View.MainView.LoginView
             this.sfButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.sfButton1.ForeColor = System.Drawing.Color.White;
-            this.sfButton1.Location = new System.Drawing.Point(20, 242);
+            this.sfButton1.Location = new System.Drawing.Point(20, 272);
             this.sfButton1.Margin = new System.Windows.Forms.Padding(15);
             this.sfButton1.Name = "sfButton1";
             this.sfButton1.Padding = new System.Windows.Forms.Padding(20);
-            this.sfButton1.Size = new System.Drawing.Size(310, 44);
+            this.sfButton1.Size = new System.Drawing.Size(230, 54);
             this.sfButton1.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.sfButton1.Style.ForeColor = System.Drawing.Color.White;
             this.sfButton1.TabIndex = 3;
@@ -253,9 +235,9 @@ namespace Spring.View.MainView.LoginView
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(8, 301);
+            this.label4.Location = new System.Drawing.Point(8, 341);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(334, 74);
+            this.label4.Size = new System.Drawing.Size(254, 84);
             this.label4.TabIndex = 4;
             this.label4.Text = "This software was designed with open source license 2023-2024";
             // 
@@ -269,13 +251,13 @@ namespace Spring.View.MainView.LoginView
             this.progressBarAdv1.ForegroundImage = null;
             this.progressBarAdv1.GradientEndColor = System.Drawing.SystemColors.ActiveCaption;
             this.progressBarAdv1.GradientStartColor = System.Drawing.Color.Orange;
-            this.progressBarAdv1.Location = new System.Drawing.Point(8, 378);
+            this.progressBarAdv1.Location = new System.Drawing.Point(8, 428);
             this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.Empty};
             this.progressBarAdv1.Name = "progressBarAdv1";
             this.progressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
             this.progressBarAdv1.SegmentWidth = 12;
-            this.progressBarAdv1.Size = new System.Drawing.Size(334, 14);
+            this.progressBarAdv1.Size = new System.Drawing.Size(254, 14);
             this.progressBarAdv1.TabIndex = 5;
             this.progressBarAdv1.Text = "progressBarAdv1";
             this.progressBarAdv1.TextShadow = false;
@@ -284,6 +266,25 @@ namespace Spring.View.MainView.LoginView
             this.progressBarAdv1.TubeEndColor = System.Drawing.SystemColors.MenuHighlight;
             this.progressBarAdv1.TubeStartColor = System.Drawing.Color.IndianRed;
             this.progressBarAdv1.WaitingGradientWidth = 400;
+            // 
+            // textBoxExt2
+            // 
+            this.textBoxExt2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(245)))), ((int)(((byte)(253)))));
+            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(224, 31);
+            this.textBoxExt2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.textBoxExt2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxExt2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxExt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxExt2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.textBoxExt2.Location = new System.Drawing.Point(15, 42);
+            this.textBoxExt2.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.textBoxExt2.Name = "textBoxExt2";
+            this.textBoxExt2.PasswordChar = '●';
+            this.textBoxExt2.Size = new System.Drawing.Size(224, 31);
+            this.textBoxExt2.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
+            this.textBoxExt2.TabIndex = 2;
+            this.textBoxExt2.ThemeName = "Metro";
+            this.textBoxExt2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxExt2_KeyDown);
             // 
             // LoginForm
             // 
@@ -303,13 +304,13 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).EndInit();
             this.ResumeLayout(false);
 
         }

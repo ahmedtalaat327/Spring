@@ -23,7 +23,9 @@ namespace Spring.View.MainView.LoginView
         /// </summary>
         private LoginViewModel dataContext = null;
         #endregion
-
+        #region Private Members
+        private int wWidth = 270, wHeight = 470;
+        #endregion
         #region constructor
         /// <summary>
         /// Constructor for current View (UI)
@@ -35,11 +37,7 @@ namespace Spring.View.MainView.LoginView
 
             #region UI Cutsomization 
             this.BackColor = Color.White;
-            this.Resize += (evt, obj) =>
-            {
-
-                this.tableLayoutPanel2.Location = new System.Drawing.Point((this.tableLayoutPanel1.Width - 350) / 2, (this.tableLayoutPanel1.Height - 400) / 2);
-            };
+           
             try
             {
                 System.Drawing.Icon ico = global::Spring.Properties.Resources.springTM;
@@ -77,10 +75,18 @@ namespace Spring.View.MainView.LoginView
 
                 this.label5.Text = "TM";
             }
+            tableLayoutPanel1.Dock = DockStyle.Fill;
 
+           // tableLayoutPanel2.Dock = DockStyle.None;
+            tableLayoutPanel2.Size = new Size(wWidth, wHeight);
+            this.Resize += (evt, obj) =>
+            {
+                this.tableLayoutPanel2.Margin = new Padding((this.tableLayoutPanel1.Width - wWidth) / 2, (this.tableLayoutPanel1.Height - wHeight) / 2, (this.tableLayoutPanel1.Width - wHeight) / 2, (this.tableLayoutPanel1.Height - wHeight) / 2);
+             //   this.tableLayoutPanel2.Location = new System.Drawing.Point((this.tableLayoutPanel1.MaximumSize.Width - 350) / 2, (this.tableLayoutPanel1.Height - 400) / 2);
+            };
             #endregion
-           
-             
+
+
 
             #region Load all properties to controles
             this.Load += (et, ob) =>
