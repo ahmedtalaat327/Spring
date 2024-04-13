@@ -136,7 +136,9 @@ namespace Spring.Pages
                         }
                     }
 
-                     
+
+                    //fix lag on loading
+                    this.Refresh();
 
                 }
                
