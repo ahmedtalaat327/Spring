@@ -93,6 +93,9 @@ namespace Spring.Pages
 
              
             /////////////////
+            ///input id
+            this.idTobeSearchedInput.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "Id", false, DataSourceUpdateMode.OnPropertyChanged));
+
             //fname
             this.fnametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "FirstPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //sname
@@ -238,9 +241,20 @@ namespace Spring.Pages
         }
     }
 
-       
+
+
         #endregion
 
+        private void idTobeSearchedInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
 
+        }
+
+        private void idTobeSearchedInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                changeOrTerminateCurrentUserViewModel.LoadCurrentUser.Execute(true);
+        }
     }
 }

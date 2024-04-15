@@ -491,6 +491,7 @@
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(175, 13);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 12);
+            this.tableLayoutPanel4.MaximumSize = new System.Drawing.Size(500, 85);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));

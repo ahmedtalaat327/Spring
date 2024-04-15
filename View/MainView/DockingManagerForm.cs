@@ -265,8 +265,10 @@ namespace Spring
                 }
             }
 
-            
-       
+            //administration clicked in menu bar ..
+            this.barItem4.Items[0].Click += (w,e) => {
+                Console.WriteLine("command ckicked @@@@@@@");
+            };
 
             panel5.treeViewAdv1.Nodes.Clear();
 

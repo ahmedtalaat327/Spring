@@ -58,7 +58,7 @@
             this.contactinfo = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.checkercontact = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.idTobeSearchedInput = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
@@ -69,7 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.authlvlcombo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactinfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idTobeSearchedInput)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -108,7 +108,7 @@
             this.tableLayoutPanel1.Controls.Add(this.contactinfo, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.checkercontact, 2, 10);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxExt1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.idTobeSearchedInput, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -847,16 +847,18 @@
             this.label1.Text = "  Deatils";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxExt1
+            // idTobeSearchedInput
             // 
-            this.textBoxExt1.BackColor = System.Drawing.SystemColors.Info;
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(142, 20);
-            this.textBoxExt1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxExt1.Location = new System.Drawing.Point(161, 63);
-            this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(142, 20);
-            this.textBoxExt1.TabIndex = 29;
-            this.textBoxExt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.idTobeSearchedInput.BackColor = System.Drawing.SystemColors.Info;
+            this.idTobeSearchedInput.BeforeTouchSize = new System.Drawing.Size(142, 20);
+            this.idTobeSearchedInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.idTobeSearchedInput.Location = new System.Drawing.Point(161, 63);
+            this.idTobeSearchedInput.Name = "idTobeSearchedInput";
+            this.idTobeSearchedInput.Size = new System.Drawing.Size(142, 20);
+            this.idTobeSearchedInput.TabIndex = 29;
+            this.idTobeSearchedInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.idTobeSearchedInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.idTobeSearchedInput_KeyDown);
+            this.idTobeSearchedInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idTobeSearchedInput_KeyPress);
             // 
             // autoLabel3
             // 
@@ -887,7 +889,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.authlvlcombo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactinfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idTobeSearchedInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -921,7 +923,7 @@
         private System.Windows.Forms.Label checkercontact;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label label1;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt idTobeSearchedInput;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
         private System.Windows.Forms.ImageList imageList2;
     }

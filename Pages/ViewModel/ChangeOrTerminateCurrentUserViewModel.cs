@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -24,7 +25,7 @@ namespace Spring.Pages.ViewModel
         /// <summary>
         /// id user currently must be added
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// first portion text of full name
         /// </summary>
@@ -82,6 +83,10 @@ namespace Spring.Pages.ViewModel
         /// First commnad to beloaded
         /// </summary>
         public ICommand LoadInitialWithRefrshing { get; set; }
+        /// <summary>
+        /// Command to load using event of writing depending on wht id wrote in
+        /// </summary>
+        public ICommand LoadCurrentUser { get; set; }
         #endregion
         #region Constructor
         public ChangeOrTerminateCurrentUserViewModel()
@@ -102,6 +107,7 @@ namespace Spring.Pages.ViewModel
             //init commands
             LoadInitialWithRefrshing = new RelyCommand(async () => await LoadRealTimeValues());
 
+            LoadCurrentUser = new RelyCommand(async () => await RefreshWithNewIdtoUserProbs());
 
         }
         #endregion
@@ -199,6 +205,91 @@ namespace Spring.Pages.ViewModel
                 return depts;
 
             });
+
+        }
+
+        /// <summary>
+        /// Update user info after assigning password from current property
+        /// </summary>
+        /// <returns></returns>
+        private async Task RefreshWithNewIdtoUserProbs()
+        {
+
+
+            await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
+            {
+
+                var encounteredusers = await LoadUserFromDataBase(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, Int32.Parse(Id));
+
+                if (encounteredusers.Count > 0)
+                {
+                    UserName = encounteredusers[0].UserName;
+                }
+            });
+        }
+
+        /// <summary>
+        /// This is a brilliant task method can return all Users as instance.
+        /// </summary>
+        /// <param name="myOpenedTunnel">Current connection object</param>
+        /// <returns></returns>
+        private Task<List<User>> LoadUserFromDataBase(OracleConnection myOpenedTunnel, int id)
+        {
+
+
+            List<User> usersRemote = new List<User>();
+
+
+
+            return Task.Run(() =>
+            {
+
+
+                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name", "dept_id", "user_session" }, new string[] { "user_id" }, new string[] { $"{id}" }, "=", "and");
+
+                try
+                {
+                    OracleDataReader dr = sqlCMD.ExecuteReader();
+
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+
+
+                            usersRemote.Add(
+                                new User()
+                                {
+                                    Id = Int32.Parse(dr["user_id"].ToString()),
+                                    UserName = dr["user_name"].ToString(),
+                                    Password = dr["user_password"].ToString(),
+                                    FullName = dr["user_full_name"].ToString(),
+                                    UserAuthLevel = dr["user_auth"].ToString(),
+                                    DepartmentId = Int32.Parse(dr["dept_id"].ToString()),
+                                    UserInSession = dr["user_session"].ToString()
+
+                                });
+
+
+
+                        }
+                    }
+                }
+                catch (Exception xorcl)
+                {
+                    //ErrorDescription = xorcl.Message;
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
+                }
+
+
+                return usersRemote;
+            });
+
 
         }
     }
