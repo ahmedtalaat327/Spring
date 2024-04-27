@@ -20,7 +20,7 @@ style="corner-radius: 4; border: 5; border-color: blue;">
 manage connection object.
 
 </br>
-<a href=""><img src="./2024-04-11 23-52-50.gif" ></a>
+<a href=""><img src="./2x-en.png" ></a>
 
 <!-- SCREENS -->
 ## Screens shots: 📷</br>

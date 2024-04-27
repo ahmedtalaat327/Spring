@@ -256,5 +256,10 @@ namespace Spring.Pages
             if (e.KeyCode == Keys.Enter)
                 changeOrTerminateCurrentUserViewModel.LoadCurrentUser.Execute(true);
         }
+
+        private void idTobeSearchedInput_TextChanged(object sender, EventArgs e)
+        {
+             
+        }
     }
 }

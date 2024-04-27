@@ -857,6 +857,7 @@
             this.idTobeSearchedInput.Size = new System.Drawing.Size(142, 20);
             this.idTobeSearchedInput.TabIndex = 29;
             this.idTobeSearchedInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.idTobeSearchedInput.TextChanged += new System.EventHandler(this.idTobeSearchedInput_TextChanged);
             this.idTobeSearchedInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.idTobeSearchedInput_KeyDown);
             this.idTobeSearchedInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idTobeSearchedInput_KeyPress);
             // 

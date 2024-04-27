@@ -69,7 +69,7 @@ namespace Spring.View.MainView.LoginView
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1123, 580);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1248, 609);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -295,7 +295,7 @@ namespace Spring.View.MainView.LoginView
             this.CaptionBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(219)))), ((int)(((byte)(233)))));
             this.CaptionBarHeight = 35;
             this.CaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientSize = new System.Drawing.Size(1123, 580);
+            this.ClientSize = new System.Drawing.Size(1248, 609);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "LoginForm";
             this.ShowIcon = false;

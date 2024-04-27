@@ -214,12 +214,14 @@ namespace Spring.Pages.ViewModel
         /// <returns></returns>
         private async Task RefreshWithNewIdtoUserProbs()
         {
+            int idRes = 0;
+            if (Id == null|| !Int32.TryParse(Id,out idRes))
+                return;
 
-
-            await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
+                await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
             {
-
-                var encounteredusers = await LoadUserFromDataBase(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, Int32.Parse(Id));
+                
+                var encounteredusers = await LoadUserFromDataBase(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, (idRes));
 
                 if (encounteredusers.Count > 0)
                 {
