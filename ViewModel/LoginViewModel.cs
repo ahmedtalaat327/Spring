@@ -149,6 +149,8 @@ namespace Spring.ViewModel
         /// </summary>
         public async Task Login()
         {
+            if (!ValidConnection)
+                return;
 
             CurrentWait = LoginVMLoadingPhase.LoginCkeckWaiting;
 

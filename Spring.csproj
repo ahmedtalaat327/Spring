@@ -133,6 +133,7 @@
     <Compile Include="Pages\ChartsPages\UsersStatisticsPage.Designer.cs">
       <DependentUpon>UsersStatisticsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChartsPages\ViewModel\DepartmentsStatisticsViewModel.cs" />
     <Compile Include="Pages\ChartsPages\ViewModel\UsersStatisticsViewModel.cs" />
     <Compile Include="Pages\OnBoardPage.cs">
       <SubType>UserControl</SubType>
