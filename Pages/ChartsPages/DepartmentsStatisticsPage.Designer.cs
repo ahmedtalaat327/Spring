@@ -115,7 +115,7 @@
             this.chartControl1.ShowToolbar = true;
             this.chartControl1.Size = new System.Drawing.Size(693, 392);
             this.chartControl1.TabIndex = 0;
-            this.chartControl1.Text = "Users";
+            this.chartControl1.Text = "Departements";
             // 
             // 
             // 
