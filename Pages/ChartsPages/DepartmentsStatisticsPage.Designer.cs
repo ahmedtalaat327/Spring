@@ -68,6 +68,8 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(31)))), ((int)(((byte)(64)))))};
             this.chartControl1.DataSourceName = "[none]";
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl1.EnableXZooming = true;
+            this.chartControl1.EnableYZooming = true;
             this.chartControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
             this.chartControl1.IsWindowLess = false;
             // 

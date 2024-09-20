@@ -2,6 +2,7 @@
 using Spring.Pages.ChartsPages.ViewModel;
 using Spring.ViewControls.ViewChartsHelpers;
 using Syncfusion.Data.Extensions;
+using Syncfusion.Drawing;
 using Syncfusion.Windows.Forms.Chart;
 using System;
 using System.Collections;
@@ -41,7 +42,20 @@ namespace Spring.Pages.ChartsPages
             UsersStatisticsViewModel.PropertyChanged += UsersStatisticsViewModel_PropertyChanged;
             //this.VisibleChanged += UsersStatisticsPage_VisibleChanged;
 
-            
+            // ((ChartToolBarCommandItem)this.chartControl1.ToolBar.Items[6]).IsCheckable = false ;
+
+            //Adding the custom Toolbar items.
+            ChartToolBarCommandItem zoomIn = new ChartToolBarCommandItem();
+            zoomIn.Command = ChartCommands.ZoomIn;
+            zoomIn.ToolTip = "ZoomIn";
+            this.chartControl1.ToolBar.Items.Add(zoomIn);
+
+            ChartToolBarCommandItem zoomOut = new ChartToolBarCommandItem();
+            zoomOut.Command = ChartCommands.ZoomOut;
+            zoomOut.ToolTip = "ZoomOut";
+            this.chartControl1.ToolBar.Items.Add(zoomOut);
+
+
         }
 
         private void UsersStatisticsPage_VisibleChanged(object sender, System.EventArgs e)
@@ -90,7 +104,9 @@ namespace Spring.Pages.ChartsPages
 
 
 
-                ChartSeries series = new ChartSeries("Populations");
+                ChartSeries series = new ChartSeries("Creation");
+
+ 
 
                 ChartDataBindModel dataSeriesModel = new ChartDataBindModel(populations);
 
@@ -143,13 +159,13 @@ namespace Spring.Pages.ChartsPages
                  
                     int index = (int)ev.Value;
 
-                    ev.Axis.PointOffset = -0.5;
 
                     if (ev.AxisOrientation == ChartOrientation.Horizontal)
                     {
                         if (index >= 0 && index < populations.Count)
                         {
-                          
+                            ev.Axis.PointOffset = -0.5;
+
                             ev.Label = ((DeptsStatisticsPair)populations[index]).DeptName.ToString();
                         }
                     }
@@ -183,13 +199,14 @@ namespace Spring.Pages.ChartsPages
         {
             
             #region view define
-            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesChartsNodesNames.UsersChartTitle;
+            (StaticVM.VMCentral.DockingManagerViewModel.ViewName) = PagesChartsNodesNames.DeptsChartTitle;
             #endregion
  
         }
-       
-       
+
+      
         #endregion
+
     }
 }
 

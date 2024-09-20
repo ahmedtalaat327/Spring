@@ -94,7 +94,7 @@ params.info :
 - [x] Add params file in the project.
 - [x] Convert Scripts.cs to .dll library. (Now migrating to .dll as library to use!) from "using AccioInventory.DBConnection;" to "using AccioOracleKit;"
 - [x] Integrating QR code.
-- [ ] Chart cards usercontrol.
+- [ ] Chart cards usercontrol. [working on add customization instead of static cards always with multiple realations]
 - [ ] Make a parallel procesudre process for exporting db DUMP.
 
 ---------------
