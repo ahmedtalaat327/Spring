@@ -18,6 +18,7 @@ using Spring.StaticVM;
 using Spring.ViewModel;
 using Spring.View.MainView.LoginView;
 using Spring.ViewControls.ViewHelpers;
+using Syncfusion.XlsIO;
 
 namespace Spring
 {
@@ -271,8 +272,9 @@ namespace Spring
             };
 
             this.viewItem.Items[1].Click += (w, e) => {
-                Console.WriteLine("command ckicked @@@@@@@");
-                ExcelEngine excs;
+                // Console.WriteLine("command ckicked @@@@@@@");
+                //  ExcelEngine excs;
+                new CardsDesigner().Show();
             };
 
             panel5.treeViewAdv1.Nodes.Clear();

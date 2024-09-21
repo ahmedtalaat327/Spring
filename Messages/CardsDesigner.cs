@@ -40,14 +40,14 @@ namespace Spring.Messages
 
             //link all properties to their controlers
 
-            this.label2.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CorpName"));
+           // this.label2.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CorpName"));
 
             //assign progressbar properties [visibility & Running for loading]
             progressBarAdv1.DataBindings.Add(new Binding("Visible", CardsDesignerViewModel, "Loading"));
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", CardsDesignerViewModel, "WaitingProgress"));
-            gradientLabel1.DataBindings.Add(new Binding("Image", CardsDesignerViewModel, "Logo", true));
+         //   gradientLabel1.DataBindings.Add(new Binding("Image", CardsDesignerViewModel, "Logo", true));
 
-            gradientLabel1.Paint += GradientLabel1_Paint;
+         //   gradientLabel1.Paint += GradientLabel1_Paint;
 
             this.Load += CardsDesigner_Load;
             
@@ -69,11 +69,6 @@ namespace Spring.Messages
         }
         #endregion
         #region Events
-
-        private void okbtn_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void editbtn_Click(object sender, EventArgs e)
         {

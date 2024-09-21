@@ -36,11 +36,25 @@
             this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.sfBarcode1 = new Syncfusion.Windows.Forms.Barcode.SfBarcode();
+            this.fnametxtbx = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.textBoxExt2 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.okbtn = new Syncfusion.WinForms.Controls.SfButton();
+            this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.textBoxExt3 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.textBoxExt4 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt4)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +72,15 @@
             this.tableLayoutPanel1.Controls.Add(this.autoLabel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.sfBarcode1, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.fnametxtbx, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt2, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.okbtn, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.autoLabel4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.autoLabel5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt3, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.autoLabel6, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt4, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(20);
@@ -141,6 +164,96 @@
             this.sfBarcode1.TextAlignment = Syncfusion.Windows.Forms.Barcode.BarcodeTextAlignment.Center;
             this.sfBarcode1.TextColor = System.Drawing.Color.Black;
             this.sfBarcode1.TextGapHeight = 0F;
+            // 
+            // fnametxtbx
+            // 
+            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(193, 20);
+            this.fnametxtbx.Location = new System.Drawing.Point(253, 104);
+            this.fnametxtbx.Name = "fnametxtbx";
+            this.fnametxtbx.Size = new System.Drawing.Size(43, 20);
+            this.fnametxtbx.TabIndex = 17;
+            // 
+            // textBoxExt2
+            // 
+            this.textBoxExt2.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(193, 20);
+            this.textBoxExt2.ForeColor = System.Drawing.Color.Black;
+            this.textBoxExt2.Location = new System.Drawing.Point(503, 104);
+            this.textBoxExt2.Name = "textBoxExt2";
+            this.textBoxExt2.ReadOnly = true;
+            this.textBoxExt2.Size = new System.Drawing.Size(114, 20);
+            this.textBoxExt2.TabIndex = 19;
+            this.textBoxExt2.Text = "Max 3";
+            // 
+            // okbtn
+            // 
+            this.okbtn.AccessibleName = "Button";
+            this.okbtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.okbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.okbtn.ForeColor = System.Drawing.Color.White;
+            this.okbtn.Location = new System.Drawing.Point(503, 285);
+            this.okbtn.Margin = new System.Windows.Forms.Padding(3, 80, 3, 3);
+            this.okbtn.Name = "okbtn";
+            this.okbtn.Size = new System.Drawing.Size(114, 22);
+            this.okbtn.Style.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.okbtn.Style.ForeColor = System.Drawing.Color.White;
+            this.okbtn.TabIndex = 20;
+            this.okbtn.Text = "Check any apply";
+            this.okbtn.UseVisualStyleBackColor = false;
+            // 
+            // autoLabel4
+            // 
+            this.autoLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.autoLabel4.Location = new System.Drawing.Point(33, 127);
+            this.autoLabel4.Name = "autoLabel4";
+            this.autoLabel4.Size = new System.Drawing.Size(214, 26);
+            this.autoLabel4.TabIndex = 21;
+            this.autoLabel4.Text = "Relation #1";
+            this.autoLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxExt1
+            // 
+            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(193, 20);
+            this.textBoxExt1.Location = new System.Drawing.Point(253, 130);
+            this.textBoxExt1.Name = "textBoxExt1";
+            this.textBoxExt1.Size = new System.Drawing.Size(193, 20);
+            this.textBoxExt1.TabIndex = 22;
+            // 
+            // autoLabel5
+            // 
+            this.autoLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.autoLabel5.Location = new System.Drawing.Point(33, 153);
+            this.autoLabel5.Name = "autoLabel5";
+            this.autoLabel5.Size = new System.Drawing.Size(214, 26);
+            this.autoLabel5.TabIndex = 23;
+            this.autoLabel5.Text = "Relation #2";
+            this.autoLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxExt3
+            // 
+            this.textBoxExt3.BeforeTouchSize = new System.Drawing.Size(193, 20);
+            this.textBoxExt3.Location = new System.Drawing.Point(253, 156);
+            this.textBoxExt3.Name = "textBoxExt3";
+            this.textBoxExt3.Size = new System.Drawing.Size(193, 20);
+            this.textBoxExt3.TabIndex = 24;
+            // 
+            // autoLabel6
+            // 
+            this.autoLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.autoLabel6.Location = new System.Drawing.Point(33, 179);
+            this.autoLabel6.Name = "autoLabel6";
+            this.autoLabel6.Size = new System.Drawing.Size(214, 26);
+            this.autoLabel6.TabIndex = 25;
+            this.autoLabel6.Text = "Relation #3";
+            this.autoLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxExt4
+            // 
+            this.textBoxExt4.BeforeTouchSize = new System.Drawing.Size(193, 20);
+            this.textBoxExt4.Location = new System.Drawing.Point(253, 182);
+            this.textBoxExt4.Name = "textBoxExt4";
+            this.textBoxExt4.Size = new System.Drawing.Size(193, 20);
+            this.textBoxExt4.TabIndex = 26;
             // 
             // imageList1
             // 
@@ -414,6 +527,11 @@
             this.Text = "CardsDesigner";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt4)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
             this.ResumeLayout(false);
@@ -432,5 +550,14 @@
         private Syncfusion.Windows.Forms.SfToolTip sfToolTip1;
         private System.Windows.Forms.Label label1;
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt fnametxtbx;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt2;
+        private Syncfusion.WinForms.Controls.SfButton okbtn;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt3;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt4;
     }
 }
