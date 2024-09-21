@@ -270,6 +270,11 @@ namespace Spring
                 Console.WriteLine("command ckicked @@@@@@@");
             };
 
+            this.viewItem.Items[1].Click += (w, e) => {
+                Console.WriteLine("command ckicked @@@@@@@");
+                ExcelEngine excs;
+            };
+
             panel5.treeViewAdv1.Nodes.Clear();
 
              
@@ -1462,7 +1467,7 @@ namespace Spring
             this.Designer.ID = "Redo";
             this.Designer.ShowToolTipInPopUp = false;
             this.Designer.SizeToFit = true;
-            this.Designer.Text = "Designer";
+            this.Designer.Text = "Cards Designer";
 
             // 
             // Open
