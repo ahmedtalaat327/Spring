@@ -239,10 +239,10 @@ namespace Spring.View.MainView.LoginView
             this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.sfButton1.ForeColor = System.Drawing.Color.White;
             this.sfButton1.Location = new System.Drawing.Point(20, 272);
-            this.sfButton1.Margin = new System.Windows.Forms.Padding(15);
+            this.sfButton1.Margin = new System.Windows.Forms.Padding(15, 15, 15, 40);
             this.sfButton1.Name = "sfButton1";
             this.sfButton1.Padding = new System.Windows.Forms.Padding(20);
-            this.sfButton1.Size = new System.Drawing.Size(230, 54);
+            this.sfButton1.Size = new System.Drawing.Size(230, 29);
             this.sfButton1.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.sfButton1.Style.ForeColor = System.Drawing.Color.White;
             this.sfButton1.TabIndex = 3;

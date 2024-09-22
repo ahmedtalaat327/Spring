@@ -49,6 +49,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
+            this.textBoxExt5 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.textBoxExt6 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.textBoxExt7 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).BeginInit();
@@ -57,6 +60,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt4)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt7)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,6 +87,9 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxExt3, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel6, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBoxExt4, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt5, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt6, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxExt7, 2, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(20);
@@ -517,6 +526,42 @@
             this.progressBarAdv1.TubeStartColor = System.Drawing.Color.IndianRed;
             this.progressBarAdv1.WaitingGradientWidth = 400;
             // 
+            // textBoxExt5
+            // 
+            this.textBoxExt5.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxExt5.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.textBoxExt5.ForeColor = System.Drawing.Color.Black;
+            this.textBoxExt5.Location = new System.Drawing.Point(503, 130);
+            this.textBoxExt5.Name = "textBoxExt5";
+            this.textBoxExt5.ReadOnly = true;
+            this.textBoxExt5.Size = new System.Drawing.Size(114, 20);
+            this.textBoxExt5.TabIndex = 27;
+            this.textBoxExt5.Text = "data_type1";
+            // 
+            // textBoxExt6
+            // 
+            this.textBoxExt6.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxExt6.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.textBoxExt6.ForeColor = System.Drawing.Color.Black;
+            this.textBoxExt6.Location = new System.Drawing.Point(503, 156);
+            this.textBoxExt6.Name = "textBoxExt6";
+            this.textBoxExt6.ReadOnly = true;
+            this.textBoxExt6.Size = new System.Drawing.Size(114, 20);
+            this.textBoxExt6.TabIndex = 28;
+            this.textBoxExt6.Text = "data_type2";
+            // 
+            // textBoxExt7
+            // 
+            this.textBoxExt7.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxExt7.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.textBoxExt7.ForeColor = System.Drawing.Color.Black;
+            this.textBoxExt7.Location = new System.Drawing.Point(503, 182);
+            this.textBoxExt7.Name = "textBoxExt7";
+            this.textBoxExt7.ReadOnly = true;
+            this.textBoxExt7.Size = new System.Drawing.Size(114, 20);
+            this.textBoxExt7.TabIndex = 29;
+            this.textBoxExt7.Text = "data_type3";
+            // 
             // CardsDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,6 +579,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt4)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -559,5 +607,8 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt3;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt4;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt5;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt6;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt7;
     }
 }
