@@ -40,29 +40,29 @@
             this.textBoxExt2 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.okbtn = new Syncfusion.WinForms.Controls.SfButton();
             this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.autoLabel5 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            this.textBoxExt3 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            this.textBoxExt4 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.textBoxExt5 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.textBoxExt6 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.textBoxExt7 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
-            this.textBoxExt5 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.textBoxExt6 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.textBoxExt7 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.tablescolscombo1 = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.tablescolscombo2 = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.tablescolscombo3 = new Syncfusion.WinForms.ListView.SfComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt4)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt7)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo3)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -82,14 +82,14 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxExt2, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.okbtn, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxExt1, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxExt3, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxExt4, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBoxExt5, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBoxExt6, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBoxExt7, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tablescolscombo1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tablescolscombo2, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.tablescolscombo3, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(20);
@@ -176,7 +176,7 @@
             // 
             // fnametxtbx
             // 
-            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(193, 20);
+            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.fnametxtbx.Location = new System.Drawing.Point(253, 104);
             this.fnametxtbx.Name = "fnametxtbx";
             this.fnametxtbx.Size = new System.Drawing.Size(43, 20);
@@ -185,7 +185,7 @@
             // textBoxExt2
             // 
             this.textBoxExt2.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(193, 20);
+            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(140, 20);
             this.textBoxExt2.ForeColor = System.Drawing.Color.Black;
             this.textBoxExt2.Location = new System.Drawing.Point(503, 104);
             this.textBoxExt2.Name = "textBoxExt2";
@@ -220,14 +220,6 @@
             this.autoLabel4.Text = "Relation #1";
             this.autoLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBoxExt1
-            // 
-            this.textBoxExt1.BeforeTouchSize = new System.Drawing.Size(193, 20);
-            this.textBoxExt1.Location = new System.Drawing.Point(253, 130);
-            this.textBoxExt1.Name = "textBoxExt1";
-            this.textBoxExt1.Size = new System.Drawing.Size(193, 20);
-            this.textBoxExt1.TabIndex = 22;
-            // 
             // autoLabel5
             // 
             this.autoLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -237,14 +229,6 @@
             this.autoLabel5.TabIndex = 23;
             this.autoLabel5.Text = "Relation #2";
             this.autoLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxExt3
-            // 
-            this.textBoxExt3.BeforeTouchSize = new System.Drawing.Size(193, 20);
-            this.textBoxExt3.Location = new System.Drawing.Point(253, 156);
-            this.textBoxExt3.Name = "textBoxExt3";
-            this.textBoxExt3.Size = new System.Drawing.Size(193, 20);
-            this.textBoxExt3.TabIndex = 24;
             // 
             // autoLabel6
             // 
@@ -256,13 +240,41 @@
             this.autoLabel6.Text = "Relation #3";
             this.autoLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBoxExt4
+            // textBoxExt5
             // 
-            this.textBoxExt4.BeforeTouchSize = new System.Drawing.Size(193, 20);
-            this.textBoxExt4.Location = new System.Drawing.Point(253, 182);
-            this.textBoxExt4.Name = "textBoxExt4";
-            this.textBoxExt4.Size = new System.Drawing.Size(193, 20);
-            this.textBoxExt4.TabIndex = 26;
+            this.textBoxExt5.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxExt5.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt5.ForeColor = System.Drawing.Color.Black;
+            this.textBoxExt5.Location = new System.Drawing.Point(503, 130);
+            this.textBoxExt5.Name = "textBoxExt5";
+            this.textBoxExt5.ReadOnly = true;
+            this.textBoxExt5.Size = new System.Drawing.Size(114, 20);
+            this.textBoxExt5.TabIndex = 27;
+            this.textBoxExt5.Text = "data_type1";
+            // 
+            // textBoxExt6
+            // 
+            this.textBoxExt6.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxExt6.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt6.ForeColor = System.Drawing.Color.Black;
+            this.textBoxExt6.Location = new System.Drawing.Point(503, 156);
+            this.textBoxExt6.Name = "textBoxExt6";
+            this.textBoxExt6.ReadOnly = true;
+            this.textBoxExt6.Size = new System.Drawing.Size(114, 20);
+            this.textBoxExt6.TabIndex = 28;
+            this.textBoxExt6.Text = "data_type2";
+            // 
+            // textBoxExt7
+            // 
+            this.textBoxExt7.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.textBoxExt7.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt7.ForeColor = System.Drawing.Color.Black;
+            this.textBoxExt7.Location = new System.Drawing.Point(503, 182);
+            this.textBoxExt7.Name = "textBoxExt7";
+            this.textBoxExt7.ReadOnly = true;
+            this.textBoxExt7.Size = new System.Drawing.Size(114, 20);
+            this.textBoxExt7.TabIndex = 29;
+            this.textBoxExt7.Text = "data_type3";
             // 
             // imageList1
             // 
@@ -526,41 +538,38 @@
             this.progressBarAdv1.TubeStartColor = System.Drawing.Color.IndianRed;
             this.progressBarAdv1.WaitingGradientWidth = 400;
             // 
-            // textBoxExt5
+            // tablescolscombo1
             // 
-            this.textBoxExt5.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt5.BeforeTouchSize = new System.Drawing.Size(114, 20);
-            this.textBoxExt5.ForeColor = System.Drawing.Color.Black;
-            this.textBoxExt5.Location = new System.Drawing.Point(503, 130);
-            this.textBoxExt5.Name = "textBoxExt5";
-            this.textBoxExt5.ReadOnly = true;
-            this.textBoxExt5.Size = new System.Drawing.Size(114, 20);
-            this.textBoxExt5.TabIndex = 27;
-            this.textBoxExt5.Text = "data_type1";
+            this.tablescolscombo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablescolscombo1.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.tablescolscombo1.Location = new System.Drawing.Point(253, 130);
+            this.tablescolscombo1.Name = "tablescolscombo1";
+            this.tablescolscombo1.Size = new System.Drawing.Size(244, 20);
+            this.tablescolscombo1.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.tablescolscombo1.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tablescolscombo1.TabIndex = 30;
             // 
-            // textBoxExt6
+            // tablescolscombo2
             // 
-            this.textBoxExt6.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt6.BeforeTouchSize = new System.Drawing.Size(114, 20);
-            this.textBoxExt6.ForeColor = System.Drawing.Color.Black;
-            this.textBoxExt6.Location = new System.Drawing.Point(503, 156);
-            this.textBoxExt6.Name = "textBoxExt6";
-            this.textBoxExt6.ReadOnly = true;
-            this.textBoxExt6.Size = new System.Drawing.Size(114, 20);
-            this.textBoxExt6.TabIndex = 28;
-            this.textBoxExt6.Text = "data_type2";
+            this.tablescolscombo2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablescolscombo2.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.tablescolscombo2.Location = new System.Drawing.Point(253, 156);
+            this.tablescolscombo2.Name = "tablescolscombo2";
+            this.tablescolscombo2.Size = new System.Drawing.Size(244, 20);
+            this.tablescolscombo2.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.tablescolscombo2.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tablescolscombo2.TabIndex = 31;
             // 
-            // textBoxExt7
+            // tablescolscombo3
             // 
-            this.textBoxExt7.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt7.BeforeTouchSize = new System.Drawing.Size(114, 20);
-            this.textBoxExt7.ForeColor = System.Drawing.Color.Black;
-            this.textBoxExt7.Location = new System.Drawing.Point(503, 182);
-            this.textBoxExt7.Name = "textBoxExt7";
-            this.textBoxExt7.ReadOnly = true;
-            this.textBoxExt7.Size = new System.Drawing.Size(114, 20);
-            this.textBoxExt7.TabIndex = 29;
-            this.textBoxExt7.Text = "data_type3";
+            this.tablescolscombo3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablescolscombo3.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.tablescolscombo3.Location = new System.Drawing.Point(253, 182);
+            this.tablescolscombo3.Name = "tablescolscombo3";
+            this.tablescolscombo3.Size = new System.Drawing.Size(244, 20);
+            this.tablescolscombo3.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.tablescolscombo3.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tablescolscombo3.TabIndex = 32;
             // 
             // CardsDesigner
             // 
@@ -574,14 +583,14 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxExt4)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt7)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -601,14 +610,14 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt fnametxtbx;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt2;
         private Syncfusion.WinForms.Controls.SfButton okbtn;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt1;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt3;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt4;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt5;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt6;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt7;
+        private Syncfusion.WinForms.ListView.SfComboBox tablescolscombo1;
+        private Syncfusion.WinForms.ListView.SfComboBox tablescolscombo2;
+        private Syncfusion.WinForms.ListView.SfComboBox tablescolscombo3;
     }
 }

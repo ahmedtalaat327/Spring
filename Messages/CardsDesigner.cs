@@ -38,9 +38,66 @@ namespace Spring.Messages
             this.progressBarAdv1.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
             this.progressBarAdv1.WaitingGradientEnabled = true;
 
+            #region UI Customizations
+            //some UI customizations
+            this.tablescolscombo1.ThemeName = "Metro";
+            this.tablescolscombo1.ComboBoxMode = Syncfusion.WinForms.ListView.Enums.ComboBoxMode.SingleSelection;
+            this.tablescolscombo1.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDown;
+            this.tablescolscombo1.BackColor = ColorTranslator.FromHtml("#eaf0ff");
+
+            this.tablescolscombo1.KeyPress += (bj, e) => {
+                //prevent change text
+
+                bool isBackspace = e.KeyChar == '\b';
+
+                // If we get anything other than a backspace, tell the rest of
+                // the event processing logic to ignore this event
+                if (!isBackspace)
+                {
+                    e.Handled = true;
+                }
+
+            };
+            this.tablescolscombo2.ThemeName = "Metro";
+            this.tablescolscombo2.ComboBoxMode = Syncfusion.WinForms.ListView.Enums.ComboBoxMode.SingleSelection;
+            this.tablescolscombo2.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDown;
+            this.tablescolscombo2.BackColor = ColorTranslator.FromHtml("#eaf0ff");
+
+            this.tablescolscombo2.KeyPress += (bj, e) => {
+                //prevent change text
+
+                bool isBackspace = e.KeyChar == '\b';
+
+                // If we get anything other than a backspace, tell the rest of
+                // the event processing logic to ignore this event
+                if (!isBackspace)
+                {
+                    e.Handled = true;
+                }
+
+            };
+            this.tablescolscombo3.ThemeName = "Metro";
+            this.tablescolscombo3.ComboBoxMode = Syncfusion.WinForms.ListView.Enums.ComboBoxMode.SingleSelection;
+            this.tablescolscombo3.DropDownStyle = Syncfusion.WinForms.ListView.Enums.DropDownStyle.DropDown;
+            this.tablescolscombo3.BackColor = ColorTranslator.FromHtml("#eaf0ff");
+
+            this.tablescolscombo3.KeyPress += (bj, e) => {
+                //prevent change text
+
+                bool isBackspace = e.KeyChar == '\b';
+
+                // If we get anything other than a backspace, tell the rest of
+                // the event processing logic to ignore this event
+                if (!isBackspace)
+                {
+                    e.Handled = true;
+                }
+
+            };
+            #endregion
             //link all properties to their controlers
 
-           // this.label2.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CorpName"));
+            // this.label2.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CorpName"));
 
             //assign progressbar properties [visibility & Running for loading]
             progressBarAdv1.DataBindings.Add(new Binding("Visible", CardsDesignerViewModel, "Loading"));
