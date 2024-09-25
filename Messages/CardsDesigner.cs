@@ -45,7 +45,7 @@ namespace Spring.Messages
             //assign progressbar properties [visibility & Running for loading]
             progressBarAdv1.DataBindings.Add(new Binding("Visible", CardsDesignerViewModel, "Loading"));
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", CardsDesignerViewModel, "WaitingProgress"));
-         //   gradientLabel1.DataBindings.Add(new Binding("Image", CardsDesignerViewModel, "Logo", true));
+            label1.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CurrentDepartment", true));
 
          //   gradientLabel1.Paint += GradientLabel1_Paint;
 
@@ -55,17 +55,12 @@ namespace Spring.Messages
 
         private void GradientLabel1_Paint(object sender, PaintEventArgs e)
         {
-            try
-            {
-                var lbl = (Label)sender;
-                lbl.Image = new Bitmap(lbl.Image, lbl.Size);
-            }
-            catch { }
+          
         }
 
         private void CardsDesigner_Load(object sender, EventArgs e)
         {
-            CardsDesignerViewModel.UpdateCorporationNameCommand.Execute(true);
+            CardsDesignerViewModel.CheckValuntertyForCard.Execute(true);
         }
         #endregion
         #region Events
@@ -94,16 +89,21 @@ namespace Spring.Messages
         /// <summary>
         /// Name of corp
         /// </summary>
-        public string CorpName { get; set; }
+        public string CurrentDepartment { get; set; }
         /// <summary>
         /// Waiting flag
         /// </summary>
         public bool WaitingProgress { get; set; }
+ 
+        public string NoRelations { get; set; }
+        public string RelationFName { get; set; }
+        public string RelationSName { get; set; }
+        public string RelationTName { get; set; }
 
-        public Image Logo { get; set; }
-        /// <summary>
-        /// Loading flag for prgress bar visible or not
-        /// </summary>
+        public string RelationFnameType { get; set; }
+        public string RelationSnameType { get; set; }
+        public string RelationTnameType { get; set; }
+
         public bool Loading { get { return WaitingProgress; } }
         #endregion
 
@@ -111,13 +111,13 @@ namespace Spring.Messages
         /// <summary>
         /// Command update for events 
         /// </summary>
-        public ICommand UpdateCorporationNameCommand { get; set; }
+        public ICommand CheckValuntertyForCard { get; set; }
         #endregion
         #region Constructor
         public CardsDesignerViewModel()
         {
 
-            UpdateCorporationNameCommand = new RelyCommand(async () => await LoadParamsThenGetCorpName());
+            CheckValuntertyForCard = new RelyCommand(async () => await LoadDeptForCurrentUser());
 
             WaitingProgress = false;
 
@@ -131,22 +131,23 @@ namespace Spring.Messages
         /// Update user info after assigning password from current property
         /// </summary>
         /// <returns></returns>
-        private async Task LoadParamsThenGetCorpName()
+        private async Task LoadDeptForCurrentUser()
         {
            
 
             await RunCommand(() => this.WaitingProgress, async () => 
             {
-                await Task.Delay(7000);
+                await Task.Delay(1);
                 //must put awaitable task func connected to database
 
-                CorpName = await UpdateCurrentCorporation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
+                // CorpName = await UpdateCurrentCorporation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
 
 
-               Logo = ((Image)new BoolToImgConverter().Convert(true, null, null, null));
-
+                // Logo = ((Image)new BoolToImgConverter().Convert(true, null, null, null));
+                this.CurrentDepartment = VMCentral.DockingManagerViewModel.loggedUser.DepartmentName;
 
             });
+           
         }
         /// <summary>
         /// update current user 
@@ -157,7 +158,7 @@ namespace Spring.Messages
         /// <returns></returns>
         private Task<string> UpdateCurrentCorporation(OracleConnection myOpenedTunnel)
         {
-
+            //
             return Task.Run(() =>
             {
 
@@ -178,7 +179,7 @@ namespace Spring.Messages
                 return corp_name;
 
             });
-
+            
         }
 
 
