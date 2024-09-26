@@ -3,12 +3,15 @@
 using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
+using Spring.Data;
 using Spring.Pages.ValueConverter;
+using Spring.Pages.ViewModel;
 using Spring.StaticVM;
 using Spring.ViewModel;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
 using System;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -95,16 +98,46 @@ namespace Spring.Messages
 
             };
             #endregion
+            #region Binding
+            ///////////////////////////////////[     first combobox     ]/////////////////////
             //link all properties to their controlers
+            //properties bindings----------
+            BindingSource aithtsbindingSource = new BindingSource();
+            aithtsbindingSource.DataSource = CardsDesignerViewModel.ColumnsHeaders;
+            this.tablescolscombo1.DataSource = aithtsbindingSource.DataSource;
+            //Bind the Display member and Value member to the data source
+            this.tablescolscombo1.DisplayMember = "Name";
+            this.tablescolscombo1.ValueMember = "Id";
+            //-----------------------------
+            this.tablescolscombo1.DataBindings.Add(new Binding("SelectedItem", CardsDesignerViewModel, "RelationFName", true, DataSourceUpdateMode.OnPropertyChanged));
+            ///////////////////////////////////[     second combobox     ]///////////////////////
+            BindingSource aiathtsbindingSource = new BindingSource();
+            aiathtsbindingSource.DataSource = CardsDesignerViewModel.ColumnsHeaders;
+            this.tablescolscombo2.DataSource = aiathtsbindingSource.DataSource;
+            //Bind the Display member and Value member to the data source
+            this.tablescolscombo2.DisplayMember = "Name";
+            this.tablescolscombo2.ValueMember = "Id";
+            //-----------------------------
+            this.tablescolscombo2.DataBindings.Add(new Binding("SelectedItem", CardsDesignerViewModel, "RelationSName", true, DataSourceUpdateMode.OnPropertyChanged));
+            ///////////////////////////////////[     third combobox     ]///////////////////////
+            BindingSource aiaathtsbindingSource = new BindingSource();
+            aiaathtsbindingSource.DataSource = CardsDesignerViewModel.ColumnsHeaders;
+            this.tablescolscombo3.DataSource = aiaathtsbindingSource.DataSource;
+            //Bind the Display member and Value member to the data source
+            this.tablescolscombo3.DisplayMember = "Name";
+            this.tablescolscombo3.ValueMember = "Id";
+            //-----------------------------
+            this.tablescolscombo3.DataBindings.Add(new Binding("SelectedItem", CardsDesignerViewModel, "RelationTName", true, DataSourceUpdateMode.OnPropertyChanged));
+            //////////////\\\\\\\\\\\\\\\\\------------------------------------------------\\\\\\\\\\\\\\\\\\\\\\///////////////////////
 
-            // this.label2.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CorpName"));
-
-            //assign progressbar properties [visibility & Running for loading]
+            //------assign progressbar properties [visibility & Running for loading]-------
             progressBarAdv1.DataBindings.Add(new Binding("Visible", CardsDesignerViewModel, "Loading"));
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", CardsDesignerViewModel, "WaitingProgress"));
             label1.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CurrentDepartment", true));
+            textBoxExt5.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "RelationFNameType", true));
+            #endregion
 
-         //   gradientLabel1.Paint += GradientLabel1_Paint;
+            this.tablescolscombo1.SelectedIndexChanged += (s, e) => { CardsDesignerViewModel.GiveDataType.Execute(true); };
 
             this.Load += CardsDesigner_Load;
             
@@ -153,14 +186,15 @@ namespace Spring.Messages
         public bool WaitingProgress { get; set; }
  
         public string NoRelations { get; set; }
-        public string RelationFName { get; set; }
-        public string RelationSName { get; set; }
-        public string RelationTName { get; set; }
+        public ColumnDataDef RelationFName { get; set; }
+        public ColumnDataDef RelationSName { get; set; }
+        public ColumnDataDef RelationTName { get; set; }
 
         public string RelationFnameType { get; set; }
         public string RelationSnameType { get; set; }
         public string RelationTnameType { get; set; }
 
+        public ObservableCollection<ColumnDataDef> ColumnsHeaders { get; set; }
         public bool Loading { get { return WaitingProgress; } }
         #endregion
 
@@ -169,6 +203,7 @@ namespace Spring.Messages
         /// Command update for events 
         /// </summary>
         public ICommand CheckValuntertyForCard { get; set; }
+        public ICommand GiveDataType { get; set; }
         #endregion
         #region Constructor
         public CardsDesignerViewModel()
@@ -178,6 +213,11 @@ namespace Spring.Messages
 
             WaitingProgress = false;
 
+            ColumnsHeaders = new ObservableCollection<ColumnDataDef>() { new ColumnDataDef() { Id = 0, Name = "user_name" , ParentTable = "users" } };
+
+            GiveDataType = new RelyCommand(async()=> await GetDataTypeForFirstRelation());
+
+            RelationFName = ColumnsHeaders[0];
         }
 
         #endregion
@@ -206,37 +246,10 @@ namespace Spring.Messages
             });
            
         }
-        /// <summary>
-        /// update current user 
-        /// </summary>
-        /// <param name="_user">current user</param>
-        /// <param name="inputDate">current date</param>
-        /// <param name="myOpenedTunnel">connection object</param>
-        /// <returns></returns>
-        private Task<string> UpdateCurrentCorporation(OracleConnection myOpenedTunnel)
+      private async Task GetDataTypeForFirstRelation()
         {
-            //
-            return Task.Run(() =>
-            {
-
-                string[] data;
-                try
-                {
-                    //read params from config
-                    data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\params.info");
-                }
-                catch (Exception excF)
-                {
-                    data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring for Server.exe").Length) + "init\\params.info");
-                }
-
-                var corp_name = AccioEasyHelpers.GetTxTBettwen(data[6], "::", ",");
-              
-
-                return corp_name;
-
-            });
-            
+            await Task.Delay(2);
+            this.RelationFnameType = this.RelationFName.Description;
         }
 
 
