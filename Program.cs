@@ -31,9 +31,18 @@ namespace Spring
 
             //Application.Run(new DockingManagerForm());
 
+            if ((string)AccioEasyHelpers.GetReadValFromConfigXML("platform") == "forms")
+            {
+                //check if the thread of the app is already running avoid multiple exe at same time!
+                PragmaChecker.UniqueEXERun();
+            }
+            else
+            {
+                //support for virtui [thinUI]
+                new Cybele.Thinfinity.VirtualUI().Start();
+                Application.Run(new LoginForm());
 
-            //check if the thread of the app is already running avoid multiple exe at same time!
-            PragmaChecker.UniqueEXERun();
+            }
         }
 
     }
@@ -54,7 +63,8 @@ namespace Spring
                     }
                     catch { MessageBox.Show("The data file is missing or files in there not exist."); }
 
-                    
+                  
+
                     //run the actual class [represents form main form]
                     Application.Run(new LoginForm());
                    // Application.Run(new DockingManagerForm());

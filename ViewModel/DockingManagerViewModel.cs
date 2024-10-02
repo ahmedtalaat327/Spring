@@ -25,14 +25,25 @@ namespace Spring.ViewModel
         /// </summary>
         public enum LogoutVMLoadingPhase
         {
-            Non, //reset
-            TerminatingCheckWaiting,//ConnTermination relycommand
+            Non,  //=>reset
+            TerminatingCheckWaiting,  //=>ConnTermination relycommand
+        }
+        #endregion
+        #region PlatformUsed
+        public enum PlatformType
+        {
+            Forms,  //=>forms used as prefrence for app
+            VirtualWeb  //=>web activity web as virtual client
         }
         #endregion
         #region Fields
         private bool _firstLoad = true;
         #endregion
         #region Properties
+        /// <summary>
+        /// platform type used in app execution determined by developer in .config file.
+        /// </summary>
+        public PlatformType PlatformTypeUsed { get; set; } = PlatformType.Forms;
         /// <summary>
         /// flag to detrmine wheter the window is visible or not
         /// </summary>
@@ -72,7 +83,15 @@ namespace Spring.ViewModel
         /// Our unique way to handle login comparison
         /// </summary>
         public ICommand LogoutCommand { get; set; }
+        /// <summary>
+        /// catch all groupes loaded for this specific user.
+        /// </summary>
         public ICommand FetchAllRulesGroupes { get; set; }
+        /// <summary>
+        /// Get the information from .config file.
+        /// this determined which platfrom we use here.
+        /// </summary>
+        public ICommand LoadPlatformData { get; set; }
         #endregion
 
         #endregion
@@ -84,6 +103,10 @@ namespace Spring.ViewModel
             LogoutCommand = new RelyCommand(async () => { await SignOutFromServerSQL(); });
 
             FetchAllRulesGroupes = new RelyCommand(async () => { await GetRuleViews(); });
+
+            LoadPlatformData = new RelyCommand(async () => { await GetPD(); });
+
+            LoadPlatformData.Execute(true);
         }
         /// <summary>
         /// check current tunnle conn
@@ -163,8 +186,10 @@ namespace Spring.ViewModel
 
         }
 
-
-
+        /// <summary>
+        /// Read all views depending on rules
+        /// </summary>
+        /// <returns></returns>
         private async Task GetRuleViews()
         {
            await RunCommand(() => this.Loading, async () =>
@@ -206,6 +231,25 @@ namespace Spring.ViewModel
             });
 
         }
-    }
+        private async Task GetPD()
+        {
+            await RunCommand(() => this.Loading, async () =>
+            {
+                await Task.Delay(1);
+
+
+                var val = AccioEasyHelpers.GetReadValFromConfigXML("platform");
+
+                if (val.Equals("forms")) {
+                    PlatformTypeUsed = PlatformType.Forms;
+                }
+                else
+                {
+                    PlatformTypeUsed = PlatformType.VirtualWeb;
+
+                }
+            });
+        }
+     }
 }
 

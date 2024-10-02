@@ -91,6 +91,7 @@
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -166,6 +167,7 @@
     </Compile>
     <Compile Include="Pages\ViewModel\ChangeOrTerminateCurrentUserViewModel.cs" />
     <Compile Include="Pages\ViewModel\OnBoardViewModel.cs" />
+    <Compile Include="Thinfinity.VirtualUI.cs" />
     <Compile Include="ViewControls\ViewChartsHelpers\PageChartManager.cs" />
     <Compile Include="ViewControls\ViewChartsHelpers\PagesChartsNodesNames.cs" />
     <Compile Include="ViewControls\ViewHelpers\PageManager.cs" />

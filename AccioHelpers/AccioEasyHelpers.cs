@@ -3,6 +3,7 @@ using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
@@ -104,17 +105,39 @@ namespace Spring.AccioHelpers
            
         }
         
-            public static void RemoveEvents<T>(T target, string eventName) where T : Control
+      public static void RemoveEvents<T>(T target, string eventName) where T : Control
+      {
+          if (ReferenceEquals(target, null)) throw new NullReferenceException("Argument \"target\" may not be null.");
+          FieldInfo fieldInfo = typeof(Control).GetField(eventName, BindingFlags.Static | BindingFlags.NonPublic);
+          if (ReferenceEquals(fieldInfo, null)) throw new ArgumentException(
+              string.Concat("The control ", typeof(T).Name, " does not have a property with the name \"", eventName, "\""), nameof(eventName));
+          object eventInstance = fieldInfo.GetValue(target);
+          PropertyInfo propInfo = typeof(T).GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
+          EventHandlerList list = (EventHandlerList)propInfo.GetValue(target, null);
+          list.RemoveHandler(eventInstance, list[eventInstance]);
+      }
+
+      /// <summary>
+      /// this func made for loading vals for keys from config files
+      /// </summary>
+      /// <param name="_url"></param>
+      /// <param name="_key"></param>
+      /// <returns></returns>
+      public static object GetReadValFromConfigXML(string _key)
+      {
+            string kVal = "";
+            // For read access you do not need to call OpenExeConfiguraton
+            foreach (string key in ConfigurationManager.AppSettings)
             {
-                if (ReferenceEquals(target, null)) throw new NullReferenceException("Argument \"target\" may not be null.");
-                FieldInfo fieldInfo = typeof(Control).GetField(eventName, BindingFlags.Static | BindingFlags.NonPublic);
-                if (ReferenceEquals(fieldInfo, null)) throw new ArgumentException(
-                    string.Concat("The control ", typeof(T).Name, " does not have a property with the name \"", eventName, "\""), nameof(eventName));
-                object eventInstance = fieldInfo.GetValue(target);
-                PropertyInfo propInfo = typeof(T).GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
-                EventHandlerList list = (EventHandlerList)propInfo.GetValue(target, null);
-                list.RemoveHandler(eventInstance, list[eventInstance]);
+                if (key.Equals(_key)) {
+                    string value = ConfigurationManager.AppSettings[key];
+                    kVal = value;
+                    break;
+                }
+              
+                
             }
-        
+            return kVal;
+        } 
     }
 }

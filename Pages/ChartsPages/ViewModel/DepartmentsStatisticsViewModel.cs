@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Spring.Pages.ChartsPages.ViewModel
 {
+    //this is a helper should be moved to ./Data/DeptsStatisticsPair
     public class DeptsStatisticsPair 
     {
         private string dept_name ;
@@ -32,6 +33,7 @@ namespace Spring.Pages.ChartsPages.ViewModel
             //OnPropertyChanged(nameof(DeptDatedToFound));
         }
     }
+    //real VM for DepartmentsStatistics view
     public class DepartmentsStatisticsViewModel : BaseViewModel
     {
 

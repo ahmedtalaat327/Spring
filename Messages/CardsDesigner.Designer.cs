@@ -31,12 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CardsDesigner));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.autoLabel7 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.sfBarcode1 = new Syncfusion.Windows.Forms.Barcode.SfBarcode();
-            this.fnametxtbx = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.relationstobeusedtxtbx = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.textBoxExt2 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.okbtn = new Syncfusion.WinForms.Controls.SfButton();
             this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -45,24 +46,32 @@
             this.textBoxExt5 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.textBoxExt6 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.textBoxExt7 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.tablescolscombo1 = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.tablescolscombo2 = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.tablescolscombo3 = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.currenttable = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.bars_chart_check = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
+            this.donuts_chart_check = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
-            this.tablescolscombo1 = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.tablescolscombo2 = new Syncfusion.WinForms.ListView.SfComboBox();
-            this.tablescolscombo3 = new Syncfusion.WinForms.ListView.SfComboBox();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.relationstobeusedtxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt7)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currenttable)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bars_chart_check)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.donuts_chart_check)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -73,12 +82,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel1.Controls.Add(this.autoLabel7, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.sfBarcode1, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.fnametxtbx, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.relationstobeusedtxtbx, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxExt2, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.okbtn, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel4, 0, 3);
@@ -90,13 +100,15 @@
             this.tableLayoutPanel1.Controls.Add(this.tablescolscombo1, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.tablescolscombo2, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tablescolscombo3, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.currenttable, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(30, 30, 130, 30);
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
@@ -106,6 +118,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(735, 360);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // autoLabel7
+            // 
+            this.autoLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.autoLabel7.Location = new System.Drawing.Point(253, 30);
+            this.autoLabel7.Name = "autoLabel7";
+            this.autoLabel7.Size = new System.Drawing.Size(244, 80);
+            this.autoLabel7.TabIndex = 34;
+            this.autoLabel7.Text = "Chart Type:";
+            this.autoLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // autoLabel1
             // 
             this.autoLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -113,7 +135,7 @@
             this.autoLabel1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.autoLabel1.Location = new System.Drawing.Point(33, 30);
             this.autoLabel1.Name = "autoLabel1";
-            this.autoLabel1.Size = new System.Drawing.Size(214, 45);
+            this.autoLabel1.Size = new System.Drawing.Size(214, 80);
             this.autoLabel1.TabIndex = 0;
             this.autoLabel1.Text = "CardsDesigner [Beta]";
             this.autoLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,7 +143,7 @@
             // autoLabel2
             // 
             this.autoLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.autoLabel2.Location = new System.Drawing.Point(33, 75);
+            this.autoLabel2.Location = new System.Drawing.Point(33, 110);
             this.autoLabel2.Name = "autoLabel2";
             this.autoLabel2.Size = new System.Drawing.Size(214, 26);
             this.autoLabel2.TabIndex = 1;
@@ -131,7 +153,7 @@
             // autoLabel3
             // 
             this.autoLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.autoLabel3.Location = new System.Drawing.Point(33, 101);
+            this.autoLabel3.Location = new System.Drawing.Point(33, 136);
             this.autoLabel3.Name = "autoLabel3";
             this.autoLabel3.Size = new System.Drawing.Size(214, 26);
             this.autoLabel3.TabIndex = 2;
@@ -147,7 +169,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(250, 75);
+            this.label1.Location = new System.Drawing.Point(250, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 26);
@@ -161,12 +183,12 @@
             this.sfBarcode1.DisplayText = true;
             this.sfBarcode1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sfBarcode1.LightBarColor = System.Drawing.Color.White;
-            this.sfBarcode1.Location = new System.Drawing.Point(110, 210);
+            this.sfBarcode1.Location = new System.Drawing.Point(110, 245);
             this.sfBarcode1.Margin = new System.Windows.Forms.Padding(80, 5, 80, 5);
             this.sfBarcode1.MaximumSize = new System.Drawing.Size(180, 220);
             this.sfBarcode1.Name = "sfBarcode1";
             this.sfBarcode1.Padding = new System.Windows.Forms.Padding(15);
-            this.sfBarcode1.Size = new System.Drawing.Size(60, 115);
+            this.sfBarcode1.Size = new System.Drawing.Size(60, 80);
             this.sfBarcode1.Symbology = Syncfusion.Windows.Forms.Barcode.BarcodeSymbolType.QRBarcode;
             this.sfBarcode1.SymbologySettings = null;
             this.sfBarcode1.TabIndex = 15;
@@ -174,20 +196,20 @@
             this.sfBarcode1.TextColor = System.Drawing.Color.Black;
             this.sfBarcode1.TextGapHeight = 0F;
             // 
-            // fnametxtbx
+            // relationstobeusedtxtbx
             // 
-            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(140, 20);
-            this.fnametxtbx.Location = new System.Drawing.Point(253, 104);
-            this.fnametxtbx.Name = "fnametxtbx";
-            this.fnametxtbx.Size = new System.Drawing.Size(43, 20);
-            this.fnametxtbx.TabIndex = 17;
+            this.relationstobeusedtxtbx.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.relationstobeusedtxtbx.Location = new System.Drawing.Point(253, 139);
+            this.relationstobeusedtxtbx.Name = "relationstobeusedtxtbx";
+            this.relationstobeusedtxtbx.Size = new System.Drawing.Size(43, 20);
+            this.relationstobeusedtxtbx.TabIndex = 17;
             // 
             // textBoxExt2
             // 
             this.textBoxExt2.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt2.BeforeTouchSize = new System.Drawing.Size(114, 20);
             this.textBoxExt2.ForeColor = System.Drawing.Color.Black;
-            this.textBoxExt2.Location = new System.Drawing.Point(503, 104);
+            this.textBoxExt2.Location = new System.Drawing.Point(503, 139);
             this.textBoxExt2.Name = "textBoxExt2";
             this.textBoxExt2.ReadOnly = true;
             this.textBoxExt2.Size = new System.Drawing.Size(114, 20);
@@ -200,20 +222,20 @@
             this.okbtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.okbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.okbtn.ForeColor = System.Drawing.Color.White;
-            this.okbtn.Location = new System.Drawing.Point(503, 285);
-            this.okbtn.Margin = new System.Windows.Forms.Padding(3, 80, 3, 3);
+            this.okbtn.Location = new System.Drawing.Point(503, 300);
+            this.okbtn.Margin = new System.Windows.Forms.Padding(3, 60, 3, 3);
             this.okbtn.Name = "okbtn";
             this.okbtn.Size = new System.Drawing.Size(114, 22);
             this.okbtn.Style.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.okbtn.Style.ForeColor = System.Drawing.Color.White;
             this.okbtn.TabIndex = 20;
-            this.okbtn.Text = "Check any apply";
+            this.okbtn.Text = "Check and apply";
             this.okbtn.UseVisualStyleBackColor = false;
             // 
             // autoLabel4
             // 
             this.autoLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.autoLabel4.Location = new System.Drawing.Point(33, 127);
+            this.autoLabel4.Location = new System.Drawing.Point(33, 162);
             this.autoLabel4.Name = "autoLabel4";
             this.autoLabel4.Size = new System.Drawing.Size(214, 26);
             this.autoLabel4.TabIndex = 21;
@@ -223,7 +245,7 @@
             // autoLabel5
             // 
             this.autoLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.autoLabel5.Location = new System.Drawing.Point(33, 153);
+            this.autoLabel5.Location = new System.Drawing.Point(33, 188);
             this.autoLabel5.Name = "autoLabel5";
             this.autoLabel5.Size = new System.Drawing.Size(214, 26);
             this.autoLabel5.TabIndex = 23;
@@ -233,7 +255,7 @@
             // autoLabel6
             // 
             this.autoLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.autoLabel6.Location = new System.Drawing.Point(33, 179);
+            this.autoLabel6.Location = new System.Drawing.Point(33, 214);
             this.autoLabel6.Name = "autoLabel6";
             this.autoLabel6.Size = new System.Drawing.Size(214, 26);
             this.autoLabel6.TabIndex = 25;
@@ -243,9 +265,9 @@
             // textBoxExt5
             // 
             this.textBoxExt5.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt5.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt5.BeforeTouchSize = new System.Drawing.Size(114, 20);
             this.textBoxExt5.ForeColor = System.Drawing.Color.Black;
-            this.textBoxExt5.Location = new System.Drawing.Point(503, 130);
+            this.textBoxExt5.Location = new System.Drawing.Point(503, 165);
             this.textBoxExt5.Name = "textBoxExt5";
             this.textBoxExt5.ReadOnly = true;
             this.textBoxExt5.Size = new System.Drawing.Size(114, 20);
@@ -255,9 +277,9 @@
             // textBoxExt6
             // 
             this.textBoxExt6.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt6.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt6.BeforeTouchSize = new System.Drawing.Size(114, 20);
             this.textBoxExt6.ForeColor = System.Drawing.Color.Black;
-            this.textBoxExt6.Location = new System.Drawing.Point(503, 156);
+            this.textBoxExt6.Location = new System.Drawing.Point(503, 191);
             this.textBoxExt6.Name = "textBoxExt6";
             this.textBoxExt6.ReadOnly = true;
             this.textBoxExt6.Size = new System.Drawing.Size(114, 20);
@@ -267,14 +289,92 @@
             // textBoxExt7
             // 
             this.textBoxExt7.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.textBoxExt7.BeforeTouchSize = new System.Drawing.Size(140, 20);
+            this.textBoxExt7.BeforeTouchSize = new System.Drawing.Size(114, 20);
             this.textBoxExt7.ForeColor = System.Drawing.Color.Black;
-            this.textBoxExt7.Location = new System.Drawing.Point(503, 182);
+            this.textBoxExt7.Location = new System.Drawing.Point(503, 217);
             this.textBoxExt7.Name = "textBoxExt7";
             this.textBoxExt7.ReadOnly = true;
             this.textBoxExt7.Size = new System.Drawing.Size(114, 20);
             this.textBoxExt7.TabIndex = 29;
             this.textBoxExt7.Text = "data_type3";
+            // 
+            // tablescolscombo1
+            // 
+            this.tablescolscombo1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablescolscombo1.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.tablescolscombo1.Location = new System.Drawing.Point(253, 165);
+            this.tablescolscombo1.Name = "tablescolscombo1";
+            this.tablescolscombo1.Size = new System.Drawing.Size(244, 20);
+            this.tablescolscombo1.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.tablescolscombo1.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tablescolscombo1.TabIndex = 30;
+            // 
+            // tablescolscombo2
+            // 
+            this.tablescolscombo2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablescolscombo2.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.tablescolscombo2.Location = new System.Drawing.Point(253, 191);
+            this.tablescolscombo2.Name = "tablescolscombo2";
+            this.tablescolscombo2.Size = new System.Drawing.Size(244, 20);
+            this.tablescolscombo2.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.tablescolscombo2.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tablescolscombo2.TabIndex = 31;
+            // 
+            // tablescolscombo3
+            // 
+            this.tablescolscombo3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tablescolscombo3.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
+            this.tablescolscombo3.Location = new System.Drawing.Point(253, 217);
+            this.tablescolscombo3.Name = "tablescolscombo3";
+            this.tablescolscombo3.Size = new System.Drawing.Size(244, 20);
+            this.tablescolscombo3.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.tablescolscombo3.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tablescolscombo3.TabIndex = 32;
+            // 
+            // currenttable
+            // 
+            this.currenttable.BeforeTouchSize = new System.Drawing.Size(114, 20);
+            this.currenttable.Location = new System.Drawing.Point(503, 113);
+            this.currenttable.Name = "currenttable";
+            this.currenttable.Size = new System.Drawing.Size(114, 20);
+            this.currenttable.TabIndex = 33;
+            this.currenttable.Text = "table name here";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.bars_chart_check, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.donuts_chart_check, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(503, 33);
+            this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(200, 80);
+            this.tableLayoutPanel2.MinimumSize = new System.Drawing.Size(125, 80);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(125, 80);
+            this.tableLayoutPanel2.TabIndex = 35;
+            // 
+            // bars_chart_check
+            // 
+            this.bars_chart_check.BeforeTouchSize = new System.Drawing.Size(119, 34);
+            this.bars_chart_check.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bars_chart_check.Location = new System.Drawing.Point(3, 43);
+            this.bars_chart_check.Name = "bars_chart_check";
+            this.bars_chart_check.Size = new System.Drawing.Size(119, 34);
+            this.bars_chart_check.TabIndex = 37;
+            this.bars_chart_check.Text = "Bars chart";
+            // 
+            // donuts_chart_check
+            // 
+            this.donuts_chart_check.BeforeTouchSize = new System.Drawing.Size(119, 34);
+            this.donuts_chart_check.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.donuts_chart_check.Location = new System.Drawing.Point(3, 3);
+            this.donuts_chart_check.Name = "donuts_chart_check";
+            this.donuts_chart_check.Size = new System.Drawing.Size(119, 34);
+            this.donuts_chart_check.TabIndex = 36;
+            this.donuts_chart_check.Text = "Donuts chart";
             // 
             // imageList1
             // 
@@ -538,39 +638,6 @@
             this.progressBarAdv1.TubeStartColor = System.Drawing.Color.IndianRed;
             this.progressBarAdv1.WaitingGradientWidth = 400;
             // 
-            // tablescolscombo1
-            // 
-            this.tablescolscombo1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablescolscombo1.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.tablescolscombo1.Location = new System.Drawing.Point(253, 130);
-            this.tablescolscombo1.Name = "tablescolscombo1";
-            this.tablescolscombo1.Size = new System.Drawing.Size(244, 20);
-            this.tablescolscombo1.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.tablescolscombo1.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tablescolscombo1.TabIndex = 30;
-            // 
-            // tablescolscombo2
-            // 
-            this.tablescolscombo2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablescolscombo2.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.tablescolscombo2.Location = new System.Drawing.Point(253, 156);
-            this.tablescolscombo2.Name = "tablescolscombo2";
-            this.tablescolscombo2.Size = new System.Drawing.Size(244, 20);
-            this.tablescolscombo2.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.tablescolscombo2.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tablescolscombo2.TabIndex = 31;
-            // 
-            // tablescolscombo3
-            // 
-            this.tablescolscombo3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablescolscombo3.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
-            this.tablescolscombo3.Location = new System.Drawing.Point(253, 182);
-            this.tablescolscombo3.Name = "tablescolscombo3";
-            this.tablescolscombo3.Size = new System.Drawing.Size(244, 20);
-            this.tablescolscombo3.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.tablescolscombo3.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tablescolscombo3.TabIndex = 32;
-            // 
             // CardsDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,16 +648,20 @@
             this.Text = "CardsDesigner";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.relationstobeusedtxtbx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt7)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablescolscombo3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currenttable)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bars_chart_check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.donuts_chart_check)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -607,7 +678,7 @@
         private Syncfusion.Windows.Forms.SfToolTip sfToolTip1;
         private System.Windows.Forms.Label label1;
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt fnametxtbx;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt relationstobeusedtxtbx;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt textBoxExt2;
         private Syncfusion.WinForms.Controls.SfButton okbtn;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
@@ -619,5 +690,10 @@
         private Syncfusion.WinForms.ListView.SfComboBox tablescolscombo1;
         private Syncfusion.WinForms.ListView.SfComboBox tablescolscombo2;
         private Syncfusion.WinForms.ListView.SfComboBox tablescolscombo3;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt currenttable;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv bars_chart_check;
+        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv donuts_chart_check;
     }
 }

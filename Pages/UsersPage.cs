@@ -10,6 +10,9 @@ using Syncfusion.Pdf.Grid;
 using System.IO;
 using Syncfusion.Data;
 using Spring.Helpers.Controls;
+using Cybele.Thinfinity;
+using Spring.StaticVM;
+using Syncfusion.XPS;
 
 namespace Spring.Pages
 {
@@ -192,11 +195,19 @@ namespace Spring.Pages
                         {
                             document.Save(stream);
                         }
-                        //Message box confirmation to view the created Pdf file.
-                        if (MessageBox.Show("Do you want to view the Pdf file?", "Pdf file has been created", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (VMCentral.DockingManagerViewModel.PlatformTypeUsed == Spring.ViewModel.DockingManagerViewModel.PlatformType.VirtualWeb)
                         {
-                            //Launching the Pdf file using the default Application.
-                            System.Diagnostics.Process.Start(saveFileDialog.FileName);
+                            VirtualUI vui = new VirtualUI();
+                            vui.DownloadFile(saveFileDialog.FileName);
+                        }
+                        else
+                        {
+                            //Message box confirmation to view the created Pdf file.
+                            if (MessageBox.Show("Do you want to view the Pdf file?", "Pdf file has been created", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                //Launching the Pdf file using the default Application.
+                                System.Diagnostics.Process.Start(saveFileDialog.FileName);
+                            }
                         }
                     } 
                 }

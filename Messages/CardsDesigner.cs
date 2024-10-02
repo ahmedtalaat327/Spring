@@ -13,6 +13,7 @@ using Spring.ViewModel.Command;
 using System;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -135,9 +136,16 @@ namespace Spring.Messages
             progressBarAdv1.DataBindings.Add(new Binding("WaitingGradientEnabled", CardsDesignerViewModel, "WaitingProgress"));
             label1.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "CurrentDepartment", true));
             textBoxExt5.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "RelationFNameType", true));
+            textBoxExt6.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "RelationSNameType", true));
+            textBoxExt7.DataBindings.Add(new Binding("Text", CardsDesignerViewModel, "RelationTNameType", true));
             #endregion
-
-            this.tablescolscombo1.SelectedIndexChanged += (s, e) => { CardsDesignerViewModel.GiveDataType.Execute(true); };
+            this.tablescolscombo1.Enabled = false;
+            this.tablescolscombo1.SelectedIndexChanged += (s, e) => { CardsDesignerViewModel.GiveDataType.Execute(1); };
+            this.tablescolscombo2.SelectedIndexChanged += (s, e) => { CardsDesignerViewModel.GiveDataType.Execute(2); };
+            this.tablescolscombo3.SelectedIndexChanged += (s, e) => { CardsDesignerViewModel.GiveDataType.Execute(3); };
+            this.tablescolscombo1.DropDownClosed += (s, e) => { this.relationstobeusedtxtbx.Focus(); };
+            this.tablescolscombo2.DropDownClosed += (s, e) => { this.relationstobeusedtxtbx.Focus(); };
+            this.tablescolscombo3.DropDownClosed += (s, e) => { this.relationstobeusedtxtbx.Focus(); };
 
             this.Load += CardsDesigner_Load;
             
@@ -215,9 +223,9 @@ namespace Spring.Messages
 
             ColumnsHeaders = new ObservableCollection<ColumnDataDef>() { new ColumnDataDef() { Id = 0, Name = "user_name" , ParentTable = "users" } };
 
-            GiveDataType = new RelyCommand(async()=> await GetDataTypeForFirstRelation());
-
-            RelationFName = ColumnsHeaders[0];
+            GiveDataType = new RelayParameterizedCommand(async(x)=> await GetDataTypeForRelation(x));
+          
+         
         }
 
         #endregion
@@ -237,21 +245,94 @@ namespace Spring.Messages
                 await Task.Delay(1);
                 //must put awaitable task func connected to database
 
-                // CorpName = await UpdateCurrentCorporation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn);
-
-
-                // Logo = ((Image)new BoolToImgConverter().Convert(true, null, null, null));
+               
                 this.CurrentDepartment = VMCentral.DockingManagerViewModel.loggedUser.DepartmentName;
+
+                ColumnsHeaders.Clear();
+                var _columnsHeaders = await GetColumnsNamesFromTable((object)"users");
+                foreach (var column in _columnsHeaders) { 
+                    ColumnsHeaders.Add(column);
+                }
+
+                if (ColumnsHeaders.Count > 0)
+                {
+                    RelationFName = ColumnsHeaders[0];
+                    RelationSName = ColumnsHeaders[0];
+                    RelationTName = ColumnsHeaders[0];
+                }
 
             });
            
         }
-      private async Task GetDataTypeForFirstRelation()
+      private async Task GetDataTypeForRelation(object caseOfRel)
         {
+            var casR = (Int32)caseOfRel;
             await Task.Delay(2);
-            this.RelationFnameType = this.RelationFName.Description;
+            if(casR == 1)
+                this.RelationFnameType = this.RelationFName.Description;
+            if(casR == 2)
+                this.RelationSnameType = this.RelationSName.Description;
+            if(casR == 3)
+                this.RelationTnameType = this.RelationTName.Description;
         }
 
+        private async Task<ObservableCollection<ColumnDataDef>> GetColumnsNamesFromTable(object tableName)
+        {
+            int c = 0;
+            ObservableCollection<ColumnDataDef> colsNames = new ObservableCollection<ColumnDataDef>();
+
+            await Task.Run(() =>
+            {
+
+
+                var myOpenedTunnel = VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn;
+
+                var sqlCMD = Scripts.FetchMySQLText(myOpenedTunnel, $"select column_name from USER_TAB_COLUMNS where upper(table_name) = '{tableName.ToString().ToUpper(new CultureInfo("en-US", false))}'");
+                OracleDataReader dr = null;
+
+                try
+                {
+                    dr = sqlCMD.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+
+
+                        while (dr.Read())
+                        {
+
+
+                            colsNames.Add(new ColumnDataDef()
+                            {
+
+                                Id = c,
+                                Name = dr["COLUMN_NAME"].ToString(),
+                                ParentTable = tableName.ToString()
+
+
+                            });
+                            c++;
+                        }
+                       
+
+
+                    }
+
+                }
+                catch (Exception xorcl)
+                {
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+                    //colsType.Add("failed to get any data type");
+                 
+
+                }
+              //  return colsNames;
+
+            });
+            return colsNames;
+        }
 
         #endregion
 
