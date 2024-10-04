@@ -1,14 +1,14 @@
 ﻿using Spring.Helpers.Controls;
 using System;
 using System.Collections.Generic;
- 
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Spring.ViewControls.ViewChartsHelpers
 {
     public class PageChartManager
     {
-        public void SetupMainBoard(TableLayoutPanel parent)
+        public async Task SetupMainBoard(TableLayoutPanel parent)
         {
             parent.Controls.Clear();
 
@@ -17,9 +17,15 @@ namespace Spring.ViewControls.ViewChartsHelpers
                 //add controller
                 var view = PagesChartsNodesNames.ALLCHARTSINSTANCES[i];
                 view.Dock = DockStyle.Fill;
+                //fix issue reported in loading rules for charts [1/10/2014]
+                await Task.Run(() => {
 
-                view.SetViewName();
-                view.CheckAvailability();
+                    view.SetViewName();
+                    view.CheckAvailability();
+
+                });
+
+            
                 parent.Controls.Add(view);
 
 
