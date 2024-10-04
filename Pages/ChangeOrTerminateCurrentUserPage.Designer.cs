@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Syncfusion.Windows.Forms.Tools.SplitButtonRenderer splitButtonRenderer1 = new Syncfusion.Windows.Forms.Tools.SplitButtonRenderer();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeOrTerminateCurrentUserPage));
+            this.splitButton1 = new Syncfusion.Windows.Forms.Tools.SplitButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.fullnameLbl = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.fnametxtbx = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -60,6 +62,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.idTobeSearchedInput = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.popupMenusManager1 = new Syncfusion.Windows.Forms.Tools.XPMenus.PopupMenusManager(this.components);
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.qrToolkit1 = new Spring.View.PanelView.QRToolkit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fnametxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.snametxtbx)).BeginInit();
@@ -70,7 +75,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactinfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.idTobeSearchedInput)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitButton1
+            // 
+            this.splitButton1.BackgroundImage = global::Spring.Properties.Resources.qrcodeicon;
+            this.splitButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.splitButton1.BeforeTouchSize = new System.Drawing.Size(24, 24);
+            this.splitButton1.DropDownPosition = Syncfusion.Windows.Forms.Tools.Position.Bottom;
+            this.splitButton1.ForeColor = System.Drawing.Color.Black;
+            this.splitButton1.Location = new System.Drawing.Point(309, 63);
+            this.splitButton1.MinimumSize = new System.Drawing.Size(24, 24);
+            this.splitButton1.Name = "splitButton1";
+            splitButtonRenderer1.SplitButton = this.splitButton1;
+            this.splitButton1.Renderer = splitButtonRenderer1;
+            this.splitButton1.ShowDropDownOnButtonClick = false;
+            this.splitButton1.Size = new System.Drawing.Size(24, 24);
+            this.splitButton1.TabIndex = 32;
             // 
             // tableLayoutPanel1
             // 
@@ -110,6 +132,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.idTobeSearchedInput, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.autoLabel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.splitButton1, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -871,6 +895,30 @@
             this.autoLabel3.Text = "User Id";
             this.autoLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.LavenderBlush;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.5F));
+            this.tableLayoutPanel2.Controls.Add(this.qrToolkit1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(309, 83);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel1.SetRowSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(290, 64);
+            this.tableLayoutPanel2.TabIndex = 33;
+            // 
+            // qrToolkit1
+            // 
+            this.qrToolkit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qrToolkit1.Location = new System.Drawing.Point(3, 3);
+            this.qrToolkit1.Name = "qrToolkit1";
+            this.qrToolkit1.Size = new System.Drawing.Size(284, 58);
+            this.qrToolkit1.TabIndex = 0;
+            // 
             // ChangeOrTerminateCurrentUserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -891,6 +939,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deptcombo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactinfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.idTobeSearchedInput)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -927,5 +976,9 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt idTobeSearchedInput;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
         private System.Windows.Forms.ImageList imageList2;
+        private Syncfusion.Windows.Forms.Tools.SplitButton splitButton1;
+        private Syncfusion.Windows.Forms.Tools.XPMenus.PopupMenusManager popupMenusManager1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private View.PanelView.QRToolkit qrToolkit1;
     }
 }

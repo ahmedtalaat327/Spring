@@ -4,6 +4,9 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Spring.Helpers.Controls;
+using Spring.View.PanelView;
+using Spring.ViewControls;
+using Syncfusion.Windows.Forms.Tools.XPMenus;
 
 namespace Spring.Pages
 {
@@ -60,6 +63,8 @@ namespace Spring.Pages
             this.sfDateTimeEdit1.Value = DateTime.Today;
 
 
+            tableLayoutPanel2.Visible = false;
+            this.splitButton1.MouseClick += SplitButton1_DropDowItemClicked;
 
             
 
@@ -179,6 +184,19 @@ namespace Spring.Pages
 
             //sfDataGrid1.Columns["Id"].FilterPredicates.Add(new FilterPredicate() { FilterType = FilterType.LessThan, FilterValue = "18" });
         }
+
+        private void SplitButton1_DropDowItemClicked(object sender, EventArgs e)
+        {
+ 
+           var qr = new QRToolkit();
+
+            tableLayoutPanel2.Visible = true;
+           
+          
+           
+            
+        }
+
         public override void AddEventsToOptionsNodes(TreeViewAdv optionsTree)
         {
             optionsTree.BeforeSelect += OptionsTree_BeforeSelect;

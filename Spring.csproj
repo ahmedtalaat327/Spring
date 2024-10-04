@@ -42,6 +42,15 @@
     <Reference Include="AccioOracleKit">
       <HintPath>..\AccioOracleKit\bin\Release\AccioOracleKit.dll</HintPath>
     </Reference>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="CliWrap, Version=3.6.6.0, Culture=neutral, PublicKeyToken=1c4a4fc2d6886e5a, processorArchitecture=MSIL">
       <HintPath>packages\CliWrap.3.6.6\lib\net462\CliWrap.dll</HintPath>
     </Reference>
@@ -122,6 +131,12 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net48\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.9\lib\net48\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccioHelpers\AccioEasyHelpers.cs" />
@@ -251,6 +266,12 @@
     <Compile Include="View\MainView\LoginView\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PanelView\QRToolkit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PanelView\QRToolkit.Designer.cs">
+      <DependentUpon>QRToolkit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Messages\CardsDesigner.resx">
       <DependentUpon>CardsDesigner.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +328,10 @@
     <EmbeddedResource Include="View\MainView\LoginView\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\PanelView\QRToolkit.resx">
+      <DependentUpon>QRToolkit.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="init\params.info">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -350,6 +375,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="refresh-348.png" />
+    <Resource Include="qrcodeicon.png" />
     <Content Include="springTM.ico" />
     <None Include="springTM.png" />
     <Content Include="VS.ico" />
