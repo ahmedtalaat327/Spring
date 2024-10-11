@@ -1,6 +1,7 @@
 ﻿using Spring.Pages.ChartsPages;
 using Spring.ViewControls.ViewChartsHelpers;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Spring.Pages
@@ -15,12 +16,12 @@ namespace Spring.Pages
 
         }
 
-        private void OnBoardPage_Load(object sender, EventArgs e)
+        private async void OnBoardPage_Load(object sender, EventArgs e)
         {
             try
             {
                 PageChartManager pageChartManager = new PageChartManager();
-                pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
+                await pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
             }catch(Exception nil)
             {
                 /****/

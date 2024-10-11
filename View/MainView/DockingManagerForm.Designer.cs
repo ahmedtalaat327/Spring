@@ -162,6 +162,7 @@ namespace Spring
             treeNodeAdvStyleInfo1.IntermediateCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             treeNodeAdvStyleInfo1.OptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             treeNodeAdvStyleInfo1.SelectedOptionButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            treeNodeAdvStyleInfo1.TextColor = System.Drawing.SystemColors.Desktop;
             this.treeViewAdv1.BaseStylePairs.AddRange(new Syncfusion.Windows.Forms.Tools.StyleNamePair[] {
             new Syncfusion.Windows.Forms.Tools.StyleNamePair("Standard", treeNodeAdvStyleInfo1)});
             this.treeViewAdv1.BeforeTouchSize = new System.Drawing.Size(281, 331);
@@ -169,6 +170,7 @@ namespace Spring
             this.treeViewAdv1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.treeViewAdv1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewAdv1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewAdv1.ForeColor = System.Drawing.SystemColors.Desktop;
             // 
             // 
             // 
@@ -307,7 +309,7 @@ namespace Spring
             treeNodeAdv5,
             treeNodeAdv9});
             this.treeViewAdv1.SelectedNodeBackground = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220))))));
-            this.treeViewAdv1.SelectedNodeForeColor = System.Drawing.SystemColors.HighlightText;
+            this.treeViewAdv1.SelectedNodeForeColor = System.Drawing.Color.DarkOrange;
             this.treeViewAdv1.ShowFocusRect = false;
             this.treeViewAdv1.ShowLines = false;
             this.treeViewAdv1.Size = new System.Drawing.Size(281, 331);
@@ -554,7 +556,7 @@ namespace Spring
             this.panel2.Controls.Add(this.errorlistToolBar);
             this.panel2.Location = new System.Drawing.Point(1, 26);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(882, 26);
+            this.panel2.Size = new System.Drawing.Size(882, 65);
             this.panel2.TabIndex = 6;
             // 
             // progressBarAdv1
@@ -571,7 +573,7 @@ namespace Spring
             this.progressBarAdv1.ForegroundImage = null;
             this.progressBarAdv1.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
             this.progressBarAdv1.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220)))));
-            this.progressBarAdv1.Location = new System.Drawing.Point(0, 13);
+            this.progressBarAdv1.Location = new System.Drawing.Point(0, 52);
             this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.Empty};
             this.progressBarAdv1.Name = "progressBarAdv1";
@@ -1198,6 +1200,7 @@ namespace Spring
             this.ShowIcon = false;
             this.Text = "Spring";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.DockingManagerForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dockingManager1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeViewAdv1)).EndInit();

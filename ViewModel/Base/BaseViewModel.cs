@@ -21,7 +21,11 @@ namespace Spring.ViewModel.Base
         /// <param name="name"></param>
         public void OnPropertyChanged(string name)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(name));
+            try
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+            catch(Exception u) { Console.WriteLine(name); }
         }
 
 
