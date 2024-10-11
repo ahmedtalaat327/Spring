@@ -190,7 +190,7 @@ namespace Spring.Pages
  
            var qr = new QRToolkit();
 
-            tableLayoutPanel2.Visible = true;
+           tableLayoutPanel2.Visible = true;
            
           
            

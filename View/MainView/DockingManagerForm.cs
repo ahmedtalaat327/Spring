@@ -279,13 +279,6 @@ namespace Spring
 
             panel5.treeViewAdv1.Nodes.Clear();
 
-            this.treeViewAdv1.BackColor = Color.FromArgb(1, 64, 86, 115);
-            this.panel1.BackColor = Color.FromArgb(1, 64, 86, 115);
-            this.treeViewAdv1.Parent.BackColor = Color.FromArgb(1, 64, 86, 115);
-            
-
-
-
             this.dockingManager1.SetAutoHideMode(this.panel2, false);
             this.dockingManager1.SetDockLabel(this.panel1, "Here We Go...");
             this.dockingManager1.CloseEnabled = false;

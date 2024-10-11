@@ -76,6 +76,7 @@ namespace Spring.Pages.ViewModel
 
                             });
                     }
+                     await CompareCurrentViews();
                 }
                 catch (Exception xorcl)
                 {
@@ -122,7 +123,7 @@ namespace Spring.Pages.ViewModel
         {
             
                 await CollectFromRules();
-                await CompareCurrentViews();
+               
            
         }
     }

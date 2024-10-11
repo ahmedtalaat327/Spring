@@ -1,4 +1,5 @@
-﻿using AForge.Video.DirectShow;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
 using Syncfusion.Data.Extensions;
 using Syncfusion.Windows.Forms.Tools.Navigation;
 using Syncfusion.XlsIO.Implementation.PivotAnalysis;
@@ -11,7 +12,7 @@ using System.Windows.Media;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace Spring.View.PanelView
 {
@@ -19,7 +20,10 @@ namespace Spring.View.PanelView
     {
         FilterInfoCollection filterItemElements;
         VideoCaptureDevice videoCaptureDevice;
-        
+        Result res;
+        QRCodeReader reader = new QRCodeReader();
+
+
         public QRToolkit()
         {
             InitializeComponent();
@@ -31,7 +35,7 @@ namespace Spring.View.PanelView
 
         private void QRToolkit_VisibleChanged(object sender, EventArgs e)
         {
-          //  if((UserControl)sender)
+           
         }
 
         private void QRToolkit_Load(object sender, EventArgs e)
@@ -62,15 +66,14 @@ namespace Spring.View.PanelView
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
-            QRCodeReader reader = new QRCodeReader();
 
 
             LuminanceSource source;
             source = new ZXing.BitmapLuminanceSource(bitmap);
             var bitmapr = new BinaryBitmap(new GlobalHistogramBinarizer(source));
 
-            var res = reader.decode(bitmapr);
-
+            res = reader.decode(bitmapr); 
+            
             if (res != null)
             {
                 Console.WriteLine($"{res}");
@@ -79,6 +82,27 @@ namespace Spring.View.PanelView
             pictureBox1.Image = bitmap;
 
         }
-      
+        private void Exitcamera()
+        {
+            videoCaptureDevice.SignalToStop();
+            // FinalVideo.WaitForStop();  << marking out that one solved it
+            videoCaptureDevice.NewFrame -= new NewFrameEventHandler(VideoCaptureDevice_NewFrame); // as sugested
+            videoCaptureDevice = null;
+        }
+
+        private void sfButton1_Click(object sender, EventArgs e)
+        {
+           
+                if (videoCaptureDevice != null)
+                {
+                    if (videoCaptureDevice.IsRunning)
+                    {
+                        Exitcamera();
+
+                    }
+                }
+            this.Visible = false;
+            this.Dispose();
+        }
     }
 }

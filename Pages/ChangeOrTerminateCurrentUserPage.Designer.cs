@@ -897,7 +897,7 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.LavenderBlush;
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.5F));
@@ -913,6 +913,7 @@
             // 
             // qrToolkit1
             // 
+            this.qrToolkit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(85)))), ((int)(((byte)(116)))));
             this.qrToolkit1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.qrToolkit1.Location = new System.Drawing.Point(3, 3);
             this.qrToolkit1.Name = "qrToolkit1";

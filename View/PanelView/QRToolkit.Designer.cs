@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.sfComboBox1 = new Syncfusion.WinForms.ListView.SfComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sfComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -38,11 +39,12 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.Controls.Add(this.sfComboBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sfButton1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -58,18 +60,35 @@
             this.sfComboBox1.DropDownPosition = Syncfusion.WinForms.Core.Enums.PopupRelativeAlignment.Center;
             this.sfComboBox1.Location = new System.Drawing.Point(3, 3);
             this.sfComboBox1.Name = "sfComboBox1";
-            this.sfComboBox1.Size = new System.Drawing.Size(234, 24);
+            this.sfComboBox1.Size = new System.Drawing.Size(201, 24);
             this.sfComboBox1.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.sfComboBox1.TabIndex = 0;
             // 
             // pictureBox1
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.pictureBox1, 2);
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 33);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(234, 104);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // sfButton1
+            // 
+            this.sfButton1.AccessibleName = "Button";
+            this.sfButton1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButton1.ForeColor = System.Drawing.Color.White;
+            this.sfButton1.Location = new System.Drawing.Point(210, 3);
+            this.sfButton1.Name = "sfButton1";
+            this.sfButton1.Size = new System.Drawing.Size(27, 24);
+            this.sfButton1.Style.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.sfButton1.Style.ForeColor = System.Drawing.Color.White;
+            this.sfButton1.TabIndex = 2;
+            this.sfButton1.Text = "x";
+            this.sfButton1.UseVisualStyleBackColor = false;
+            this.sfButton1.Click += new System.EventHandler(this.sfButton1_Click);
             // 
             // QRToolkit
             // 
@@ -90,5 +109,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Syncfusion.WinForms.ListView.SfComboBox sfComboBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Syncfusion.WinForms.Controls.SfButton sfButton1;
     }
 }

@@ -16,12 +16,12 @@ namespace Spring.Pages
 
         }
 
-        private async void OnBoardPage_Load(object sender, EventArgs e)
+        private void OnBoardPage_Load(object sender, EventArgs e)
         {
             try
             {
                 PageChartManager pageChartManager = new PageChartManager();
-                await pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
+                pageChartManager.SetupMainBoard(this.tableLayoutPanel1);
             }catch(Exception nil)
             {
                 /****/
