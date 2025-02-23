@@ -309,7 +309,7 @@ namespace Spring
             treeNodeAdv5,
             treeNodeAdv9});
             this.treeViewAdv1.SelectedNodeBackground = new Syncfusion.Drawing.BrushInfo(System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(165)))), ((int)(((byte)(220))))));
-            this.treeViewAdv1.SelectedNodeForeColor = System.Drawing.Color.DarkOrange;
+            this.treeViewAdv1.SelectedNodeForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.treeViewAdv1.ShowFocusRect = false;
             this.treeViewAdv1.ShowLines = false;
             this.treeViewAdv1.Size = new System.Drawing.Size(281, 331);

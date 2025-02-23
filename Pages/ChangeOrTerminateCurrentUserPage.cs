@@ -187,14 +187,24 @@ namespace Spring.Pages
 
         private void SplitButton1_DropDowItemClicked(object sender, EventArgs e)
         {
- 
-           var qr = new QRToolkit();
+            this.qrToolkit1 = new Spring.View.PanelView.QRToolkit();
 
-           tableLayoutPanel2.Visible = true;
-           
-          
-           
+            // 
+            // qrToolkit1
+            // 
+            this.qrToolkit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(85)))), ((int)(((byte)(116)))));
+            this.qrToolkit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qrToolkit1.Location = new System.Drawing.Point(3, 3);
+            this.qrToolkit1.Name = "qrToolkit1";
+            this.qrToolkit1.Size = new System.Drawing.Size(284, 188);
+            this.qrToolkit1.TabIndex = 0;
+            // 
+            this.tableLayoutPanel2.Controls.Add(this.qrToolkit1, 0, 0);
+
+            tableLayoutPanel2.Visible = true;
             
+
+
         }
 
         public override void AddEventsToOptionsNodes(TreeViewAdv optionsTree)

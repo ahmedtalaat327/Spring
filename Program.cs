@@ -23,7 +23,7 @@ namespace Spring
         {
             
             //Register Syncfusion license
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("@31392e342e30VWUcNs2WlbEH2rOhqfAsaLLoQ60+yWpw1tdxvkTqCfg=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjgyOTU2QDMxMzkyZTM0MmUzME90TXNSbi9NMzk0eENobXM1cnlickQ3TGpYb0FsQklEZUVzK21lSXFuckk9");
 
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);

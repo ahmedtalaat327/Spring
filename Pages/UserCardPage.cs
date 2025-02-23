@@ -37,7 +37,7 @@ namespace Spring.Pages
             //binding active flag to panel
             //this.DataBindings.Add(new Binding("Enabled", userCardViewModel, "ActivePanel"));
 
-            this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
+            //this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
 
 
             #endregion

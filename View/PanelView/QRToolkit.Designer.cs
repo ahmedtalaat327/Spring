@@ -85,8 +85,8 @@
             this.sfButton1.Size = new System.Drawing.Size(27, 24);
             this.sfButton1.Style.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.sfButton1.Style.ForeColor = System.Drawing.Color.White;
+            this.sfButton1.Style.Image = global::Spring.Properties.Resources.icons8_ok_48;
             this.sfButton1.TabIndex = 2;
-            this.sfButton1.Text = "x";
             this.sfButton1.UseVisualStyleBackColor = false;
             this.sfButton1.Click += new System.EventHandler(this.sfButton1_Click);
             // 

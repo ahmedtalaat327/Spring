@@ -1,14 +1,10 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
 using Syncfusion.Data.Extensions;
-using Syncfusion.Windows.Forms.Tools.Navigation;
-using Syncfusion.XlsIO.Implementation.PivotAnalysis;
 using System;
-using System.ComponentModel.Design;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Media;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
@@ -82,10 +78,11 @@ namespace Spring.View.PanelView
             pictureBox1.Image = bitmap;
 
         }
-        private void Exitcamera()
+        private void ExitCamera()
         {
             videoCaptureDevice.SignalToStop();
             // FinalVideo.WaitForStop();  << marking out that one solved it
+            //videoCaptureDevice.Stop();
             videoCaptureDevice.NewFrame -= new NewFrameEventHandler(VideoCaptureDevice_NewFrame); // as sugested
             videoCaptureDevice = null;
         }
@@ -97,12 +94,14 @@ namespace Spring.View.PanelView
                 {
                     if (videoCaptureDevice.IsRunning)
                     {
-                        Exitcamera();
+                        ExitCamera();
 
                     }
                 }
             this.Visible = false;
-            this.Dispose();
+            this.Parent.Visible = false;
+
+             
         }
     }
 }

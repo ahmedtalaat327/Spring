@@ -118,49 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="crd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\init\crd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="desktopGrid_f324974d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\desktopGrid.f324974d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_arrow_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons8-arrow-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_eye_2_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\password-imgs\icons8-eye-2-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_eye_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\password-imgs\icons8-eye-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_ok_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons8-ok-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_people_100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons8-people-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_people_1001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons8-people-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8_person_80" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icons8-person-80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_proactivity_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icons8-proactivity-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="not_available" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\not_available.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="crd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\init\crd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngegg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\pngegg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_eye_2_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\password-imgs\icons8-eye-2-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_people_100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons8-people-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_proactivity_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons8-proactivity-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_arrow_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons8-arrow-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_ok_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons8-ok-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="qrcodeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\qrcodeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="springTM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\springTM.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_people_1001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icons8-people-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh_348" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\refresh-348.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="springTM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\springTM.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_eye_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\password-imgs\icons8-eye-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="desktopGrid_f324974d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\desktopGrid.f324974d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="not_available" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\not_available.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="crd2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\init\crd2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
