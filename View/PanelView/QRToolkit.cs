@@ -31,7 +31,18 @@ namespace Spring.View.PanelView
 
         private void QRToolkit_VisibleChanged(object sender, EventArgs e)
         {
-           
+            if (!((UserControl)sender).Visible)
+            {
+                //here means the windwow is closing...
+                if (videoCaptureDevice != null)
+                {
+                    if (videoCaptureDevice.IsRunning)
+                    {
+                        ExitCamera();
+
+                    }
+                }
+            }
         }
 
         private void QRToolkit_Load(object sender, EventArgs e)
@@ -72,7 +83,7 @@ namespace Spring.View.PanelView
             
             if (res != null)
             {
-                Console.WriteLine($"{res}");
+                Console.WriteLine($"{res.ToString()}");
             }
 
             pictureBox1.Image = bitmap;
@@ -89,7 +100,7 @@ namespace Spring.View.PanelView
 
         private void sfButton1_Click(object sender, EventArgs e)
         {
-           
+           /*
                 if (videoCaptureDevice != null)
                 {
                     if (videoCaptureDevice.IsRunning)
@@ -98,6 +109,7 @@ namespace Spring.View.PanelView
 
                     }
                 }
+           */
             this.Visible = false;
             this.Parent.Visible = false;
 

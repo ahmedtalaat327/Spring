@@ -166,7 +166,7 @@
             // 
             // fnametxtbx
             // 
-            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(186, 20);
+            this.fnametxtbx.BeforeTouchSize = new System.Drawing.Size(142, 20);
             this.fnametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fnametxtbx.Location = new System.Drawing.Point(161, 153);
             this.fnametxtbx.Name = "fnametxtbx";
@@ -175,7 +175,7 @@
             // 
             // snametxtbx
             // 
-            this.snametxtbx.BeforeTouchSize = new System.Drawing.Size(186, 20);
+            this.snametxtbx.BeforeTouchSize = new System.Drawing.Size(142, 20);
             this.snametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.snametxtbx.Location = new System.Drawing.Point(309, 153);
             this.snametxtbx.Name = "snametxtbx";
@@ -184,7 +184,7 @@
             // 
             // lnametxtbx
             // 
-            this.lnametxtbx.BeforeTouchSize = new System.Drawing.Size(186, 20);
+            this.lnametxtbx.BeforeTouchSize = new System.Drawing.Size(142, 20);
             this.lnametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lnametxtbx.Location = new System.Drawing.Point(457, 153);
             this.lnametxtbx.Name = "lnametxtbx";
@@ -717,7 +717,7 @@
             // 
             // usernametxtbx
             // 
-            this.usernametxtbx.BeforeTouchSize = new System.Drawing.Size(186, 20);
+            this.usernametxtbx.BeforeTouchSize = new System.Drawing.Size(142, 20);
             this.usernametxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usernametxtbx.Location = new System.Drawing.Point(161, 179);
             this.usernametxtbx.Name = "usernametxtbx";
@@ -726,7 +726,7 @@
             // 
             // passtxtbx
             // 
-            this.passtxtbx.BeforeTouchSize = new System.Drawing.Size(186, 20);
+            this.passtxtbx.BeforeTouchSize = new System.Drawing.Size(142, 20);
             this.passtxtbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.passtxtbx.Location = new System.Drawing.Point(161, 205);
             this.passtxtbx.Name = "passtxtbx";
@@ -833,7 +833,7 @@
             // 
             // contactinfo
             // 
-            this.contactinfo.BeforeTouchSize = new System.Drawing.Size(186, 20);
+            this.contactinfo.BeforeTouchSize = new System.Drawing.Size(142, 20);
             this.contactinfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contactinfo.Location = new System.Drawing.Point(161, 359);
             this.contactinfo.Name = "contactinfo";
@@ -874,7 +874,7 @@
             // idTobeSearchedInput
             // 
             this.idTobeSearchedInput.BackColor = System.Drawing.SystemColors.Info;
-            this.idTobeSearchedInput.BeforeTouchSize = new System.Drawing.Size(186, 20);
+            this.idTobeSearchedInput.BeforeTouchSize = new System.Drawing.Size(142, 20);
             this.idTobeSearchedInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.idTobeSearchedInput.Location = new System.Drawing.Point(161, 63);
             this.idTobeSearchedInput.Name = "idTobeSearchedInput";
