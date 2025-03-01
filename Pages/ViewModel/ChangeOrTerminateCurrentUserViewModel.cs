@@ -225,7 +225,11 @@ namespace Spring.Pages.ViewModel
 
                 if (encounteredusers.Count > 0)
                 {
+                    FirstPortionFName = GetParts(encounteredusers[0].FullName)[0];
+                    MiddlePortionFName = GetParts(encounteredusers[0].FullName)[1];
+                    LastPortionFName = GetParts(encounteredusers[0].FullName)[2];
                     UserName = encounteredusers[0].UserName;
+                    Password = encounteredusers[0].Password;
                 }
             });
         }
@@ -292,6 +296,24 @@ namespace Spring.Pages.ViewModel
                 return usersRemote;
             });
 
+
+        }
+
+        /// <summary>
+        /// get parts from fullname
+        /// </summary>
+        /// <param name="fullname"></param>
+        /// <returns></returns>
+        private string[] GetParts(string fullname)
+        {
+            string[] parts = fullname.Split(' ');
+
+            List<string> partsAsList = new List<string>();
+
+            if (parts.Length == 3)
+                partsAsList.Add(parts[0]); partsAsList.Add(parts[1]); partsAsList.Add(parts[2]);
+
+            return partsAsList.ToArray();
 
         }
     }

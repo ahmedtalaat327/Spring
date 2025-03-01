@@ -1,5 +1,6 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using Spring.StaticVM;
 using Syncfusion.Data.Extensions;
 using System;
 using System.Drawing;
@@ -20,6 +21,28 @@ namespace Spring.View.PanelView
         QRCodeReader reader = new QRCodeReader();
 
 
+        string _id = "";
+        string IDTOBEREAD { get { return _id; }
+            set {
+                if (_id != value)
+                {
+                    _id = value;
+
+                    VMCentral.changeOrTerminateCurrentUserViewModel.Id = (res.ToString());
+
+
+
+                    VMCentral.changeOrTerminateCurrentUserViewModel.LoadCurrentUser.Execute(true);
+
+                    //focus on id textbox get out from this thread to the main page thread
+                    this.Invoke(new Action(() => { 
+                    this.Visible = false;
+                    this.Parent.Visible = false;
+                    }));
+                }
+            } } 
+
+
         public QRToolkit()
         {
             InitializeComponent();
@@ -27,6 +50,8 @@ namespace Spring.View.PanelView
             Load += QRToolkit_Load;
 
             VisibleChanged += QRToolkit_VisibleChanged;
+
+         
         }
 
         private void QRToolkit_VisibleChanged(object sender, EventArgs e)
@@ -84,6 +109,21 @@ namespace Spring.View.PanelView
             if (res != null)
             {
                 Console.WriteLine($"{res.ToString()}");
+                IDTOBEREAD = res.ToString();
+              
+
+                //stop we found it
+              if (videoCaptureDevice != null)
+              {
+                  if (videoCaptureDevice.IsRunning)
+                  {
+                      ExitCamera();
+
+                  }
+              }
+                
+                //this.Visible = false;
+                //this.Parent.Visible = false;
             }
 
             pictureBox1.Image = bitmap;

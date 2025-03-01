@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Spring.Helpers.Controls;
+using Spring.StaticVM;
 using Spring.View.PanelView;
 using Spring.ViewControls;
 using Syncfusion.Windows.Forms.Tools.XPMenus;
@@ -13,7 +14,6 @@ namespace Spring.Pages
     public partial class ChangeOrTerminateCurrentUserPage : BasePage
     {
 
-        ChangeOrTerminateCurrentUserViewModel changeOrTerminateCurrentUserViewModel = new ChangeOrTerminateCurrentUserViewModel();
         public ChangeOrTerminateCurrentUserPage() 
         {
             #region UI customizations
@@ -74,23 +74,23 @@ namespace Spring.Pages
             #region Bindings
             //properties bindings
             BindingSource aithtsbindingSource = new BindingSource();
-            aithtsbindingSource.DataSource = changeOrTerminateCurrentUserViewModel.AuthritiesUsed;
+            aithtsbindingSource.DataSource = VMCentral.changeOrTerminateCurrentUserViewModel.AuthritiesUsed;
             this.authlvlcombo.DataSource = aithtsbindingSource.DataSource;
             //Bind the Display member and Value member to the data source
             this.authlvlcombo.DisplayMember = "Title";
             this.authlvlcombo.ValueMember = "DataFromDatabase";
             //
-            this.authlvlcombo.DataBindings.Add(new Binding("SelectedItem", changeOrTerminateCurrentUserViewModel, "SelectedAuth", true, DataSourceUpdateMode.OnPropertyChanged));
+            this.authlvlcombo.DataBindings.Add(new Binding("SelectedItem", VMCentral.changeOrTerminateCurrentUserViewModel, "SelectedAuth", true, DataSourceUpdateMode.OnPropertyChanged));
 
             //properties bindings
             BindingSource deptsbindingSource = new BindingSource();
-            deptsbindingSource.DataSource = changeOrTerminateCurrentUserViewModel.DeptsStored;
+            deptsbindingSource.DataSource = VMCentral.changeOrTerminateCurrentUserViewModel.DeptsStored;
             this.deptcombo.DataSource = deptsbindingSource;
             //Bind the Display member and Value member to the data source
             this.deptcombo.DisplayMember = "Name";
             this.deptcombo.ValueMember = "Id";
             //
-            this.deptcombo.DataBindings.Add(new Binding("SelectedItem", changeOrTerminateCurrentUserViewModel, "SelectedDept", true, DataSourceUpdateMode.OnPropertyChanged));
+            this.deptcombo.DataBindings.Add(new Binding("SelectedItem", VMCentral.changeOrTerminateCurrentUserViewModel, "SelectedDept", true, DataSourceUpdateMode.OnPropertyChanged));
 
 
             //binding active flag to panel
@@ -99,22 +99,22 @@ namespace Spring.Pages
              
             /////////////////
             ///input id
-            this.idTobeSearchedInput.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "Id", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.idTobeSearchedInput.DataBindings.Add(new Binding("Text", VMCentral.changeOrTerminateCurrentUserViewModel, "Id", false, DataSourceUpdateMode.OnPropertyChanged));
 
             //fname
-            this.fnametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "FirstPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.fnametxtbx.DataBindings.Add(new Binding("Text", VMCentral.changeOrTerminateCurrentUserViewModel, "FirstPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //sname
-            this.snametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "MiddlePortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.snametxtbx.DataBindings.Add(new Binding("Text", VMCentral.changeOrTerminateCurrentUserViewModel, "MiddlePortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //lname
-            this.lnametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.lnametxtbx.DataBindings.Add(new Binding("Text", VMCentral.changeOrTerminateCurrentUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //username [login]
-            this.usernametxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "UserName", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.usernametxtbx.DataBindings.Add(new Binding("Text", VMCentral.changeOrTerminateCurrentUserViewModel, "UserName", false, DataSourceUpdateMode.OnPropertyChanged));
             //pass
-            this.passtxtbx.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "Password", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.passtxtbx.DataBindings.Add(new Binding("Text", VMCentral.changeOrTerminateCurrentUserViewModel, "Password", false, DataSourceUpdateMode.OnPropertyChanged));
             //date
-            this.sfDateTimeEdit1.DataBindings.Add("Value", changeOrTerminateCurrentUserViewModel, "DateOfAdditon", true, DataSourceUpdateMode.OnPropertyChanged);
+            this.sfDateTimeEdit1.DataBindings.Add("Value", VMCentral.changeOrTerminateCurrentUserViewModel, "DateOfAdditon", true, DataSourceUpdateMode.OnPropertyChanged);
             //contact
-            this.contactinfo.DataBindings.Add(new Binding("Text", changeOrTerminateCurrentUserViewModel, "ContactNumber", true, DataSourceUpdateMode.OnPropertyChanged));
+            this.contactinfo.DataBindings.Add(new Binding("Text", VMCentral.changeOrTerminateCurrentUserViewModel, "ContactNumber", true, DataSourceUpdateMode.OnPropertyChanged));
 
             /*
             //checkers icons
@@ -202,7 +202,15 @@ namespace Spring.Pages
             this.tableLayoutPanel2.Controls.Add(this.qrToolkit1, 0, 0);
 
             tableLayoutPanel2.Visible = true;
-            
+
+            this.qrToolkit1.VisibleChanged += (s, y) => { 
+                if(!((UserControl)s).Visible)
+                this.idTobeSearchedInput.Text = "***";
+                else
+                {
+                    this.idTobeSearchedInput.Text = "";
+                }
+            };
 
 
         }
@@ -244,7 +252,7 @@ namespace Spring.Pages
 
         private void ChangeOrTerminateCurrentUserPage_Load(object sender, EventArgs e)
         {
-            changeOrTerminateCurrentUserViewModel.LoadInitialWithRefrshing.Execute(true);
+            VMCentral.changeOrTerminateCurrentUserViewModel.LoadInitialWithRefrshing.Execute(true);
         }
 
 
@@ -282,7 +290,7 @@ namespace Spring.Pages
         private void idTobeSearchedInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                changeOrTerminateCurrentUserViewModel.LoadCurrentUser.Execute(true);
+                VMCentral.changeOrTerminateCurrentUserViewModel.LoadCurrentUser.Execute(true);
         }
 
         private void idTobeSearchedInput_TextChanged(object sender, EventArgs e)

@@ -10,5 +10,8 @@ namespace Spring.StaticVM
         public static DockingManagerViewModel DockingManagerViewModel = new DockingManagerViewModel();
 
         public static OnBoardViewModel OnBoardViewModel = new OnBoardViewModel();
+
+        public static ChangeOrTerminateCurrentUserViewModel changeOrTerminateCurrentUserViewModel = new ChangeOrTerminateCurrentUserViewModel();
+
     }
 }
