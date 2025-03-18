@@ -175,6 +175,7 @@ namespace Spring.View.PanelView
             videoCaptureDevice = null;
         }
         */
+        //we need to bind visiblity to the view model for the whole page
         private void sfButton1_Click(object sender, EventArgs e)
         {
            /*
