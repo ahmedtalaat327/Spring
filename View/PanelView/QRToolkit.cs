@@ -54,6 +54,13 @@ namespace Spring.View.PanelView
         {
             InitializeComponent();
 
+
+            //bindings
+            this.DataBindings.Add(new Binding("Visible", QRToolKitViewModel, "VisiblePanel", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.Parent?.DataBindings.Add(new Binding("Visible", QRToolKitViewModel, "VisiblePanel", false, DataSourceUpdateMode.OnPropertyChanged));
+
+
+
             Load += QRToolkit_Load;
 
             VisibleChanged += QRToolkit_VisibleChanged;

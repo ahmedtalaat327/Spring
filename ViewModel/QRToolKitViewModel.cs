@@ -56,12 +56,16 @@ namespace Spring.ViewModel
                     
                     }));
                     */
+                    VisiblePanel = false;
+                   // OnPropertyChanged(nameof(VisiblePanel));    
                 }
             }
         }
         public Bitmap BitMapedQR { get; set; } 
         public Bitmap BitMapedCopyQr { get; set; }
         public bool BitMapLocked { get; set; }  
+
+        public bool VisiblePanel { get; set; }
         public VideoCaptureDevice videoCaptureDevice;
 
         public FilterInfoCollection filterItemElements { get; set; }
@@ -71,6 +75,7 @@ namespace Spring.ViewModel
         #region constructor
         public QRToolKitViewModel()
         {
+            VisiblePanel = true;
             InitiateVideoRecoder = new RelyCommand(async () => {await LoadInitValues(); });
 
             KillCurrentInstanceOFRecoder = new RelyCommand(async () => { await EndVideoRecord(); });
