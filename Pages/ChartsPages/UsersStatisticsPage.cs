@@ -37,7 +37,9 @@ namespace Spring.Pages.ChartsPages
             UsersStatisticsViewModel.PropertyChanged += UsersStatisticsViewModel_PropertyChanged;
             //this.VisibleChanged += UsersStatisticsPage_VisibleChanged;
 
-            
+         //   this.chartControl1.ToolBar.ItemClick
+
+
         }
 
         private void UsersStatisticsPage_VisibleChanged(object sender, System.EventArgs e)

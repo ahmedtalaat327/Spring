@@ -249,6 +249,7 @@
     <Compile Include="ViewModel\Command\RelyCommand.cs" />
     <Compile Include="ViewModel\DockingManagerViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\QRToolKitViewModel.cs" />
     <Compile Include="View\MainView\DockingManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>

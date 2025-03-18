@@ -1,10 +1,14 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using Spring.Pages.ChartsPages.ViewModel;
 using Spring.StaticVM;
+using Spring.ViewModel;
 using Syncfusion.Data.Extensions;
+using Syncfusion.Windows.Forms.Tools.Win32API;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
 using ZXing.Common;
@@ -15,6 +19,7 @@ namespace Spring.View.PanelView
 {
     public partial class QRToolkit : UserControl
     {
+        /*
         FilterInfoCollection filterItemElements;
         VideoCaptureDevice videoCaptureDevice;
         Result res;
@@ -42,7 +47,9 @@ namespace Spring.View.PanelView
                 }
             } } 
 
+        */
 
+        QRToolKitViewModel QRToolKitViewModel = new QRToolKitViewModel();
         public QRToolkit()
         {
             InitializeComponent();
@@ -51,7 +58,28 @@ namespace Spring.View.PanelView
 
             VisibleChanged += QRToolkit_VisibleChanged;
 
+            QRToolKitViewModel.PropertyChanged += QRToolKitViewModel_PropertyChanged;
          
+        }
+
+        //notice vm changes specially for img bitmap
+        private void QRToolKitViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            //make sure we are in same VM and same property.
+            if (e.PropertyName == nameof(QRToolKitViewModel.BitMapedCopyQr) && QRToolKitViewModel.GetType() == typeof(QRToolKitViewModel))
+            {
+                if ( QRToolKitViewModel.BitMapedCopyQr != null )
+                {
+                    //maybe needs dispatcher
+                    pictureBox1.Invoke(new Action(async () => {
+                      //  await Task.Delay(333);
+                        pictureBox1.Image = QRToolKitViewModel.BitMapedCopyQr;
+                       // pictureBox1.Update();
+                    }));
+                   
+                }
+
+            }
         }
 
         private void QRToolkit_VisibleChanged(object sender, EventArgs e)
@@ -59,11 +87,11 @@ namespace Spring.View.PanelView
             if (!((UserControl)sender).Visible)
             {
                 //here means the windwow is closing...
-                if (videoCaptureDevice != null)
+                if (QRToolKitViewModel.videoCaptureDevice != null)
                 {
-                    if (videoCaptureDevice.IsRunning)
+                    if (QRToolKitViewModel.videoCaptureDevice.IsRunning)
                     {
-                        ExitCamera();
+                       QRToolKitViewModel.KillCurrentInstanceOFRecoder.Execute(true);
 
                     }
                 }
@@ -72,11 +100,11 @@ namespace Spring.View.PanelView
 
         private void QRToolkit_Load(object sender, EventArgs e)
         {
-            filterItemElements = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            //  filterItemElements = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            QRToolKitViewModel.InitiateVideoRecoder.Execute(true);
 
 
-
-            this.sfComboBox1.DataSource =  (filterItemElements).ToList<FilterInfo>();
+            this.sfComboBox1.DataSource =  (QRToolKitViewModel.filterItemElements).ToList<FilterInfo>();
             //Bind the Display member and Value member to the data source
             this.sfComboBox1.DisplayMember = "Name";
             this.sfComboBox1.ValueMember = "MonikerString";
@@ -89,14 +117,21 @@ namespace Spring.View.PanelView
 
         private void SfComboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            videoCaptureDevice = new VideoCaptureDevice(((FilterInfo)this.sfComboBox1.SelectedItem).MonikerString);
+            /*
+            QRToolKitViewModel.videoCaptureDevice = new VideoCaptureDevice(((FilterInfo)this.sfComboBox1.SelectedItem).MonikerString);
             //videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[0];
-            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-            videoCaptureDevice.Start();
+            QRToolKitViewModel.videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            QRToolKitViewModel.videoCaptureDevice.Start();
+            */
+
+            QRToolKitViewModel.videoCaptureDevice = new VideoCaptureDevice(((FilterInfo)this.sfComboBox1.SelectedItem).MonikerString);
+
+            QRToolKitViewModel.ProcessFrameCaptured.Execute(true);
         }
 
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
+            /*
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
 
 
@@ -125,10 +160,12 @@ namespace Spring.View.PanelView
                 //this.Visible = false;
                 //this.Parent.Visible = false;
             }
-
-            pictureBox1.Image = bitmap;
+            */
+            //QRToolKitViewModel.
+          //  pictureBox1.Image = bitmap;
 
         }
+        /*
         private void ExitCamera()
         {
             videoCaptureDevice.SignalToStop();
@@ -137,7 +174,7 @@ namespace Spring.View.PanelView
             videoCaptureDevice.NewFrame -= new NewFrameEventHandler(VideoCaptureDevice_NewFrame); // as sugested
             videoCaptureDevice = null;
         }
-
+        */
         private void sfButton1_Click(object sender, EventArgs e)
         {
            /*
