@@ -203,12 +203,19 @@ namespace Spring.Pages
 
             tableLayoutPanel2.Visible = true;
 
-            this.qrToolkit1.VisibleChanged += (s, y) => { 
-                if(!((UserControl)s).Visible)
-                this.idTobeSearchedInput.Text = "***";
+            this.qrToolkit1.VisibleChanged += (s, y) => {
+                if (!((UserControl)s).Visible)
+                {
+                    this.idTobeSearchedInput.Text = "***";
+                    this.idTobeSearchedInput.Focus();
+                    this.fnametxtbx.Refresh();
+                    
+                 //   SendKeys.Send("{BACKSPACE}");
+                }
                 else
                 {
                     this.idTobeSearchedInput.Text = "";
+                 //   SendKeys.Send("{BACKSPACE}");
                 }
             };
 

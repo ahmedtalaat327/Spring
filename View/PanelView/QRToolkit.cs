@@ -87,6 +87,22 @@ namespace Spring.View.PanelView
                 }
 
             }
+            if (e.PropertyName == nameof(QRToolKitViewModel.IDTOBEREAD) && QRToolKitViewModel.GetType() == typeof(QRToolKitViewModel))
+            {
+                if (QRToolKitViewModel.IDTOBEREAD != null)
+                {
+                    //maybe needs dispatcher
+                    this.Invoke(new Action(async () =>
+                    {
+                        //  await Task.Delay(333);
+                        this.Visible = false;
+                        this.Parent.Visible = false;
+                        this.Parent.Parent.Refresh();
+                        // pictureBox1.Update();
+                    }));
+                }
+            }
+
         }
 
         private void QRToolkit_VisibleChanged(object sender, EventArgs e)

@@ -17,6 +17,9 @@ namespace Spring.Pages.ViewModel
 {
     public class ChangeOrTerminateCurrentUserViewModel : BaseViewModel
     {
+        #region Private Fields
+        private string id = "0";
+        #endregion
         #region Public properties
         /// <summary>
         /// determines if panel is active or not
@@ -25,7 +28,7 @@ namespace Spring.Pages.ViewModel
         /// <summary>
         /// id user currently must be added
         /// </summary>
-        public string Id { get; set; }
+        public string Id { get { return id; } set { if (value != id) { id = value; OnPropertyChanged(nameof(FirstPortionFName)); } } }
         /// <summary>
         /// first portion text of full name
         /// </summary>
