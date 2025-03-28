@@ -5,6 +5,7 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
+using Cybele.Thinfinity;
 using Spring.AccioHelpers;
 using Spring.View.MainView.LoginView;
 using System;
@@ -39,7 +40,25 @@ namespace Spring
             else
             {
                 //support for virtui [thinUI]
-                new Cybele.Thinfinity.VirtualUI().Start();
+                var vui =   new Cybele.Thinfinity.VirtualUI();
+
+                /*
+               var userAgent = vui.BrowserInfo.UserAgent.ToLower();
+
+                if ((userAgent.IndexOf("touch") != -1) || (userAgent.IndexOf("mobile") != -1) ||
+                    (userAgent.IndexOf("iphone") != -1) || (userAgent.IndexOf("ipod") != -1) ||
+                    (userAgent.IndexOf("ipad") != -1) || (userAgent.IndexOf("android") != -1) ||
+                    (userAgent.IndexOf(" cros ") != -1))
+                {
+
+                    vui.ClientSettings.MouseMoveGestureStyle = MouseMoveGestureStyle.MM_STYLE_ABSOLUTE;
+                    vui.ClientSettings.MouseMoveGestureAction = MouseMoveGestureAction.MM_ACTION_WHEEL;
+
+                }
+                */
+                vui.Start();    
+
+
                 Application.Run(new LoginForm());
 
             }
