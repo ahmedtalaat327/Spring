@@ -15,6 +15,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using Syncfusion.Pdf.Tables;
 
 namespace Spring.Pages
 {
@@ -309,10 +310,10 @@ namespace Spring.Pages
                     PDFGrid.Draw(page, new PointF(0, 55), format);
 
                     //Create a header and draw the image.
-                    RectangleF bounds = new RectangleF(0, 0, page.Size.Width - 100, 50);
+                    RectangleF bounds = new RectangleF(0, 0, page.Size.Width - 80, 50);
                     PdfTemplate header = new PdfTemplate(bounds);
                     PdfImage image = new PdfBitmap(@"init\\header_pdf.png");
-                    header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Graphics.ClientSize.Width - 20, 50));
+                    header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Graphics.ClientSize.Width, 50));
 
                     PdfFont font = new PdfStandardFont(PdfFontFamily.Courier, 7f, PdfFontStyle.Regular);
                     header.Graphics.DrawString("for: HAAM Corp. Ltd.", font, PdfPens.Red, page.Size.Width - 200, 12);
@@ -367,7 +368,113 @@ namespace Spring.Pages
                 {
                     addUserViewModel.SetNewUser.Execute(true);
                 }
+                if (adv.Text == PagesNodesNames.AddUserThirdButtonTitle)
+                {
+                    var options = new PdfExportingOptions();
+                    var document = new PdfDocument();
+                    document.PageSettings.Orientation = PdfPageOrientation.Landscape;
+                    var page = document.Pages.Add();
+                    var PDFGrid = new PdfGrid();
+                    PDFGrid.Columns.Add(1); PDFGrid.Columns[0].Width = 150;
+                    PDFGrid.Headers.Add(1);
+                    //PDFGrid.Headers[0].Cells[0].Value = "Full Name";
+                    //PDFGrid.Headers[0].Cells[1].Value = "Password";
+                    //PDFGrid.Headers[0].Cells[2].Value = "Department";
+                    //PDFGrid.Headers[0].Cells[3].Value = "QR Code";
+                    //PDFGrid.Headers[0].Cells[4].Value = "Auth-Level";
+                    PDFGrid.Headers[0].Cells[0].Value = "QR";
+
+                    PDFGrid.Rows.Add(); PDFGrid.Rows[0].Height = 150;
+                  
+                    //  PDFGrid.Rows[0].Cells[0].Value = addUserViewModel.FirstPortionFName + " " + addUserViewModel.MiddlePortionFName + " " + addUserViewModel.LastPortionFName;
+                    // PDFGrid.Rows[0].Cells[1].Value = addUserViewModel.Password;
+                    // PDFGrid.Rows[0].Cells[2].Value = addUserViewModel.SelectedDept.Name;
+
+                    // Convert System.Drawing.Image to Syncfusion.Pdf.Graphics.PdfImage
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        var imgg = this.sfBarcode1.ToImage();
+                       // imgg = resizeImage(imgg,new Size(145,145));
+                        imgg.Save(ms, ImageFormat.Png);
+                        ms.Position = 0;
+                        PdfImage pdfImage = PdfImage.FromStream(ms);
+                      
+                        PdfCellStyle pdfCellStyle = new PdfCellStyle();
+                       
+                        PDFGrid.Rows[0].Cells[0].Style.BackgroundImage = pdfImage;
+                    }
+                    PDFGrid.Rows[0].Cells[0].Value = "";
+                   // PDFGrid.Rows[0].Cells[4].Value = addUserViewModel.SelectedAuth.Title;
+                  //  PDFGrid.Rows[0].Cells[5].Value = addUserViewModel.ContactNumber;
+
+                    var format = new PdfGridLayoutFormat()
+                    {
+                        Layout = PdfLayoutType.Paginate,
+                        Break = PdfLayoutBreakType.FitPage
+                    };
+
+                    PDFGrid.Draw(page, new PointF(0, 55), format);
+
+                    //Create a header and draw the image.
+                    RectangleF bounds = new RectangleF(0, 0, page.Size.Width - 80, 50);
+                    PdfTemplate header = new PdfTemplate(bounds);
+                    PdfImage image = new PdfBitmap(@"init\\header_pdf.png");
+                    header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Graphics.ClientSize.Width, 50));
+
+                    PdfFont font = new PdfStandardFont(PdfFontFamily.Courier, 7f, PdfFontStyle.Regular);
+                    header.Graphics.DrawString("for: HAAM Corp. Ltd.", font, PdfPens.Red, page.Size.Width - 200, 12);
+                    header.Graphics.DrawString("QR Image for USER.", font, PdfPens.Red, page.Size.Width - 200, 2 * 12);
+                    header.Graphics.DrawString($"exported: {(DateTime.Now.Date).ToString("MM/dd/yyyy")}.", font, PdfPens.Red, page.Size.Width - 200, 3 * 12);
+                    page.Graphics.DrawPdfTemplate((header), new PointF());
+
+                    RectangleF bounds_ = new RectangleF(0, 0, page.GetClientSize().Width - 100, 50);
+                    PdfPageTemplateElement footer = new PdfPageTemplateElement(bounds_);
+                    PdfFont font_f = new PdfStandardFont(PdfFontFamily.Helvetica, 7);
+                    PdfBrush brush = new PdfSolidBrush(Color.Red);
+                    PdfPageNumberField pageNumber = new PdfPageNumberField(font_f, brush);
+                    PdfPageCountField count = new PdfPageCountField(font_f, brush);
+                    PdfCompositeField compositeField = new PdfCompositeField(font_f, brush, "{0}/{1}", pageNumber, count);
+                    compositeField.Bounds = new RectangleF(footer.Bounds.X, footer.Bounds.Y + 20, footer.Bounds.Width, footer.Bounds.Height + 20);
+                    compositeField.Draw(footer.Graphics, new PointF(page.Size.Width - 100, 12));
+                    document.Template.Bottom = footer;
+
+                    foreach (PdfPage _page in document.Pages)
+                    {
+                        PdfImage imagewm = new PdfBitmap(@"init\\bg.png");
+                        PdfGraphicsState state = _page.Graphics.Save();
+                        _page.Graphics.SetTransparency(0.25f);
+                        _page.Graphics.DrawImage(imagewm, new PointF(0, 0), _page.Graphics.ClientSize);
+                    }
+
+                    SaveFileDialog saveFileDialog = new SaveFileDialog
+                    {
+                        Filter = "PDF Files(*.pdf)|*.pdf"
+                    };
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        using (Stream stream = saveFileDialog.OpenFile())
+                        {
+                            document.Save(stream);
+                        }
+                        if (VMCentral.DockingManagerViewModel.PlatformTypeUsed == Spring.ViewModel.DockingManagerViewModel.PlatformType.VirtualWeb)
+                        {
+                            VirtualUI vui = new VirtualUI();
+                            vui.DownloadFile(saveFileDialog.FileName);
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Do you want to view the Pdf file?", "Pdf file has been created", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                System.Diagnostics.Process.Start(saveFileDialog.FileName);
+                            }
+                        }
+                    }
+                }
             }
+        }
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
         }
         #endregion
 

@@ -137,11 +137,11 @@ namespace Spring.Pages
                     PDFGrid.Draw(page, new PointF(0, 55), format);
 
                     //Create a header and draw the image.
-                    RectangleF bounds = new RectangleF(0, 0, page.Size.Width - 100, 50);
+                    RectangleF bounds = new RectangleF(0, 0, page.Size.Width - 80, 50);
                     PdfTemplate header = new PdfTemplate(bounds);
                     PdfImage image = new PdfBitmap(@"init\\header_pdf.png");
                     //Draw the image in the header.
-                    header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Graphics.ClientSize.Width-20, 50));
+                    header.Graphics.DrawImage(image, new PointF(0, 0), new SizeF(page.Graphics.ClientSize.Width, 50));
 
 
                     PdfFont font = new PdfStandardFont(PdfFontFamily.Courier, 7f, PdfFontStyle.Regular);
