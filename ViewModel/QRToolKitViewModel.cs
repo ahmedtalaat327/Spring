@@ -33,6 +33,7 @@ namespace Spring.ViewModel
         public ICommand InitiateVideoRecoder { get; set; }
         public ICommand KillCurrentInstanceOFRecoder { get; set; }
         public ICommand ProcessFrameCaptured { get; set; }
+        public ICommand KOperateOnUploaededBM { get; set; }
         #endregion
         public string IDTOBEREAD
         {
@@ -71,6 +72,11 @@ namespace Spring.ViewModel
         public FilterInfoCollection filterItemElements { get; set; }
         public Result res { get; set; }
 
+
+
+        //k-> knop instead of auto scan
+        //public Bitmap KBitMapedQR { get; set; }
+        public Result KRes { get; set; }
         #endregion
         #region constructor
         public QRToolKitViewModel()
@@ -81,6 +87,8 @@ namespace Spring.ViewModel
             KillCurrentInstanceOFRecoder = new RelyCommand(async () => { await EndVideoRecord(); });
 
             ProcessFrameCaptured = new RelyCommand(async () => { await StartVideoRecord(); });
+
+            KOperateOnUploaededBM = new RelayParameterizedCommand(async(bm) => { await DecodeImage(bm); });
         }
         #endregion
         private async Task LoadInitValues()
@@ -164,6 +172,40 @@ namespace Spring.ViewModel
                 catch { /**/}
 
             }
+        }
+        private async Task DecodeImage(object urlToBM)
+        {
+            await Task.Delay(2);
+
+            try
+            {
+                LuminanceSource source;
+
+                Bitmap KBM = new Bitmap(urlToBM.ToString());
+
+                source = new ZXing.BitmapLuminanceSource(KBM);
+
+                var bitmapr = new BinaryBitmap(new GlobalHistogramBinarizer(source));
+
+                res = reader.decode(bitmapr);
+
+
+                if (res != null)
+                {
+
+
+                     
+                       
+                            Console.WriteLine($"{res.ToString()}");
+                            IDTOBEREAD = res.ToString();
+                            OnPropertyChanged(nameof(IDTOBEREAD));
+ 
+
+                    //this.Visible = false;
+                    //this.Parent.Visible = false;
+                }
+            }
+            catch { /**/}
         }
     }
 }

@@ -8,6 +8,8 @@ using Spring.StaticVM;
 using Spring.View.PanelView;
 using Spring.ViewControls;
 using Syncfusion.Windows.Forms.Tools.XPMenus;
+using Cybele.Thinfinity;
+using Spring.ViewModel;
 
 namespace Spring.Pages
 {
@@ -187,39 +189,70 @@ namespace Spring.Pages
 
         private void SplitButton1_DropDowItemClicked(object sender, EventArgs e)
         {
-            this.qrToolkit1 = new Spring.View.PanelView.QRToolkit();
+            if (VMCentral.DockingManagerViewModel.PlatformTypeUsed == Spring.ViewModel.DockingManagerViewModel.PlatformType.VirtualWeb)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Select an image file";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
-            // 
-            // qrToolkit1
-            // 
-            this.qrToolkit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(85)))), ((int)(((byte)(116)))));
-            this.qrToolkit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.qrToolkit1.Location = new System.Drawing.Point(3, 3);
-            this.qrToolkit1.Name = "qrToolkit1";
-            this.qrToolkit1.Size = new System.Drawing.Size(284, 188);
-            this.qrToolkit1.TabIndex = 0;
-            // 
-            this.tableLayoutPanel2.Controls.Add(this.qrToolkit1, 0, 0);
+                openFileDialog.ShowDialog();
 
-            tableLayoutPanel2.Visible = true;
-
-            this.qrToolkit1.VisibleChanged += (s, y) => {
-                if (!((UserControl)s).Visible)
-                {
-                    this.idTobeSearchedInput.Text = "***";
-                    this.idTobeSearchedInput.Focus();
-                    this.fnametxtbx.Refresh();
-                    
-                 //   SendKeys.Send("{BACKSPACE}");
-                }
+                // Check if the user selected a file
+                if (openFileDialog.FileName == "")
+                    return;
                 else
                 {
-                    this.idTobeSearchedInput.Text = "";
-                 //   SendKeys.Send("{BACKSPACE}");
+
+
+                    // Get the selected file path
+                    string filePath = openFileDialog.FileName;
+
+                    //   VirtualUI vui = new VirtualUI();
+                    //   vui.UploadFile(filePath);
+
+                    QRToolKitViewModel QRToolKitViewModel = new QRToolKitViewModel();
+
+                    QRToolKitViewModel.KOperateOnUploaededBM.Execute(filePath);
                 }
-            };
 
+            }
+            else
+            {
+                this.qrToolkit1 = new Spring.View.PanelView.QRToolkit();
 
+                // 
+                // qrToolkit1
+                // 
+                this.qrToolkit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(85)))), ((int)(((byte)(116)))));
+                this.qrToolkit1.Dock = System.Windows.Forms.DockStyle.Fill;
+                this.qrToolkit1.Location = new System.Drawing.Point(3, 3);
+                this.qrToolkit1.Name = "qrToolkit1";
+                this.qrToolkit1.Size = new System.Drawing.Size(284, 188);
+                this.qrToolkit1.TabIndex = 0;
+                // 
+                this.tableLayoutPanel2.Controls.Add(this.qrToolkit1, 0, 0);
+
+                tableLayoutPanel2.Visible = true;
+
+                this.qrToolkit1.VisibleChanged += (s, y) =>
+                {
+                    if (!((UserControl)s).Visible)
+                    {
+                        this.idTobeSearchedInput.Text = "***";
+                        this.idTobeSearchedInput.Focus();
+                        this.fnametxtbx.Refresh();
+
+                        //   SendKeys.Send("{BACKSPACE}");
+                    }
+                    else
+                    {
+                        this.idTobeSearchedInput.Text = "";
+                        //   SendKeys.Send("{BACKSPACE}");
+                    }
+                };
+
+            }
         }
 
         public override void AddEventsToOptionsNodes(TreeViewAdv optionsTree)
@@ -268,12 +301,12 @@ namespace Spring.Pages
             // please use your code here
             if (this.Enabled && adv != null)
             {
-                if (adv.Text == PagesNodesNames.UsersFirstButtonTitle)
+                if (adv.Text == PagesNodesNames.ChangeorTerminateCurrentUserFirstButtonTitle)
                 {
 
                    
                 }
-                if (adv.Text == PagesNodesNames.UsersSecondButtonTitle)
+                if (adv.Text == PagesNodesNames.ChangeorTerminateCurrentUserSecondButtonTitle)
                 {
                   //  usersViewModel.LoadAllUsers.Execute(true); 
                 }

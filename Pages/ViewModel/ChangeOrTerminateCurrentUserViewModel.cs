@@ -233,6 +233,10 @@ namespace Spring.Pages.ViewModel
                     LastPortionFName = GetParts(encounteredusers[0].FullName)[2];
                     UserName = encounteredusers[0].UserName;
                     Password = encounteredusers[0].Password;
+                    ContactNumber = encounteredusers[0].TelNo.ToString();
+                    SelectedAuth = AuthritiesUsed.Where(x => x.DataFromDatabase == encounteredusers[0].UserAuthLevel).FirstOrDefault();
+                    SelectedDept = DeptsStored.Where(x => x.Id == encounteredusers[0].DepartmentId).FirstOrDefault();
+                    DateOfAdditon = encounteredusers[0].LastSeen.ToString();
                 }
             });
         }
@@ -254,7 +258,7 @@ namespace Spring.Pages.ViewModel
             {
 
 
-                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name", "dept_id", "user_session" }, new string[] { "user_id" }, new string[] { $"{id}" }, "=", "and");
+                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name", "dept_id", "user_session", "user_tel", "user_seen_date" }, new string[] { "user_id" }, new string[] { $"{id}" }, "=", "and");
 
                 try
                 {
@@ -276,7 +280,10 @@ namespace Spring.Pages.ViewModel
                                     FullName = dr["user_full_name"].ToString(),
                                     UserAuthLevel = dr["user_auth"].ToString(),
                                     DepartmentId = Int32.Parse(dr["dept_id"].ToString()),
-                                    UserInSession = dr["user_session"].ToString()
+                                    UserInSession = dr["user_session"].ToString(),
+                                    TelNo = Int32.Parse(dr["user_tel"].ToString()),
+                                    LastSeen = DateTime.Parse(dr["user_seen_date"].ToString())
+
 
                                 });
 
