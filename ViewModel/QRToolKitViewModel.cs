@@ -110,6 +110,7 @@ namespace Spring.ViewModel
                     //videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[0];
                     videoCaptureDevice.NewFrame += new NewFrameEventHandler(async (s, e) => await FramedCaptured(s, e)); // as sugested;
                     videoCaptureDevice.Start();
+                 
                 
             });
         }
