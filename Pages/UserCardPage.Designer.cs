@@ -36,6 +36,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,7 +48,7 @@
             this.iconlbl = new System.Windows.Forms.Label();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
-            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -345,6 +346,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -373,6 +375,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Company name + image";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "companylogo.png");
             // 
             // label3
             // 
@@ -721,11 +729,14 @@
             this.imageList2.Images.SetKeyName(212, "Windows 7 (3).ico");
             this.imageList2.Images.SetKeyName(213, "Windows 7 (214).ico");
             // 
-            // imageList3
+            // label5
             // 
-            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
-            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList3.Images.SetKeyName(0, "companylogo.png");
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 228);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "label5";
             // 
             // UserCardPage
             // 
@@ -769,5 +780,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ImageList imageList3;
+        private System.Windows.Forms.Label label5;
     }
 }
