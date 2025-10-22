@@ -237,16 +237,38 @@ namespace Spring.ViewModel
             {
                 await Task.Delay(1);
 
-
-                var val = AccioEasyHelpers.GetReadValFromConfigXML("platform");
-
-                if (val.Equals("forms")) {
+                ///also here same entry point to read platform type issue
+                //<see cref = "forms_or_web" />
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    //in case forms 
                     PlatformTypeUsed = PlatformType.Forms;
+
+                    //in case web
+                    // 
+                    // 
+                    // PlatformTypeUsed = PlatformType.VirtualWeb;
+                    // 
+                    // 
+                    //
+                    // 
+                 
+
                 }
                 else
                 {
-                    PlatformTypeUsed = PlatformType.VirtualWeb;
 
+                    var val = AccioEasyHelpers.GetReadValFromConfigXML("platform");
+
+                    if (val.Equals("forms"))
+                    {
+                        PlatformTypeUsed = PlatformType.Forms;
+                    }
+                    else
+                    {
+                        PlatformTypeUsed = PlatformType.VirtualWeb;
+
+                    }
                 }
             });
         }

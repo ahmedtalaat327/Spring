@@ -80,6 +80,12 @@ params.info :
 #console::False,
 ]
 ````
+<!-- Entry mode-->
+## Entry Mode. 🪛
+- Platform used for the app either web or forms
+we need to edit the both classes [Program.cs and DockingManagerViewModel]
+- You should know about manually edit this in debug state.
+- But in Production [Release] state the .config file is resbonsible for this.
 
 <!-- Server Side -->
 ## Server Side 😎🚀<br>

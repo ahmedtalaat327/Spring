@@ -32,7 +32,7 @@ namespace Spring
 
             //Application.Run(new DockingManagerForm());
 
-
+            #region forms_or_web
             ///we have issue here the debug mode does not saving the config file so we need to make it manual either forms / web
             ///in this case we have two options debug state and release [production] state.
             if (System.Diagnostics.Debugger.IsAttached)
@@ -40,6 +40,28 @@ namespace Spring
                 //in case forms 
                 //check if the thread of the app is already running avoid multiple exe at same time!
                 PragmaChecker.UniqueEXERun();
+                //in case web
+            //  //support for virtui [thinUI]
+            //  var vui = new Cybele.Thinfinity.VirtualUI();
+            //
+            //  /*
+            // var userAgent = vui.BrowserInfo.UserAgent.ToLower();
+            //
+            //  if ((userAgent.IndexOf("touch") != -1) || (userAgent.IndexOf("mobile") != -1) ||
+            //      (userAgent.IndexOf("iphone") != -1) || (userAgent.IndexOf("ipod") != -1) ||
+            //      (userAgent.IndexOf("ipad") != -1) || (userAgent.IndexOf("android") != -1) ||
+            //      (userAgent.IndexOf(" cros ") != -1))
+            //  {
+            //
+            //      vui.ClientSettings.MouseMoveGestureStyle = MouseMoveGestureStyle.MM_STYLE_ABSOLUTE;
+            //      vui.ClientSettings.MouseMoveGestureAction = MouseMoveGestureAction.MM_ACTION_WHEEL;
+            //
+            //  }
+            //  */
+            //  vui.Start();
+            //
+            //
+            //  Application.Run(new LoginForm());
 
             }
             else
@@ -84,6 +106,7 @@ namespace Spring
                     //  PragmaChecker.UniqueEXERun();
                 }
             }
+            #endregion
         }
 
     }

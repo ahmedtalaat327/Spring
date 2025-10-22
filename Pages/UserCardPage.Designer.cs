@@ -47,6 +47,7 @@
             this.iconlbl = new System.Windows.Forms.Label();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.sfToolTip1 = new Syncfusion.Windows.Forms.SfToolTip(this.components);
+            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -361,20 +362,27 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.ImageKey = "companylogo.png";
+            this.label2.ImageList = this.imageList3;
+            this.label2.Location = new System.Drawing.Point(3, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(16, 24, 10, 10);
-            this.label2.Size = new System.Drawing.Size(168, 63);
+            this.label2.Padding = new System.Windows.Forms.Padding(40);
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label2.Size = new System.Drawing.Size(168, 48);
             this.label2.TabIndex = 0;
             this.label2.Text = "Company name + image";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.tableLayoutPanel3.SetColumnSpan(this.label3, 2);
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Image = global::Spring.Properties.Resources.icons8_person_80;
             this.label3.Location = new System.Drawing.Point(3, 63);
             this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.label3.Size = new System.Drawing.Size(168, 165);
             this.label3.TabIndex = 1;
             this.label3.Text = "pers-img";
@@ -713,6 +721,12 @@
             this.imageList2.Images.SetKeyName(212, "Windows 7 (3).ico");
             this.imageList2.Images.SetKeyName(213, "Windows 7 (214).ico");
             // 
+            // imageList3
+            // 
+            this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
+            this.imageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList3.Images.SetKeyName(0, "companylogo.png");
+            // 
             // UserCardPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -754,5 +768,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ImageList imageList3;
     }
 }
