@@ -31,19 +31,28 @@ namespace Spring.Pages
 
             #endregion
 
-           
+
             #region Bindings
 
             //binding active flag to panel
             //this.DataBindings.Add(new Binding("Enabled", userCardViewModel, "ActivePanel"));
 
             //this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
+           
+            this.textBoxExt1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser", false, DataSourceUpdateMode.OnPropertyChanged));
 
+            //fname
+            this.fllblname.DataBindings.Add(new Binding("Text", userCardViewModel, "EmpFirstName", false, DataSourceUpdateMode.OnPropertyChanged));
+            //sname
+            this.slblname.DataBindings.Add(new Binding("Text", userCardViewModel, "EmpLastName", false, DataSourceUpdateMode.OnPropertyChanged));
+            //lname
+            this.abblbl.DataBindings.Add(new Binding("Text", userCardViewModel, "DeptAbbriviation", false, DataSourceUpdateMode.OnPropertyChanged));
+            //this.lnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
 
             #endregion
 
             #region Events
-          
+
 
 
             //properties handle this is not related to any other UI framework only WINFORMS
@@ -137,6 +146,12 @@ namespace Spring.Pages
         }
 
         #endregion
- 
+
+        private void textBoxExt1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+                userCardViewModel.LoadCurrentUserCard.Execute(true);
+        }
     }
 }

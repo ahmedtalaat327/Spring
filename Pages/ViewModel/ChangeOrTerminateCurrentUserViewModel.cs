@@ -242,7 +242,7 @@ namespace Spring.Pages.ViewModel
         }
 
         /// <summary>
-        /// This is a brilliant task method can return all Users as instance.
+        /// This is a brilliant task method can return all/some Users as instance.
         /// </summary>
         /// <param name="myOpenedTunnel">Current connection object</param>
         /// <returns></returns>
