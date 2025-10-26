@@ -1,4 +1,5 @@
 ﻿using AccioOracleKit;
+using CliWrap;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +17,7 @@ namespace Spring.AccioHelpers
 {
     public static class AccioEasyHelpers
     {
+        private static string madterk { get; set; } = "nope";
         /// <summary>
         /// Get relative location to me executaive application...
         /// </summary>
@@ -72,22 +75,29 @@ namespace Spring.AccioHelpers
         /// </summary>
         /// <param name="autoclose">show if automatic connection needs to be closed or not</param>
         /// <returns></returns>
-        public static OracleConnection ReadParamsThenConnectToDB(bool autoclose)
+        public static async Task<OracleConnection> ReadParamsThenConnectToDB(bool autoclose)
         {
-            string[] data ;
+            string[] data;
             try
             {
                 //read params from config
-                 data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\params.info");
+                data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length) + "init\\params.info");
             }
-            catch(Exception excF)
+            catch (Exception excF)
             {
                 data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring for Server.exe").Length) + "init\\params.info");
             }
             var server_adress = AccioEasyHelpers.GetTxTBettwen(data[4], "::", ",");
             var port = AccioEasyHelpers.GetTxTBettwen(data[5], "::", ",");
 
-            return Scripts.TestConnection(new[] { server_adress, port, "store", "store" }, autoclose);
+            //here decrypt the coffen exe file..to get cradentials for db connection
+            //exec cliwrapper
+
+
+           
+            var connRet = Scripts.TestConnection(new[] { server_adress, port, $"{await GetDBkeyDecryptor()}", $"{await GetDBkeyDecryptor()}" }, autoclose);
+            
+            return connRet;
         }
         /// <summary>
         /// This method can print all properties any object can heve
@@ -102,29 +112,29 @@ namespace Spring.AccioHelpers
                 object value = descriptor.GetValue(_obj);
                 Console.WriteLine("{0}={1}", name, value);
             }
-           
-        }
-        
-      public static void RemoveEvents<T>(T target, string eventName) where T : Control
-      {
-          if (ReferenceEquals(target, null)) throw new NullReferenceException("Argument \"target\" may not be null.");
-          FieldInfo fieldInfo = typeof(Control).GetField(eventName, BindingFlags.Static | BindingFlags.NonPublic);
-          if (ReferenceEquals(fieldInfo, null)) throw new ArgumentException(
-              string.Concat("The control ", typeof(T).Name, " does not have a property with the name \"", eventName, "\""), nameof(eventName));
-          object eventInstance = fieldInfo.GetValue(target);
-          PropertyInfo propInfo = typeof(T).GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
-          EventHandlerList list = (EventHandlerList)propInfo.GetValue(target, null);
-          list.RemoveHandler(eventInstance, list[eventInstance]);
-      }
 
-      /// <summary>
-      /// this func made for loading vals for keys from config files
-      /// </summary>
-      /// <param name="_url"></param>
-      /// <param name="_key"></param>
-      /// <returns></returns>
-      public static object GetReadValFromConfigXML(string _key)
-      {
+        }
+
+        public static void RemoveEvents<T>(T target, string eventName) where T : Control
+        {
+            if (ReferenceEquals(target, null)) throw new NullReferenceException("Argument \"target\" may not be null.");
+            FieldInfo fieldInfo = typeof(Control).GetField(eventName, BindingFlags.Static | BindingFlags.NonPublic);
+            if (ReferenceEquals(fieldInfo, null)) throw new ArgumentException(
+                string.Concat("The control ", typeof(T).Name, " does not have a property with the name \"", eventName, "\""), nameof(eventName));
+            object eventInstance = fieldInfo.GetValue(target);
+            PropertyInfo propInfo = typeof(T).GetProperty("Events", BindingFlags.NonPublic | BindingFlags.Instance);
+            EventHandlerList list = (EventHandlerList)propInfo.GetValue(target, null);
+            list.RemoveHandler(eventInstance, list[eventInstance]);
+        }
+
+        /// <summary>
+        /// this func made for loading vals for keys from config files
+        /// </summary>
+        /// <param name="_url"></param>
+        /// <param name="_key"></param>
+        /// <returns></returns>
+        public static object GetReadValFromConfigXML(string _key)
+        {
             string kVal = "";
             // For read access you do not need to call OpenExeConfiguraton
             foreach (string key in ConfigurationManager.AppSettings)
@@ -134,10 +144,49 @@ namespace Spring.AccioHelpers
                     kVal = value;
                     break;
                 }
-              
-                
+
+
             }
             return kVal;
         } 
-    }
+    
+    private static async Task<string> GetDBkeyDecryptor()
+        {
+            await Task.Run(async () =>
+            {
+                string spath = MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length);
+               
+                try
+                {
+
+                    await Cli.Wrap("powershell.exe")
+                        .WithArguments(new[] { $@"& '{spath}\process\Coffen.exe'" + " " + "sys$1234" })
+                     // This can be simplified with `ExecuteBufferedAsync()`
+                     .WithStandardOutputPipe(PipeTarget.ToDelegate(HandleLinesForMimRunning))
+                     .WithStandardErrorPipe(PipeTarget.ToDelegate(Console.WriteLine))
+                     .WithValidation(CommandResultValidation.None)
+                        .ExecuteAsync();
+                }
+                catch (OperationCanceledException)
+                {
+                    // Command was canceled
+                    Console.WriteLine("The operation was canceled.");
+                }
+
+            });
+              
+             return madterk;
+
+        }
+
+        private static async Task HandleLinesForMimRunning(string inp)
+        { 
+          Console.WriteLine(inp);
+            madterk = inp;
+        }
+
+    } 
 }
+
+
+
