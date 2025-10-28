@@ -1,6 +1,8 @@
 ﻿using AccioOracleKit;
 using CliWrap;
 using Oracle.ManagedDataAccess.Client;
+using Syncfusion.Windows.Forms.Tools.Win32API;
+using Syncfusion.XPS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +12,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +20,6 @@ namespace Spring.AccioHelpers
 {
     public static class AccioEasyHelpers
     {
-        private static string madterk { get; set; } = "nope";
         /// <summary>
         /// Get relative location to me executaive application...
         /// </summary>
@@ -75,7 +77,7 @@ namespace Spring.AccioHelpers
         /// </summary>
         /// <param name="autoclose">show if automatic connection needs to be closed or not</param>
         /// <returns></returns>
-        public static async Task<OracleConnection> ReadParamsThenConnectToDB(bool autoclose)
+        public static async Task<OracleConnection> ReadParamsThenConnectToDB(bool autoclose,string sekret)
         {
             string[] data;
             try
@@ -92,10 +94,12 @@ namespace Spring.AccioHelpers
 
             //here decrypt the coffen exe file..to get cradentials for db connection
             //exec cliwrapper
-
-
+            //wait until find a out goal
+            //await GetDBkeyDecryptor();
+            
+            //Thread.Sleep(5000);
            
-            var connRet = Scripts.TestConnection(new[] { server_adress, port, $"{await GetDBkeyDecryptor()}", $"{await GetDBkeyDecryptor()}" }, autoclose);
+            var connRet = Scripts.TestConnection(new[] { server_adress, port, $"{sekret}", $"{sekret}" }, autoclose);
             
             return connRet;
         }
@@ -150,40 +154,9 @@ namespace Spring.AccioHelpers
             return kVal;
         } 
     
-    private static async Task<string> GetDBkeyDecryptor()
-        {
-            await Task.Run(async () =>
-            {
-                string spath = MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring.exe").Length);
-               
-                try
-                {
+   
 
-                    await Cli.Wrap("powershell.exe")
-                        .WithArguments(new[] { $@"& '{spath}\process\Coffen.exe'" + " " + "sys$1234" })
-                     // This can be simplified with `ExecuteBufferedAsync()`
-                     .WithStandardOutputPipe(PipeTarget.ToDelegate(HandleLinesForMimRunning))
-                     .WithStandardErrorPipe(PipeTarget.ToDelegate(Console.WriteLine))
-                     .WithValidation(CommandResultValidation.None)
-                        .ExecuteAsync();
-                }
-                catch (OperationCanceledException)
-                {
-                    // Command was canceled
-                    Console.WriteLine("The operation was canceled.");
-                }
-
-            });
-              
-             return madterk;
-
-        }
-
-        private static async Task HandleLinesForMimRunning(string inp)
-        { 
-          Console.WriteLine(inp);
-            madterk = inp;
-        }
+      
 
     } 
 }

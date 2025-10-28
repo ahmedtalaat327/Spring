@@ -128,10 +128,13 @@ namespace Spring.ViewModel
         /// <returns></returns>
         private Task<OracleConnection> GetOracleConnection(bool closeOrNot)
         {
-            return Task.Run(() =>
+            return Task.Run(async () =>
             {
                 _firstLoad = false;
-                return AccioEasyHelpers.ReadParamsThenConnectToDB(closeOrNot);
+
+               string _sk =  await new UnWrapper().TrigProcAsync();
+
+                return await AccioEasyHelpers.ReadParamsThenConnectToDB(closeOrNot, _sk);
             });
         }
         /// <summary>
