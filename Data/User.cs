@@ -18,6 +18,7 @@ namespace Spring.Data
         public DateTime LastSeen { get; set; }
         public string UserInSession { get; set; }
         public string UserAuthLevel { get; set; }
+        public byte [] FaceImageBlob { get; set; } = null;
 
         private int deptId = 0;
         [Browsable(false)]

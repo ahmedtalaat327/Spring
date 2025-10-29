@@ -1,8 +1,8 @@
-﻿using CliWrap;
+﻿//this class is important to get the s-k for our db connection decryption-process
+//written by @ahmedtalaat327 on github
+
+using CliWrap;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Spring.AccioHelpers

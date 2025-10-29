@@ -44,6 +44,7 @@ namespace Spring.Helpers.Controls
         //=>usercard nodes
         public static string UserCardFirstButtonTitle { get; set; } = "Print out user card";
         public static string UserCardSecondButtonTitle { get; set; } = "Find a User";
+        public static string UserCardThirdButtonTitle { get; set; } = "Refresh Card Personal Photo";
         //=>changeorterminatecurrentuser nodes
         public static string ChangeorTerminateCurrentUserFirstButtonTitle { get; set; } = "Update these values";
         public static string ChangeorTerminateCurrentUserSecondButtonTitle { get; set; } = "Terminate current user";
@@ -60,7 +61,7 @@ namespace Spring.Helpers.Controls
         public static List<List<string>> ALLRIGHTTITLES { get; set; } = new List<List<string>>() {
             new List<string>(){UsersFirstButtonTitle, UsersSecondButtonTitle},
             new List<string>(){AddUserFirstButtonTitle, AddUserSecondButtonTitle,AddUserThirdButtonTitle},
-            new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle},
+            new List<string>(){UserCardFirstButtonTitle, UserCardSecondButtonTitle , UserCardThirdButtonTitle},
             new List<string>(){ ChangeorTerminateCurrentUserFirstButtonTitle, ChangeorTerminateCurrentUserSecondButtonTitle},
         };
         ///-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-icons
@@ -68,7 +69,7 @@ namespace Spring.Helpers.Controls
         {
               new List<int[]>{ new int[] { 27 }, new int[] { 6 } },
               new List<int[]>{ new int[] { 27 },  new int[] { 34 }, new int[] { 64 }},
-              new List<int[]>{ new int[] { 27 }, new int[] { 41 } },
+              new List<int[]>{ new int[] { 27 }, new int[] { 41 } , new int[] { 75 } },
               new List<int[]>{ new int[] { 35 }, new int[] { 56 } },
         };
         #endregion
