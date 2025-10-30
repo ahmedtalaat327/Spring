@@ -374,6 +374,7 @@
     <Content Include="init\header_pdf.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="process\Coffen.exe" />
     <Content Include="process\OracleExportDB.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

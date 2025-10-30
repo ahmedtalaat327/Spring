@@ -1,6 +1,7 @@
 ﻿using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
 using Spring.AccioHelpers;
+using Spring.Properties;
 using Spring.StaticVM;
 using System;
 using System.ComponentModel;
@@ -18,7 +19,10 @@ namespace Spring.Data
         public DateTime LastSeen { get; set; }
         public string UserInSession { get; set; }
         public string UserAuthLevel { get; set; }
-        public byte [] FaceImageBlob { get; set; } = null;
+
+        private byte[] faceImageBlob = null;
+        [Browsable(false)]
+        public byte [] FaceImageBlob { get { return faceImageBlob ?? AccioEasyHelpers.ImageToByte(Resources.icons8_person_80); } set { faceImageBlob = value; } }
 
         private int deptId = 0;
         [Browsable(false)]

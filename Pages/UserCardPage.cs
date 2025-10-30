@@ -142,6 +142,10 @@ namespace Spring.Pages
                 {
 
                 }
+                if (adv.Text == PagesNodesNames.UserCardThirdButtonTitle)
+                {
+
+                }
             }
         }
 

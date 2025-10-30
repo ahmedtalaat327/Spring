@@ -54,6 +54,7 @@
             this.Controls.Add(this.sfDataGrid1);
             this.Name = "UsersPage";
             this.Size = new System.Drawing.Size(760, 454);
+            this.Controls.SetChildIndex(this.sfDataGrid1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).EndInit();
             this.ResumeLayout(false);
 

@@ -4,14 +4,14 @@ using Spring.Data;
 using Spring.StaticVM;
 using Spring.ViewModel.Base;
 using Spring.ViewModel.Command;
+ 
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
+
 
 namespace Spring.Pages.ViewModel
 {
@@ -28,7 +28,7 @@ namespace Spring.Pages.ViewModel
         /// <summary>
         /// corp-logo property
         /// </summary>
-        public Image CorporationLogo { get; set; }  
+        public Image CorporationLogo { get; set; }
         /// <summary>
         /// user photo property
         /// </summary>
@@ -48,7 +48,7 @@ namespace Spring.Pages.ViewModel
         /// <summary>
         /// iputed id
         /// </summary>
-        public string IdOfCardUser { get; set; } 
+        public string IdOfCardUser { get; set; }
         /// <summary>
         /// checker for id
         /// </summary>
@@ -89,15 +89,15 @@ namespace Spring.Pages.ViewModel
                 {
                     EmpFirstName = GetParts(encounteredusers[0].FullName)[0];
                     EmpLastName = GetParts(encounteredusers[0].FullName)[1];
-                   // LastPortionFName = GetParts(encounteredusers[0].FullName)[2];
-                   // UserName = encounteredusers[0].UserName;
-                  //  Password = encounteredusers[0].Password;
-                  //  ContactNumber = encounteredusers[0].TelNo.ToString();
-                 //   SelectedAuth = AuthritiesUsed.Where(x => x.DataFromDatabase == encounteredusers[0].UserAuthLevel).FirstOrDefault();
-                ///   SelectedDept = DeptsStored.Where(x => x.Id == encounteredusers[0].DepartmentId).FirstOrDefault();
-                  //  DateOfAdditon = encounteredusers[0].LastSeen.ToString();
+                    // LastPortionFName = GetParts(encounteredusers[0].FullName)[2];
+                    // UserName = encounteredusers[0].UserName;
+                    //  Password = encounteredusers[0].Password;
+                    //  ContactNumber = encounteredusers[0].TelNo.ToString();
+                    //   SelectedAuth = AuthritiesUsed.Where(x => x.DataFromDatabase == encounteredusers[0].UserAuthLevel).FirstOrDefault();
+                    ///   SelectedDept = DeptsStored.Where(x => x.Id == encounteredusers[0].DepartmentId).FirstOrDefault();
+                    //  DateOfAdditon = encounteredusers[0].LastSeen.ToString();
                     DeptAbbriviation = await GetDeptAbbriviation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, encounteredusers[0].DepartmentId);
-                   
+
                 }
             });
         }
@@ -188,7 +188,12 @@ namespace Spring.Pages.ViewModel
             return partsAsList.ToArray();
 
         }
-
+        /// <summary>
+        /// this func to get the short name for department only
+        /// </summary>
+        /// <param name="myOpenedTunnel"></param>
+        /// <param name="deptid"></param>
+        /// <returns></returns>
         private Task<string> GetDeptAbbriviation(OracleConnection myOpenedTunnel, int deptid)
         {
             string _abbr = "string.Empty";
@@ -209,7 +214,7 @@ namespace Spring.Pages.ViewModel
                     {
                         while (dr.Read())
                         {
-                        
+
 
                             _abbr = dr["dept_abbriv"].ToString();
 
@@ -231,7 +236,49 @@ namespace Spring.Pages.ViewModel
             }
             );
 
-           
+
+        }
+        /// <summary>
+        /// get the byte array for phto/image [persoanl user image] as blob
+        /// </summary>
+        /// <param name="myOpenedTunnel"></param>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        private Task<byte[]> GetUserPhoto(OracleConnection myOpenedTunnel, int userid) {
+
+            byte[] _bimg = null;
+
+            var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_photo" }, new string[] { "user_id" }, new string[] { $"{userid.ToString()}" }, "=", "and");
+
+            return Task.Run(() =>
+            {
+                try
+                {
+                    OracleDataReader dr = sqlCMD.ExecuteReader();
+
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+
+
+                            _bimg = (byte[])dr["user_photo"];
+
+                        }
+                    }
+                }
+                catch (Exception xorcl)
+                {
+                    //ErrorDescription = xorcl.Message;
+                    //for debug purposes
+                    Console.WriteLine(xorcl.Message);
+                    //Connection error for somereason so aggresive close that connection
+                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+
+                }
+                return _bimg;
+            });
         }
         #endregion
 

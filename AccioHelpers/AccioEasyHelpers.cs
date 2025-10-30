@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
@@ -152,11 +153,15 @@ namespace Spring.AccioHelpers
 
             }
             return kVal;
-        } 
-    
-   
+        }
 
-      
+
+
+        public static byte[] ImageToByte(Image img)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
+        }
 
     } 
 }

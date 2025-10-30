@@ -1,4 +1,5 @@
-﻿
+﻿////this class is used to define the column data type for a specific table column in an Oracle database.
+////for datachart window only! [untill now]
 using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
 using Spring.StaticVM;

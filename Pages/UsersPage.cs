@@ -24,9 +24,12 @@ namespace Spring.Pages
         {
             InitializeComponent();
 
-           
+
             //bindings
             this.sfDataGrid1.DataSource = usersViewModel.CurrentUsers;
+
+            //hide some columns
+            this.sfDataGrid1.Columns["FaceImageBlob"].Visible = false;
 
             //binding active flag to panel
             //this.DataBindings.Add(new Binding("Enabled", usersViewModel, "ActivePanel"));
@@ -69,6 +72,7 @@ namespace Spring.Pages
             #endregion
 
             sfDataGrid1.Columns["Id"].FilterPredicates.Add(new FilterPredicate() { FilterType = FilterType.LessThan, FilterValue = "18" });
+            
         }
         public override void AddEventsToOptionsNodes(TreeViewAdv optionsTree)
         {
