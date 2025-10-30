@@ -8,6 +8,7 @@ using Spring.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -29,10 +30,7 @@ namespace Spring.Pages.ViewModel
         /// corp-logo property
         /// </summary>
         public Image CorporationLogo { get; set; }
-        /// <summary>
-        /// user photo property
-        /// </summary>
-        public Image UserPicture { get; set; }
+         
         /// <summary>
         /// Name [first] portion in card
         /// </summary>
@@ -53,13 +51,18 @@ namespace Spring.Pages.ViewModel
         /// checker for id
         /// </summary>
         public bool IdCheckerVisiblity { get; set; } = true;
-
+        /// <summary>
+        /// CRD PHOTO
+        /// </summary>
+        public Bitmap PersonalPhotoUser { get; set; }   
         #endregion
         #region Commands
         /// <summary>
         /// Command to load using event of writing depending on wht id wrote in
         /// </summary>
         public ICommand LoadCurrentUserCard { get; set; }
+
+        public ICommand LoadPhotoUserCard { get; set; }     
         #endregion
 
         #region Constructor
@@ -67,6 +70,7 @@ namespace Spring.Pages.ViewModel
 
             //init cmmds
             LoadCurrentUserCard = new RelyCommand(async () => await RefreshWithNewIdtoUserProbs());
+          
         }
         #endregion
         #region Methods
@@ -97,8 +101,8 @@ namespace Spring.Pages.ViewModel
                     ///   SelectedDept = DeptsStored.Where(x => x.Id == encounteredusers[0].DepartmentId).FirstOrDefault();
                     //  DateOfAdditon = encounteredusers[0].LastSeen.ToString();
                     DeptAbbriviation = await GetDeptAbbriviation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, encounteredusers[0].DepartmentId);
-
-                }
+                    PersonalPhotoUser = new Bitmap(new MemoryStream(encounteredusers[0].FaceImageBlob));
+        }
             });
         }
 
@@ -119,7 +123,7 @@ namespace Spring.Pages.ViewModel
             {
 
 
-                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name", "dept_id", "user_session", "user_tel", "user_seen_date" }, new string[] { "user_id" }, new string[] { $"{id}" }, "=", "and");
+                var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_id", "user_name", "user_password", "user_auth", "user_full_name", "dept_id", "user_session", "user_tel", "user_seen_date" , "user_photo" }, new string[] { "user_id" }, new string[] { $"{id}" }, "=", "and");
 
                 try
                 {
@@ -143,7 +147,12 @@ namespace Spring.Pages.ViewModel
                                     DepartmentId = Int32.Parse(dr["dept_id"].ToString()),
                                     UserInSession = dr["user_session"].ToString(),
                                     TelNo = Int32.Parse(dr["user_tel"].ToString()),
-                                    LastSeen = DateTime.Parse(dr["user_seen_date"].ToString())
+                                    LastSeen = DateTime.Parse(dr["user_seen_date"].ToString()),
+                                    FaceImageBlob = (dr["user_photo"]==DBNull.Value) ? null : (byte[])dr["user_photo"]
+
+
+
+
 
 
                                 });
@@ -238,48 +247,8 @@ namespace Spring.Pages.ViewModel
 
 
         }
-        /// <summary>
-        /// get the byte array for phto/image [persoanl user image] as blob
-        /// </summary>
-        /// <param name="myOpenedTunnel"></param>
-        /// <param name="userid"></param>
-        /// <returns></returns>
-        private Task<byte[]> GetUserPhoto(OracleConnection myOpenedTunnel, int userid) {
-
-            byte[] _bimg = null;
-
-            var sqlCMD = Scripts.FetchMyData(myOpenedTunnel, "users", new string[] { "user_photo" }, new string[] { "user_id" }, new string[] { $"{userid.ToString()}" }, "=", "and");
-
-            return Task.Run(() =>
-            {
-                try
-                {
-                    OracleDataReader dr = sqlCMD.ExecuteReader();
-
-
-                    if (dr.HasRows)
-                    {
-                        while (dr.Read())
-                        {
-
-
-                            _bimg = (byte[])dr["user_photo"];
-
-                        }
-                    }
-                }
-                catch (Exception xorcl)
-                {
-                    //ErrorDescription = xorcl.Message;
-                    //for debug purposes
-                    Console.WriteLine(xorcl.Message);
-                    //Connection error for somereason so aggresive close that connection
-                    VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
-
-                }
-                return _bimg;
-            });
-        }
+       
+        
         #endregion
 
     }

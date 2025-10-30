@@ -1,12 +1,16 @@
-﻿using Spring.Helpers.Controls;
+﻿using Cybele.Thinfinity;
+using Spring.Helpers.Controls;
 using Spring.Pages.ViewModel;
 using Spring.StaticVM;
 using Spring.View.MainView.LoginView;
 using Spring.ViewModel;
 using Syncfusion.Windows.Forms.Tools;
+using Syncfusion.Windows.Forms.Tools.Win32API;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Spring.Pages
 {
@@ -48,7 +52,7 @@ namespace Spring.Pages
             //lname
             this.abblbl.DataBindings.Add(new Binding("Text", userCardViewModel, "DeptAbbriviation", false, DataSourceUpdateMode.OnPropertyChanged));
             //this.lnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
-
+            //this.label3.DataBindings.Add(new Binding("ImageSource", userCardViewModel, "PersonalPhotoUser", false, DataSourceUpdateMode.OnPropertyChanged));
             #endregion
 
             #region Events
@@ -74,31 +78,24 @@ namespace Spring.Pages
 
         //when some property changed
         private void AddUserViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {/*
+        {
             //make sure we are in same VM and same property.
             if (e.PropertyName == nameof(VMCentral.DockingManagerViewModel.Loading) && VMCentral.DockingManagerViewModel.GetType() == typeof(DockingManagerViewModel))
             {
                 //After Loading property finish in RELYCOMMAND
                 if (!VMCentral.DockingManagerViewModel.Loading)
                 {
-                    //Pick which phase we are in
-                    if (this.addUserViewModel.CurrentWait == AddUserViewModel.AddUserVMLoadingPhase.AdditionCheckWaiting)
+                   // if (e.PropertyName == nameof(userCardViewModel.PersonalPhotoUser))
                     {
-                        if (!this.addUserViewModel.AdditionSucceded)
-                        {
-                            new AdvOptions().ShowFailur_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-                        }
-                        else
-                        {
-                            new AdvOptions().ShowSuccess_AddUser(AdvOptions.GetForm(AdvOptions.GetHandleByTitle("Spring")));
-                        }
-                        //reset phase of loading fter all logic done!
-                        this.addUserViewModel.CurrentWait = AddUserViewModel.AddUserVMLoadingPhase.Non;
+                      var  bitmap = new Bitmap(userCardViewModel.PersonalPhotoUser, label3.Width, label3.Height);
+                        
+                        label3.Image = bitmap;
                     }
+                    
                     
                 }
             }
-            */
+            
         }
 
 
@@ -144,7 +141,32 @@ namespace Spring.Pages
                 }
                 if (adv.Text == PagesNodesNames.UserCardThirdButtonTitle)
                 {
-
+                    // image load
+                    OpenFileDialog openFileDialog = new OpenFileDialog
+                    {
+                        Filter = "Photos (*.jpg)|*.jpg"
+                    };
+                    Bitmap bitmap = null;
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        using (Stream stream = openFileDialog.OpenFile())
+                        {
+                            //document.Save(stream);
+                             bitmap = new Bitmap(stream);
+                        }
+                        if (VMCentral.DockingManagerViewModel.PlatformTypeUsed == Spring.ViewModel.DockingManagerViewModel.PlatformType.VirtualWeb)
+                        {
+                            VirtualUI vui = new VirtualUI();
+                            vui.UploadFile(openFileDialog.FileName);
+                        }
+                        else
+                        {
+                            //database command to add depening on the id and bitmap
+                            bitmap = new Bitmap(bitmap, label3.Width, label3.Height);
+                            userCardViewModel.PersonalPhotoUser = bitmap;
+                            label3.Image = bitmap;
+                        }
+                    }
                 }
             }
         }
@@ -155,7 +177,11 @@ namespace Spring.Pages
         {
 
             if (e.KeyCode == Keys.Enter)
+            {
                 userCardViewModel.LoadCurrentUserCard.Execute(true);
+
+                 
+            }
         }
     }
 }
