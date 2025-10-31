@@ -158,6 +158,10 @@ namespace Spring.Pages
                         {
                             VirtualUI vui = new VirtualUI();
                             vui.UploadFile(openFileDialog.FileName);
+                            //database command to add depening on the id and bitmap
+                            bitmap = new Bitmap(bitmap, label3.Width, label3.Height);
+                            userCardViewModel.PersonalPhotoUser = bitmap;
+                            label3.Image = bitmap;
                         }
                         else
                         {

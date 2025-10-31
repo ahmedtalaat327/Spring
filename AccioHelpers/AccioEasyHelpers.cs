@@ -1,8 +1,8 @@
-﻿using AccioOracleKit;
-using CliWrap;
+﻿///this helpers made for easy use of common operations in accio projects and spring framework
+///by@ahmadtalaat327
+///ver_1.3.0.1 Date: 2025-OCT-31
+using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
-using Syncfusion.Windows.Forms.Tools.Win32API;
-using Syncfusion.XPS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +10,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography;
-using System.Security.Policy;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,6 +18,7 @@ namespace Spring.AccioHelpers
 {
     public static class AccioEasyHelpers
     {
+        #region Path Helpers
         /// <summary>
         /// Get relative location to me executaive application...
         /// </summary>
@@ -29,6 +27,8 @@ namespace Spring.AccioHelpers
         {
             return System.Reflection.Assembly.GetEntryAssembly().Location;
         }
+        #endregion
+        #region File Helpers
         /// <summary>
         /// easy func to read strings line by line from text file..
         /// </summary>
@@ -72,7 +72,8 @@ namespace Spring.AccioHelpers
 
 
         }
-
+        #endregion
+        #region Database Helpers
         /// <summary>
         /// Test connectivity to database 
         /// </summary>
@@ -89,6 +90,7 @@ namespace Spring.AccioHelpers
             catch (Exception excF)
             {
                 data = AccioEasyHelpers.ReadTxTFiles(AccioEasyHelpers.MeExistanceLocation().Substring(0, AccioEasyHelpers.MeExistanceLocation().Length - ("Spring for Server.exe").Length) + "init\\params.info");
+                Console.WriteLine(excF.Message);
             }
             var server_adress = AccioEasyHelpers.GetTxTBettwen(data[4], "::", ",");
             var port = AccioEasyHelpers.GetTxTBettwen(data[5], "::", ",");
@@ -104,6 +106,8 @@ namespace Spring.AccioHelpers
             
             return connRet;
         }
+        #endregion
+        #region Debug Helpers
         /// <summary>
         /// This method can print all properties any object can heve
         /// </summary>
@@ -131,7 +135,8 @@ namespace Spring.AccioHelpers
             EventHandlerList list = (EventHandlerList)propInfo.GetValue(target, null);
             list.RemoveHandler(eventInstance, list[eventInstance]);
         }
-
+        #endregion
+        #region Crypto Helpers
         /// <summary>
         /// this func made for loading vals for keys from config files
         /// </summary>
@@ -156,14 +161,18 @@ namespace Spring.AccioHelpers
         }
 
 
-
+        /// <summary>
+        /// Convert bitmap image to byte array  
+        /// </summary>
+        /// <param name="img"></param>
+        /// <returns></returns>
         public static byte[] ImageToByte(Image img)
         {
             ImageConverter converter = new ImageConverter();
             return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
-
-    } 
+        #endregion
+    }
 }
 
 
