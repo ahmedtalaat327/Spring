@@ -22,7 +22,10 @@ namespace Spring.Data
 
         private byte[] faceImageBlob = null;
         [Browsable(false)]
-        public byte [] FaceImageBlob { get { return faceImageBlob ?? AccioEasyHelpers.ImageToByte(Resources.icons8_person_80); } set { faceImageBlob = value; } }
+        public byte [] FaceImageBlob { get { return faceImageBlob ?? AccioEasyHelpers.ImageToByte(Resources.icons8_person_80); }
+                  set {
+                        faceImageBlob = value; } 
+            }
 
         private int deptId = 0;
         [Browsable(false)]

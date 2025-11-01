@@ -1,5 +1,6 @@
 ﻿using AccioOracleKit;
 using Oracle.ManagedDataAccess.Client;
+using Spring.AccioHelpers;
 using Spring.Data;
 using Spring.StaticVM;
 using Spring.ViewModel.Base;
@@ -8,9 +9,12 @@ using Spring.ViewModel.Command;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static Spring.Pages.ViewModel.AddUserViewModel;
 
 
 
@@ -20,6 +24,18 @@ namespace Spring.Pages.ViewModel
     {
         #region Members
 
+        #endregion
+        #region ENUM for Phases
+        /// <summary>
+        /// Progress bar porperty phases set
+        /// <see cref="VMCentral.DockingManagerViewModel.Loading"/> <see cref="CurrentWait"/>
+        /// </summary>
+        public enum UserCardVMLoadingPhase
+        {
+            Non, //reset
+            EditCheckWaiting,//first relycommand
+
+        }
         #endregion
         #region Public Properties
         /// <summary>
@@ -54,7 +70,15 @@ namespace Spring.Pages.ViewModel
         /// <summary>
         /// CRD PHOTO
         /// </summary>
-        public Bitmap PersonalPhotoUser { get; set; }   
+        public Bitmap PersonalPhotoUser { get; set; }
+        /// <summary>
+        /// simple flag to determines if edit succeeded or not
+        /// </summary>
+        public bool EditSucceded { get; set; } = false;
+        /// <summary>
+        /// this for helping wait property when changing in VIEW 
+        /// </summary>
+        public UserCardVMLoadingPhase CurrentWait { get; set; } = UserCardVMLoadingPhase.Non;
         #endregion
         #region Commands
         /// <summary>
@@ -62,7 +86,7 @@ namespace Spring.Pages.ViewModel
         /// </summary>
         public ICommand LoadCurrentUserCard { get; set; }
 
-        public ICommand LoadPhotoUserCard { get; set; }     
+        public ICommand SavePhotoUserCard { get; set; }     
         #endregion
 
         #region Constructor
@@ -70,7 +94,9 @@ namespace Spring.Pages.ViewModel
 
             //init cmmds
             LoadCurrentUserCard = new RelyCommand(async () => await RefreshWithNewIdtoUserProbs());
-          
+
+            SavePhotoUserCard = new RelyCommand(async () => await UpdateUserRowPhoto());
+
         }
         #endregion
         #region Methods
@@ -148,7 +174,8 @@ namespace Spring.Pages.ViewModel
                                     UserInSession = dr["user_session"].ToString(),
                                     TelNo = Int32.Parse(dr["user_tel"].ToString()),
                                     LastSeen = DateTime.Parse(dr["user_seen_date"].ToString()),
-                                    FaceImageBlob = (dr["user_photo"]==DBNull.Value) ? null : (byte[])dr["user_photo"]
+                                      //convert from string to hex then to byte array
+                                      FaceImageBlob = (dr["user_photo"]==DBNull.Value) ? null : AccioEasyHelpers.ConvertHexStringToByteArray(dr["user_photo"].ToString())
 
 
 
@@ -247,8 +274,96 @@ namespace Spring.Pages.ViewModel
 
 
         }
-       
-        
+            /// <summary>
+            /// this func to update user photo in row
+            /// ipmorant here we use parameterized query to avoid SQL Injection or BLOB issues limits
+            /// Dated : 2025-11-01
+            /// </summary>
+            /// <returns></returns>
+            private async Task UpdateUserRowPhoto()
+            {
+            CurrentWait = UserCardVMLoadingPhase.EditCheckWaiting;
+
+                 var bit_arr_img = AccioEasyHelpers.ImageToByte(PersonalPhotoUser);
+
+                  //hex convertable
+                  StringBuilder hexBuilder = new StringBuilder(bit_arr_img.Length * 2);
+                  foreach (byte b in bit_arr_img)
+                  {
+                        hexBuilder.AppendFormat("{0:X2}", b); // "X2" for uppercase hex, "x2" for lowercase
+                  }
+
+                  string hexString = hexBuilder.ToString();
+
+
+                await RunCommand(() => VMCentral.DockingManagerViewModel.Loading, async () =>
+                {
+                await Task.Delay(100); //simulating wait
+                      /*
+                          var replyOfOracle = Scripts.EditMyDataRow(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, "users",
+                            new string[]
+                            {
+                                      "USER_PHOTO"
+                            },
+                            new string[]
+                            {
+                                      $"HEXTORAW('{hexString}')"
+                            },
+                            new string[]
+                            {
+                                      "USER_ID"
+                            },
+                            new string[]
+                            {
+                                      $"{IdOfCardUser}"
+                            },
+                            "=", "and"
+
+                            );
+                           if (replyOfOracle >= 0)
+                           {
+                               EditSucceded = true;
+                           }
+                           else
+                           {
+                               EditSucceded = false;
+                           }
+                      */
+
+                      var myOpenedTunnel = VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn;
+                      var sqlCMD = Scripts.FetchMySQLText(myOpenedTunnel, 
+                      $"UPDATE USERS SET USER_PHOTO=:BlobParameter WHERE USER_ID={IdOfCardUser}");
+                      sqlCMD.Parameters.Add(new OracleParameter("BlobParameter", Oracle.ManagedDataAccess.Client.OracleDbType.Clob)).Value = hexString;
+                      
+                     
+                      int replyOfOracle = -1;
+                      try
+                      {
+                         replyOfOracle =   sqlCMD.ExecuteNonQuery();
+                      }
+                      catch (Exception xorcl)
+                      {
+                            //ErrorDescription = xorcl.Message;
+                            //for debug purposes
+                            Console.WriteLine(xorcl.Message);
+                            EditSucceded = false;
+                            //Connection error for somereason so aggresive close that connection
+                            VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Dispose(); VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn.Close();
+                      }
+                       
+                      if(replyOfOracle >= 0)
+                        {
+                            EditSucceded = true;
+                        }
+                        else
+                        {
+                            EditSucceded = false;
+                      }
+                });
+                 
+
+             }
+
         #endregion
 
     }

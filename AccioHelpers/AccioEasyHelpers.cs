@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -171,8 +172,29 @@ namespace Spring.AccioHelpers
             ImageConverter converter = new ImageConverter();
             return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
-        #endregion
-    }
+        public static byte[] ConvertHexStringToByteArray(string hexString)
+        {
+              // Ensure the hex string has an even number of characters
+              if (hexString.Length % 2 != 0)
+              {
+                    throw new ArgumentException("Hex string cannot have an odd number of digits.");
+              }
+
+              byte[] byteArray = new byte[hexString.Length / 2];
+
+              for (int i = 0; i < hexString.Length; i += 2)
+              {
+                    // Extract two characters at a time representing a single byte
+                    string byteValue = hexString.Substring(i, 2);
+                    // Convert the two-character hex string to a byte
+                    byteArray[i / 2] = byte.Parse(byteValue, NumberStyles.HexNumber, CultureInfo.InvariantCulture);
+              }
+
+              return byteArray;
+        }
+
+            #endregion
+      }
 }
 
 

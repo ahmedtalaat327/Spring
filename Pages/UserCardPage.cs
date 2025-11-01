@@ -4,6 +4,7 @@ using Spring.Pages.ViewModel;
 using Spring.StaticVM;
 using Spring.View.MainView.LoginView;
 using Spring.ViewModel;
+using Syncfusion.Windows.Forms;
 using Syncfusion.Windows.Forms.Tools;
 using Syncfusion.Windows.Forms.Tools.Win32API;
 using System;
@@ -90,6 +91,22 @@ namespace Spring.Pages
                       var  bitmap = new Bitmap(userCardViewModel.PersonalPhotoUser, label3.Width, label3.Height);
                         
                         label3.Image = bitmap;
+
+                        //Pick which phase we are in
+                        if (this.userCardViewModel.CurrentWait == UserCardViewModel.UserCardVMLoadingPhase.EditCheckWaiting)
+                        {
+                            if (userCardViewModel.EditSucceded)
+                            {
+                                MessageBoxAdv.Show("Photo Updated Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBoxAdv.Show("We couldn't update that photo", "Failure!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+                            //reset phase of loading fter all logic done!
+                            this.userCardViewModel.CurrentWait = UserCardViewModel.UserCardVMLoadingPhase.Non;
+                        }
                     }
                     
                     
@@ -170,6 +187,7 @@ namespace Spring.Pages
                             userCardViewModel.PersonalPhotoUser = bitmap;
                             label3.Image = bitmap;
                         }
+                        userCardViewModel.SavePhotoUserCard.Execute(true);
                     }
                 }
             }
