@@ -371,6 +371,7 @@
     <None Include="init\crd.png" />
     <None Include="not_available.png" />
     <None Include="init\crd2.png" />
+    <None Include="init\crd2_b.png" />
     <Content Include="init\header_pdf.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

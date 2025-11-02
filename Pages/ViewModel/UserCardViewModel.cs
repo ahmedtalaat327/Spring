@@ -174,8 +174,8 @@ namespace Spring.Pages.ViewModel
                                     UserInSession = dr["user_session"].ToString(),
                                     TelNo = Int32.Parse(dr["user_tel"].ToString()),
                                     LastSeen = DateTime.Parse(dr["user_seen_date"].ToString()),
-                                      //convert from string to hex then to byte array
-                                      FaceImageBlob = (dr["user_photo"]==DBNull.Value) ? null : AccioEasyHelpers.ConvertHexStringToByteArray(dr["user_photo"].ToString())
+                                    //convert from string to hex then to byte array
+                                    FaceImageBlob = (dr["user_photo"]==DBNull.Value) ? null : AccioEasyHelpers.ConvertHexStringToByteArray(dr["user_photo"].ToString())
 
 
 
