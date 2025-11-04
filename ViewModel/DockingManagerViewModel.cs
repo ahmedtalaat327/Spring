@@ -135,15 +135,23 @@ namespace Spring.ViewModel
 
                   string _sk = "nouserorpass";
 
-            if ((string)AccioEasyHelpers.GetReadValFromConfigXML("platform") == "forms")
-            {
+                  if (System.Diagnostics.Debugger.IsAttached)
+                  {
+                        // in case forms if you need web in debugginh remove this line
                         _sk = await new UnWrapper().TrigProcAsync();
-             }
-            if ((string)AccioEasyHelpers.GetReadValFromConfigXML("platform") == "web")
-            {
-                        _sk = "store";
-            }
-           
+                  }
+                  else
+                  {
+                        //this is in production mode read from config file
+                        if ((string)AccioEasyHelpers.GetReadValFromConfigXML("platform") == "forms")
+                        {
+                              _sk = await new UnWrapper().TrigProcAsync();
+                        }
+                        if ((string)AccioEasyHelpers.GetReadValFromConfigXML("platform") == "web")
+                        {
+                              _sk = "store";
+                        }
+                  }
                    
 
                 return await AccioEasyHelpers.ReadParamsThenConnectToDB(closeOrNot, _sk);
