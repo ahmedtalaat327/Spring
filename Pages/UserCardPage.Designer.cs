@@ -38,6 +38,7 @@
                   this.label2 = new System.Windows.Forms.Label();
                   this.imageList3 = new System.Windows.Forms.ImageList(this.components);
                   this.label3 = new System.Windows.Forms.Label();
+                  this.label8 = new System.Windows.Forms.Label();
                   this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
                   this.abblbl = new System.Windows.Forms.Label();
                   this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -357,6 +358,7 @@
                   this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
                   this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
                   this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
+                  this.tableLayoutPanel3.Controls.Add(this.label8, 0, 2);
                   this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
                   this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
                   this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -408,6 +410,21 @@
                   this.label3.TabIndex = 1;
                   this.label3.Text = "Classified";
                   this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                  // 
+                  // label8
+                  // 
+                  this.label8.AutoSize = true;
+                  this.tableLayoutPanel3.SetColumnSpan(this.label8, 2);
+                  this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+                  this.label8.Font = new System.Drawing.Font("MS UI Gothic", 7.75F);
+                  this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+                  this.label8.Image = global::Spring.Properties.Resources.wm;
+                  this.label8.Location = new System.Drawing.Point(38, 248);
+                  this.label8.Margin = new System.Windows.Forms.Padding(38, 20, 20, 20);
+                  this.label8.Name = "label8";
+                  this.label8.Size = new System.Drawing.Size(116, 20);
+                  this.label8.TabIndex = 2;
+                  this.label8.Text = "Sign______________________";
                   // 
                   // tableLayoutPanel5
                   // 
@@ -925,5 +942,6 @@
         private System.Windows.Forms.Label fllblname;
         private System.Windows.Forms.Label label4;
             private System.Windows.Forms.Label label6;
+            private System.Windows.Forms.Label label8;
       }
 }

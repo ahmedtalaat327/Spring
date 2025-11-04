@@ -130,9 +130,21 @@ namespace Spring.ViewModel
         {
             return Task.Run(async () =>
             {
-                _firstLoad = false;
+                  _firstLoad = false;
+                  
 
-               string _sk =  await new UnWrapper().TrigProcAsync();
+                  string _sk = "nouserorpass";
+
+            if ((string)AccioEasyHelpers.GetReadValFromConfigXML("platform") == "forms")
+            {
+                        _sk = await new UnWrapper().TrigProcAsync();
+             }
+            if ((string)AccioEasyHelpers.GetReadValFromConfigXML("platform") == "web")
+            {
+                        _sk = "store";
+            }
+           
+                   
 
                 return await AccioEasyHelpers.ReadParamsThenConnectToDB(closeOrNot, _sk);
             });
@@ -240,9 +252,10 @@ namespace Spring.ViewModel
             {
                 await Task.Delay(1);
 
-                ///also here same entry point to read platform type issue
-                //<see cref = "forms_or_web" />
-                if (System.Diagnostics.Debugger.IsAttached)
+                  ///also here same entry point to read platform type issue
+                  ///this is manual way to determien platform type used
+                  //<see cref = "forms_or_web" />
+                  if (System.Diagnostics.Debugger.IsAttached)
                 {
                     //in case forms 
                     PlatformTypeUsed = PlatformType.Forms;
@@ -258,8 +271,9 @@ namespace Spring.ViewModel
                  
 
                 }
-                else
-                {
+                  //automatic read from config file no need to change anything here
+                  else
+                  {
 
                     var val = AccioEasyHelpers.GetReadValFromConfigXML("platform");
 
@@ -273,6 +287,7 @@ namespace Spring.ViewModel
 
                     }
                 }
+                  OnPropertyChanged(nameof(PlatformTypeUsed));
             });
         }
      }
