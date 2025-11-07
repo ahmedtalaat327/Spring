@@ -13,6 +13,7 @@ using Spring.Helpers.Controls;
 using Cybele.Thinfinity;
 using Spring.StaticVM;
 using Syncfusion.XPS;
+using Syncfusion.WinForms.DataGrid;
 
 namespace Spring.Pages
 {
@@ -124,10 +125,13 @@ namespace Spring.Pages
                 {
 
                     var options = new PdfExportingOptions();
+                        options.ExcludeColumns.Add("FaceImageBlob");
+
                     //options.HeaderFooterExporting += options_HeaderFooterExporting;
                     var document = new PdfDocument();
                     document.PageSettings.Orientation = PdfPageOrientation.Landscape;
                     var page = document.Pages.Add();
+                         
                     var PDFGrid = sfDataGrid1.ExportToPdfGrid(sfDataGrid1.View, options);
                     var format = new PdfGridLayoutFormat()
                     {

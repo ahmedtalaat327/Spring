@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using static Spring.Pages.ViewModel.AddUserViewModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 
@@ -87,17 +88,21 @@ namespace Spring.Pages.ViewModel
         public ICommand LoadCurrentUserCard { get; set; }
 
         public ICommand SavePhotoUserCard { get; set; }     
-        #endregion
+        
+        public ICommand CheckIdValidityForSearch { get; set; }
+            #endregion
 
-        #region Constructor
-        public UserCardViewModel() {
+            #region Constructor
+            public UserCardViewModel() {
 
             //init cmmds
             LoadCurrentUserCard = new RelyCommand(async () => await RefreshWithNewIdtoUserProbs());
 
             SavePhotoUserCard = new RelyCommand(async () => await UpdateUserRowPhoto());
 
-        }
+            CheckIdValidityForSearch = new RelyCommand(async () => await CheckUserNameProcedure());
+
+            }
         #endregion
         #region Methods
         /// <summary>
@@ -364,7 +369,30 @@ namespace Spring.Pages.ViewModel
 
              }
 
-        #endregion
+            /// <summary>
+            /// Checking validity of id
+            /// </summary>
+            /// <returns></returns>
+            private async Task CheckUserNameProcedure()
+            {
+                  
+                  await Task.Delay(300);
 
-    }
+                 
+                  if (IdOfCardUser != null)
+                  {
+                        if (IdOfCardUser.Length < 1)
+                        {
+                              IdCheckerVisiblity = true;
+                        }
+                        else
+                        {
+                              IdCheckerVisiblity = false;
+                        }
+                  }
+            }
+
+            #endregion
+
+      }
 }
