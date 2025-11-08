@@ -47,7 +47,7 @@ namespace Spring.Pages
             //binding active flag to panel
             //this.DataBindings.Add(new Binding("Enabled", userCardViewModel, "ActivePanel"));
 
-            //this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
+            this.sfBarcode1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser"));
            
             this.textBoxExt1.DataBindings.Add(new Binding("Text", userCardViewModel, "IdOfCardUser", false, DataSourceUpdateMode.OnPropertyChanged));
 
@@ -59,7 +59,9 @@ namespace Spring.Pages
             this.abblbl.DataBindings.Add(new Binding("Text", userCardViewModel, "DeptAbbriviation", false, DataSourceUpdateMode.OnPropertyChanged));
             //this.lnametxtbx.DataBindings.Add(new Binding("Text", addUserViewModel, "LastPortionFName", false, DataSourceUpdateMode.OnPropertyChanged));
             //this.label3.DataBindings.Add(new Binding("ImageSource", userCardViewModel, "PersonalPhotoUser", false, DataSourceUpdateMode.OnPropertyChanged));
-
+            this.datlbl.DataBindings.Add(new Binding("Text", userCardViewModel, "DateOfAdditon", false, DataSourceUpdateMode.OnPropertyChanged));
+            this.terminationlbl.DataBindings.Add(new Binding("Text", userCardViewModel, "TerminationStatus", false, DataSourceUpdateMode.OnPropertyChanged));
+            
             //checkers icons
             //name portions checker lbl
             this.checkerusercardid.DataBindings.Add(new Binding("Visible", userCardViewModel, "IdCheckerVisiblity"));

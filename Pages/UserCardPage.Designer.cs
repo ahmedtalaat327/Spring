@@ -48,7 +48,8 @@
                   this.label7 = new System.Windows.Forms.Label();
                   this.fllblname = new System.Windows.Forms.Label();
                   this.label4 = new System.Windows.Forms.Label();
-                  this.label5 = new System.Windows.Forms.Label();
+                  this.sfBarcode1 = new Syncfusion.Windows.Forms.Barcode.SfBarcode();
+                  this.terminationlbl = new System.Windows.Forms.Label();
                   this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
                   this.autoLabel7 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
                   this.textBoxExt1 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -434,13 +435,18 @@
                   this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
                   this.tableLayoutPanel5.Controls.Add(this.abblbl, 1, 0);
                   this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
-                  this.tableLayoutPanel5.Controls.Add(this.label5, 1, 1);
+                  this.tableLayoutPanel5.Controls.Add(this.sfBarcode1, 1, 1);
+                  this.tableLayoutPanel5.Controls.Add(this.terminationlbl, 0, 1);
                   this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
                   this.tableLayoutPanel5.Location = new System.Drawing.Point(183, 3);
                   this.tableLayoutPanel5.Name = "tableLayoutPanel5";
                   this.tableLayoutPanel5.RowCount = 2;
                   this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
                   this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+                  this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+                  this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+                  this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+                  this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
                   this.tableLayoutPanel5.Size = new System.Drawing.Size(279, 288);
                   this.tableLayoutPanel5.TabIndex = 1;
                   // 
@@ -537,7 +543,7 @@
                   this.fllblname.Name = "fllblname";
                   this.fllblname.Size = new System.Drawing.Size(127, 31);
                   this.fllblname.TabIndex = 1;
-                  this.fllblname.Text = "Adam";
+                  this.fllblname.Text = "Farid";
                   this.fllblname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                   // 
                   // label4
@@ -551,18 +557,36 @@
                   this.label4.Text = "First Name";
                   this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
                   // 
-                  // label5
+                  // sfBarcode1
                   // 
-                  this.label5.AutoSize = true;
-                  this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-                  this.label5.Image = global::Spring.Properties.Resources.qrcodeicon;
-                  this.label5.Location = new System.Drawing.Point(201, 216);
-                  this.label5.Margin = new System.Windows.Forms.Padding(62, 0, 20, 12);
-                  this.label5.MaximumSize = new System.Drawing.Size(48, 48);
-                  this.label5.Name = "label5";
-                  this.label5.Padding = new System.Windows.Forms.Padding(2);
-                  this.label5.Size = new System.Drawing.Size(48, 48);
-                  this.label5.TabIndex = 2;
+                  this.sfBarcode1.BackgroundImage = global::Spring.Properties.Resources.qrcodeicon;
+                  this.sfBarcode1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                  this.sfBarcode1.DarkBarColor = System.Drawing.Color.Black;
+                  this.sfBarcode1.DisplayText = true;
+                  this.sfBarcode1.LightBarColor = System.Drawing.Color.White;
+                  this.sfBarcode1.Location = new System.Drawing.Point(169, 226);
+                  this.sfBarcode1.Margin = new System.Windows.Forms.Padding(30, 10, 60, 20);
+                  this.sfBarcode1.Name = "sfBarcode1";
+                  this.sfBarcode1.Padding = new System.Windows.Forms.Padding(30);
+                  this.sfBarcode1.Size = new System.Drawing.Size(50, 42);
+                  this.sfBarcode1.Symbology = Syncfusion.Windows.Forms.Barcode.BarcodeSymbolType.QRBarcode;
+                  this.sfBarcode1.SymbologySettings = null;
+                  this.sfBarcode1.TabIndex = 3;
+                  this.sfBarcode1.TextAlignment = Syncfusion.Windows.Forms.Barcode.BarcodeTextAlignment.Center;
+                  this.sfBarcode1.TextColor = System.Drawing.Color.Black;
+                  this.sfBarcode1.TextGapHeight = 0F;
+                  // 
+                  // terminationlbl
+                  // 
+                  this.terminationlbl.AutoSize = true;
+                  this.terminationlbl.BackColor = System.Drawing.Color.Gainsboro;
+                  this.terminationlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.terminationlbl.ForeColor = System.Drawing.Color.Red;
+                  this.terminationlbl.Location = new System.Drawing.Point(3, 216);
+                  this.terminationlbl.Name = "terminationlbl";
+                  this.terminationlbl.Size = new System.Drawing.Size(116, 24);
+                  this.terminationlbl.TabIndex = 4;
+                  this.terminationlbl.Text = "Terminated";
                   // 
                   // tableLayoutPanel4
                   // 
@@ -618,6 +642,7 @@
                   this.label1.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
                   this.label1.MaximumSize = new System.Drawing.Size(200, 50);
                   this.label1.Name = "label1";
+                  this.label1.Padding = new System.Windows.Forms.Padding(50, 20, 20, 20);
                   this.label1.Size = new System.Drawing.Size(83, 50);
                   this.label1.TabIndex = 2;
                   this.label1.Text = "         ";
@@ -932,7 +957,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.ImageList imageList3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label abblbl;
         private System.Windows.Forms.Label datlbl;
@@ -943,5 +967,7 @@
         private System.Windows.Forms.Label label4;
             private System.Windows.Forms.Label label6;
             private System.Windows.Forms.Label label8;
+            private Syncfusion.Windows.Forms.Barcode.SfBarcode sfBarcode1;
+            private System.Windows.Forms.Label terminationlbl;
       }
 }

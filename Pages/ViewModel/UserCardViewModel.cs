@@ -65,6 +65,14 @@ namespace Spring.Pages.ViewModel
         /// </summary>
         public string IdOfCardUser { get; set; }
         /// <summary>
+        /// date of addition
+        /// </summary>
+        public string DateOfAdditon { get; set; } = "N/A";
+        /// <summary>
+        /// termination status
+        /// </summary>
+        public string TerminationStatus { get; set; }
+        /// <summary>
         /// checker for id
         /// </summary>
         public bool IdCheckerVisiblity { get; set; } = true;
@@ -130,9 +138,17 @@ namespace Spring.Pages.ViewModel
                     //  ContactNumber = encounteredusers[0].TelNo.ToString();
                     //   SelectedAuth = AuthritiesUsed.Where(x => x.DataFromDatabase == encounteredusers[0].UserAuthLevel).FirstOrDefault();
                     ///   SelectedDept = DeptsStored.Where(x => x.Id == encounteredusers[0].DepartmentId).FirstOrDefault();
-                    //  DateOfAdditon = encounteredusers[0].LastSeen.ToString();
+                    DateOfAdditon = encounteredusers[0].LastSeen.ToString();
                     DeptAbbriviation = await GetDeptAbbriviation(VMCentral.DockingManagerViewModel.MyAppOnlyObjctConn, encounteredusers[0].DepartmentId);
                     PersonalPhotoUser = new Bitmap(new MemoryStream(encounteredusers[0].FaceImageBlob));
+                    if (encounteredusers[0].UserInSession.ToString()=="off" || encounteredusers[0].UserInSession.ToString() == "ter")
+                        {
+                              TerminationStatus = "Terminated";
+                        }
+                        else
+                        {
+                              TerminationStatus = "";
+                        }
         }
             });
         }
