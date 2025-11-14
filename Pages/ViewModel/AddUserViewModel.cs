@@ -298,8 +298,8 @@ namespace Spring.Pages.ViewModel
             DummyNewUser.UserAuthLevel = this.SelectedAuth.DataFromDatabase;
             DummyNewUser.TelNo = int.TryParse(this.ContactNumber, out mobileNumber) ? mobileNumber : mobileNumber = 123456789;
             DummyNewUser.LastSeen = Convert.ToDateTime(this.DateOfAdditon);
-            DummyNewUser.UserInSession = "no";
-            var x = DummyNewUser;
+            DummyNewUser.UserInSession = "no"; DummyNewUser.FaceImageBlob = null;
+                  var x = DummyNewUser;
             AccioEasyHelpers.InspectMyObject<User>(x);
             return DummyNewUser;
         }
@@ -374,7 +374,8 @@ namespace Spring.Pages.ViewModel
             new string[]
             {
                     newUsr.Id.ToString(),"'"+newUsr.UserName+"'","'"+newUsr.FullName+"'","'" + newUsr.Password + "'",newUsr.TelNo.ToString(),"DATE '"+newUsr.LastSeen.Year.ToString()+"-"+newUsr.LastSeen.Month.ToString()+"-"+newUsr.LastSeen.Day.ToString()+"'","''","'" + newUsr.UserAuthLevel + "'" ,newUsr.DepartmentId.ToString()
-                   }
+                    , "NULL"
+            }
 
             );
             return replyOfOracle;
